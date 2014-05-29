@@ -181,6 +181,7 @@
         <rdfs:comment rdf:datatype="&xsd;string">A non-preferred (&quot;non-dictionary&quot;) representation of a lexical entry. This should be variant that is either a morphological variant, an abbreviation, short form or acronym</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;Form"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/lemon/ontolex#lexicalForm"/>
     </owl:ObjectProperty>
     
 

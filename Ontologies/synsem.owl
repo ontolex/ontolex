@@ -82,6 +82,7 @@
     <owl:ObjectProperty rdf:about="&synsem;objOfProp">
         <rdfs:comment rdf:datatype="&xsd;string">Indicates the semantic argument with represents the objects (range) of the property referred to by this sense.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/lemon/synsem.owl#semArg"/>
     </owl:ObjectProperty>
     
 
@@ -102,6 +103,7 @@
     <owl:ObjectProperty rdf:about="&synsem;subjOfProp">
         <rdfs:comment rdf:datatype="&xsd;string">Indicates the semantic argument with represents the subjects (domain) of the property referred to by this sense</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/lemon/synsem.owl#semArg"/>
     </owl:ObjectProperty>
     
 
