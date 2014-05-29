@@ -109,22 +109,6 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#InterlingualVariant -->
-
-    <owl:Class rdf:about="&vartrans;InterlingualVariant">
-        <rdfs:subClassOf rdf:resource="&vartrans;Variant"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#IntralingualVariant -->
-
-    <owl:Class rdf:about="&vartrans;IntralingualVariant">
-        <rdfs:subClassOf rdf:resource="&vartrans;Variant"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#LexicalVariant -->
 
     <owl:Class rdf:about="&vartrans;LexicalVariant">
@@ -183,14 +167,6 @@
 
     <owl:Class rdf:about="&vartrans;Translation">
         <rdfs:subClassOf rdf:resource="&vartrans;Variant"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&vartrans;InterlingualVariant"/>
-                    <rdf:Description rdf:about="&vartrans;SenseVariant"/>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
