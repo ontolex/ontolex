@@ -75,6 +75,17 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/ontolex#contains -->
+
+    <owl:ObjectProperty rdf:about="&ontolex;contains">
+        <rdfs:comment rdf:datatype="&xsd;string">The relation between a Lexical Sense and the Lexical Concept it expresses.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
+        <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/ontolex#denotes -->
 
     <owl:ObjectProperty rdf:about="&ontolex;denotes">
@@ -98,7 +109,7 @@
         <owl:inverseOf rdf:resource="&ontolex;isEvokedBy"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&ontolex;sense"/>
-            <rdf:Description rdf:about="&ontolex;lexicalizes"/>
+            <rdf:Description rdf:about="&ontolex;contains"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -160,17 +171,6 @@
     <owl:ObjectProperty rdf:about="&ontolex;lexicalForm">
         <rdfs:range rdf:resource="&ontolex;Form"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/ontolex#lexicalizes -->
-
-    <owl:ObjectProperty rdf:about="&ontolex;lexicalizes">
-        <rdfs:comment rdf:datatype="&xsd;string">The relation between a Lexical Sense and the Lexical Concept it expresses.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
-        <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
-        <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
     
 
