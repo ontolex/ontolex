@@ -224,17 +224,6 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/ontolex#gloss -->
-
-    <owl:DatatypeProperty rdf:about="&ontolex;gloss">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
-        <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://www.w3.org/ns/lemon/ontolex#language -->
 
     <owl:DatatypeProperty rdf:about="&ontolex;language">
