@@ -1,0 +1,10 @@
+# This example illustrates how to indicate non-canonical forms
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+
+:lex_marry a ontolex:LexicalEntry ;
+  ontolex:canonicalForm ex:form_marry ;
+  ontolex:otherForm ex:form_marries .
+
+:form_marry ontolex:writtenRep "marry"@en .
+:form_marries ontolex:writtenRep "marries"@en .
