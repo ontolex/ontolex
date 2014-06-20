@@ -1,0 +1,46 @@
+# This example provides a Spanish lexicon
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+
+:lexicon a rdf:type ontolex:Lexicon;
+   ontolex:language "es";
+   ontolex:entry :lex_alto;
+   ontolex:entry :lex_gato;
+   ontolex:entry :lex_casar;
+   ontolex:entry :lex_activo_intangible.
+
+:lex_alto ontolex:canonicalForm :form_alto;
+    ontolex:sense :alto_sense1.
+
+:alto_sense1 ontolex:reference <http://dbpedia.org/ontology/elevation>;
+     ontolex:gloss "La altitud de una montaña u otra elevación geográfica".
+
+:form_alto ontolex writtenRep "alto"@es.
+
+:lex_gato ontolex:canonicalForm :form_gato;
+    ontolex:sense :gato_sense1;
+    ontolex:sense :gato_sense2.
+
+:gato_sense1 ontolex:reference <http://dbpedia.org/resource/Cat>;
+    ontolex:definition "El gato o gato doméstico (Felis silvestris catus) es una subespecie de mamífero carnívoro de la familia Felidae."@es.
+
+:gato_sense2 ontolex:reference <http://dbpedia.org/resource/Jack_(device)>;
+   ontolex:definition "El gato es una máquina empleada para la elevación de cargas mediante el accionamiento manual de una manivela o una palanca."@es.
+
+:form_alto ontolex writtenRep "gato"@es.
+
+:lex_casar ontolex:canonicalForm :form_casar;
+    ontolex:sense :casar_sense1.
+
+:casar_sense1 ontolex:reference <http://dbpedia.org/ontology/spouse>;
+     ontolex:definition "contraer matrimonio"@es.  
+
+:form_casar ontolex writtenRep "casar"@es.
+
+:lex_activo_intangible ontolex:canonicalForm :form_activo_intangible;
+    ontolex:sense :activo_intangible_sense1.
+
+:activo_intangible_sense1 ontolex:reference <http://dbpedia.org/resource/Intangible_asset>;
+ontolex:definition "En el lenguaje contable el término intangible se emplea con un sentido restringido para aquellos activos que producen beneficios parecidos a los que producen los bienes de uso o de renta y que no pueden materializarse físicamente."@es.
+
+

@@ -1,0 +1,20 @@
+# This example illustrates the use of evokes and lexicalizedSense
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+
+:temporary_change_of_possession a ontolex:LexicalConcept;
+     ontolex:lexicalizedSense borrow_sense;
+     ontolex:lexicalizedSense lend_sense;
+     ontolex:isEvokedBy borrow_le;
+     ontolex:isEvokedBy lend_le.
+
+:borrow_le a ontolex:LexicalEntry;
+                  ontolex:sense :borrow_sense;
+                  ontolex:evokes :temporary_change_of_possession.
+
+:lend_le a ontolex:LexicalEntry;
+                 ontolex_sense :lend_sense;
+                 ontolex:evokes :temporary_change_of_possession.
+
+
+

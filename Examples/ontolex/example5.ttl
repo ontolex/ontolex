@@ -1,0 +1,23 @@
+# This example illustrates the use of the object property denotes to specify the meaning that a certain lexical entry can have with respect to the given ontology
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+
+:lex_cat rdf:type ontolex:LexicalEntry;
+   ontolex:canonicalForm :form_cat;
+   ontolex:denotes <http://dbpedia.org/resource/Cat>.
+:form_cat ontolex:writtenRep "cat"@en.
+
+:lex_marry rdf:type ontolex:LexicalEntry;
+   ontolex:canonicalForm :form_marry;
+   ontolex:denotes <http://dbpedia.org/ontology/spouse>.
+:form_marry ontolex:writtenRep "marry"@en .
+
+:lex_high rdf:type ontolex:LexicalEntry;
+   ontolex:canonicalForm :form_high;
+   ontolex:denotes <http://dbpedia.org/ontology/elevation>.
+:form_high ontolex:writtenRep "high"@en . 
+
+:lex_intangible_assets rdf:type ontolex:LexicalEntry;
+  ontolex:canonicalForm :form_intangible_assets;
+  ontolex:denotes <http://dbpedia.org/resource/Intangible_asset>.
+:form_intangible_assets ontolex:writtenRep "intangible assets"@en .
