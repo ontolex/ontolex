@@ -2,7 +2,7 @@
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 
-:lexicon a rdf:type ontolex:Lexicon;
+:lexicon rdf:type ontolex:Lexicon;
    ontolex:language "es";
    ontolex:entry :lex_alto;
    ontolex:entry :lex_gato;
