@@ -1,0 +1,34 @@
+# This example shows how to add the subcategorization information for a relational noun such as "opening film (at)", e.g. in constructions such as "X was the opening film at Y". The X represents the (external) subject of the copula construct, while the Y represent the prepositional object introduced by the preposition "at". 
+
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+@prefix : <> .
+
+:opening_film_at a ontolex:LexicalEntry ; 
+    lexinfo:partOfSpeech lexinfo:noun ;
+    ontolex:canonicalForm :opening_film_form;
+    synsem:synBehaviour :opening_film_nounpp;
+    ontolex:sense :opening_film_sense.
+
+:opening_film_form a ontolex:Form;
+ontolex:writtenRep "opening film"@en.
+
+:opening_film_nounpp a lexinfo:NounPPFrame;
+lexinfo:subject :opening_film_arg1;
+lexinfo:prepositionalArg :opening_film_arg2.
+
+:opening_film_sense a ontolex:LexicalSense;
+ontolex:reference <http://dbpedia.org/ontology/openingFilm>;
+ontolex:subjOfProp :opening_film_arg2;
+ontolex:objOfProp :opening_film_arg1.
+
+:opening_film_arg2 synsem:marker :at ; 
+                   synsem:optional "true"^^xsd:boolean .
+
+lexinfo:subject owl:subPropertyOf synsem:synArg.
+lexinfo:prepositionalArg owl:subPropertyOf synsem:synArg.

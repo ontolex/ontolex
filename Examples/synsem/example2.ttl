@@ -1,0 +1,21 @@
+# Example extending example1, showing how the grammatical roles (subject or directObject) can be specified.  
+
+
+# syntactically validated using JENA API 2.11.2
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix : <> .
+
+
+
+:own_lex a ontolex:LexicalEntry ;
+  synsem:canonicalForm :own_form ;a
+  synsem:synBehavior :own_frame .
+
+:own_form ontolex:writtenRep "own"@en. 
+
+:own_frame a lexinfo:TransitiveFrame;
+       lexinfo:subject :own_frame_subj;
+       lexinfo:directObject :own_frame_obj.
