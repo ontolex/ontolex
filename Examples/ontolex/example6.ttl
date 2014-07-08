@@ -1,8 +1,12 @@
 # This example illustrates how to represent lexical ambiguities in the lexicon model for ontologies
 
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+# syntactically validated using JENA API 2.11.2
 
-:lex_bachelor rdf:type ontolex:LexicalEntry;
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix : <> .
+
+
+:lex_bachelor a ontolex:LexicalEntry;
    ontolex:denotes <http://dbpedia.org/resource/Bachelor>;
    ontolex:denotes <http://dbpedia.org/resource/Single_person>.
 

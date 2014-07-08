@@ -89,7 +89,6 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;definition">
         <rdfs:comment xml:lang="en">This property relates a LexicalSense to one of its defintions; multiple definitions are allowed.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
     
@@ -123,7 +122,6 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;evokes">
         <rdfs:comment xml:lang="en">The relation between a lexical entry and the lexical concept it evokes, i.e. the mental concept that speakers of a language might associate when hearing the lexical entry.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -138,7 +136,6 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;example">
         <rdfs:comment xml:lang="en">This property relates a LexicalSense to an example of its usage.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
     
@@ -158,7 +155,6 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;isEvokedBy">
         <rdfs:comment xml:lang="en">Inverse of evokes.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
         <owl:inverseOf rdf:resource="&ontolex;evokes"/>
@@ -170,7 +166,6 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;isLexicalizedSenseOf">
         <rdfs:comment xml:lang="en">The inverse relation to lexicalizedSense.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
         <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
         <owl:inverseOf rdf:resource="&ontolex;lexicalizedSense"/>
@@ -204,7 +199,6 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;languageURI">
         <rdfs:comment xml:lang="en">A property relating a lexicon to the URI representing the language of the lexicon.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -233,7 +227,6 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;lexicalizedSense">
         <rdfs:comment xml:lang="en">The relation between a LexicalConcept and a corresponding LexicalSense that lexicalizes the LexicalConcept.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
         <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
