@@ -13,7 +13,7 @@
     lexinfo:partOfSpeech lexinfo:noun ;
     ontolex:canonicalForm :opening_film_form;
     synsem:synBehaviour :opening_film_nounpp;
-    ontolex:sense :opening_film_sense.
+    ontolex:sense :opening_film_frame.
 
 :opening_film_form a ontolex:Form;
 ontolex:writtenRep "opening film"@en.
@@ -22,7 +22,7 @@ ontolex:writtenRep "opening film"@en.
 lexinfo:subject :opening_film_arg1;
 lexinfo:prepositionalArg :opening_film_arg2.
 
-:opening_film_sense a ontolex:LexicalSense;
+:opening_film_frame a synsem:SemanticFrame;
 ontolex:reference <http://dbpedia.org/ontology/openingFilm>;
 ontolex:subjOfProp :opening_film_arg2;
 ontolex:objOfProp :opening_film_arg1.

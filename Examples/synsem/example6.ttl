@@ -13,8 +13,8 @@
     lexinfo:partOfSpeech lexinfo:verb ;
     ontolex:canonicalForm :die_canonical_form;
     synsem:synBehaviour :die_in_intransitive_pp;
-    synsem:sense :die_in_sense1;
-    synsem:sense :die_in_sense2.
+    synsem:sense :die_in_frame1;
+    synsem:sense :die_in_frame2.
 
 :die_canonical_form ontolex:writtenRep "die"@en.
 
@@ -22,11 +22,11 @@
 lexinfo:subject  :die_arg1 ;
 lexinfo:prepositionalArg :die_arg2.
 
-:die_in_sense1 ontolex:reference  <http://dbpedia.org/ontology/deathYear>;
+:die_in_frame1 ontolex:reference  <http://dbpedia.org/ontology/deathYear>;
 synsem:subjOfProp :die_arg1 ;
 synsem:objOfProp  :die_arg2.
 
-:die_in_sense2 ontolex:reference  <http://dbpedia.org/ontology/deathPlace>;
+:die_in_frame2 ontolex:reference  <http://dbpedia.org/ontology/deathPlace>;
 synsem:subjOfProp :die_arg1 ;
 synsem:objOfProp  :die_arg2.
 

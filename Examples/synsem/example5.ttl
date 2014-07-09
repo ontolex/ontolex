@@ -13,13 +13,13 @@
     lexinfo:partOfSpeech lexinfo:verb ;
     ontolex:canonicalForm :graduate_canonical_form;
     synsem:synBehaviour :graduate_from_intransitivepp;
-    ontolex:sense :graduate_from_sense.
+    ontolex:sense :graduate_from_semframe.
 
 :graduate_canonical_form a ontolex:Form;
  lexinfo:subject :graduate_arg1 ;
  lexinfo:prepositionalArg :graduate_arg2.
 
-:graduate_from_sense a ontolex:LexicalSense;
+:graduate_from_semframe a synsem:SemanticFrame;
 ontolex:reference <http://dbpedia.org/ontology/almaMater>;
 ontolex:subjOfProp :graduate_arg1;
 ontolex:objOfProp :graduate_arg2.
