@@ -4,7 +4,6 @@
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix : <> .
 
 :female a ontolex:LexicalEntry; 
@@ -16,6 +15,10 @@
 :female_canonical_form ontolex:writtenRep "female"@en.
 
 :female_sense ontolex:reference :Female.
+
+:Female rdf:type owl:Restriction ; 
+   owl:onProperty dbpedia:gender ;
+   owl:hasValue   resource:Female .
 
 :female_syn a lexinfo:AdjectivePredicateFrame;
 lexinfo:attributiveArg :female_arg1;
