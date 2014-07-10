@@ -6,7 +6,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix oils: <> .
+@prefix oils: <http://lemon-model.net/oils#> .
 @prefix : <> .
 
 
@@ -16,9 +16,7 @@
   synsem:synBehaviour :high_syn1;
   synsem:synBehaviour :high_syn2;
   ontolex:sense :high_sense1;
-  ontolex:sense :high_sense2;
-  ontolex:sense :high_sense3;
-  ontolex:sense :high_sense4.
+  ontolex:sense :high_sense2.
 
 :high_canonical_form ontolex:writtenRep "high"@en.
 
