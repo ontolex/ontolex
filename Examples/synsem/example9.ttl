@@ -13,8 +13,8 @@
 :high a ontolex:LexicalEntry ;
   lexinfo:partOfSpeech lexinfo:adjective ;
   ontolex:canonicalForm :high_canonical_form;
-  synsem:synBehaviour :high_syn1;
-  synsem:synBehaviour :high_syn2;
+  synsem:synBehavior :high_syn1;
+  synsem:synBehavior :high_syn2;
   ontolex:sense :high_sense1;
   ontolex:sense :high_sense2.
 

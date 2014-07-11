@@ -11,7 +11,7 @@
 
 
 :own_lex a ontolex:LexicalEntry ;
-  synsem:canonicalForm :own_form ;a
+  synsem:canonicalForm :own_form ;
   synsem:synBehavior :own_frame .
 
 :own_form ontolex:writtenRep "own"@en. 

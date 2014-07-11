@@ -12,7 +12,7 @@
 :graduate_from a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:verb ;
     ontolex:canonicalForm :graduate_canonical_form;
-    synsem:synBehaviour :graduate_from_intransitivepp;
+    synsem:synBehavior :graduate_from_intransitivepp;
     ontolex:sense :graduate_from_semframe.
 
 :graduate_canonical_form a ontolex:Form;
@@ -26,3 +26,8 @@ ontolex:objOfProp :graduate_arg2.
  
 :graduate_arg2 synsem:marker :from ;
                synsem:optional "true"^^xsd:boolean .
+
+:from a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :from_form .
+
+:from_form ontolex:writtenRep "from"@en .

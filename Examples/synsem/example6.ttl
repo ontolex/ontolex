@@ -12,7 +12,7 @@
 :die_in a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:verb ;
     ontolex:canonicalForm :die_canonical_form;
-    synsem:synBehaviour :die_in_intransitive_pp;
+    synsem:synBehavior :die_in_intransitive_pp;
     synsem:sense :die_in_frame1;
     synsem:sense :die_in_frame2.
 
