@@ -22,7 +22,6 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://www.w3.org/ns/lemon/ontolex">
-        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
     </owl:Ontology>
     
 
@@ -35,21 +34,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
-
-    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
-    
-
-
-    <!-- http://www.w3.org/2002/07/owl#incompatibleWith -->
-
-    <owl:AnnotationProperty rdf:about="&owl;incompatibleWith"/>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -60,11 +44,6 @@
 
     
 
-
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#denotes -->
-
-    <owl:ObjectProperty rdf:about="&semiotics;denotes"/>
-    
 
 
     <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
@@ -343,24 +322,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Expression -->
-
-    <owl:Class rdf:about="&semiotics;Expression"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Meaning -->
-
-    <owl:Class rdf:about="&semiotics;Meaning"/>
-    
-
-
-    <!-- http://www.w3.org/2002/07/owl#Thing -->
-
-    <owl:Class rdf:about="&owl;Thing"/>
     
 
 

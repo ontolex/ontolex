@@ -9,13 +9,13 @@
 ]>
 
 
-<rdf:RDF xmlns="http://www.semanticweb.org/jmccrae/ontologies/2014/5/untitled-ontology-36#"
-     xml:base="http://www.semanticweb.org/jmccrae/ontologies/2014/5/untitled-ontology-36"
+<rdf:RDF xmlns="http://www.w3.org/ns/lemon/all#"
+    xml:base="http://www.w3.org/ns/lemon/all"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/jmccrae/ontologies/2014/5/untitled-ontology-36">
+     <owl:Ontology rdf:about="http://www.w3.org/ns/lemon/all">
         <owl:imports rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/lemon/lime"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
