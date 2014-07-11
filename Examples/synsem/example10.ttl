@@ -4,14 +4,14 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix oils: <> .
+@prefix oils: <http://lemon-model.net/oils#> .
 @prefix : <> .
 
 
 :active_from_to a ontolex:LexicalEntry ;
   lexinfo:partOfSpeech lexinfo:adjective ;
   ontolex:canonicalForm :active_canonical_form;
-  synsem:synBehaviour :active_from_to_syn;
+  synsem:synBehavior :active_from_to_syn;
   ontolex:sense :active_from_to_syn_sense1;
   ontolex:sense :active_from_to_syn_sense2.
 

@@ -14,7 +14,7 @@
 :own_lex a ontolex:LexicalEntry ;
   synsem:canonicalForm :own_form ;
   synsem:synBehavior :own_synframe ;
-  ontolex:sense :own_semFrame.
+  ontolex:sense :own_semframe.
 
 :own_form ontolex:writtenRep "own"@en. 
 
@@ -27,5 +27,5 @@
          synsem:subjOfProp :own_obj;
          synsem:objOfProp :own_subj.
 
-lexinfo:subject owl:subPropertyOf synsem:synArg.
-lexinfo:dobject owl:subPropertyOf synsem:synArg.
+:subject owl:subPropertyOf synsem:synArg.
+:dobject owl:subPropertyOf synsem:synArg.

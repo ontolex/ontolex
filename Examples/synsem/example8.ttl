@@ -9,18 +9,20 @@
 :female a ontolex:LexicalEntry; 
   lexinfo:partOfSpeech lexinfo:adjective;
   ontolex:canonicalForm :female_canonical_form;
-  synsem:synBehaviour :female_syn;
+  synsem:synBehavior :female_syn,:female_syn1;
   ontolex:sense :female_sense.
 
 :female_canonical_form ontolex:writtenRep "female"@en.
 
-:female_sense ontolex:reference :Female.
+:female_sense ontolex:reference :Female;
+  ontolex:isA :female_arg.
 
-:Female rdf:type owl:Restriction ; 
-   owl:onProperty dbpedia:gender ;
-   owl:hasValue   resource:Female .
+:Female a owl:Restriction ; 
+   owl:onProperty <http://dbpedia.org/property/gender> ;
+   owl:hasValue   <http://dbpedia.org/resource/Female> .
 
 :female_syn a lexinfo:AdjectivePredicateFrame;
-lexinfo:attributiveArg :female_arg1;
-lexinfo:copulativeSubject :female_arg2.
+lexinfo:copulativeSubject :female_arg.
 
+:female_syn1 a lexinfo:AdjectiveAttributiveFrame ;
+lexinfo:attributiveArg :female_arg.

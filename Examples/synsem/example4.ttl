@@ -12,7 +12,7 @@
 :opening_film_at a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:noun ;
     ontolex:canonicalForm :opening_film_form;
-    synsem:synBehaviour :opening_film_nounpp;
+    synsem:synBehavior :opening_film_nounpp;
     ontolex:sense :opening_film_frame.
 
 :opening_film_form a ontolex:Form;
@@ -30,5 +30,7 @@ ontolex:objOfProp :opening_film_arg1.
 :opening_film_arg2 synsem:marker :at ; 
                    synsem:optional "true"^^xsd:boolean .
 
-lexinfo:subject owl:subPropertyOf synsem:synArg.
-lexinfo:prepositionalArg owl:subPropertyOf synsem:synArg.
+:at a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :at_from .
+
+:at_from ontolex:writtenRep "at"@en .

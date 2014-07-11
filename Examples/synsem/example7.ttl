@@ -13,7 +13,7 @@
 :launch a ontolex:LexicalEntry ;
   lexinfo:partOfSpeech lexinfo:verb ;
   ontolex:canonicalForm :launch_canonical_form;
-  synsem:synBehaviour :launch_transitive_pp;
+  synsem:synBehavior :launch_transitive_pp;
   ontolex:sense :launch_semframe.
 
 :launch_canonical_form ontolex:writtenRep "launch"@en.
@@ -28,8 +28,8 @@
 
 
 :launch_semframe a synsem:SemanticFrame;
-ontolex:subsense :launch_subframe1;
-ontolex:subsense :launch_subframe2.
+synsem:subsense :launch_subframe1;
+synsem:subsense :launch_subframe2.
 
 :launch_subframe1 ontolex:reference <http://dbpedia.org/ontology/product>;
                                  synsem:subjOfProp :launch_arg1;
