@@ -4,6 +4,7 @@
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix : <> .
 
 :lex_consumption a ontolex:LexicalEntry;
@@ -34,8 +35,8 @@
 
 :consumption_sense4 ontolex:definition :consumption_definition4;
    ontolex:reference <http://dbpedia.org/Resource/Tuberculosis>;
-   ontolex:context :context1;
+   ontolex:context :context1.
 
-:context1 rdfs:comment "outdated";
+:context1 rdfs:comment "outdated".
 
 :consumption_definition4 rdf:value "Tuberculosis, MTB, or TB (short for tubercle bacillus), in the past also called Phthisis or Phthisis pulmonalis, is a common, and in many cases lethal, infectious disease caused by various strains of mycobacteria, usually Mycobacterium tuberculosis."@en. 
