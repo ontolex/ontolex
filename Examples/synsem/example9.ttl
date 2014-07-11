@@ -19,9 +19,9 @@
 
 :high_syn lexinfo:copulativeSubject :high_arg.
 
-:high_sense ontolex:reference :high_sense1_ref;
+:high_sense ontolex:reference :high_sense_ref;
   synsem:isA :high_arg.
 
-:high_sense2_ref rdfs:subClassOf oils:CovariantScalar ;
+:high_sense_ref rdfs:subClassOf oils:CovariantScalar ;
                                   oils:boundTo <http://dbpedia.org/ontology/elevation> ;
                                   oils:degree oils:strong.
