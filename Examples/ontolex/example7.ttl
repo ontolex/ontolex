@@ -27,5 +27,7 @@
 
 :consumption_sense4 ontolex:definition "Tuberculosis, MTB, or TB (short for tubercle bacillus), in the past also called Phthisis or Phthisis pulmonalis, is a common, and in many cases lethal, infectious disease caused by various strains of mycobacteria, usually Mycobacterium tuberculosis."@en;
    ontolex:reference <http://dbpedia.org/Resource/Tuberculosis>;
-   ontolex:context "outdated".
+   ontolex:context :context1;
+
+:context1 rdfs:comment "outdated";
 
