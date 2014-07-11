@@ -9,7 +9,7 @@
 :female a ontolex:LexicalEntry; 
   lexinfo:partOfSpeech lexinfo:adjective;
   ontolex:canonicalForm :female_canonical_form;
-  synsem:synBehavior :female_syn;
+  synsem:synBehavior :female_syn,:female_syn1;
   ontolex:sense :female_sense.
 
 :female_canonical_form ontolex:writtenRep "female"@en.
@@ -17,7 +17,7 @@
 :female_sense ontolex:reference :Female;
   ontolex:isA :female_arg.
 
-:Female rdf:type owl:Restriction ; 
+:Female a owl:Restriction ; 
    owl:onProperty <http://dbpedia.org/property/gender> ;
    owl:hasValue   <http://dbpedia.org/resource/Female> .
 

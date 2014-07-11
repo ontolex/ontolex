@@ -16,6 +16,9 @@
     ontolex:sense :graduate_from_semframe.
 
 :graduate_canonical_form a ontolex:Form;
+ ontolex:writtenRep "graduate"@en.
+
+:graduate_from_intransitivepp a ontolex:Frame;
  lexinfo:subject :graduate_arg1 ;
  lexinfo:prepositionalArg :graduate_arg2.
 

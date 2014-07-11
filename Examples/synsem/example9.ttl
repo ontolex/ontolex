@@ -9,38 +9,18 @@
 @prefix oils: <http://lemon-model.net/oils#> .
 @prefix : <> .
 
-
 :high a ontolex:LexicalEntry ;
   lexinfo:partOfSpeech lexinfo:adjective ;
   ontolex:canonicalForm :high_canonical_form;
-  synsem:synBehavior :high_syn1;
-  synsem:synBehavior :high_syn2;
-  ontolex:sense :high_sense1;
-  ontolex:sense :high_sense2.
+  synsem:synBehavior :high_syn;
+  ontolex:sense :high_sense.
 
 :high_canonical_form ontolex:writtenRep "high"@en.
 
-:high_syn1 a lexinfo:AdjectivePredicateFrame;
- lexinfo:copulativeSubject :high_arg1 ;
- lexinfo:attributiveArg    :high_arg1.
+:high_syn lexinfo:copulativeSubject :high_arg.
 
-:high_syn2 a lexinfo:AdjectiveScaleFrame ;
-                    lexinfo:copulativeSubject   :high_arg1 ;
-                    lexinfo:adverbialComplement :high_arg2.
-
-:high_sense1 ontolex:reference :high_sense1_ref;
-                    synsem:isA :high_arg1;
-                    synsem:subjOfProp :high_arg1 ;
-                    synsem:objOfProp  :high_arg2.
-
-:high_sense2 ontolex:reference :high_sense2_ref;
-		    synsem:isA :high_arg1;
-                    ontolex:subjOfProp :high_arg1 ;
-                    ontolex:objOfProp  :high_arg2. 
-
-:high_sense1_ref rdfs:subClassOf oils:CovariantScalar ;
-                                  oils:boundTo <http://dbpedia.org/ontology/height> ;
-                                  oils:degree oils:strong.
+:high_sense ontolex:reference :high_sense1_ref;
+  synsem:isA :high_arg.
 
 :high_sense2_ref rdfs:subClassOf oils:CovariantScalar ;
                                   oils:boundTo <http://dbpedia.org/ontology/elevation> ;
