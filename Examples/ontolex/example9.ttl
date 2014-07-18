@@ -18,7 +18,9 @@
     ontolex:sense :alto_sense1.
 
 :alto_sense1 ontolex:reference <http://dbpedia.org/ontology/elevation>;
-     ontolex:definition "La altitud de una montaña u otra elevación geográfica".
+     ontolex:definition :alto_definition1.
+
+:alto_definition1 rdf:value "La altitud de una montaña u otra elevación geográfica".
 
 :form_alto ontolex:writtenRep "alto"@es.
 
@@ -36,7 +38,7 @@
 
 :gato_definition2 rdf:value "El gato es una máquina empleada para la elevación de cargas mediante el accionamiento manual de una manivela o una palanca."@es.
 
-:form_alto ontolex:writtenRep "gato"@es.
+:form_gato ontolex:writtenRep "gato"@es.
 
 :lex_casar ontolex:canonicalForm :form_casar;
     ontolex:sense :casar_sense1.
@@ -56,4 +58,4 @@ ontolex:definition :activo_intangible_definition1.
 
 :activo_intangible_definition1 rdf:value "En el lenguaje contable el término intangible se emplea con un sentido restringido para aquellos activos que producen beneficios parecidos a los que producen los bienes de uso o de renta y que no pueden materializarse físicamente."@es.
 
-
+:form_activo_intangible :writtenRep "activo intangible"@es.
