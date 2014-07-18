@@ -6,7 +6,7 @@
 @prefix : <> .
 
 :lex_privacy a ontolex:LexicalEntry;
-     ontolex:form :form_privacy.
+     ontolex:lexicalForm :form_privacy.
 
 :form_privacy ontolex:writtenRep "privacy"@en;
      ontolex:phoneticRep "/ˈpɹɪv.ə.si/"@en-US-fonipa;
