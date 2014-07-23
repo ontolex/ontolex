@@ -1,0 +1,18 @@
+# Example showing how the syntactic behaviour of the lexical entry for the verb "own" can be specified, indiating that one of its uses is as a transitive frame
+# For this, the class lexinfo:TransitiveFrame from the lexinfo ontology is used: http://lexinfo.net/ontology/2.0/lexinfo.owl
+
+# syntactically validated using JENA API 2.11.2
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix : <> .
+
+
+:own_lex a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :own_form ;
+  synsem:synBehavior :own_frame .
+
+:own_frame a synsem:Frame, lexinfo:TransitiveFrame .
+
+:own_form ontolex:writtenRep "own"@en . 

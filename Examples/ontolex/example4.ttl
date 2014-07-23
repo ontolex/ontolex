@@ -1,0 +1,14 @@
+# This example illustrates how to indicate non-canonical forms
+
+# syntactically validated using JENA API 2.11.2
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix : <> .
+
+
+:lex_marry a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :form_marry ;
+  ontolex:otherForm :form_marries .
+
+:form_marry ontolex:writtenRep "marry"@en .
+:form_marries ontolex:writtenRep "marries"@en .

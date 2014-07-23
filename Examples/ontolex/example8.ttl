@@ -1,0 +1,36 @@
+# This is an example of a full lexicon in English
+
+# syntactically validated using JENA API 2.11.2
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix : <> .
+
+
+:lexicon a ontolex:Lexicon;
+   ontolex:language "en";
+   ontolex:entry :lex_high;
+   ontolex:entry :lex_cat;
+   ontolex:entry :lex_marry;
+   ontolex:entry :lex_intangible_assets.
+
+
+:lex_cat a ontolex:LexicalEntry;
+   ontolex:canonicalForm :form_cat;
+   ontolex:denotes <http://dbpedia.org/resource/Cat>.
+:form_cat ontolex:writtenRep "cat"@en.
+
+:lex_marry a ontolex:LexicalEntry;
+   ontolex:canonicalForm :form_marry;
+   ontolex:denotes <http://dbpedia.org/ontology/spouse>.
+:form_marry ontolex:writtenRep "marry"@en .
+
+:lex_high a ontolex:LexicalEntry;
+   ontolex:canonicalForm :form_high;
+   ontolex:denotes <http://dbpedia.org/ontology/elevation>.
+:form_high ontolex:writtenRep "high"@en . 
+
+:lex_intangible_assets a ontolex:LexicalEntry;
+  ontolex:canonicalForm :form_intangible_assets;
+  ontolex:denotes <http://dbpedia.org/resource/Intangible_asset>.
+:form_intangible_assets ontolex:writtenRep "intangible assets"@en .
+

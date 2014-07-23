@@ -1,0 +1,34 @@
+# This example shows the subcategorization structure and mappings for the verb "(to) die (in)" which can be interpreted as referring to the date in which the subject died, thus referring to <http://dbpedia.org/ontology/deathYear>, or to the place where the subject died. 
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+@prefix : <> .
+
+
+:die_in a ontolex:LexicalEntry ; 
+    lexinfo:partOfSpeech lexinfo:verb ;
+    ontolex:canonicalForm :die_canonical_form;
+    synsem:synBehavior :die_in_intransitive_pp;
+    synsem:sense :die_in_frame1;
+    synsem:sense :die_in_frame2.
+
+:die_canonical_form ontolex:writtenRep "die"@en.
+
+:die_in_intransitive_pp a lexinfo:intransitivePP;
+lexinfo:subject  :die_arg1 ;
+lexinfo:prepositionalArg :die_arg2.
+
+:die_in_frame1 ontolex:reference  <http://dbpedia.org/ontology/deathYear>;
+synsem:subjOfProp :die_arg1 ;
+synsem:objOfProp  :die_arg2.
+
+:die_in_frame2 ontolex:reference  <http://dbpedia.org/ontology/deathPlace>;
+synsem:subjOfProp :die_arg1 ;
+synsem:objOfProp  :die_arg2.
+
+ :die_arg2 synsem:marker :in ;
+         synsem:optional "true"^^xsd:boolean .

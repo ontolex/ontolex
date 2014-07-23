@@ -1,0 +1,36 @@
+# Example showing how to specify a the subcategorization frame for the verb "(to) graduate (from)", intepreted with respect to the property <http://dbpedia.org/ontology/almaMater>; the example extends previous examples in that it shows how the syntactic arguments (subject and prepositionalObject) map to the subj and object of the property, respectively.
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+@prefix : <> .
+
+
+:graduate_from a ontolex:LexicalEntry ; 
+    lexinfo:partOfSpeech lexinfo:verb ;
+    ontolex:canonicalForm :graduate_canonical_form;
+    synsem:synBehavior :graduate_from_intransitivepp;
+    ontolex:sense :graduate_from_semframe.
+
+:graduate_canonical_form a ontolex:Form;
+ ontolex:writtenRep "graduate"@en.
+
+:graduate_from_intransitivepp a ontolex:Frame;
+ lexinfo:subject :graduate_arg1 ;
+ lexinfo:prepositionalArg :graduate_arg2.
+
+:graduate_from_semframe a synsem:SemanticFrame;
+ontolex:reference <http://dbpedia.org/ontology/almaMater>;
+ontolex:subjOfProp :graduate_arg1;
+ontolex:objOfProp :graduate_arg2.
+ 
+:graduate_arg2 synsem:marker :from ;
+               synsem:optional "true"^^xsd:boolean .
+
+:from a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :from_form .
+
+:from_form ontolex:writtenRep "from"@en .
