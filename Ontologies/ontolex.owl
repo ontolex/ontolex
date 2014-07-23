@@ -73,7 +73,6 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/ontolex#contains -->
     <!-- http://www.w3.org/ns/lemon/ontolex#definition -->
 
     <owl:ObjectProperty rdf:about="&ontolex;definition">
