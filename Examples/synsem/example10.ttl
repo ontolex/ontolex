@@ -12,7 +12,7 @@
 
 :sell a ontolex:LexicalEntry ;
   lexinfo:partOfSpeech lexinfo:verb ;
-  ontolex:canonicalForm :buy_canonical_form;
+  ontolex:canonicalForm :sell_canonical_form;
   synsem:synBehavior :sell_transitive_pp;
   ontolex:sense :selling.
 
