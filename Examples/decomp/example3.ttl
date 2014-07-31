@@ -1,0 +1,26 @@
+# This example extends examples 1 and 2, showing how an RDF List can be used to order the components
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix : <> .
+
+:AfricanSwineFever a ontolex:LexicalEntry ;
+  rdf:_1 :AfricanSwineFever_African_Component ;
+  rdf:_2 :AfricanSwineFever_Swine_Component ;
+  rdf:_3 :AfricanSwineFever_Fever_Component ;
+  decomp:constituent :AfricanSwineFever_African_Component;
+  decomp:constituent :AfricanSwineFever_Swine_Component; 
+  decomp:constituent :AfricanSwineFever_Fever_Component .
+
+:AfricanSwineFever_African_Component a decomp:Component ;
+  decomp:identifies :African .
+
+:AfricanSwineFever_Swine_Component a decomp:Component ;
+  decomp:identifies :Swine.
+
+:AfricanSwineFever_Fever_Component a decomp:Component ;
+  decomp:identifies :Fever.
+
+
