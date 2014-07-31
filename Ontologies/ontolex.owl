@@ -60,6 +60,15 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/ontolex#concept -->
+
+    <owl:ObjectProperty rdf:about="&ontolex;concept">
+        <rdfs:comment xml:lang="en">States that a concept represents the meaning of an ontology entity in a concpetual scheme</rdfs:comment>
+        <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/ontolex#definition -->
 
     <owl:ObjectProperty rdf:about="&ontolex;definition">
@@ -106,6 +115,13 @@
     </owl:ObjectProperty>
     
 
+
+    <!-- http://www.w3.org/ns/lemon/ontolex#isConceptOf -->
+
+    <owl:ObjectProperty rdf:about="&ontolex;isConceptOf">
+        <rdfs:comment xml:lang="en">Indicates a formalzation of a concept from a conceptual scheme by means of an ontology entity</rdfs:comment>
+        <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
+    </owl:ObjectProperty>
 
     <!-- http://www.w3.org/ns/lemon/ontolex#example -->
 
