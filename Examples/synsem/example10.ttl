@@ -24,7 +24,7 @@
  lexinfo:subject  	      :sell_arg1 ;
  lexinfo:directObject         :sell_arg2 ;
  lexinfo:prepositionalAdjunct :sell_arg3;
- synsem:frame :exchange_goods_for_money_frame.
+ synsem:semFrame :exchange_goods_for_money_frame.
 
 :sell_arg3 synsem:marker :to ;
              synsem:optional "true"^^xsd:boolean .
