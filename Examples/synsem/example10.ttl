@@ -32,7 +32,7 @@
 :sell_transitive_pp_directObject synsem:thematicRole myVocab:patient. 
 
 :sell_transitive_pp_prepAdj synsem:marker :to ;
-             synsem:optional "true"^^xsd:boolean
+             synsem:optional "true"^^xsd:boolean;
              synsem:thematicRole myVocab:beneficiary.
 
 
@@ -41,9 +41,9 @@ lexinfo:subject		:sell_doubletransitive_subject;
 lexinfo:directObject	:sell_doubletransitive_directObject;
 lexinfo:indirectObject	:sell_doubletransitive_indirectObject.
 
-:sell_dooubletransitive_subject synsem:thematicRole myVocav:agent.
+:sell_doubletransitive_subject synsem:thematicRole myVocab:agent.
 :sell_doubletransitive_directObject synsem:thematicRole myVocab:patient.
-:sell_doubletransitive:prepositionalAdjunct synsem:thematicRole myVocav:beneficiary.
+:sell_doubletransitive:prepositionalAdjunct synsem:thematicRole myVocab:beneficiary.
 
 
 # the following corresponds to LMF SemanticPredicate
