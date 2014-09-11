@@ -50,6 +50,16 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#translatableAs -->
+
+    <owl:ObjectProperty rdf:about="&vartrans;translatableAs">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
+        <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#variantCategory -->
 
     <owl:ObjectProperty rdf:about="&vartrans;variantCategory">
@@ -109,6 +119,22 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#InterlingualVariant -->
+
+    <owl:Class rdf:about="&vartrans;InterlingualVariant">
+        <rdfs:subClassOf rdf:resource="&vartrans;Variant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#IntralingualVariant -->
+
+    <owl:Class rdf:about="&vartrans;IntralingualVariant">
+        <rdfs:subClassOf rdf:resource="&vartrans;Variant"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#LexicalVariant -->
 
     <owl:Class rdf:about="&vartrans;LexicalVariant">
@@ -143,9 +169,9 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#SenseVariant -->
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#TerminologicalVariant -->
 
-    <owl:Class rdf:about="&vartrans;SenseVariant">
+    <owl:Class rdf:about="&vartrans;TerminologicalVariant">
         <rdfs:subClassOf rdf:resource="&vartrans;Variant"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -166,7 +192,7 @@
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#Translation -->
 
     <owl:Class rdf:about="&vartrans;Translation">
-        <rdfs:subClassOf rdf:resource="&vartrans;Variant"/>
+        <rdfs:subClassOf rdf:resource="&vartrans;InterlingualVariant"/>
     </owl:Class>
     
 
@@ -176,31 +202,15 @@
     <owl:Class rdf:about="&vartrans;Variant">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;variantTarget"/>
-                <owl:onClass>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&ontolex;Form"/>
-                            <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
-                            <rdf:Description rdf:about="&ontolex;LexicalSense"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:onClass>
+                <owl:onProperty rdf:resource="&vartrans;variantSource"/>
+                <owl:onClass rdf:resource="&ontolex;LexicalSense"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;variantSource"/>
-                <owl:onClass>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&ontolex;Form"/>
-                            <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
-                            <rdf:Description rdf:about="&ontolex;LexicalSense"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:onClass>
+                <owl:onProperty rdf:resource="&vartrans;variantTarget"/>
+                <owl:onClass rdf:resource="&ontolex;LexicalSense"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
