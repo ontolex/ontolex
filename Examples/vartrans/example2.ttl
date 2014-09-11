@@ -1,0 +1,23 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix isocat: <http://www.isocat.org/datacat/>.
+@prefix : <>.   
+ 
+:tuberculosis a ontolex:LexicalEntry ;
+       ontolex:form [ ontolex:writtenRep "tuberculosis"@en ] ;
+       ontolex:sense :tuberculosis_sense.
+
+:tuberculosis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>.
+
+:phthisis a ontolex:LexicalEntry ;
+       ontolex:form [ ontolex:writtenRep "phthisis"@en ];
+       ontolex:sense :phthisis_sense.
+
+:phtisis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>;
+                       ontolex:use isocat:DC-506.
+
+:phtisis_diachronic_var a vartrans:TerminologicalVariant ;
+      vartrans:variantSource :phthisis_sense ;
+      vartrans:variantTarget :tuberculosis_sense ; 
+      vartrans:variantCategory isocat:diachronic.
+

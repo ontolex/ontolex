@@ -1,0 +1,52 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix : <> .
+
+:surrogate_mother a ontolex:LexicalEntry;
+      ontolex:language "en";
+      ontolex:sense :surrogate_mother_sense.
+
+:surrogate_mother_sense ontolex:reference <http://dbpedia.org/page/Surrogacy>.
+
+:madre_de_alquiler a ontolex:LexicalEntry;
+      ontolex:language "es";
+      ontolex:sense :madre_de_alquiler_sense.
+
+:madre_de_alquiler_sense ontolex:reference <http://es.dbpedia.org/resource/Madre_de_alquiler>.
+
+:leihmutter a ontolex:LexicalEntry;
+      ontolex:language "de";
+      ontolex:sense :leihmutter_sense.
+
+:surrogate_mother_sense ontolex:reference <http://de.dbpedia.org/resource/Leihmutter>.
+
+:trans1: a vartrans:Translation;
+vartrans:sourceVariant :surrogate_mother_sense;
+vartrans:targetVariant :madre_de_alquiler_sense;
+vartrans:variantCategory :literalTranslation.
+     
+:trans2: a vartrans:Translation;
+vartrans:targetVariant :surrogate_mother_sense;
+vartrans:sourceVariant :madre_de_alquiler_sense;
+vartrans:variantCategory :literalTranslation.
+
+:trans3: a vartrans:Translation;
+vartrans:sourceVariant :surrogate_mother_sense;
+vartrans:targetVariant :leihmutter_sense;
+vartrans:variantCategory :literalTranslation.
+     
+:trans4: a vartrans:Translation;
+vartrans:targetVariant :leihmutter_sense;
+vartrans:sourceVariant :surrogate_mother_sense;
+vartrans:variantCategory :literalTranslation.
+
+:trans5: a vartrans:Translation;
+vartrans:sourceVariant :leihmutter_sense;
+vartrans:targetVariant :madre_de_alquiler_sense;
+vartrans:variantCategory :literalTranslation.
+     
+:trans6: a vartrans:Translation;
+vartrans:targetVariant :madre_de_alquiler_sense;
+vartrans:sourceVariant :leihmutter_sense;
+vartrans:variantCategory :literalTranslation.
+

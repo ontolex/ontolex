@@ -1,0 +1,22 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix : <> .
+
+
+:risotto a ontolex:LexicalEntry ;
+       ontolex:form [ ontolex:writtenRep "risotto"@it ] ;
+       ontolex:sense :risotto_sense.
+
+:risotto_sense ontolex:reference <http://dbpedia.org/resource/Risotto>.
+
+:paella a ontolex:LexicalEntry ;
+       ontolex:form [ ontolex:writtenRep "paella"@es ];
+       ontolex:sense :paella_sense.
+
+:paella_sense ontolex:reference <http://dbpedia.org/resource/Paella>.
+
+:paella_risotto_var a vartrans:IntralingualVariant ;
+      vartrans:variantSource :risotto_sense ;
+      vartrans:variantTarget :paella_sense;
+      vartrans:variantCategory :cultural_equivalents.
+
