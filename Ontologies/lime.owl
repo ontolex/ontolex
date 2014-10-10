@@ -70,7 +70,7 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:DatatypeProperty rdf:ID="lang"/>
+          <owl:DatatypeProperty rdf:ID="language"/>
         </owl:onProperty>
         <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:cardinality>
@@ -174,13 +174,6 @@
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain rdf:resource="http://rdfs.org/ns/void#Dataset"/>
     <rdfs:label xml:lang="en">language</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="#lang">
-    <rdfs:domain rdf:resource="#Lexicalization"/>
-    <rdfs:comment xml:lang="en">The natural language a lime:Lexicalization refers to (expressed as BCP 47 language tag).</rdfs:comment>
-    <rdfs:label xml:lang="en">language</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource=""/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
   <owl:FunctionalProperty rdf:about="#lexicalizedDataset">
     <owl:inverseOf>

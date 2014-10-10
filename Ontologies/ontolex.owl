@@ -36,11 +36,6 @@
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#denotes -->
-
-    <owl:ObjectProperty rdf:about="&semiotics;denotes"/>
-    
-
 
     <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
 
@@ -63,7 +58,7 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#concept -->
 
     <owl:ObjectProperty rdf:about="&ontolex;concept">
-        <rdfs:comment xml:lang="en">States that a concept represents the meaning of an ontology entity in a concpetual scheme</rdfs:comment>
+        <rdfs:comment xml:lang="en">States that a concept represents the meaning of an ontology entity in a conceptual scheme</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
     </owl:ObjectProperty>
     
@@ -444,7 +439,7 @@
 
     <owl:Class rdf:about="&ontolex;SenseLexicon">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-        <rdfs:comment xml:lang="en">represents a collection of senses</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents a collection of senses</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 

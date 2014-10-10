@@ -53,7 +53,7 @@
     <!-- http://www.w3.org/ns/lemon/decomp.owl#identifies -->
 
     <ObjectProperty rdf:about="http://www.w3.org/ns/lemon/decomp.owl#identifies">
-        <rdfs:comment rdf:datatype="&xsd;string">Indicates that the component represents the usage of this particular lexical entry within another lexical entry-</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string">Indicates that the component represents the usage of this particular lexical entry within another lexical entry</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/decomp.owl#Component"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"/>
@@ -86,6 +86,7 @@
     <!-- http://www.w3.org/ns/lemon/decomp.owl#Component -->
 
     <Class rdf:about="http://www.w3.org/ns/lemon/decomp.owl#Component"/>
+        <rdfs:comment xml:lang="en">A component represents a part of a lexical entry, that is either a word, sequence of words, phrase, or affix</rdfs:comment>
 </rdf:RDF>
 
 

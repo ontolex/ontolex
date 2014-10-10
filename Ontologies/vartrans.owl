@@ -46,6 +46,15 @@
 
     <owl:ObjectProperty rdf:about="&vartrans;context">
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:comment xml:lang="en">Property with unrestricted range intended to specify, if needed, the specific application context in which a variation happens</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontolex;LexicalSense"/>
+                    <rdf:Description rdf:about="&vartrans;Variant"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -60,9 +69,9 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#variantCategory -->
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#category -->
 
-    <owl:ObjectProperty rdf:about="&vartrans;variantCategory">
+    <owl:ObjectProperty rdf:about="&vartrans;category">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&vartrans;Variant"/>
@@ -70,9 +79,9 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#variantSource -->
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#source -->
 
-    <owl:ObjectProperty rdf:about="&vartrans;variantSource">
+    <owl:ObjectProperty rdf:about="&vartrans;source">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&vartrans;Variant"/>
@@ -80,9 +89,9 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#variantTarget -->
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#target -->
 
-    <owl:ObjectProperty rdf:about="&vartrans;variantTarget">
+    <owl:ObjectProperty rdf:about="&vartrans;target">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&vartrans;Variant"/>
