@@ -9,10 +9,22 @@
 <!--  Reset counter to 0 for first page -->	
 <style>
 
+div.toc ul { counter-reset: item }
+
+.body h1 {counter-increment: section; }
+.body h2 {counter-increment: subsection; }
+.body h1:before { content: counters(section, ".") ". "; }
+.body h2:before { content: counters(section, ".") "." counters(subsection, ".") ". "; }
+
 .entity { border:1px solid #000080; margin: 5px 0px; padding: 5px; }
 .entity h3 { margin-top:3px;padding-bottom:5px;border-bottom:1px solid #000080; }
 .description { border-top:1px dashed #808080; border-bottom:1px dashed #808080; margin-top:5px; padding-bottom:5px; }
 img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
+h1 :link {color:#005a9c;text-decoration:none;}
+h2 :link {color:#005a9c;text-decoration:none;}
+h1 :visited {color:#005a9c;text-decoration:none;}
+h2 :visited {color:#005a9c;text-decoration:none;}
+
 
 </style>	
 <link rel="stylesheet" href="spec.css" type="text/css" />
@@ -101,16 +113,28 @@ Please send general comments about this document to the public mailing list: <a 
 <div class="toc">
 <h2><a id="contents" name="contents"></a>Table of Contents</h2>
 
-<p class="toc">
+<p class="toc">$toc$</p>
 
+<!--<ol>
+<li><a href="#introduction"><b>Introduction</b></a>
 <ol>
-<li><a href="#Introduction"><b>Introduction</b></a>
+    <li><a href="#purpose-of-the-model"><b>Purpose of the Model</b></a></li>
+    <li><a href="#namespaces"><b>Namespaces</b></a></li>
+    <li><a href="#conventions-in-this-document"><b>Conventions in this Document</b></a></li>
+</ol></li>
+<li><a href="#core"><b>Core</b></a>
+    <li><a href="#lexical entries"><b>Lexical Entries</b></a></li>
+    <li>
 <ol>
 </ol>
-</li>
+</li>-->
 
 </div>
 
 <hr />
 
 <div class="body">
+    $body$
+</div>
+</body>
+</html>

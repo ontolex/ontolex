@@ -1,4 +1,5 @@
 import sys
+import re
 
 in_doc = False
 in_doc_trigger = """</p><textarea readonly="" accesskey="," id="wpTextbox1" cols="80" rows="25" style="" lang="en" dir="ltr" name="wpTextbox1">"""
@@ -18,34 +19,34 @@ def apply_template(template, args):
     if template == "Class":
         sys.stdout.write("<div class='entity'>")
         sys.stdout.write("<h3>%s (Class)</h3>\n" % args[0])
-        sys.stdout.write("<p><strong>URI:</strong> http://www.w3.org/nl/lemon/%s/%s</h3>\n" % (args[1],args[2]))
+        sys.stdout.write("<div><strong>URI:</strong> http://www.w3.org/nl/lemon/%s/%s</div>\n" % (args[1],args[2]))
         sys.stdout.write("<div class='comment'>%s</div>" % args[3])
         sys.stdout.write("<div class='description'>%s</div>" % args[4])
         sys.stdout.write("</div>")
     elif template == "DatatypeProperty":
         sys.stdout.write("<div class='entity'>")
         sys.stdout.write("<h3>%s (Datatype Property)</h3>\n" % args[0])
-        sys.stdout.write("<p><strong>URI:</strong> http://www.w3.org/nl/lemon/%s/%s</h3>\n" % (args[1],args[2]))
+        sys.stdout.write("<div><strong>URI:</strong> http://www.w3.org/nl/lemon/%s/%s</div>\n" % (args[1],args[2]))
         sys.stdout.write("<div class='comment'>%s</div>" % args[3])
         sys.stdout.write("<div class='description'>%s</div>" % args[4])
         sys.stdout.write("</div>")
     elif template == "ObjectProperty":
         sys.stdout.write("<div class='entity'>")
         sys.stdout.write("<h3>%s (Object Property)</h3>\n" % args[0])
-        sys.stdout.write("<p><strong>URI:</strong> http://www.w3.org/nl/lemon/%s/%s</h3>\n" % (args[1],args[2]))
+        sys.stdout.write("<div><strong>URI:</strong> http://www.w3.org/nl/lemon/%s/%s</div>\n" % (args[1],args[2]))
         sys.stdout.write("<div class='comment'>%s</div>" % args[3])
         sys.stdout.write("<div class='description'>%s</div>" % args[4])
         sys.stdout.write("</div>")
     elif template == "Individual":
         sys.stdout.write("<div class='entity'>")
         sys.stdout.write("<h3>%s (Individual)</h3>\n" % args[0])
-        sys.stdout.write("<p><strong>URI:</strong> http://www.w3.org/nl/lemon/%s/%s</h3>\n" % (args[1],args[2]))
+        sys.stdout.write("<div><strong>URI:</strong> http://www.w3.org/nl/lemon/%s/%s</div>\n" % (args[1],args[2]))
         sys.stdout.write("<div class='comment'>%s</div>" % args[3])
         sys.stdout.write("<div class='description'>%s</div>" % args[4])
         sys.stdout.write("</div>")
     elif template == "Example":
         sys.stdout.write("<div>")
-        sys.stdout.write("<p style='width:100%%;'><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/%s.png' class='example'/></p>" % (args[0]))
+        sys.stdout.write("<div style='width:100%%;'><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/%s.png' class='example'/></div>" % (args[0]))
         sys.stdout.write("%s" % args[1])
         sys.stdout.write("</div>")
     else:

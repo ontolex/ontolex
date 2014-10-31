@@ -4,7 +4,4 @@ wget https://www.w3.org/community/ontolex/wiki/index.php?title=Final_Model_Speci
 
 python export.py > spec-processed.html
 
-pandoc -f mediawiki -t html spec-processed.html > spec.html
-
-cat header spec.html footer > ../specification.html
-
+pandoc -f mediawiki -t html -s --toc --template=template.html spec-processed.html > ../specification.html
