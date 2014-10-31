@@ -45,9 +45,10 @@ def apply_template(template, args):
         sys.stdout.write("<div class='description'>%s</div>" % args[4])
         sys.stdout.write("</div>")
     elif template == "Example":
-        sys.stdout.write("<div>")
-        sys.stdout.write("<div style='width:100%%;'><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/%s.png' class='example'/></div>" % (args[0]))
-        sys.stdout.write("%s" % args[1])
+        sys.stdout.write("<div class='beispiel'>")
+        sys.stdout.write("<a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/%s.png' class='tn'/>" % (args[0]))
+        sys.stdout.write("<img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/%s.png' class='beispiel'/></a>" % (args[0]))
+        sys.stdout.write("<div>%s</div>" % args[1])
         sys.stdout.write("</div>")
     else:
         print(template)

@@ -5,7 +5,9 @@
 <title>OntoLex Model</title>
 <meta http-equiv="Content-Type"
 	content="application/xhtml+xml; charset=utf-8" />
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src="http://yandex.st/jquery/fancybox/1.3.4/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="http://yandex.st/jquery/fancybox/1.3.4/jquery.fancybox.css" type="text/css" media="screen" />
 <!--  Reset counter to 0 for first page -->	
 <style>
 
@@ -16,7 +18,7 @@ div.toc ul { counter-reset: item }
 .body h1:before { content: counters(section, ".") ". "; }
 .body h2:before { content: counters(section, ".") "." counters(subsection, ".") ". "; }
 
-.entity { border:1px solid #000080; margin: 5px 0px; padding: 5px; }
+.entity { border:1px solid #000080; width:80%; margin-left:auto; margin-right:auto; mawidth:80%; margin-left:auto; margin-right:auto; margin-bottom:30px; margin-top:30px; padding: 10px; }
 .entity h3 { margin-top:3px;padding-bottom:5px;border-bottom:1px solid #000080; }
 .description { border-top:1px dashed #808080; border-bottom:1px dashed #808080; margin-top:5px; padding-bottom:5px; }
 img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
@@ -25,6 +27,10 @@ h2 :link {color:#005a9c;text-decoration:none;}
 h1 :visited {color:#005a9c;text-decoration:none;}
 h2 :visited {color:#005a9c;text-decoration:none;}
 
+.beispiel { border: 1px dashed #808080; width:80%; margin-left:auto; margin-right:auto; margin-bottom:30px; margin-top:30px;}
+.beispiel img { width:300px; }
+.beispiel pre { border:none; font-size:130%;}
+.beispiel a { float:left; border: 1px solid #000080; margin: 20px; }
 
 </style>	
 <link rel="stylesheet" href="spec.css" type="text/css" />
@@ -115,20 +121,6 @@ Please send general comments about this document to the public mailing list: <a 
 
 <p class="toc">$toc$</p>
 
-<!--<ol>
-<li><a href="#introduction"><b>Introduction</b></a>
-<ol>
-    <li><a href="#purpose-of-the-model"><b>Purpose of the Model</b></a></li>
-    <li><a href="#namespaces"><b>Namespaces</b></a></li>
-    <li><a href="#conventions-in-this-document"><b>Conventions in this Document</b></a></li>
-</ol></li>
-<li><a href="#core"><b>Core</b></a>
-    <li><a href="#lexical entries"><b>Lexical Entries</b></a></li>
-    <li>
-<ol>
-</ol>
-</li>-->
-
 </div>
 
 <hr />
@@ -136,5 +128,11 @@ Please send general comments about this document to the public mailing list: <a 
 <div class="body">
     $body$
 </div>
+<script>
+$$(document).ready(function() {
+        $$(".tn").fancybox({'transitionIn':'elastic'});
+        $$(".tn").children("img").title = "Click to expand";
+        });
+</script>
 </body>
 </html>
