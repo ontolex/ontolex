@@ -1,0 +1,23 @@
+@prefix : <> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+:tuberculosis a skos:Concept;
+     ontolex:isEvokedBy :tuberculosis_lex;
+     ontolex:isEvokedBy :consumption_lex.
+
+:tuberculosis_lex a ontolex:LexicalEntry;
+      ontolex:sense :tuberculosis_sense;
+      ontolex:evokes :tuberculosis.
+   
+:tuberculosis_sense a ontolex:LexicalSense;
+      ontolex:isContainedIn :tuberculosis; 
+      ontolex:context "preferred".
+
+:consumption_lex a ontolex:LexicalEntry;
+       ontolex:sense :consumption_sense;
+       ontolex:evokes :tuberculosis.
+
+:consumption_sense a ontolex:LexicalSense;
+        ontolex:isContainedIn :tuberculosis;
+        ontolex:context "outdated". 

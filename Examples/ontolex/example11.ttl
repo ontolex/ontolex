@@ -1,0 +1,7 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix : <> .
+
+:lex_intangible_assets a ontolex:LexicalEntry;
+     ontolex:canonicalForm :form_intangible_assets.
+
+:form_intangible_assets ontolex:writtenRep "intangible assets"@en .
