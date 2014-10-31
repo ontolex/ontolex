@@ -5,7 +5,9 @@
 <title>OntoLex Model</title>
 <meta http-equiv="Content-Type"
 	content="application/xhtml+xml; charset=utf-8" />
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src="http://yandex.st/jquery/fancybox/1.3.4/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="http://yandex.st/jquery/fancybox/1.3.4/jquery.fancybox.css" type="text/css" media="screen" />
 <!--  Reset counter to 0 for first page -->	
 <style>
 
@@ -16,7 +18,7 @@ div.toc ul { counter-reset: item }
 .body h1:before { content: counters(section, ".") ". "; }
 .body h2:before { content: counters(section, ".") "." counters(subsection, ".") ". "; }
 
-.entity { border:1px solid #000080; margin: 5px 0px; padding: 5px; }
+.entity { border:1px solid #000080; width:80%; margin-left:auto; margin-right:auto; mawidth:80%; margin-left:auto; margin-right:auto; margin-bottom:30px; margin-top:30px; padding: 10px; }
 .entity h3 { margin-top:3px;padding-bottom:5px;border-bottom:1px solid #000080; }
 .description { border-top:1px dashed #808080; border-bottom:1px dashed #808080; margin-top:5px; padding-bottom:5px; }
 img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
@@ -25,6 +27,10 @@ h2 :link {color:#005a9c;text-decoration:none;}
 h1 :visited {color:#005a9c;text-decoration:none;}
 h2 :visited {color:#005a9c;text-decoration:none;}
 
+.beispiel { border: 1px dashed #808080; width:80%; margin-left:auto; margin-right:auto; margin-bottom:30px; margin-top:30px;}
+.beispiel img { width:300px; }
+.beispiel pre { border:none; font-size:130%;}
+.beispiel a { float:left; border: 1px solid #000080; margin: 20px; }
 
 </style>	
 <link rel="stylesheet" href="spec.css" type="text/css" />
@@ -137,20 +143,6 @@ Please send general comments about this document to the public mailing list: <a 
 <li><a href="#lexical-nets">Lexical Nets</a></li>
 <li><a href="#relation-to-skos">Relation to SKOS</a></li>
 </ul></p>
-
-<!--<ol>
-<li><a href="#introduction"><b>Introduction</b></a>
-<ol>
-    <li><a href="#purpose-of-the-model"><b>Purpose of the Model</b></a></li>
-    <li><a href="#namespaces"><b>Namespaces</b></a></li>
-    <li><a href="#conventions-in-this-document"><b>Conventions in this Document</b></a></li>
-</ol></li>
-<li><a href="#core"><b>Core</b></a>
-    <li><a href="#lexical entries"><b>Lexical Entries</b></a></li>
-    <li>
-<ol>
-</ol>
-</li>-->
 
 </div>
 
@@ -275,16 +267,16 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>For example, for the lexical entry &quot;colour&quot;, we would have two different <a href="#Form" title="wikilink">forms</a>, one for the British English written representation &quot;colour&quot; and one for the American English written representation. Both representations have the same pronunciation and the same meaning, so they are two different lexicographic variants of the same lexical entry:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example1.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example1.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example1.png' class='example'/></p>
-    </div>
     <pre><code>:lex_colour a ontolex:LexicalEntry;
          ontolex:form :form_colour;
          ontolex:form :form_color.
     
     :form_colour ontolex:writtenRep &quot;colour&quot;@en-GB.
     :form_color ontolex:writtenRep &quot;color&quot;@en-US.</code></pre>
+    </div>
     </div>
     <p>It can also have different phonetic representations corresponding to different ways of pronouncing the form.</p>
     <div class='entity'>
@@ -304,16 +296,16 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>The following example shows how we can represent two different pronunciations for one lexical entry using the example of &quot;privacy&quot; (the phonetic code is based on IPA):</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example2.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example2.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example2.png' class='example'/></p>
-    </div>
     <pre><code>:lex_privacy a ontolex:LexicalEntry;
          ontolex:form :form_privacy.
     
     :form_privacy ontolex:writtenRep &quot;privacy&quot;@en;
          ontolex:phoneticRep &quot;/ˈpɹɪv.ə.si/&quot;@en-US-fonipa;
          ontolex:phoneticRep &quot;/ˈpɹaɪ.və.si/&quot;@en-GB-fonipa.</code></pre>
+    </div>
     </div>
     <p>Each <a href="#Form" title="wikilink">form</a> should have exactly one <a href="#writtenRep" title="wikilink">written representation</a> per language tag, but there are no restrictions on the number of associated <a href="#phoneticRep" title="wikilink">phonetic representations</a>. Phonetic representation and written representation are both considered to be subproperties of a more general property <a href="#representation" title="wikilink">representation</a>, for which users may define extra subproperties as required.</p>
     <div class='entity'>
@@ -351,10 +343,9 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>The lexical entries with the canonical form the noun <em>&quot;cat&quot;</em>, the verb <em>&quot;marry&quot;</em> and the adjective <em>&quot;high&quot;</em> would look as follows (in Turtle syntax):</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example3.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example3.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example3.png' class='example'/></p>
-    </div>
     <pre><code>:lex_cat a ontolex:LexicalEntry;
          ontolex:canonicalForm :form_cat.
     
@@ -368,15 +359,16 @@ Please send general comments about this document to the public mailing list: <a 
          ontolex:canonicalForm :form_high.
     :form_high ontolex:writtenRep &quot;high&quot;@en .</code></pre>
     </div>
-    <p>Of course, lexical entries need not to correspond to one word only, they can correspond to a multi-word term, as the following example for the lexical entry &quot;intangible assets&quot; shows:</p>
-    <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example??.png' class='example'/></p>
     </div>
+    <p>Of course, lexical entries need not to correspond to one word only, they can correspond to a multi-word term, as the following example for the lexical entry &quot;intangible assets&quot; shows:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example11.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example11.png' class='beispiel'/></a></p>
+    <div>
     <pre><code>:lex_intangible_assets a ontolex:LexicalEntry;
          ontolex:canonicalForm :form_intangible_assets.
     
     :form_intangible_assets ontolex:writtenRep &quot;intangible assets&quot;@en .</code></pre>
+    </div>
     </div>
     <p>We will see below how the lexical entry can be decomposed in its parts using the machinery introduced by the decomposition module.</p>
     <p>It is also possible to indicate non-canonical forms of lexical entries which we call &quot;other forms&quot;:</p>
@@ -397,16 +389,16 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>For example we may specify non-canonical forms of the verb &quot;&quot;marry&quot;&quot; as follows:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example4.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example4.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example4.png' class='example'/></p>
-    </div>
     <pre><code>:lex_marry a ontolex:LexicalEntry ;
       ontolex:canonicalForm ex:form_marry ;
       ontolex:otherForm ex:form_marries .
     
     :form_marry ontolex:writtenRep &quot;marry&quot;@en .
     :form_marries ontolex:writtenRep &quot;marries&quot;@en .</code></pre>
+    </div>
     </div>
     <p>We also define a property <a href="#lexicalForm" title="wikilink">lexicalForm</a> which subsumes both the canonical and other form property:</p>
     <div class='entity'>
@@ -428,10 +420,9 @@ Please send general comments about this document to the public mailing list: <a 
     <p>The model supports the specification of the meaning of <a href="#LexicalEntry" title="wikilink">lexical entries</a> with respect to a given ontology. The lexicon model for ontologies follows the paradigm of <em>semantics by reference</em><a href="http://link.springer.com/article/10.1007/s10579-012-9182-3/fulltext.html">1</a> in the sense that the meaning of a lexical entry is specified by pointing to the ontological concept that captures its meaning.</p>
     <p>The property used for this is the property <a href="#denotes" title="wikilink">denotes</a>, which is defined as <em>the relation between a lexical entry and the logical predicate in an ontology that represents its meaning and has some denotational or model-theoretic semantics</em>.</p>
     <p>For the above mentioned lexical entries, this would look as follows:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example5.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example5.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example5.png' class='example'/></p>
-    </div>
     <pre><code>:lex_cat a ontolex:LexicalEntry;
        ontolex:canonicalForm :form_cat;
        ontolex:denotes &lt;http://dbpedia.org/resource/Cat&gt;.
@@ -452,6 +443,7 @@ Please send general comments about this document to the public mailing list: <a 
       ontolex:denotes &lt;http://dbpedia.org/resource/Intangible_asset&gt;.
     :form_intangible_assets ontolex:writtenRep &quot;intangible assets&quot;@en .</code></pre>
     </div>
+    </div>
     <p>The property <strong>denotes</strong> is defined as follows:</p>
     <div class='entity'>
     <h3>
@@ -470,10 +462,9 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>The following example shows how we can model the fact that a certain lexical entry is ambiguous and assign it two (disjoint) meanings it can denote.</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example6.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example6.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example6.png' class='example'/></p>
-    </div>
     <pre><code>:lex_bachelor a ontolex:LexicalEntry;
        ontolex:denotes &lt;http://dbpedia.org/resource/Bachelor&gt;;
        ontolex:denotes &lt;http://dbpedia.org/resource/Single_person&gt;.
@@ -481,6 +472,7 @@ Please send general comments about this document to the public mailing list: <a 
     :lex_bachelor ontolex:canonicalForm :form_bachelor.
     
     :form_bachelor ontolex:writtenRep &quot;bachelor&quot;@en .</code></pre>
+    </div>
     </div>
     <p>No range is given for the <a href="#denotes" title="wikilink">denotes</a> property, for two reasons. Firstly, the target of a denotation does not need to be an individual in the ontology but may also refer to a class, property or datatype defined by the ontology, as such it is not possible to specify the range of <a href="#denotes" title="wikilink">denotes</a> in OWL. Secondly, the model is agnostic with respect to the ontology language used to express the ontology referred to, the assumption is is that the entity in the range represents some predicate that has a denotational semantics in some formal logical system.</p>
     <p>All object properties in the model have an inverse property named as &quot;is <em>x</em>-ed by&quot;, where <em>x</em> is the original property name. In the case of <a href="#denotes" title="wikilink">#denotes</a> this property is <a href="#isDenotedBy" title="wikilink">#isDenotedBy</a>.</p>
@@ -528,10 +520,9 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>The lexical senses or lexical meanings of a the word <em>consumption</em> can be represented as follows:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example7.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example7.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example7.png' class='example'/></p>
-    </div>
     <pre><code>:lex_consumption a ontolex:LexicalEntry;
            ontolex:canonicalForm :form_consumption;
            ontolex:sense :consumption_sense1;
@@ -553,6 +544,7 @@ Please send general comments about this document to the public mailing list: <a 
     :consumption_sense4 ontolex:definition &quot;Tuberculosis, MTB, or TB (short for tubercle bacillus), in the past also called Phthisis or Phthisis pulmonalis, is a common, and in many cases lethal, infectious disease caused by various strains of mycobacteria, usually Mycobacterium tuberculosis.&quot;@en;
        ontolex:reference &lt;http://dbpedia.org/Resource/Tuberculosis&gt;;
        ontolex:context &quot;outdated&quot;.</code></pre>
+    </div>
     </div>
     <p>Via the <a href="#Lexical_Sense" title="wikilink">lexical sense</a> object we can attach additional properties to a pair of lexical entry and ontological predicate that it denotes that describe under which conditions (context, register, domain, etc.) it is valid to regard the lexical entry as having the ontological entity as meaning.</p>
     <p>Note that a lexical sense uniquely identifies a pair of lexical entry and reference; in particular, it identifies a unique lexical entry and a unique reference, such that the properties &quot;sense&quot; and &quot;reference&quot; are defined as inverse functional and functional, respectively.</p>
@@ -628,16 +620,16 @@ Please send general comments about this document to the public mailing list: <a 
     <p><strong>TODO: What property links a sense lexicon to a sense??</strong></p>
     <h2 id="lexicons"><a href="#lexicons">Lexicons</a></h2>
     <p>Lexicon is an object that groups all lexical entries. A lexicon is specific for a particular language. The lexicon comprising the example entries we have created above would simply look as follows:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example8.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example8.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example8.png' class='example'/></p>
-    </div>
     <pre><code>:lexicon a ontolex:Lexicon;
        ontolex:language &quot;en&quot;;
        ontolex:entry :lex_high;
        ontolex:entry :lex_cat;
        ontolex:entry :lex_marry;
        ontolex:entry :lex_intangible_assets.</code></pre>
+    </div>
     </div>
     <div class='entity'>
     <h3>
@@ -702,10 +694,9 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>A full lexicon in Spanish for the above examples would be as follows:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example9.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example9.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example9.png' class='example'/></p>
-    </div>
     <pre><code>:lexicon a ontolex:Lexicon;
        ontolex:language &quot;es&quot;;
        ontolex:entry :lex_alto;
@@ -746,6 +737,7 @@ Please send general comments about this document to the public mailing list: <a 
     
     :activo_intangible_sense1 ontolex:reference &lt;http://dbpedia.org/resource/Intangible_asset&gt;;
     ontolex:gloss &quot;En el lenguaje contable el término intangible se emplea con un sentido restringido para aquellos activos que producen beneficios parecidos a los que producen los bienes de uso o de renta y que no pueden materializarse físicamente.&quot;@es.</code></pre>
+    </div>
     </div>
     <p>This shows how the English lexicon and the Spanish lexicon are linked via the ontological references that the different words in the lexicon denote, thus integrating the lexica at the conceptual level.</p>
     <h2 id="lexical-concept"><a href="#lexical-concept">Lexical Concept</a></h2>
@@ -811,10 +803,9 @@ Please send general comments about this document to the public mailing list: <a 
     <p>Inverse of <a href="#evokes&lt;/div&gt;&lt;div_class=&#39;description&#39;&gt;&lt;/div&gt;&lt;/div&gt;_&lt;div_class=&#39;entity&#39;&gt;&lt;h3&gt;isLexicalizedSenseOf_(Object_Property)&lt;/h3&gt;_&lt;div&gt;&lt;strong&gt;URI:&lt;/strong&gt;_http://www.w3.org/nl/lemon/ontolex/isLexicalizedSenseOf&lt;/div&gt;_&lt;div_class=&#39;comment&#39;&gt;_Inverse_of_[[#lexicalizedSense&lt;/div&gt;&lt;div_class=&#39;description&#39;&gt;lexicalizedSense" title="wikilink">#evokes&lt;/div&gt;&lt;div class='description'&gt;&lt;/div&gt;&lt;/div&gt; &lt;div class='entity'&gt;&lt;h3&gt;isLexicalizedSenseOf (Object Property)&lt;/h3&gt; &lt;div&gt;&lt;strong&gt;URI:&lt;/strong&gt; http://www.w3.org/nl/lemon/ontolex/isLexicalizedSenseOf&lt;/div&gt; &lt;div class='comment'&gt; Inverse of [[#lexicalizedSense&lt;/div&gt;&lt;div class='description'&gt;lexicalizedSense</a></p>
     </div>
     </div>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example10.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example10.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example10.png' class='example'/></p>
-    </div>
     <pre><code>:temporary_change_of_possession a ontolex:LexicalConcept;
          ontolex:lexicalizedSense :borrow_sense;
          ontolex:lexicalizedSense :lend_sense;
@@ -828,6 +819,7 @@ Please send general comments about this document to the public mailing list: <a 
     :lend_le a ontolex:LexicalEntry;
                      ontolex_sense :lend_sense;
                      ontolex:evokes :temporary_change_of_possession.</code></pre>
+    </div>
     </div>
     <p><strong>TODO: Document this property</strong></p>
     <div class='entity'>
@@ -887,10 +879,9 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>The following snippet shows how to indicate that the verb (to) own can be used as a transitive verb. This is accomplished by adding a frame own_fram that is declared as a transitive frame, using the class <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl#TransitiveFrame_TransitiveFrame" title="wikilink">http://lexinfo.net/ontology/2.0/lexinfo.owl#TransitiveFrame TransitiveFrame</a> defined in the <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl LexInfo Ontology" title="wikilink">http://lexinfo.net/ontology/2.0/lexinfo.owl LexInfo Ontology</a>.</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example1.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example1.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example1.png' class='example'/></p>
-    </div>
     <pre><code>:own_lex a ontolex:LexicalEntry ;
       ontolex:canonicalForm :own_form ;
       synsem:synBehavior :own_frame .
@@ -898,6 +889,7 @@ Please send general comments about this document to the public mailing list: <a 
     :own_frame a synsem:Frame, lexinfo:TransitiveFrame.
     
     :own_form ontolex:writtenRep &quot;own&quot;@en . </code></pre>
+    </div>
     </div>
     <p>A syntactic frame is defined by a number of (syntactic) arguments that need to be filled so that the frame is complete. A (syntactic) argument is defined as follows:</p>
     <div class='entity'>
@@ -931,10 +923,9 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     <p>The following example shows how to extend the example for the verb (to) own by specifically indicating the arguments, in this case via two specific subproperties of <a href="#synArg" title="wikilink">synarg</a>, i.e. <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl#subject_lexinfo:subject" title="wikilink">http://lexinfo.net/ontology/2.0/lexinfo.owl#subject lexinfo:subject</a> or <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl#object_lexinfo:directObject" title="wikilink">http://lexinfo.net/ontology/2.0/lexinfo.owl#object lexinfo:directObject</a> defined in the external <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl LexInfo ontology" title="wikilink">http://lexinfo.net/ontology/2.0/lexinfo.owl LexInfo ontology</a>.</p>
     <p>Note that if an external ontology is used to describe the type of arguments in more detail, e.g. indicating the grammatical function as in the example below, the external property used need to be made subproperties of <a href="#synArg" title="wikilink">synArg</a> as in the example below.</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example2.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example2.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example2.png' class='example'/></p>
-    </div>
     <pre><code>:own_lex a ontolex:LexicalEntry ;
       synsem:canonicalForm :own_form ;
       synsem:synBehavior :own_synframe .
@@ -947,6 +938,7 @@ Please send general comments about this document to the public mailing list: <a 
     
     lexinfo:subject owl:subPropertyOf synsem:synArg.
     lexinfo:directObject owl:subPropertyOf synsem:synArg.</code></pre>
+    </div>
     </div>
     <p>From the semantic perspective, a (syntactic) frame corresponds to a semantic frame, defined as ``as a coherent structure of related concepts that are related such that without knowledge of all of them, one does not have complete knowledge of any one; they are in that sense types of gestalt.'' Frames are represented by a coherent structure consisting of one or more predicates from a given ontology.</p>
     <p>A Semantic Frame is thus defined as follows:</p>
@@ -1052,10 +1044,9 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>Finally, we can specify the reference <a href="http://dbpedia.org/ontology/owner">dbpedia:owner</a> that expresses the meaning of &quot;to own&quot; with respect to the DBpedia ontology, adding the semantic arguments of this property (subject and object) as follows:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example3.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example3.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example3.png' class='example'/></p>
-    </div>
     <pre><code>:own_lex a ontolex:LexicalEntry ;
       synsem:canonicalForm :own_form ;
       synsem:synBehavior :own_synframe ;
@@ -1074,6 +1065,7 @@ Please send general comments about this document to the public mailing list: <a 
     
     lexinfo:subject owl:subPropertyOf synsem:synArg.
     lexinfo:dobject owl:subPropertyOf synsem:synArg.</code></pre>
+    </div>
     </div>
     <p>As a further example we show a lexical entry for the property <a href="http://dbpedia.org/ontology/openingFilm">dbpedia:openingFilm</a>, which can be expressed by the relational noun &quot;opening film&quot; followed by the preposition &quot;at&quot;; we use the <a href="http://www.lexinfo.net/">LexInfo</a> vocabulary to provide linguistic information. The entry indicates that the relation noun &quot;opening film at (a festival)&quot; can be used to verbalize the DBpedia property <a href="http://dbpedia.org/ontology/openingFilm">dbpedia:openingFilm</a> whereby the subject in a copula construct such as &quot;X is the opening film at Y&quot; (arg2 below) corresponds to the object of the property <a href="http://dbpedia.org/ontology/openingFilm">dbpedia:openingFilm</a>, while the prepositional argument at position Y (arg1 below) corresponds to the subject of the property <a href="http://dbpedia.org/ontology/openingFilm">dbpedia:openingFilm</a>. Further, the preposition that should we used with the noun opening film to convey the meaning <a href="http://dbpedia.org/ontology/openingFilm">dbpedia:openingFilm</a> is &quot;at&quot;, which is indicated by the property <a href="#marker" title="wikilink">marker</a>:</p>
     <div class='entity'>
@@ -1106,10 +1098,9 @@ Please send general comments about this document to the public mailing list: <a 
     <p><strong>Range:</strong> xsd:boolean</p>
     </div>
     </div>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example4.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example4.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example4.png' class='example'/></p>
-    </div>
     <pre><code>:opening_film_at a ontolex:LexicalEntry ; 
         lexinfo:partOfSpeech lexinfo:noun ;
         ontolex:canonicalForm :opening_film_form;
@@ -1134,11 +1125,11 @@ Please send general comments about this document to the public mailing list: <a 
     lexinfo:subject owl:subPropertyOf synsem:synArg.
     lexinfo:prepositionalArg owl:subPropertyOf synsem:synArg.</code></pre>
     </div>
-    <p>The following example shows a lexical entry indicating that the property <a href="http://dbpedia.org/ontology/almaMater">dbpedia:almaMater</a> can be verbalized as &quot;X graduated from Y&quot;. This is modeled through a verb entry for &quot;graduate&quot; and associating it to a corresponding intransitive frame with a subcategorized prepositional object that maps to the range of the property <a href="http://dbpedia.org/ontology/almaMater">dbpeida:almaMater</a>, while the subject of the intransitive frame corresponds to the subject of the property <a href="http://dbpedia.org/ontology/almaMater">dbpedia:almaMater</a>. Again, we use the <a href="http://www.lexinfo.net">LexInfo</a> ontology in our example to provide linguistic information:</p>
-    <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example5.png' class='example'/></p>
     </div>
+    <p>The following example shows a lexical entry indicating that the property <a href="http://dbpedia.org/ontology/almaMater">dbpedia:almaMater</a> can be verbalized as &quot;X graduated from Y&quot;. This is modeled through a verb entry for &quot;graduate&quot; and associating it to a corresponding intransitive frame with a subcategorized prepositional object that maps to the range of the property <a href="http://dbpedia.org/ontology/almaMater">dbpeida:almaMater</a>, while the subject of the intransitive frame corresponds to the subject of the property <a href="http://dbpedia.org/ontology/almaMater">dbpedia:almaMater</a>. Again, we use the <a href="http://www.lexinfo.net">LexInfo</a> ontology in our example to provide linguistic information:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example5.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example5.png' class='beispiel'/></a></p>
+    <div>
     <pre><code>:graduate_from a ontolex:LexicalEntry ; 
         lexinfo:partOfSpeech lexinfo:verb ;
         ontolex:canonicalForm :graduate_canonical_form;
@@ -1157,11 +1148,11 @@ Please send general comments about this document to the public mailing list: <a 
     :graduate_arg2 synsem:marker :from ;
                    synsem:optional &quot;true&quot;^^xsd:boolean .</code></pre>
     </div>
-    <p>The following example shows an example along the same lines for the intransitive (with a prepositional object introduced by the preposition &quot;in&quot;) to express either that someone died in a particular year or in a particular place. So in this case the entry has two different senses and corresponding references:</p>
-    <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example6.png' class='example'/></p>
     </div>
+    <p>The following example shows an example along the same lines for the intransitive (with a prepositional object introduced by the preposition &quot;in&quot;) to express either that someone died in a particular year or in a particular place. So in this case the entry has two different senses and corresponding references:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example6.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example6.png' class='beispiel'/></a></p>
+    <div>
     <pre><code>:die_in a ontolex:LexicalEntry ;
         lexinfo:partOfSpeech lexinfo:verb ;
         ontolex:canonicalForm :die_canonical_form;
@@ -1186,6 +1177,7 @@ Please send general comments about this document to the public mailing list: <a 
      :die_arg2 synsem:marker :in ;
              synsem:optional &quot;true&quot;^^xsd:boolean .</code></pre>
     </div>
+    </div>
     <p>The following example shows a case of a transitive verb (launch) subcategorizing a prepositional object introduced by the preposition &quot;in&quot; to indicate the year of the launch of the product in question. The important thing here is that there are three syntactic (subject, object and prepositional object, represented as arg1, arg2 and arg3 below, respectively) and three semantic arguments (the domain of <a href="http://dbpedia.org/ontology/product">dbpedia:product</a>, the range of <a href="http://dbpedia.org/ontology/product">dbpedia:product</a> and the range of <a href="http://dbpedia.org/ontology/launchDate">dbpedia:launchDate</a>, respectively). Given that there are three semantic arguments, the reference can not be a single (binary) property, so we show the use of the property <a href="#subsense" title="wikilink">subsense</a> to indicate that the meaning of the phrase &quot;X launched Y in Z&quot; is a composition of the properties <a href="http://dbpedia.org/ontology/product">dbpedia:product</a> and <a href="http://dbpedia.org/ontology/productionStartYear">dbpedia:productionStartYear</a> which together form the reference of a composite sense:</p>
     <div class='entity'>
     <h3>
@@ -1202,10 +1194,9 @@ Please send general comments about this document to the public mailing list: <a 
     <p><strong>Range:</strong> LexicalSense</p>
     </div>
     </div>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example7.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example7.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example7.png' class='example'/></p>
-    </div>
     <pre><code>:launch a ontolex:LexicalEntry ;
       lexinfo:partOfSpeech lexinfo:verb ;
       ontolex:canonicalForm :launch_canonical_form;
@@ -1235,11 +1226,11 @@ Please send general comments about this document to the public mailing list: <a 
                                      synsem:subjOfProp :launch_arg2;
                                      synsem:objOfProp  :launch_arg3.</code></pre>
     </div>
-    <p>The following shows a simple adjective &quot;female&quot; expressing the membership of some entity in the class myOnto:Female.</p>
-    <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example8.png' class='example'/></p>
     </div>
+    <p>The following shows a simple adjective &quot;female&quot; expressing the membership of some entity in the class myOnto:Female.</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example8.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example8.png' class='beispiel'/></a></p>
+    <div>
     <pre><code>:female a ontolex:LexicalEntry; 
       lexinfo:partOfSpeech lexinfo:adjective;
       ontolex:canonicalForm :female_canonical_form;
@@ -1254,12 +1245,12 @@ Please send general comments about this document to the public mailing list: <a 
     lexinfo:attributiveArg :female_arg;
     lexinfo:copulativeSubject :female_arg.</code></pre>
     </div>
+    </div>
     <p>And the following entry shows a lexical entry for the scalar adjective high in three uses: i) AdjectivePredicateFrame as in &quot;the high mountain&quot; or &quot;the mountain is high&quot;, ii) and AdjectiveScaleFrame as in &quot;the mountain is 8000 m high&quot;. The semantics of high is related to either the property <a href="http://dbpedia.org/ontology/height">dbpedia:height</a> or the property <a href="http://dbpedia.org/ontology/elevation">dbpedia:height</a>. The semantics of the adjective high is expressed below with respect to the oils vocabulary expressing that along the scale of heights or elevation the elements that are &quot;high&quot; are rather on the higher end of the scale (indicated by oils:degree oils:strong).</p>
     <p>OILS!?</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example9.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example9.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example9.png' class='example'/></p>
-    </div>
     <pre><code>:high a ontolex:LexicalEntry ;
       lexinfo:partOfSpeech lexinfo:adjective ;
       ontolex:canonicalForm :high_canonical_form;
@@ -1296,11 +1287,11 @@ Please send general comments about this document to the public mailing list: <a 
                                       oils:boundTo &lt;http://dbpedia.org/ontology/elevation&gt; ;
                                       oils:degree oils:strong.</code></pre>
     </div>
-    <p>The following shows a more intricate example of an adjective that subcategorizes further arguments, e.g. the case of being &quot;active from X to Y&quot;</p>
-    <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example?.png' class='example'/></p>
     </div>
+    <p>The following shows a more intricate example of an adjective that subcategorizes further arguments, e.g. the case of being &quot;active from X to Y&quot;</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example12.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example12.png' class='beispiel'/></a></p>
+    <div>
     <pre><code>:active_from_to a ontolex:LexicalEntry ;
       lexinfo:partOfSpeech lexinfo:adjective ;
       ontolex:canonicalForm :active_canonical_form;
@@ -1340,6 +1331,7 @@ Please send general comments about this document to the public mailing list: <a 
     :active_arg2 ontolex:marker :from .
     :active_arg3 ontolex:marker :to .</code></pre>
     </div>
+    </div>
     <h1 id="decomposition-decomp"><a href="#decomposition-decomp">Decomposition (decomp)</a></h1>
     <p>Decomposition is the process of indicating which elements constitute a multi-word or compound lexical entry. The simplest way to do this is by means of <a href="#subterm" title="wikilink">subterm</a> property, which indicates that a <a href="#Lexical_entry" title="wikilink">lexical entry</a> is a part of another entry.</p>
     <div class='entity'>
@@ -1358,12 +1350,12 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>For example we may indicate that &quot;landing&quot; is a part of the lexical entry &quot;amphibious landing&quot; as follows:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/decomp/example1.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/decomp/example1.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/decomp/example1.png' class='example'/></p>
-    </div>
     <pre><code>:AmphibiousLanding a ontolex:LexicalEntry ;
       decomp:subterm :Landing.</code></pre>
+    </div>
     </div>
     <p>The use of <a href="#subterm" title="wikilink">sub-terms</a> has two principle limitations, firstly it is not possible to indicate inflection within a particular phrase of its individual elements, and secondly that it is not clear if the components represent the complete phrase or their relative order. To fix this we introduce an object called a <a href="#Component" title="wikilink">component</a> defined as follows</p>
     <div class='entity'>
@@ -1412,10 +1404,9 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>As such we may represent simple decompositions such as tokenizations as follows</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/decomp/example2.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/decomp/example2.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/decomp/example2.png' class='example'/></p>
-    </div>
     <pre><code>:DesembarcoAnfibio a ontolex:LexicalEntry ;
       decomp:constituent :DesembarcoAnfibio_Desembarco_Component; 
       decomp:constituent :DesembarcoAnfibio_Anfibio_Component .
@@ -1428,11 +1419,11 @@ Please send general comments about this document to the public mailing list: <a 
       lexinfo:number lexinfo:plural ;
       decomp:identifies :Anfibio .</code></pre>
     </div>
-    <p>If we wish to specify the order of the tokenization of a lexical entry, we do this by making it an <code>rdf:Seq</code> whose elements are the words. As such the first token is indicated with the <code>rdf:_1</code> special property and so forth, in addition to <a href="#Constituent" title="wikilink">constituent</a>. For example, we may indicate the tokens of &quot;African Swine Fever&quot; as follows:</p>
-    <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/decomp/example3.png' class='example'/></p>
     </div>
+    <p>If we wish to specify the order of the tokenization of a lexical entry, we do this by making it an <code>rdf:Seq</code> whose elements are the words. As such the first token is indicated with the <code>rdf:_1</code> special property and so forth, in addition to <a href="#Constituent" title="wikilink">constituent</a>. For example, we may indicate the tokens of &quot;African Swine Fever&quot; as follows:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/decomp/example3.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/decomp/example3.png' class='beispiel'/></a></p>
+    <div>
     <pre><code>:AfricanSwineFever a ontolex:LexicalEntry ;
       rdf:_1 :AfricanSwineFever_African_Component ;
       rdf:_2 :AfricanSwineFever_Swine_Component ;
@@ -1449,6 +1440,7 @@ Please send general comments about this document to the public mailing list: <a 
     
     :AfricanSwineFever_Fever_Component a decomp:Component ;
       decomp:identifies :Fever.</code></pre>
+    </div>
     </div>
     <p>The use of hierachies of components may also allow for phrase tree structure of a lexical entry to be represented if need, as in the following example:</p>
     <div class="figure">
@@ -1541,10 +1533,9 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>The following example shows how to model the relation between &quot;Food and Agriculture Organisation&quot; and its initialism &quot;FAO&quot; as one example of a lexical relation:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example1.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example1.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example1.png' class='example'/></p>
-    </div>
     <pre><code>:fao a ontolex:LexicalEntry ;
          ontolex:sense [ ontolex:reference &lt;http://dbpedia.org/resource/Food_and_Agriculture_Organization&gt; ] ;
          ontolex:lexicalForm :fao_form ;
@@ -1562,6 +1553,7 @@ Please send general comments about this document to the public mailing list: <a 
           vartrans:source :fao_form ;
           vartrans:target :food_agriculture_organization_form ; 
           vartrans:category isocat:DC-272 .</code></pre>
+    </div>
     </div>
     <p>We further consider TeminologicalVariants, which are defined as follows:</p>
     <div class='entity'>
@@ -1588,10 +1580,9 @@ Please send general comments about this document to the public mailing list: <a 
     </ul>
     <p>property or dimension of the concept (e.g., biosanitary waste vs. hospital waste; Novel Coronavirus vs. Middle East Respiratory Syndrome Coronavirus; obsolete technology vs. dangerous technology; madre de alquiler (rental mother) vs. vientre de alquiler (womb mother), in Spanish).</p>
     <p>We illustrate the use of TerminologicalVariants with the following example of a diachronic variant:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example2.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example2.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example2.png' class='example'/></p>
-    </div>
     <pre><code>:tuberculosis a ontolex:LexicalEntry ;
            ontolex:lexicalForm [ ontolex:writtenRep &quot;tuberculosis&quot;@en ] ;
            ontolex:sense :tuberculosis_sense.
@@ -1609,6 +1600,7 @@ Please send general comments about this document to the public mailing list: <a 
           vartrans:source :phthisis_sense ;
           vartrans:target :tuberculosis_sense ; 
           vartrans:category isocat:diachronic.</code></pre>
+    </div>
     </div>
     <p>The model does not define any vocabulary for describing particular variants, though we provide some examples below for different types of variation relations, showing how they can be represented in the model.</p>
     <p>A context can be defined for the variant with the following property</p>
@@ -1647,10 +1639,9 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     <p>As an example of a rather literal translation we give the following ones:</p>
     <p>E.g. surrogate mother in English, madre de alquiler in Spanish and mère porteuse in French.) and Cultural Equivalents (representing the closest equivalent -or counterpart- of a sense in another language. Eg. Prime Minister, Bundeskanzler).</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example4.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example4.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example4.png' class='example'/></p>
-    </div>
     <pre><code>:surrogate_mother a ontolex:LexicalEntry;
           ontolex:language &quot;en&quot;;
           ontolex:sense :surrogate_mother_sense.
@@ -1685,6 +1676,7 @@ Please send general comments about this document to the public mailing list: <a 
     vartrans:variationCategory :literalTranslation.
          </code></pre>
     </div>
+    </div>
     <div class='entity'>
     <h3>
     <p>translatableAs (Object Property)</p>
@@ -1700,10 +1692,9 @@ Please send general comments about this document to the public mailing list: <a 
     </div>
     </div>
     <p>We can provide a shortcut to the above example, by underspecifying the actual senses that are involved in the translation by using the object property translatableAs:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example5.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example5.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example5.png' class='example'/></p>
-    </div>
     <pre><code>:surrogate_mother a ontolex:LexicalEntry;
           ontolex:language &quot;en&quot;;
           ontolex:sense :surrogate_mother_sense.
@@ -1724,11 +1715,11 @@ Please send general comments about this document to the public mailing list: <a 
     
     :surrogate_mother vartrans:translatableAs :madre_de_alquiler.</code></pre>
     </div>
-    <p>''Example of adding confidence by means of PROV-O ontology [UNFINISHED DRAFT] ''</p>
-    <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example?.png' class='example'/></p>
     </div>
+    <p>''Example of adding confidence by means of PROV-O ontology [UNFINISHED DRAFT] ''</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example6.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example6.png' class='beispiel'/></a></p>
+    <div>
     <pre><code>
     #LEXICONS
     :lexiconEN a ontolex:Lexicon ;
@@ -1747,12 +1738,12 @@ Please send general comments about this document to the public mailing list: <a 
     
     
     #TRANSLATION SET
-    :tranSetEN-ES a vartran:TranslationSet ;
+    :tranSetEN-ES a vartrans:TranslationSet ;
             dc:source &lt;http://hdl.handle.net/10230/17110&gt; ;
             vartrans:trans :bench_banco-trans .
-    :bench_banco-trans a vartran:Translation ;
-            vartran:source :bench-sense ;
-            vartran:target :banco-sense .
+    :bench_banco-trans a vartrans:Translation ;
+            vartrans:source :bench-sense ;
+            vartrans:target :banco-sense .
     
     
     #PROVENANCE 
@@ -1776,6 +1767,7 @@ Please send general comments about this document to the public mailing list: <a 
          prov:activity :executionOfMyAlgorithm ;
          :translationConfidence 0.3 ;
     ] .</code></pre>
+    </div>
     </div>
     <p>ISSUE: still, a specific property for confidence has to be defined, either as part of Vartrans model or in the data each time it is needed</p>
     <h1 id="metadata-lime"><a href="#metadata-lime">Metadata (lime)</a></h1>
@@ -2034,10 +2026,9 @@ Please send general comments about this document to the public mailing list: <a 
     <h1 id="linguistic-description"><a href="#linguistic-description">Linguistic Description</a></h1>
     <h1 id="lexical-nets"><a href="#lexical-nets">Lexical Nets</a></h1>
     <p>Here we will mainly describe how to describe lexical nets using the lemon vocabulary, it is not part of the model proper.</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/???.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/???.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/???.png' class='example'/></p>
-    </div>
     <pre><code>&lt;&gt; a lemon:LexicalEntry ;
         wordnet-ontology:part_of_speech wordnet-ontology:noun ;
         lemon:canonicalForm &lt;#CanonicalForm&gt; ;
@@ -2070,29 +2061,29 @@ Please send general comments about this document to the public mailing list: <a 
         wordnet-ontology:synset_member &lt;http://wordnet-rdf.princeton.edu/wn31/cat-n&gt;,
             &lt;http://wordnet-rdf.princeton.edu/wn31/true+cat-n&gt; ;</code></pre>
     </div>
+    </div>
     <h1 id="relation-to-skos"><a href="#relation-to-skos">Relation to SKOS</a></h1>
     <p>This part of the document is not part of the lexicon ontology model proper, but contains concrete recommendations and best practice patterns for combining SKOS models with the lexicon ontology model.</p>
     <p>The use case we adress is one where a thesaurus or other taxonomic resource or classification system in SKOS needs to be enriched with more detailed linguistic information.</p>
     <p>Imagine we have two concepts &quot;financial assets&quot; and &quot;tangible assets&quot; modeled in a SKOS. The official way to link a lexical entry to a SKOS concept (and viceversa) is through the property evokes (and its inverse isEvokedBy). The following example shows how to do this:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/other/example-skos1.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/other/example-skos1.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/??.png' class='example'/></p>
-    </div>
     <pre><code>:financial_assets a skos:Concept;
                     ontolex:isLexicalizedBy :financial_assets_lex.
     
-    financial_assets_lex a ontolex:LexicalEntry;
+    :financial_assets_lex a ontolex:LexicalEntry;
                      ontolex:evokes :financial_assets;
-                     ontolex:form financial_assets_form. 
+                     ontolex:form :financial_assets_form. 
     
-    financial_assets_form ontolex:writtenRep &quot;financial assets&quot;.</code></pre>
+    :financial_assets_form ontolex:writtenRep &quot;financial assets&quot;.</code></pre>
+    </div>
     </div>
     <p>The above represents the standard way of linking a SKOS concept to a lexical entry in the lexicon ontology model.</p>
     <p>To show how to make statements about preferred lexicalizations akin to the properties prefLabel, altLabel and hiddenLabel as used in SKOS, we give the following example:</p>
+    <div class='beispiel'>
+    <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/other/example-skos2.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/other/example-skos2.png' class='beispiel'/></a></p>
     <div>
-    <div style='width:100%;'>
-    <p><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/??.png' class='example'/></p>
-    </div>
     <pre><code>:tuberculosis a skos:Concept;
          ontolex:isEvokedBy :tuberculosis_lex;
          ontolex:isEvokedBy :consumption_lex.
@@ -2106,14 +2097,21 @@ Please send general comments about this document to the public mailing list: <a 
           ontolex:context &quot;preferred&quot;.
     
     :consumption_lex a ontolex:LexicalEntry;
-           ontolex:sense consumption_sense;
+           ontolex:sense :consumption_sense;
            ontolex:evokes :tuberculosis.
     
     :consumption_sense a ontolex:LexicalSense;
             ontolex:isContainedIn :tuberculosis;
             ontolex:context &quot;outdated&quot;. </code></pre>
     </div>
+    </div>
     <p>In case you are using reified labels as in SKOS-XL, it is possible to have Forms or LexicalEntries in the range of the skosxl:prefLabel, skosxl:altLabel and skosxl:hiddelLabel properties. However, we note that from this it would follows that LexicalEntries and Forms would be inferred to be skosxl:Labels, which does not correspond to the understanding of Forms and LexicalEntries of this community as linguistic objects rather than mere `labels'.</p>
 </div>
+<script>
+$(document).ready(function() {
+        $(".tn").fancybox({'transitionIn':'elastic'});
+        $(".tn").children("img").title = "Click to expand";
+        });
+</script>
 </body>
 </html>
