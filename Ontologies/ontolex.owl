@@ -226,6 +226,15 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/ontolex#morphologicalPattern -->
+
+    <owl:ObjectProperty rdf:about="&ontolex;morphologicalPattern">
+        <rdfs:comment xml:lang="en">Indicates the morphological class of a word</rdfs:comment>
+        <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/ontolex#otherForm -->
 
     <owl:ObjectProperty rdf:about="&ontolex;otherForm">

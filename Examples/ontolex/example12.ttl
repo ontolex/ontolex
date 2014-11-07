@@ -1,0 +1,8 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix : <#> .
+
+:cat a ontolex:Word .
+
+:minimum_finance_lease_payments a ontolex:MultiWordExpression .
+
+:anti- a ontolex:Affix .
