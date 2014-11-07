@@ -366,6 +366,15 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/ontolex#Affix -->
+
+    <owl:Class rdf:about="&ontolex;Affix">
+        <rdfs:subClassOf rdf:resource="&ontolex;LexicalEntry"/>
+        <rdfs:comment xml:lang="en">A lexical entry which is realized by joining as a prefix or similar to another word|</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/ontolex#Form -->
 
     <owl:Class rdf:about="&ontolex;Form">
@@ -397,16 +406,16 @@
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontolex;canonicalForm"/>
+                <owl:onProperty rdf:resource="&ontolex;lexicalForm"/>
                 <owl:onClass rdf:resource="&ontolex;Form"/>
-                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontolex;lexicalForm"/>
+                <owl:onProperty rdf:resource="&ontolex;canonicalForm"/>
                 <owl:onClass rdf:resource="&ontolex;Form"/>
-                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A single unit of analysis in the lexicon comprising a collection of forms that are morphologically related or have a single pronunciation and have the same meaning(s).</rdfs:comment>
@@ -420,15 +429,15 @@
         <rdfs:subClassOf rdf:resource="&semiotics;Meaning"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontolex;reference"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                <owl:onProperty rdf:resource="&ontolex;isSenseOf"/>
+                <owl:onClass rdf:resource="&ontolex;LexicalEntry"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontolex;isSenseOf"/>
-                <owl:onClass rdf:resource="&ontolex;LexicalEntry"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&ontolex;reference"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Represents the lexical meaning of a lexical entry when interpreted as the ontology entity it refers to. A link between a lexical entry and an ontology entity via a LexicalSense object implies that the lexical entry can be used to refer to the ontology entity in question, under corresponding connotations, pragmatic implications and meaning nuances that might no be directly modeled in the ontology. These pragmatic conditions and meaning nuances can be attached to the LexicalSense object, which represents a reification of a pair of lexical entry and ontological entity it can refer to. The Lexical Sense thus uniquely determines a lexical entry and an ontological entity it is associated with.</rdfs:comment>
@@ -451,11 +460,29 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/ontolex#MultiWordExpression -->
+
+    <owl:Class rdf:about="&ontolex;MultiWordExpression">
+        <rdfs:subClassOf rdf:resource="&ontolex;LexicalEntry"/>
+        <rdfs:comment xml:lang="en">A lexical entry consisting of two or more words</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/ontolex#SenseLexicon -->
 
     <owl:Class rdf:about="&ontolex;SenseLexicon">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
         <rdfs:comment xml:lang="en">Represents a collection of senses</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/ontolex#Word -->
+
+    <owl:Class rdf:about="&ontolex;Word">
+        <rdfs:subClassOf rdf:resource="&ontolex;LexicalEntry"/>
+        <rdfs:comment xml:lang="en">A lexical entry consisting of a single word</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 
