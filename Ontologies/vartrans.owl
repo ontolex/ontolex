@@ -69,12 +69,20 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#edge -->
+
+    <owl:ObjectProperty rdf:about="&vartrans;edge">
+        <rdfs:comment xml:lang="en">One of the elements involved in a relation</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#source -->
 
     <owl:ObjectProperty rdf:about="&vartrans;source">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&vartrans;Variant"/>
+        <rdfs:subPropertyOf rdf:resource="&vartrans;edge"/>
     </owl:ObjectProperty>
     
 
@@ -83,8 +91,8 @@
 
     <owl:ObjectProperty rdf:about="&vartrans;target">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&vartrans;Variant"/>
+        <rdfs:subPropertyOf rdf:resource="&vartrans;edge"/>
     </owl:ObjectProperty>
     
 
@@ -180,13 +188,13 @@
         <rdfs:subClassOf rdf:resource="&vartrans;Variant"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;variantTarget"/>
+                <owl:onProperty rdf:resource="&vartrans;variantSource"/>
                 <owl:allValuesFrom rdf:resource="&ontolex;LexicalSense"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;variantSource"/>
+                <owl:onProperty rdf:resource="&vartrans;variantTarget"/>
                 <owl:allValuesFrom rdf:resource="&ontolex;LexicalSense"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -207,13 +215,13 @@
     <owl:Class rdf:about="&vartrans;Variant">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;source"/>
+                <owl:onProperty rdf:resource="&vartrans;target"/>
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;target"/>
+                <owl:onProperty rdf:resource="&vartrans;source"/>
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
