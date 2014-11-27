@@ -136,7 +136,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#referenceDataset">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">lexicalized dataset</rdfs:label>
+        <rdfs:label xml:lang="en">reference dataset</rdfs:label>
         <rdfs:comment xml:lang="en">The void:Dataset that stands for the data being linguistically grounded by a lime:Lexicalization.</rdfs:comment>
         <rdfs:range rdf:resource="&void;Dataset"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
