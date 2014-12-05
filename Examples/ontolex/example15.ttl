@@ -1,0 +1,36 @@
+# This is an example of a full lexicon in English
+
+# syntactically validated using JENA API 2.11.2
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix : <> .
+
+
+<SenseLexicon> a ontolex:SenseLexicon;
+  ontolex:language "en";
+  ontolex:senseEntry <Consumption1> ;
+  ontolex:senseEntry <Consumption2> ;
+  ontolex:senseEntry <Tuberculosis1> .
+
+<Consumption1> a ontolex:LexicalSense ;
+  ontolex:reference dbpedia:Tuberculosis ;
+  ontolex:isSenseOf <Consumption> .
+
+<Consumption2> a ontolex:LexicalSense ;
+  ontolex:reference <http://dbpedia.org/resource/Consumption_(Economics)> ;
+  ontolex:isSenseOf <Consumption> .
+
+<Tuberculosis1> a ontolex:LexicalSense ;
+  ontolex:reference dbpedia:Tuberculosis ;
+  ontolex:isSenseOf <Tuberculosis> .
+
+<Consumption> a ontolex:LexicalEntry ;
+  ontolex:canonicalForm <Consumption#Lemma> .
+
+<Consumption#Lemma> ontolex:writtenRep "consumption"@en .
+
+<Tuberculosis> a ontolex:LexicalEntry ;
+  ontolex:canonicalForm <Tuberculosis#Lemma> .
+
+<Tuberculosis#Lemma> ontolex:writtenRep "tuberculosis"@en .
