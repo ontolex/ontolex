@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>OntoLex Model</title>
+<meta http-equiv="Content-Type"
+	content="application/xhtml+xml; charset=utf-8" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src="http://yandex.st/jquery/fancybox/1.3.4/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="http://yandex.st/jquery/fancybox/1.3.4/jquery.fancybox.css" type="text/css" media="screen" />
+<!--  Reset counter to 0 for first page -->	
+<style>
+
+div.toc ul { counter-reset: item }
+
+.body h1 {counter-increment: section; }
+.body h2 {counter-increment: subsection; }
+.body h1:before { content: counters(section, ".") ". "; }
+.body h2:before { content: counters(section, ".") "." counters(subsection, ".") ". "; }
+
+.entity { border:1px solid #000080; width:80%; margin-left:auto; margin-right:auto; mawidth:80%; margin-left:auto; margin-right:auto; margin-bottom:30px; margin-top:30px; padding: 10px; }
+.entity h3 { margin-top:3px;padding-bottom:5px;border-bottom:1px solid #000080; }
+.description { border-top:1px dashed #808080; border-bottom:1px dashed #808080; margin-top:5px; padding-bottom:5px; }
+img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
+h1 :link {color:#005a9c;text-decoration:none;}
+h2 :link {color:#005a9c;text-decoration:none;}
+h1 :visited {color:#005a9c;text-decoration:none;}
+h2 :visited {color:#005a9c;text-decoration:none;}
+
+.beispiel { border: 1px dashed #808080; width:80%; margin-left:auto; margin-right:auto; margin-bottom:30px; margin-top:30px; overflow:hidden;}
+.beispiel img { width:300px; }
+.beispiel pre { border:none; font-size:130%;}
+.beispiel a { float:left; border: 1px solid #000080; margin: 20px; }
+
+</style>	
+<link rel="stylesheet" href="spec.css" type="text/css" />
+
+</head>
+
+<body>
+
+<div id="status" style="position: absolute; -moz-transform-origin: top left; transform-origin: top left; -webkit-transform-origin: top left;
+        height: 30px; width: 250px; padding-top: 8px; top:250px; left:0px;
+        font-size: 18px; text-align: center; font-family: Arial, sans-serif; font-weight: 100;
+	 	-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); MozTransform: rotate(-90deg); 
+		background: #ff0000; color: #ffffff; ">W3C Community Draft</div>
+
+<div id="header">
+<table class="layout">
+	<tr>
+		<td><a href=http://www.w3.org/><img alt=W3C height=48 src=http://www.w3.org/Icons/w3c_home width=72></a></td>
+		<td>
+		<h2 class="title">OntoLex Model</h2>
+		<h3 class="subTitle">Community Draft, ?? December 2014</h3>
+		</td>
+	</tr>
+</table>
+</div>
+
+<hr />
+
+<dl>
+	<dt>This version:</dt>
+	<dd><a href="">TODO</a></dd>
+	<dt>Latest version:</dt>
+	<dd><a href="">TODO</a></dd>
+	<dt>Previous version:</dt>
+	<dd><a href="">TODO</a></dd>
+</dl>
+
+<dl class="EditorsContributors">
+	<dt>Editors:</dt>
+	<dd>Philipp Cimiano, Cognitive Interaction Technology Excellence Center, Bielefeld University</dd>
+	<dd>John P. M<sup>c</sup>Crae, Cognitive Interaction Technology Excellence Center, Bielefeld University</dd>
+	<dd>Paul Buitelaar, Insight, National University of Ireland, Galway</dd>
+</dl>
+
+<dl class="EditorsContributors">
+	<dt>Contributors (in alphabetical order):</dt>
+	<dd>TODO</dd>
+</dl>
+
+
+<div class="abstract">
+<h2><a id="abstract" name="abstract"></a>Abstract</h2>
+TODO
+</div>
+
+<div class="abstract">
+<h2><a id="status" name="status"></a>Status of this Document</h2>
+<p><i>This section describes the status of this document at the time of its publication. Other documents may supersede this document.</i>
+</p>
+
+<p>Copyright © 2012-2015 the Contributors to the OntoLex Model Specification, 
+published by the  <a href="http://www.w3.org/community/ontolex/">OntoLex Community Group</a> under the 
+<a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>.
+A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/">summary</a> is available.
+</p>
+
+<p>This specification was published by the <a href="http://www.w3.org/community/ontolex/">OntoLex Community Group</a>. 
+It is not a W3C Standard nor is it on the W3C Standards Track. 
+Please note that under the <a href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a> 
+there is a limited opt-out and other conditions apply. Learn more about <a href="http://www.w3.org/community/">W3C Community and Business Groups</a>.</p>
+
+<p>
+This document has been made available to the OntoLex Community Group for review, but is not endorsed by them.
+This is a working draft, and it is not endorsed by the W3C or its members. 
+It is inappropriate to refer to this document other than as "work in progress".
+</p>
+<p>
+Please send general comments about this document to the public mailing list: <a href="mailto:public-ontolex@w3.org">public-ontolex@w3.org</a> 
+(<a href="http://lists.w3.org/Archives/Public/public-ontolex/">public archives</a>).
+</p>
+
+</div>
+
+<hr />
+
+<div class="toc">
+<h2><a id="contents" name="contents"></a>Table of Contents</h2>
+
+<p class="toc">$toc$</p>
+
+</div>
+
+<hr />
+
+<div class="body">
+    $body$
+</div>
+<script>
+$$(document).ready(function() {
+        $$(".tn").fancybox({'transitionIn':'elastic'});
+        $$(".tn").children("img").title = "Click to expand";
+        });
+</script>
+</body>
+</html>
