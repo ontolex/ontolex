@@ -1,0 +1,60 @@
+body {
+  padding: 2em 80px 2em 160px;
+  margin: 0;
+  font-family: sans-serif;
+  color: black;
+  background: white;
+  background-position: top left;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+:link { color: #00C; background: transparent }
+:visited { color: #609; background: transparent }
+a:active { color: #C00; background: transparent }
+
+a:link img, a:visited img { border-style: none } /* no border on img links */
+
+h1, h2, h3, h4, h5, h6 { text-align: left; 
+			 font-family: Gill Sans / Gill Sans MT, sans-serif;
+		       }
+
+/*
+h3 { box-shadow: rgba(0,0,0,0.4) 3px 3px; 
+     border-bottom: thin #005A9C solid; 
+     border-right: thin #005A9C solid; 
+ }
+*/
+
+h2, h3, h4 { color: #444; }
+
+h1 { font-size: 190%;}
+h2 { font-size: 150%;}
+h3 { font-size: 120%;}
+h4 { font-size: 100%;}
+h5 { font: italic 100%;}
+h6 { font: small-caps 100%;}
+
+.hide { display: none }
+
+a[href]:hover { background: #ffa }
+
+div.head { margin-bottom: 1em }
+div.head h1 { margin-top: 2em; clear: both }
+div.head table { margin-left: 2em; margin-top: 2em }
+
+p.copyright { font-size: small; }
+p.copyright small { font-size: small }
+
+pre { margin-left: 2em }
+dt { font-weight: bold }
+
+ul.toc, ol.toc {
+  list-style: disc;		/* Mac NS has problem with 'none' */
+  list-style: none;
+}
+
+section#abstract p { 
+ margin-left: 5%;
+ margin-right: 5%;
+ font-size: 110%;
+}
