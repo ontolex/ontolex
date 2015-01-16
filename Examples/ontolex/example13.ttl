@@ -10,4 +10,4 @@
 :videre ontolex:morphologicalPattern :latin_second_conjugation ;
   ontolex:canonicalForm :videre_form .
 
-:videre_form ontolex:writtenRep "videre"@la
+:videre_form ontolex:writtenRep "videre"@la .

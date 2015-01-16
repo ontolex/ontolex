@@ -1,0 +1,20 @@
+@prefix : <> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Lexicalization a lime:LexicalizationSet ;
+  lime:referenceDataset <http://www.example.com/ontology> ;
+  lime:lexiconDataset <http://www.example.com/lexicon> ;
+  lime:references 20 ;
+  lime:entries  50 .
+
+<http://www.example.com/ontology> a owl:Ontology , void:Dataset ;
+  void:entities 100 .
+
+<http://www.example.com/lexicon> a ontolex:Lexicon ;
+  ontolex:language "ja" ;
+  lime:entries 80 .

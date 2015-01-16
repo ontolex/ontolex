@@ -1,15 +1,8 @@
-# This example illustrates how to represent lexical ambiguities in the lexicon model for ontologies
-
-# syntactically validated using JENA API 2.11.2
-
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix : <> .
 
+<bank> a ontolex:LexicalEntry ;
+  ontolex:denotes <http://dbpedia.org/resource/Bank> ,
+                  <http://dbpedia.org/resource/Bank_(geographic)> ;
+  ontolex:canonicalForm <bank#lemma> .
 
-:lex_bachelor a ontolex:LexicalEntry;
-   ontolex:denotes <http://dbpedia.org/resource/Bachelor>;
-   ontolex:denotes <http://dbpedia.org/resource/Single_person>.
-
-:lex_bachelor ontolex:canonicalForm :form_bachelor.
-
-:form_bachelor ontolex:writtenRep "bachelor"@en .
+<bank#lemma> ontolex:writtenRep "bank"@en .

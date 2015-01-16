@@ -110,7 +110,7 @@
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&ontolex;sense"/>
-            <rdf:Description rdf:about="&ontolex;lexicalizedSense"/>
+            <rdf:Description rdf:about="&ontolex;isLexicalizedSenseOf"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -427,7 +427,7 @@
                 <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A single unit of analysis in the lexicon comprising a collection of forms that are morphologically related or have a single pronunciation and have the same meaning(s).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A single unit of analysis in the lexicon comprising a collection of forms that are morphologically related or have a single pronunciation and have the same set of meaning</rdfs:comment>
     </owl:Class>
     
 

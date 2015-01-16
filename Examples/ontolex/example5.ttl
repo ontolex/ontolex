@@ -15,13 +15,3 @@
    ontolex:canonicalForm :form_marry;
    ontolex:denotes <http://dbpedia.org/ontology/spouse>.
 :form_marry ontolex:writtenRep "marry"@en .
-
-:lex_high a ontolex:LexicalEntry;
-   ontolex:canonicalForm :form_high;
-   ontolex:denotes <http://dbpedia.org/ontology/elevation>.
-:form_high ontolex:writtenRep "high"@en . 
-
-:lex_intangible_assets a ontolex:LexicalEntry;
-  ontolex:canonicalForm :form_intangible_assets;
-  ontolex:denotes <http://dbpedia.org/resource/Intangible_asset>.
-:form_intangible_assets ontolex:writtenRep "intangible assets"@en .

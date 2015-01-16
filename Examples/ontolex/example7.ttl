@@ -5,6 +5,8 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo#> .
 @prefix : <> .
 
 :lex_consumption a ontolex:LexicalEntry;
@@ -12,31 +14,19 @@
        ontolex:sense :consumption_sense1;
        ontolex:sense :consumption_sense2;
        ontolex:sense :consumption_sense3;
-       ontolex:sense :consumption_sense4.
+       ontolex:sense :consumption_sense4 .
 
 :form_consumption ontolex:writtenRep "consumption"@en.
 
-:consumption_sense1 ontolex:definition :consumption_definition1; 
-  ontolex:reference <http://dbpedia.org/Resource/Consumption_(ecology)>.
+:consumption_sense1 dct:subject <http://dbpedia.org/resource/Ecology> ;
+  ontolex:reference <http://dbpedia.org/resource/Consumption_(ecology)> .
 
-:consumption_definition1 rdf:value "Consumers are organisms of an ecological food chain that receive energy by consuming other organisms."@en. 
+:consumption_sense2 dct:subject <http://dbpedia.org/resource/Anatomy> ;
+  ontolex:reference <http://dbpedia.org/Resource/Ingestion> .
 
-:consumption_sense2 ontolex:definition :consumption_definition2;
-  ontolex:reference <http://dbpedia.org/Resource/Ingestion>.
+:consumption_sense3 dct:subject <http://dbpedia.org/resource/Economics> ;
+   ontolex:reference <http://dbpedia.org/resource/Consumption_(economics)> .
 
-:consumption_definition2 rdf:value "Ingestion is the consumption of a substance by an organism."@en. 
-
-:consumption_sense3 ontolex:definition :consumption_definition3;
-   ontolex:reference <http://dbpedia.org/Resource/Consumption_(economics)>.
-
-:consumption_definition3 rdf:value "Consumption is a major concept in economics and is also studied by many other social sciences. Economists are particularly interested in the relationship between consumption and income, and therefore in economics the consumption function plays a major role."@en. 
-
-# The fourth sense contains the information that the interpretation of "consumption" as referring to Tuberculosis is outdated.
-
-:consumption_sense4 ontolex:definition :consumption_definition4;
-   ontolex:reference <http://dbpedia.org/Resource/Tuberculosis>;
-   ontolex:context :context1.
-
-:context1 rdfs:comment "outdated".
-
-:consumption_definition4 rdf:value "Tuberculosis, MTB, or TB (short for tubercle bacillus), in the past also called Phthisis or Phthisis pulmonalis, is a common, and in many cases lethal, infectious disease caused by various strains of mycobacteria, usually Mycobacterium tuberculosis."@en. 
+:consumption_sense4 dct:subject <http://dbpedia.org/resource/Medicine> ;
+   lexinfo:dating lexinfo:old ;
+   ontolex:reference <http://dbpedia.org/Resource/Tuberculosis> .

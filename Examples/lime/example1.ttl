@@ -11,11 +11,12 @@
    ontolex:entry :lex_cat;
    ontolex:entry :lex_marry;
    ontolex:entry :lex_intangible_assets;
-   lime:entries "4"^^xsd:integer;
+   lime:lexicalEntries "4"^^xsd:integer;
+   lime:linguisticModel <http://www.lexinfo.net/ontologies/2.0/lexinfo> ;
    dc:description "This is an example lexicon"@en;
    dc:description "Questo è un lessico di esempio"@it;
    dc:creator <http://john.mccr.ae/>;
-   void:triples "28"^^xsd:integer .
+   void:triples "29"^^xsd:integer .
 
 :lex_cat a ontolex:LexicalEntry;
    ontolex:canonicalForm :form_cat;

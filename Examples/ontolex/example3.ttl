@@ -1,30 +1,22 @@
-# This example illustrates how to specify the canonical form of different types of lexical entries, e.g. for a noun (cat), verb (marry) and adjective (high)
-
-
-# syntactically validated using JENA API 2.11.2
-
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix : <> .
 
 
-:lex_cat a ontolex:LexicalEntry;
-     ontolex:canonicalForm :form_cat.
+:lex_cat a ontolex:LexicalEntry, ontolex:Word;
+     ontolex:canonicalForm :form_cat;
+     rdfs:label "cat"@en .
 
 :form_cat ontolex:writtenRep "cat"@en .
 
-:lex_marry a ontolex:LexicalEntry;
-     ontolex:canonicalForm :form_marry.
+:lex_marry a ontolex:LexicalEntry, ontolex:Word;
+     ontolex:canonicalForm :form_marry;
+     rdfs:label "marry"@en .
 
 :form_marry ontolex:writtenRep "marry"@en .
 
-:lex_high a ontolex:LexicalEntry;
-     ontolex:canonicalForm :form_high.
+:lex_high a ontolex:LexicalEntry, ontolex:Word;
+     ontolex:canonicalForm :form_high;
+     rdfs:label "high"@en .
 
 :form_high ontolex:writtenRep "high"@en .
-
-# And here we give one example for a multiword expression (MWE)
-
-:lex_intangible_assets a ontolex:LexicalEntry;
-     ontolex:canonicalForm :form_intangible_assets.
-
-:form_intangible_assets ontolex:writtenRep "intangible assets"@en .

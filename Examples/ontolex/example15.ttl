@@ -4,26 +4,25 @@
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix : <> .
 
+<ConceptLexicon> a ontolex:ConceptLexicon;                                        
+  skos:inScheme <Consumption1> ,
+                <Consumption2> ,
+                <Tuberculosis1> .
 
-<SenseLexicon> a ontolex:SenseLexicon;
-  ontolex:language "en";
-  ontolex:senseEntry <Consumption1> ;
-  ontolex:senseEntry <Consumption2> ;
-  ontolex:senseEntry <Tuberculosis1> .
-
-<Consumption1> a ontolex:LexicalSense ;
-  ontolex:reference dbpedia:Tuberculosis ;
-  ontolex:isSenseOf <Consumption> .
-
-<Consumption2> a ontolex:LexicalSense ;
-  ontolex:reference <http://dbpedia.org/resource/Consumption_(Economics)> ;
-  ontolex:isSenseOf <Consumption> .
-
-<Tuberculosis1> a ontolex:LexicalSense ;
-  ontolex:reference dbpedia:Tuberculosis ;
-  ontolex:isSenseOf <Tuberculosis> .
+<Consumption1> a ontolex:LexicalConcept ;
+  ontolex:isConceptOf dbpedia:Tuberculosis ;
+  ontolex:isEvokedBy <Consumption> .
+                                                                                
+<Consumption2> a ontolex:LexicalConcept ;                                         
+  ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(Economics)> ;
+  ontolex:isEvokedBy <Consumption> .
+                                                                                
+<Tuberculosis1> a ontolex:LexicalConcept ;
+  ontolex:isConceptOf dbpedia:Tuberculosis ;
+  ontolex:isEvokedBy <Tuberculosis> .
 
 <Consumption> a ontolex:LexicalEntry ;
   ontolex:canonicalForm <Consumption#Lemma> .

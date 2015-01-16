@@ -27,8 +27,7 @@ ontolex:reference <http://dbpedia.org/ontology/almaMater>;
 ontolex:subjOfProp :graduate_arg1;
 ontolex:objOfProp :graduate_arg2.
  
-:graduate_arg2 synsem:marker :from ;
-               synsem:optional "true"^^xsd:boolean .
+:graduate_arg2 synsem:marker :from .
 
 :from a ontolex:LexicalEntry ;
   ontolex:canonicalForm :from_form .

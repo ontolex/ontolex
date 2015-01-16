@@ -14,11 +14,11 @@
 :fao_fullform a vartrans:LexicalVariant ;
       vartrans:variantSource :food_agriculture_organization_form ;
       vartrans:variantTarget :fao_form ; 
-      vartrans:variantCategory isocat:DC-241.
+      vartrans:variantCategory :abbreviation.
 
 :fao_initialism a vartrans:LexicalVariant ;
       vartrans:variantSource :fao_form ;
       vartrans:variantTarget :food_agriculture_organization_form ; 
-      vartrans:variantCategory isocat:DC-272 .
+      vartrans:variantCategory :full_form .
 
 

@@ -14,12 +14,11 @@
 
 :female_canonical_form ontolex:writtenRep "female"@en.
 
-:female_sense ontolex:reference :Female;
-  ontolex:isA :female_arg.
-
-:Female a owl:Restriction ; 
-   owl:onProperty <http://dbpedia.org/property/gender> ;
-   owl:hasValue   <http://dbpedia.org/resource/Female> .
+:female_sense ontolex:reference [
+  a owl:Restriction ;
+  owl:onProperty :gender ;
+  owl:hasValue :female ] ;
+  synsem:isA :female_arg.
 
 :female_syn a lexinfo:AdjectivePredicateFrame;
 lexinfo:copulativeSubject :female_arg.

@@ -5,5 +5,5 @@
 :ride a ontolex:LexicalEntry ;
   ontolex:sense :ride_sense1 .
 
-:ride_sense1 ontolex:reference :travelUsing ;
+:ride_sense1 ontolex:reference :methodOfTransportation ;
   ontolex:propertyRange :Bicycle .
