@@ -1,0 +1,31 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo#> .
+
+<spiaggia> a ontolex:Word ;
+  ontolex:canonicalForm <spiaggia#lemma> ;
+  ontolex:otherForm <spiaggia#plural> ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lexinfo:gender lexinfo:feminine .
+
+<spiaggia#lemma> 
+  ontolex:writtenRep "spiaggia"@it ;
+  lexinfo:number lexinfo:singular .
+
+<spiaggia#plural>
+  ontolex:writtenRep "spiagge"@it ;
+  lexinfo:number lexinfo:plural .
+
+<famoso> a ontolex:Word ;
+  ontolex:canonicalForm <famoso#lemma> ;
+  ontolex:otherForm <famoso#famosa>, <famoso#famose>, <famoso#famosi> ;
+  lexinfo:partOfSpeech lexinfo:adjective .
+
+<famoso#lemma> 
+  ontolex:writtenRep "famoso"@it ;
+  lexinfo:number lexinfo:singular ;
+  lexinfo:gender lexinfo:masculine .
+
+<famoso#famosa> 
+  ontolex:writtenRep "famoso"@it ;
+  lexinfo:number lexinfo:singular ;
+  lexinfo:gender lexinfo:feminine .

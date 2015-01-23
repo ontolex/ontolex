@@ -19,7 +19,7 @@
 :phthisis_form ontolex:writtenRep "phthisis"@en .
 
 :phtisis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>;
-               dct:subject dbpedia:Medicine .
+               dct:subject <http://dbpedia.org/resource/Medicine> .
 
 :phtisis_diachronic_var a vartrans:TerminologicalVariant ;
       vartrans:source :phthisis_sense ;
