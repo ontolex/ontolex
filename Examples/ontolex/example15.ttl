@@ -7,7 +7,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix : <#> .
 
-<ConceptLexicon> a ontolex:ConceptLexicon;                                        
+<ConceptLexicon> a ontolex:ConceptSet;                                        
   skos:inScheme <Consumption1> ,
                 <Consumption2> ,
                 <Tuberculosis1> .

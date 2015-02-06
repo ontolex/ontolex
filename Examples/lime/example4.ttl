@@ -3,10 +3,10 @@
 @prefix ontology: <http://www.example.com/ontology#> .
 
 :Lexicalization a lime:LexicalizationSet ;
-  lime:coverage :CountryCoverage ;
+  lime:partition :CountryPartition ;
   lime:references 2000 .
 
-:CountryCoverage a lime:ResourceCoverage ;
+:CountryPartition
   lime:resourceType ontology:Country ;
   lime:references 50 .
 

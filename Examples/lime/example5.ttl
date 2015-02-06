@@ -3,8 +3,8 @@
 @prefix : <> .
 
 :Lexicalization a lime:LexicalizationSet ;
-  lime:coverage :ClassCoverage .
+  lime:partition :ClassPartition .
 
-:ClassCoverage a lime:ResourceCoverage ;
+:ClassPartition
   lime:resourceType owl:Class ;
   lime:references 50 .
