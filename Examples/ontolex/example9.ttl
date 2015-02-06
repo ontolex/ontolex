@@ -4,7 +4,7 @@
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix : <> .
+@prefix : <#> .
 
 :lexicon a ontolex:Lexicon;
    ontolex:language "es";

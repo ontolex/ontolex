@@ -7,6 +7,6 @@ do
     echo $NAME
     if [[ $NAME != lime-old* ]]
     then
-        rapper -i turtle -o dot -I "http://www.w3.org/ns/lemon/$NAME#" $f | dot -Tpng > ${f/%ttl/png}
+        python3 convert_to_dot.py $f | dot -Tpng > ${f/%ttl/png}
     fi
 done

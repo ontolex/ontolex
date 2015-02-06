@@ -5,7 +5,7 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix dbpedia: <http://dbpedia.org/resource/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix : <> .
+@prefix : <#> .
 
 <ConceptLexicon> a ontolex:ConceptLexicon;                                        
   skos:inScheme <Consumption1> ,

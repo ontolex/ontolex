@@ -3,7 +3,7 @@
 # syntactically validated using JENA API 2.11.2
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix : <> .
+@prefix : <#> .
 
 
 :lexicon a ontolex:Lexicon;

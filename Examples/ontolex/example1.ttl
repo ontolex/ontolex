@@ -4,11 +4,11 @@
 # syntactically validated using JENA API 2.11.2
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix : <> .
+@prefix : <#> .
 
 :lex_color a ontolex:LexicalEntry;
-     :lexicalForm :form_color.
+     :lexicalForm :form_color .
 
 :form_color a ontolex:Form;
-     :writtenRep "colour"@en-GB, "color"@en-US.
+     :writtenRep "colour"@en-GB, "color"@en-US .
 

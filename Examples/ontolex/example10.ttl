@@ -1,7 +1,7 @@
 # This example illustrates the use of evokes and lexicalizedSense
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix : <> .
+@prefix : <#> .
 
 :temporary_change_of_possession a ontolex:LexicalConcept;
      ontolex:lexicalizedSense :borrow_sense;

@@ -1,0 +1,10 @@
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+
+<http://www.example.com/doc.txt#char=7,10> a nif:RFC5147String ;
+  nif:beginIndex 7 ;
+  nif:endIndex 10 ;
+  nif:anchorOf "cat" .
+
+<cat> a ontolex:LexicalEntry ;
+  nif:occurrence <http://www.example.com/doc.txt#char=7,10> .

@@ -1,0 +1,36 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix wordnet-ontology: <http://wordnet-rdf.princeton.edu/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<> a ontolex:LexicalEntry ;
+    wordnet-ontology:part_of_speech wordnet-ontology:noun ;
+    ontolex:canonicalForm <#CanonicalForm> ;
+    ontolex:sense <#1-n>,
+        <#2-n>,
+        <#3-n>,
+        <#4-n>,
+        <#5-n>,
+        <#6-n> .
+
+<#1-n> a ontolex:LexicalSense ;
+    wordnet-ontology:gloss "feline mammal usually having thick soft fur and no ability to roar: domestic cats; wildcats"@eng ;
+    wordnet-ontology:lex_id 0 ;
+    wordnet-ontology:old_sense_key "cat%1:05:00::" ;
+    wordnet-ontology:sense_number 1 ;
+    wordnet-ontology:tag_count 18 ;
+    ontolex:reference <http://wordnet-rdf.princeton.edu/wn31/102124584-n> ;
+    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_574>,
+        <http://www.lexvo.org/page/wordnet/30/noun/cat_1_05_00> .
+
+<http://wordnet-rdf.princeton.edu/wn31/102124584-n> a ontolex:LexicalConcept ;
+    rdfs:label "cat"@eng,
+        "true cat"@eng ;
+    wordnet-ontology:gloss "feline mammal usually having thick soft fur and no ability to roar: domestic cats; wildcats"@eng ;
+    wordnet-ontology:hypernym <http://wordnet-rdf.princeton.edu/wn31/102123961-n> ;
+    wordnet-ontology:hyponym <http://wordnet-rdf.princeton.edu/wn31/102124772-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/102127587-n> ;
+    wordnet-ontology:lexical_domain wordnet-ontology:noun.animal ;
+    wordnet-ontology:part_of_speech wordnet-ontology:noun ;
+    wordnet-ontology:synset_member <http://wordnet-rdf.princeton.edu/wn31/cat-n>,
+        <http://wordnet-rdf.princeton.edu/wn31/true+cat-n> .
