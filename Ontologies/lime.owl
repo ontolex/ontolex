@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY void "http://rdfs.org/ns/void#" >
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY vann "http://purl.org/vocab/vann/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY ontolex "http://www.w3.org/ns/lemon/ontolex#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/ns/lemon/lime#"
+     xml:base="http://www.w3.org/ns/lemon/lime"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ontolex="http://www.w3.org/ns/lemon/ontolex#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:void="http://rdfs.org/ns/void#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.w3.org/ns/lemon/lime">
+        <rdfs:label xml:lang="en">LIngusitic MEtadata (LIME)</rdfs:label>
+        <vann:preferredNamespaceUri rdf:datatype="&xsd;string">http://www.w3.org/ns/lemon/lime#</vann:preferredNamespaceUri>
+        <vann:preferredNamespacePrefix rdf:datatype="&xsd;string">lime</vann:preferredNamespacePrefix>
+        <dcterms:description xml:lang="en">LIME (LInguistic MEtadata) is a vocabulary for expressing linguistic metadata about linguistic resources and linguistically grounded datasets.</dcterms:description>
+        <dcterms:title xml:lang="en">Vocabulary of Linguistic Metadata</dcterms:title>
+        <owl:imports rdf:resource="http://rdfs.org/ns/void"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#coverage -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#coverage">
+        <rdfs:label xml:lang="en">resource coverage</rdfs:label>
+        <rdfs:comment xml:lang="en">Statistics about the lexicalization of resources of a given type.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#Lexicalization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/lime#ResourceCoverage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#lexicalLinkset -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#lexicalLinkset">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="en">lexical linkset</rdfs:label>
+        <rdfs:comment xml:lang="en">A known lime:LexicalLinkset of a void:Dataset.</rdfs:comment>
+        <rdfs:domain rdf:resource="&void;Dataset"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalLinkset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#lexicalization -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#lexicalization">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="en">lexicalization</rdfs:label>
+        <rdfs:comment xml:lang="en">A known lime:Lexicalization of a void:Dataset.</rdfs:comment>
+        <rdfs:domain rdf:resource="&void;Dataset"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/lime#Lexicalization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#lexiconDataset -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#lexiconDataset">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">lexicon</rdfs:label>
+        <rdfs:comment xml:lang="en">The lime:Lexicon a lime:Lexicalization refers to.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#Lexicalization"/>
+        <rdfs:range rdf:resource="&ontolex;Lexicon"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#referenceDataset -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#referenceDataset">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">reference dataset</rdfs:label>
+        <rdfs:comment xml:lang="en">The void:Dataset that stands for the data being linguistically grounded by a lime:Lexicalization.</rdfs:comment>
+        <rdfs:range rdf:resource="&void;Dataset"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#Lexicalization"/>
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/lemon/lime#lexicalization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#resourceType -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#resourceType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Resource Type</rdfs:label>
+        <rdfs:comment xml:lang="en">The type of resources for a given resource coverage.</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Class"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#ResourceCoverage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#avgNumberOfLexicalizations -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/lemon/lime#avgNumberOfLexicalizations">
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#Lexicalization"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#ResourceCoverage"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#lexicalEntries -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/lemon/lime#lexicalEntries">
+        <rdfs:label xml:lang="en">lexical entries</rdfs:label>
+        <rdfs:comment xml:lang="en">Number of distinct lexical entries.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#lexicalizations -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/lemon/lime#lexicalizations">
+        <rdfs:label xml:lang="en">lexicalizations</rdfs:label>
+        <rdfs:comment xml:lang="en">Number of distinct lexicalizations.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#Lexicalization"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#ResourceCoverage"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#linguisticModel -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#linguisticModel">
+        <rdfs:label xml:lang="en">linguistic model</rdfs:label>
+        <rdfs:comment xml:lang="en">The linguistic model used in a lime:Lexicalization.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#Lexicalization"/>
+                    <rdf:Description rdf:about="&ontolex;Lexicon"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#references -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/lemon/lime#references">
+        <rdfs:label xml:lang="en">references</rdfs:label>
+        <rdfs:comment xml:lang="en">Number of distinct references.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#Lexicalization"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#ResourceCoverage"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Property -->
+
+    <owl:Class rdf:about="&owl;Property"/>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#LexicalLinkset -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/lemon/lime#LexicalLinkset">
+        <rdfs:label xml:lang="en">Lexical linkset</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&void;Linkset"/>
+        <rdfs:comment xml:lang="en">A  lexical linkset provides a collection of links between an RDF dataset and a conceptualized linguistic resource (e.g., WordNet).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#Lexicalization -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/lemon/lime#Lexicalization">
+        <rdfs:label xml:lang="en">Lexicalization</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&void;Dataset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#lexiconDataset"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontolex;language"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#referenceDataset"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A lexicalization provides the realization in a natural language of the resources found in an RDF dataset. To that end, the lexicalization might relate these resources to entries of a Lexicon (i.e., lexical entries or senses). Multiple linguistic models may coexist in principle, as long as the same information is expressed in each model, in the limit of its expressive power.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#ResourceCoverage -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/lemon/lime#ResourceCoverage">
+        <rdfs:label xml:lang="en">Resource coverage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#resourceType"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A collection of statistics about the lexicalization of resources of a given type.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#linguisticModel -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/lemon/lime#linguisticModel">
+        <rdf:type rdf:resource="&owl;Property"/>
+        <rdfs:label xml:lang="en">linguistic model</rdfs:label>
+        <rdfs:comment xml:lang="en">The linguistic model used in a lime:Lexicalization.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
