@@ -3,7 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix void: <http://rdfs.org/ns/void#> .
-@prefix : <> .
+@prefix : <#> .
 
 :lexicon a ontolex:Lexicon;
    ontolex:language "en";
@@ -15,7 +15,7 @@
    lime:linguisticModel <http://www.lexinfo.net/ontologies/2.0/lexinfo> ;
    dc:description "This is an example lexicon"@en;
    dc:description "Questo è un lessico di esempio"@it;
-   dc:creator <http://john.mccr.ae/>;
+   dc:creator <http://john.mccr.ae>;
    void:triples "29"^^xsd:integer .
 
 :lex_cat a ontolex:LexicalEntry;
