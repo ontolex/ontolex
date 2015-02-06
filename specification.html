@@ -82,16 +82,38 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <li><a href="#lexical-concept">Lexical Concept</a></li>
 </ul></li>
 <li><a href="#syntax-and-semantics-synsem">Syntax and Semantics (synsem)</a><ul>
+<li><a href="#syntactic-frames">Syntactic Frames</a></li>
+<li><a href="#semantic-frames">Semantic Frames</a></li>
+<li><a href="#complex-and-atomic-senses">Complex and atomic senses</a></li>
 <li><a href="#conditions">Conditions</a></li>
 </ul></li>
 <li><a href="#decomposition-decomp">Decomposition (decomp)</a></li>
 <li><a href="#variation-translation-vartrans">Variation &amp; Translation (vartrans)</a><ul>
+<li><a href="#relations">Relations</a></li>
+<li><a href="#variants">Variants</a></li>
 <li><a href="#translation">Translation</a></li>
 </ul></li>
-<li><a href="#metadata-lime">Metadata (lime)</a></li>
-<li><a href="#linguistic-description">Linguistic Description</a></li>
-<li><a href="#lexical-nets">Lexical Nets</a></li>
-<li><a href="#relation-to-skos">Relation to SKOS</a></li>
+<li><a href="#metadata-lime">Metadata (lime)</a><ul>
+<li><a href="#lexicalization">Lexicalization</a></li>
+<li><a href="#coverages">Coverages</a></li>
+<li><a href="#linksets">Linksets</a></li>
+<li><a href="#provenance-using-prov-o">Provenance (using PROV-O)</a></li>
+</ul></li>
+<li><a href="#linguistic-description">Linguistic Description</a><ul>
+<li><a href="#morphosyntactic-description">Morphosyntactic Description</a></li>
+<li><a href="#pragmatic-description">Pragmatic Description</a></li>
+<li><a href="#arguments">Arguments</a></li>
+<li><a href="#frames">Frames</a></li>
+</ul></li>
+<li><a href="#lexical-nets">Lexical Nets</a><ul>
+<li><a href="#wordnet-in-ontolexlemon">WordNet in OntoLex/Lemon</a></li>
+<li><a href="#wordnet-json-ld-and-interlingual-indexing">WordNet JSON-LD and Interlingual Indexing</a></li>
+</ul></li>
+<li><a href="#relation-to-other-models">Relation to Other Models</a><ul>
+<li><a href="#skos-xl">SKOS(-XL)</a></li>
+<li><a href="#lmf">LMF</a></li>
+<li><a href="#openannotation-and-nif">OpenAnnotation and NIF</a></li>
+</ul></li>
 </ul>
 
 <p>This document describes the specification of the lexicon model for ontologies as resulting from the work of the W3C ontology-lexicon Community Group.</p>
@@ -106,9 +128,9 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 </ul>
 <p>The last three sections are not formally part of the actual specification of the model, but clarify :</p>
 <ul>
-<li>how one can add linguistic levels of description by means of external ontologies (section 6)</li>
-<li>how one can use the lexicon model for ontologies to describe lexical nets and other linguistic resources (section 7)</li>
-<li>relation between the lexicon ontology model and SKOS (section 8)</li>
+<li>how one can add linguistic levels of description by means of external ontologies (section 7)</li>
+<li>how one can use the lexicon model for ontologies to describe lexical nets and other linguistic resources (section 8)</li>
+<li>relation between the lexicon ontology model and SKOS (section 9)</li>
 </ul>
 <h1 id="introduction"><a href="#introduction">Introduction</a></h1>
 <p>Ontologies are an important component of the Semantic Web. While ontology languages such as <a href="http://www.w3.org/TR/owl-features/OWL">OWL</a> allow us to define logical theories consisting of linguistically ungrounded symbols and corresponding axioms, a grounding in natural language is crucial in order to render such ontologies for human consumption and support meaningful interaction with them by human users. It seems reasonable to assume that access to the Semantic Web will be to a large extent mediated by natural language as this is the most natural means of human expression and communication.</p>
@@ -122,13 +144,13 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 </ul>
 <h2 id="purpose-of-the-model"><a href="#purpose-of-the-model">Purpose of the model</a></h2>
 <p>The purpose of the model is to allow for linguistic grounding of a given ontology by adding information to the ontology about how the elements in the vocabulary of the ontology (individuals, classes, properties) are lexicalized in a given language.</p>
-<p>The model follows the principle of <em>semantics by reference</em> in the sense that the semantics of a <a href="#Lexical_Entry" title="wikilink">lexical entry</a> is expressed by reference to an individual, class or property defined in the ontology. In some cases, the lexicon itself can add named concepts which are not made explicit in the ontology.</p>
+<p>The model follows the principle of <em>semantics by reference</em><a href="http://link.springer.com/article/10.1007/s10579-012-9182-3/fulltext.html">1</a> in the sense that the semantics of a <a href="#Lexical_Entry" title="wikilink">lexical entry</a> is expressed by reference to an individual, class or property defined in the ontology. In some cases, the lexicon itself can add named concepts which are not made explicit in the ontology.</p>
 <p>The model described here is supposed to be open in the sense that it provides a core vocabulary to add information about linguistic realisation of ontology and vocabulary elements. This vocabulary can and should be extended as required by a particular application. In particular, the model abstracts from the specific linguistic theory and category systems used to describe the linguistic properties of lexical entries and their syntactic behaviour, encouraging everyone to reuse existing data category systems or linguistic ontologies. The model is thus agnostic with respect to the linguistic theory and category systems adopted for the description of the linguistic properties. We make explicit in this document at which points to connect with an external repository of data categories or introduce own sub-properties of properties defined in the lexicon model for ontologies.</p>
 <p>The model as presented here is inspired in many other models, in particular the <a href="http://www.lexicalmarkupframework.org">Lexical Markup Framework</a> (LMF), the <a href="http://www.lexinfo.net/">LexInfo</a> model, the <a href="http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/technologies/63-lir">LIR</a> model, the <a href="http://ontologydesignpatterns.org/wiki/Ontology:LMM">Linguistic Meta Model</a> (LMM), and the <a href="http://www.sensocomune.it">Senso Comune</a> core model.</p>
 <p>It is important to also mention what is not the purpose of the model:</p>
 <ul>
 <li>It is not the goal of the model to replace any existing W3C Standard or Recommendation. In particular, this model is not intended to represent informal schemas such as taxonomies, thesauri and other classification schemes, such as the goal of the <a href="http://www.w3.org/2004/02/skos/">SKOS</a> model.</li>
-<li>It is not a vocabulary for annotation of texts. If you need to add annotations to textual data, then please consider using the <a href="http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/nif-core.html">NLP Interchange Format (NIF)</a> or the <a href="http://palindrom.es/phd/research/earmark/">Extremely Annotational RDF Markup (Earmark)</a>.</li>
+<li>It is not a vocabulary for annotation of texts. If you need to add annotations to textual data, then please consider using the <a href="http://www.openannotation.org/spec/core/">Open Annotation</a>, <a href="http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/nif-core.html">NLP Interchange Format (NIF)</a> or the <a href="http://palindrom.es/phd/research/earmark/">Extremely Annotational RDF Markup (Earmark)</a>.</li>
 <li>It is not a formal, semantic model. The model is not supposed to be used to define an ontology and instead assumes that there is a given ontology in some ontology language that is to be linked to a lexicon that expresses how the classes, properties and individuals defined in the ontology are lexicalized.</li>
 <li>It does not contain a complete collection of linguistic categories. There are many existing efforts to provide a vocabulary of description of properties of linguistic objects, such as <a href="http://www.isocat.org">ISOcat</a>, <a href="http://purl.org/olia/">OLiA</a>, <a href="http://linguistics-ontology.org/">GOLD</a>, <a href="http://www.lexinfo.net">LexInfo</a>. The model recommends to build on those and does not introduce any vocabulary of linguistic description.</li>
 <li>It is not a generic vocabulary for the publication of linguistic linked data. See the activities of the <a href="http://linguistics.okfn.org/">Open Linguistics Working Group</a> for more information here.</li>
@@ -159,9 +181,13 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 @prefix dbpedia: &lt;http://dbpedia.org/resource/&gt;.
 @prefix void: &lt;http://vocab.deri.ie/void#&gt;.
 @prefix lexinfo: &lt;http://www.lexinfo.net/ontology/2.0/lexinfo#&gt;.
-@prefix semiotics: &lt;http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#&gt;.</code></pre>
+@prefix semiotics: &lt;http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#&gt;.
+@prefix oils: &lt;http://lemon-model.net/oils#&gt;.</code></pre>
 <p>Furthermore, we require that instances of the model adhere to the <a href="http://www.w3.org/TR/rdf11-concepts/">RDF 1.1 specification</a> model and follows the appropriate guidelines. In particular, we require that language tags adhere to <a href="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">Best Common Practice 47</a>, where tags are made up of a language code (based on <a href="http://www.iso.org/iso/home/standards/language_codes.htm">ISO 639 codes part 1, 2, 3 or 5</a> optionally followed by a hyphen and a <a href="http://www.iso.org/iso/iso-3166-1_decoding_table.html">ISO 3166-1</a> country code. Language tags may also contain further <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">subtags</a> expressing e.g. the region, script or further variants.</p>
 <h1 id="core"><a href="#core">Core</a></h1>
+<div class="figure">
+<img src="Lemon OntoLex Core.png" title="Lemon OntoLex Core.png" alt="Lemon OntoLex Core.png" /><p class="caption">Lemon OntoLex Core.png</p>
+</div>
 <h2 id="lexical-entries"><a href="#lexical-entries">Lexical Entries</a></h2>
 <p>The main class of the core of the lexicon ontology model is the class <a href="#Lexical_Entry" title="wikilink">lexical entry</a>. A lexical entry is defined as follows:</p>
 <div class='entity'>
@@ -172,19 +198,19 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/LexicalEntry">http://www.w3.org/nl/lemon/ontolex/LexicalEntry</a></p>
 </div>
 <div class='comment'>
-<p>A single unit of analysis in the lexicon comprising a collection of forms that are morphologically related or have a single pronunciation and have the same meaning(s).</p>
+<p>A single unit of analysis in the lexicon comprising a collection of forms that are morphologically related or have a single pronunciation and have the same set of meanings</p>
 </div>
 <div class='description'>
 <p><strong>SubClassOf:</strong> lexicalForm min 1 ontolex:Form, canonicalForm max 1 ontolex:Form, semiotics:Expression</p>
 </div>
 </div>
-<p>A Lexical Entry thus needs to be associated with at least one Form, which is defined below. Lexical entries are further specialized into <em>Word</em>, <em>Affix</em> (e.g., suffix, prefix or circumfix) and <em>MultiWordExpression</em> for example</p>
+<p>A Lexical Entry thus needs to be associated with at least one form, which is defined below. Lexical entries are further specialized into <em>Word</em>, <em>Affix</em> (e.g., suffix, prefix or circumfix) and <em>MultiwordExpression</em> for example</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example12.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example12.png' class='beispiel'/></a></p>
 <div>
 <pre><code>:cat a ontolex:Word
 
-:minimum_finance_lease_payments a ontolex:MultiWordExpression
+:minimum_finance_lease_payments a ontolex:MultiwordExpression
 
 :anti- a ontolex:Affix</code></pre>
 </div>
@@ -205,10 +231,10 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 </div>
 <div class='entity'>
 <h3>
-<p>MultiWordExpression (Class)</p>
+<p>MultiwordExpression (Class)</p>
 </h3>
 <div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/MultiWordExpression">http://www.w3.org/nl/lemon/ontolex/MultiWordExpression</a></p>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/MultiwordExpression">http://www.w3.org/nl/lemon/ontolex/MultiwordExpression</a></p>
 </div>
 <div class='comment'>
 <p>A lexical entry consisting of two or more words</p>
@@ -232,7 +258,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 </div>
 </div>
 <h2 id="forms"><a href="#forms">Forms</a></h2>
-<p>A <a href="#LexicalEntry" title="wikilink">lexical entry</a> can be realized in different grammatical realizations. These different grammatical realizations are represented as different <strong>Form</strong>s of the lexical entry in the core. A <strong>Form</strong> is defined as follows:</p>
+<p>A <a href="#LexicalEntry" title="wikilink">lexical entry</a> can be realized in different grammatical realizations. These different grammatical realizations are represented as different forms of the lexical entry in the core. A form is defined as follows:</p>
 <div class='entity'>
 <h3>
 <p>Form (Class)</p>
@@ -245,6 +271,22 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 </div>
 <div class='description'>
 <p><strong>SubclassOf</strong>: ontolex:writtenRep min 1 rdfs:Literal</p>
+</div>
+</div>
+<p>A form can be connected to a lexical entry by means of the lexical form property, although it is preferred to use one of the two subproperties (canonical form, other form) defined below.</p>
+<div class='entity'>
+<h3>
+<p>lexicalForm (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/lexicalForm">http://www.w3.org/nl/lemon/ontolex/lexicalForm</a></p>
+</div>
+<div class='comment'>
+<p>Indicates a single morphological form of an entry</p>
+</div>
+<div class='description'>
+<p><strong>Domain:</strong> LexicalEntry</p>
+<p><strong>Range:</strong> Form</p>
 </div>
 </div>
 <p>Each form can thus have one or more <a href="#writtenRep" title="wikilink">written representations</a>, defined as follows:</p>
@@ -264,19 +306,31 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>SubPropertyOf:</strong> representation</p>
 </div>
 </div>
-<p>For example, for the lexical entry &quot;colour&quot;, we would have two different <a href="#Form" title="wikilink">forms</a>, one for the British English written representation &quot;colour&quot; and one for the American English written representation. Both representations have the same pronunciation and the same meaning, so they are two different lexicographic variants of the same lexical entry:</p>
+<p>As such a simple example of an entry may be as follows</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example16.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example16.png' class='beispiel'/></a></p>
+<div>
+<pre><code>&lt;child&gt; a ontolex:LexicalEntry ;                                                
+  ontolex:lexicalForm &lt;child#form_singular&gt;, &lt;child#form_plural&gt; .              
+                                                                                
+&lt;child#form_singular&gt; a ontolex:Form ;                                          
+  ontolex:writtenRep &quot;child&quot;@en .                                               
+                                                                                
+&lt;child#form_plural&gt; a ontolex:Form ;                                            
+  ontolex:writtenRep &quot;children&quot;@en .</code></pre>
+</div>
+</div>
+<p>Different forms are used to express different morphological forms of the entry, they are no used to represent orthography, which are treated as different representations of the same form. A form should have at most one written representation per language tag, that is including region, script and other information, but all representations (and all forms) should be in the same language. For eaxample, for the lexical entry &quot;colour&quot;, we would have two different representations of the same form, one for the British English written representation &quot;colour&quot; and one for the American English written representation. Both representations have the same pronunciation and the same meaning, so they are two different lexicographic variants of the same lexical entry:</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example1.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example1.png' class='beispiel'/></a></p>
 <div>
-<pre><code>:lex_colour a ontolex:LexicalEntry;
-     ontolex:form :form_colour;
+<pre><code>:lex_color a ontolex:LexicalEntry;
      ontolex:form :form_color.
 
-:form_colour ontolex:writtenRep &quot;colour&quot;@en-GB.
-:form_color ontolex:writtenRep &quot;color&quot;@en-US.</code></pre>
+:form_color ontolex:writtenRep &quot;colour&quot;@en-GB, &quot;color&quot;@en-US.</code></pre>
 </div>
 </div>
-<p>It can also have different phonetic representations corresponding to different ways of pronouncing the form.</p>
+<p>A form may also have a phonetic representation, giving the phonetic pronunciation of the word.</p>
 <div class='entity'>
 <h3>
 <p>phoneticRep (Datatype Property)</p>
@@ -305,7 +359,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
      ontolex:phoneticRep &quot;/ˈpɹaɪ.və.si/&quot;@en-GB-fonipa.</code></pre>
 </div>
 </div>
-<p>Each <a href="#Form" title="wikilink">form</a> should have exactly one <a href="#writtenRep" title="wikilink">written representation</a> per language tag, but there are no restrictions on the number of associated <a href="#phoneticRep" title="wikilink">phonetic representations</a>. Phonetic representation and written representation are both considered to be subproperties of a more general property <a href="#representation" title="wikilink">representation</a>, for which users may define extra subproperties as required.</p>
+<p>Each form should have exactly one written representation per language tag, but there are no restrictions on the number of associated phonetic representations. Phonetic representation and written representation are both considered to be subproperties of a more general property representation, for which users may define extra subproperties as required.</p>
 <div class='entity'>
 <h3>
 <p>representation (Datatype Property)</p>
@@ -321,8 +375,8 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>Range:</strong> rdf:langString</p>
 </div>
 </div>
-<p>A <a href="#Lexical_Entry" title="wikilink">lexical entry</a> can have a canonical form, which is the form that primarily identifies this entry and may be used as an index term in the lexicon. The canonical form for single words is typically the lemma of that word and is determined by lexicographic conventions for that language. In the case of verbs, the lemma is typically the infinitive form or, alternatively, the present tense of the verb (note that if an external particle is used to indicate the infinitive as in English &quot;to play&quot;, this particle should be omitted). For nouns it is the noun singular form, while for adjectives it is the positive (i.e., non-negative, non-graded) form. For multi-word entries it is assumed that the same principles of lemmatization are applied to the head word.</p>
-<p>The property <a href="#canonicalForm" title="wikilink">canonical form</a> has a <a href="#Lexical_Entry" title="wikilink">Lexical Entry</a> as domain and a <a href="#Form" title="wikilink">Form</a> as range. It is a subproperty of the <a href="#lexicalForm" title="wikilink"> lexicalForm</a> property. The canonical form has to be unique, such that the property <a href="#canonicalForm" title="wikilink">canonicalForm</a> is modelled as functional:</p>
+<p>A lexical entry has a canonical form, which is the form that primarily identifies this entry and may be used as an index term in the lexicon. The canonical form for single words is typically the lemma of that word and is determined by lexicographic conventions for that language. In the case of verbs, the lemma is typically the infinitive form or, alternatively, the present tense of the verb (note that if an external particle is used to indicate the infinitive as in English &quot;to play&quot;, this particle should be omitted). For nouns it is the noun singular form, while for adjectives it is the positive (i.e., non-negative, non-graded) form. For multi-word entries it is assumed that the same principles of lemmatization are applied to the head word.</p>
+<p>The property canonical form has a Lexical Entry as domain and a form as range. It is a subproperty of the lexical form property. The canonical form has to be unique, thus the property canonical form is functional:</p>
 <div class='entity'>
 <h3>
 <p>canonicalForm (Object Property)</p>
@@ -340,21 +394,26 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>SubPropertyOf:</strong> lexicalForm</p>
 </div>
 </div>
-<p>The lexical entries with the canonical form the noun <em>&quot;cat&quot;</em>, the verb <em>&quot;marry&quot;</em> and the adjective <em>&quot;high&quot;</em> would look as follows (in Turtle syntax):</p>
+<p>It is recommended that in addition the canonical form is also given as the RDFS label of the lexical entry to enable indexing and interaction with existing systems. The lexical entries with the canonical form the noun <em>&quot;cat&quot;</em>, the verb <em>&quot;marry&quot;</em> and the adjective <em>&quot;high&quot;</em> would look as follows (in Turtle syntax):</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example3.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example3.png' class='beispiel'/></a></p>
 <div>
-<pre><code>:lex_cat a ontolex:LexicalEntry;
-     ontolex:canonicalForm :form_cat.
+<pre><code>:lex_cat a ontolex:LexicalEntry, ontolex:Word;
+     ontolex:canonicalForm :form_cat;
+     rdfs:label &quot;cat&quot;@en.
 
 :form_cat ontolex:writtenRep &quot;cat&quot;@en .
 
-:lex_marry a ontolex:LexicalEntry;
-     ontolex:canonicalForm :form_marry.
+:lex_marry a ontolex:LexicalEntry, ontolex:Word;
+     ontolex:canonicalForm :form_marry;
+     rdfs:label &quot;marry&quot;@en.
+
 :form_marry ontolex:writtenRep &quot;marry&quot;@en .
 
-:lex_high a ontolex:LexicalEntry;
-     ontolex:canonicalForm :form_high.
+:lex_high a ontolex:LexicalEntry, ontolex:Word;
+     ontolex:canonicalForm :form_high;
+     rdfs:label &quot;high&quot;@en.
+
 :form_high ontolex:writtenRep &quot;high&quot;@en .</code></pre>
 </div>
 </div>
@@ -362,7 +421,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example11.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example11.png' class='beispiel'/></a></p>
 <div>
-<pre><code>:lex_intangible_assets a ontolex:LexicalEntry;
+<pre><code>:lex_intangible_assets a ontolex:LexicalEntry, ontolex:MultiwordExpression ;
      ontolex:canonicalForm :form_intangible_assets.
 
 :form_intangible_assets ontolex:writtenRep &quot;intangible assets&quot;@en .</code></pre>
@@ -398,22 +457,6 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 :form_marries ontolex:writtenRep &quot;marries&quot;@en .</code></pre>
 </div>
 </div>
-<p>We also define a property <a href="#lexicalForm" title="wikilink">lexicalForm</a> which subsumes both the canonical and other form property:</p>
-<div class='entity'>
-<h3>
-<p>lexicalForm (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/lexicalForm">http://www.w3.org/nl/lemon/ontolex/lexicalForm</a></p>
-</div>
-<div class='comment'>
-<p>Indicates a single morphological form of an entry</p>
-</div>
-<div class='description'>
-<p><strong>Domain:</strong> LexicalEntry</p>
-<p><strong>Range:</strong> Form</p>
-</div>
-</div>
 <p>The morphological class (i.e., declension, conjugation or similar) may be specified with the <em>morphological pattern</em> property to avoid having to list all regular forms of a word. The implementation of these patterns is not specified by this document (but should be provided by some suitable vocabulary such as <a href="http://lemon-model.net/liam">LIAM</a>). For example:</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example13.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example13.png' class='beispiel'/></a></p>
@@ -444,7 +487,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 </div>
 </div>
 <h2 id="semantics"><a href="#semantics">Semantics</a></h2>
-<p>The model supports the specification of the meaning of <a href="#LexicalEntry" title="wikilink">lexical entries</a> with respect to a given ontology. The lexicon model for ontologies follows the paradigm of <em>semantics by reference</em><a href="http://link.springer.com/article/10.1007/s10579-012-9182-3/fulltext.html">1</a> in the sense that the meaning of a lexical entry is specified by pointing to the ontological concept that captures its meaning.</p>
+<p>The model supports the specification of the meaning of <a href="#LexicalEntry" title="wikilink">lexical entries</a> with respect to a given ontology. The lexicon model for ontologies follows the paradigm of <em>semantics by reference</em><a href="http://link.springer.com/article/10.1007/s10579-012-9182-3/fulltext.html">2</a> in the sense that the meaning of a lexical entry is specified by pointing to the ontological concept that captures its meaning.</p>
 <p>The property used for this is the property <a href="#denotes" title="wikilink">denotes</a>, which is defined as <em>the relation between a lexical entry and the logical predicate in an ontology that represents its meaning and has some denotational or model-theoretic semantics</em>.</p>
 <p>For the above mentioned lexical entries, this would look as follows:</p>
 <div class='beispiel'>
@@ -458,17 +501,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 :lex_marry a ontolex:LexicalEntry;
    ontolex:canonicalForm :form_marry;
    ontolex:denotes &lt;http://dbpedia.org/ontology/spouse&gt;.
-:form_marry ontolex:writtenRep &quot;marry&quot;@en .
-
-:lex_high a ontolex:LexicalEntry;
-   ontolex:canonicalForm :form_high;
-   ontolex:denotes &lt;http://dbpedia.org/ontology/elevation&gt;.
-:form_high ontolex:writtenRep &quot;high&quot;@en . 
-
-:lex_intangible_assets a ontolex:LexicalEntry;
-  ontolex:canonicalForm :form_intangible_assets;
-  ontolex:denotes &lt;http://dbpedia.org/resource/Intangible_asset&gt;.
-:form_intangible_assets ontolex:writtenRep &quot;intangible assets&quot;@en .</code></pre>
+:form_marry ontolex:writtenRep &quot;marry&quot;@en .</code></pre>
 </div>
 </div>
 <p>The property <strong>denotes</strong> is defined as follows:</p>
@@ -492,17 +525,16 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example6.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example6.png' class='beispiel'/></a></p>
 <div>
-<pre><code>:lex_bachelor a ontolex:LexicalEntry;
-   ontolex:denotes &lt;http://dbpedia.org/resource/Bachelor&gt;;
-   ontolex:denotes &lt;http://dbpedia.org/resource/Single_person&gt;.
+<pre><code>&lt;bank&gt; a ontolex:LexicalEntry ;
+  ontolex:denotes &lt;http://dbpedia.org/resource/Bank&gt; ,
+                  &lt;http://dbpedia.org/resource/Bank_(geographic)&gt; ;
+  ontolex:canonicalForm &lt;bank#lemma&gt; .
 
-:lex_bachelor ontolex:canonicalForm :form_bachelor.
-
-:form_bachelor ontolex:writtenRep &quot;bachelor&quot;@en .</code></pre>
+&lt;bank#lemma&gt; ontolex:writtenRep &quot;bank&quot;@en .</code></pre>
 </div>
 </div>
-<p>No range is given for the <a href="#denotes" title="wikilink">denotes</a> property, for two reasons. Firstly, the target of a denotation does not need to be an individual in the ontology but may also refer to a class, property or datatype defined by the ontology, as such it is not possible to specify the range of <a href="#denotes" title="wikilink">denotes</a> in OWL. Secondly, the model is agnostic with respect to the ontology language used to express the ontology referred to, the assumption is is that the entity in the range represents some predicate that has a denotational semantics in some formal logical system.</p>
-<p>All object properties in the model have an inverse property named as &quot;is <em>x</em>-ed by&quot;, where <em>x</em> is the original property name. In the case of <a href="#denotes" title="wikilink">#denotes</a> this property is <a href="#isDenotedBy" title="wikilink">#isDenotedBy</a>.</p>
+<p>No range is given for the denotes property, for two reasons. Firstly, the target of a denotation does not need to be an individual in the ontology but may also refer to a class, property or datatype defined by the ontology, as such it is not possible to specify the range of denotes in OWL. Secondly, the model is agnostic with respect to the ontology language used to express the ontology referred to, the assumption is is that the entity in the range represents some predicate that has a denotational semantics in some formal logical system.</p>
+<p>Properties in the model for linking to ontologies have an inverse property named as &quot;is <em>x</em>-ed by&quot;, where <em>x</em> is the original property name to enable the lexicon to be defined in an ontology focussed manner. In the case of denotes this property is isDenotedBy.</p>
 <div class='entity'>
 <h3>
 <p>isDenotedBy (Object Property)</p>
@@ -530,23 +562,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>SubClassOf:</strong> ontolex:reference exactly 1 owl:Thing; ontolex:isSenseOf exactly 1 ontolex:LexicalEntry, semiotics:Meaning</p>
 </div>
 </div>
-<p>A property <a href="#definition" title="wikilink">definition</a> can be used to attach a definition to the Lexical Sense; such a definition is often referred to as <em>gloss</em>.</p>
-<div class='entity'>
-<h3>
-<p>definition (Datatype Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/definition">http://www.w3.org/nl/lemon/ontolex/definition</a></p>
-</div>
-<div class='comment'>
-<p>This property relates a LexicalSense to one of its defintions; multiple definitions are allowed.</p>
-</div>
-<div class='description'>
-<p><strong>Domain:</strong> LexicalSense</p>
-<p><strong>Range:</strong> owl:Thing</p>
-</div>
-</div>
-<p>The lexical senses or lexical meanings of a the word <em>consumption</em> can be represented as follows:</p>
+<p>Via the lexical sense object we can attach additional properties to a pair of lexical entry and ontological predicate that it denotes that describe under which conditions (context, register, domain, etc.) it is valid to regard the lexical entry as having the ontological entity as meaning. For example, we may wish to express the usages of the word &quot;consumption&quot; in terms of the topic and diachronic usage of the word. For this we will use the Dublin Core property subject and the LexInfo property dating as follows:</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example7.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example7.png' class='beispiel'/></a></p>
 <div>
@@ -555,27 +571,25 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
        ontolex:sense :consumption_sense1;
        ontolex:sense :consumption_sense2;
        ontolex:sense :consumption_sense3;
-       ontolex:sense :consumption_sense4.
+       ontolex:sense :consumption_sense4 .
 
 :form_consumption ontolex:writtenRep &quot;consumption&quot;@en.
 
-:consumption_sense1 ontolex:definition &quot;Consumers are organisms of an ecological food chain that receive energy by consuming other organisms.&quot;@en;
-  ontolex:reference &lt;http://dbpedia.org/Resource/Consumption_(ecology)&gt;.
+:consumption_sense1 dct:subject &lt;http://dbpedia.org/resource/Ecology&gt; ;
+  ontolex:reference &lt;http://dbpedia.org/resource/Consumption_(ecology)&gt; .
 
-:consumption_sense2 ontolex:definition &quot;Ingestion is the consumption of a substance by an organism.&quot;@en;
-  ontolex:reference &lt;http://dbpedia.org/Resource/Ingestion&gt;.
+:consumption_sense2 dct:subject &lt;http://dbpedia.org/resource/Anatomy&gt; ;
+  ontolex:reference &lt;http://dbpedia.org/Resource/Ingestion&gt; .
 
-:consumption_sense3 ontolex:definition &quot;Consumption is a major concept in economics and is also studied by many other social sciences. Economists are particularly interested in the relationship between consumption and income, and therefore in economics the consumption function plays a major role.&quot;@en;
-   ontolex:reference &lt;http://dbpedia.org/Resource/Consumption_(economics)&gt;.
+:consumption_sense3 dct:subject &lt;http://dbpedia.org/resource/Economics&gt; ;
+   ontolex:reference &lt;http://dbpedia.org/resource/Consumption_(economics)&gt; .
 
-:consumption_sense4 ontolex:definition &quot;Tuberculosis, MTB, or TB (short for tubercle bacillus), in the past also called Phthisis or Phthisis pulmonalis, is a common, and in many cases lethal, infectious disease caused by various strains of mycobacteria, usually Mycobacterium tuberculosis.&quot;@en;
-   ontolex:reference &lt;http://dbpedia.org/Resource/Tuberculosis&gt;;
-   ontolex:context &quot;outdated&quot;.</code></pre>
+:consumption_sense4 dct:subject &lt;http://dbpedia.org/resource/Medicine&gt; ;
+   lexinfo:dating lexinfo:old ;
+   ontolex:reference &lt;http://dbpedia.org/Resource/Tuberculosis&gt; .</code></pre>
 </div>
 </div>
-<p>Via the <a href="#Lexical_Sense" title="wikilink">lexical sense</a> object we can attach additional properties to a pair of lexical entry and ontological predicate that it denotes that describe under which conditions (context, register, domain, etc.) it is valid to regard the lexical entry as having the ontological entity as meaning.</p>
-<p>Note that a lexical sense uniquely identifies a pair of lexical entry and reference; in particular, it identifies a unique lexical entry and a unique reference, such that the properties &quot;sense&quot; and &quot;reference&quot; are defined as inverse functional and functional, respectively.</p>
-<p>Formally, the properties <a href="#sense" title="wikilink">sense</a> and <a href="#reference" title="wikilink">reference</a> are defined as follows:</p>
+<p>The lexical sense has a single lexical entry and a single reference in the ontology; thus properties &quot;sense&quot; and &quot;reference&quot; are defined as inverse functional and functional, respectively.</p>
 <div class='entity'>
 <h3>
 <p>sense (Object Property)</p>
@@ -630,67 +644,6 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p>Inverse property to <a href="#reference&lt;/div&gt;&lt;div_class=&#39;description&#39;&gt;reference" title="wikilink">#reference&lt;/div&gt;&lt;div class='description'&gt;reference</a></p>
 </div>
 </div>
-<p>As well as grouping set of entries into a lexicon, we may alternatively create a lexicon of senses, my means of the the sense lexicon object. In this way lexicons can be ordered onomasiologically, that is by meanings rather than by lemmas. The senses that compose a sense lexicon are in indicated by the sense entry property.</p>
-<div class='entity'>
-<h3>
-<p>SenseLexicon (Class)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/SenseLexicon">http://www.w3.org/nl/lemon/ontolex/SenseLexicon</a></p>
-</div>
-<div class='comment'>
-<p>Represents a collection of senses</p>
-</div>
-<div class='description'>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>senseEntry (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/senseEntry">http://www.w3.org/nl/lemon/ontolex/senseEntry</a></p>
-</div>
-<div class='comment'>
-<p>Indicates a sense is an entry in a sense lexicon</p>
-</div>
-<div class='description'>
-<p><strong>Domain:</strong> SenseLexicon</p>
-<p><strong>Range:</strong> LexicalSense</p>
-</div>
-</div>
-<div class='beispiel'>
-<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example15.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example15.png' class='beispiel'/></a></p>
-<div>
-<pre><code>&lt;SenseLexicon&gt; a ontolex:SenseLexicon;                                          
-  ontolex:language &quot;en&quot;;                                                        
-  ontolex:senseEntry &lt;Consumption1&gt; ;                                           
-  ontolex:senseEntry &lt;Consumption2&gt; ;                                           
-  ontolex:senseEntry &lt;Tuberculosis1&gt; .                                          
-                                                                                
-&lt;Consumption1&gt; a ontolex:LexicalSense ;                                         
-  ontolex:reference dbpedia:Tuberculosis ;                                      
-  ontolex:isSenseOf &lt;Consumption&gt; .                                             
-                                                                                
-&lt;Consumption2&gt; a ontolex:LexicalSense ;                                         
-  ontolex:reference &lt;http://dbpedia.org/resource/Consumption_(Economics)&gt; ;     
-  ontolex:isSenseOf &lt;Consumption&gt; .                                             
-                                                                                
-&lt;Tuberculosis1&gt; a ontolex:LexicalSense ;                                        
-  ontolex:reference dbpedia:Tuberculosis ;                                      
-  ontolex:isSenseOf &lt;Tuberculosis&gt; .                                            
-                                                                                
-&lt;Consumption&gt; a ontolex:LexicalEntry ;                                          
-  ontolex:canonicalForm &lt;Consumption#Lemma&gt; .                                   
-                                                                                
-&lt;Consumption#Lemma&gt; ontolex:writtenRep &quot;consumption&quot;@en .                       
-                                                                                
-&lt;Tuberculosis&gt; a ontolex:LexicalEntry ;                                         
-  ontolex:canonicalForm &lt;Tuberculosis#Lemma&gt; .                                  
-                                                                                
-&lt;Tuberculosis#Lemma&gt; ontolex:writtenRep &quot;tuberculosis&quot;@en .</code></pre>
-</div>
-</div>
 <h2 id="lexicons"><a href="#lexicons">Lexicons</a></h2>
 <p>Lexicon is an object that groups all lexical entries. A lexicon is specific for a particular language. The lexicon comprising the example entries we have created above would simply look as follows:</p>
 <div class='beispiel'>
@@ -718,7 +671,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>SubClassOf:</strong> entry min 1, language exactly 1</p>
 </div>
 </div>
-<p>The property linking a <a href="#Lexicon" title="wikilink">Lexicon</a> to a <a href="#LexicalEntry" title="wikilink">lexical entry</a> is the property <a href="#entry" title="wikilink">entry</a>:</p>
+<p>The property linking a lexicon to a lexical entry is the property entry:</p>
 <div class='entity'>
 <h3>
 <p>entry (Object Property)</p>
@@ -734,7 +687,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>Range:</strong> LexicalEntry</p>
 </div>
 </div>
-<p>The <a href="#language" title="wikilink">language</a> property can be stated on either a <a href="#lexicon" title="wikilink">#lexicon</a> or a <a href="#lexical_entry" title="wikilink">#lexical entry</a> and its value should be a String representing the language.</p>
+<p>The language property can be stated on either a lexicon or a lexical entry and its value should be a String representing the language.</p>
 <div class='entity'>
 <h3>
 <p>language (Datatype Property)</p>
@@ -750,73 +703,51 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>Range:</strong> rdf:langString</p>
 </div>
 </div>
-<p>In addition, the model includes an objectproperty <a href="#languageURI" title="wikilink">languageURI</a> that can be used to specify a URI representing the language:</p>
-<div class='entity'>
-<h3>
-<p>languageURI (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/languageURI">http://www.w3.org/nl/lemon/ontolex/languageURI</a></p>
-</div>
-<div class='comment'>
-<p>The language of a lexicon or an individual lexical entry, indicated as a URI.</p>
-</div>
-<div class='description'>
-<p><strong>Domain:</strong> Lexicon or LexicalEntry or LexicalSense or SenseLexicon</p>
-<p><strong>Range:</strong> owl:Thing</p>
-</div>
-</div>
+<p>In addition, it is recommended that you use the Dublin Core language property with reference to either <a href="http://www.lexvo.org/">LexVo</a> or [<a href="http://id.loc.gov/vocabulary/iso639-1.html">http://id.loc.gov/vocabulary/iso639-1.html</a> The Library of Congress Vocabulary</p>
+<ul>
+<li>LexVo codes should be of the form <a href="http://www.lexvo.org/page/iso639-3/xxx">http://www.lexvo.org/page/iso639-3/xxx</a> where xxx is the 3-Letter ISO 639-3 code</li>
+<li>Library of Congress codes should be of the form <a href="http://id.loc.gov/vocabulary/iso639-1/xx">http://id.loc.gov/vocabulary/iso639-1/xx</a> where xx is the 2-Letter ISO 639-1 code</li>
+</ul>
 <p>A full lexicon in Spanish for the above examples would be as follows:</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example9.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example9.png' class='beispiel'/></a></p>
 <div>
 <pre><code>:lexicon a ontolex:Lexicon;
    ontolex:language &quot;es&quot;;
-   ontolex:entry :lex_alto;
    ontolex:entry :lex_gato;
-   ontolex:entry :lex_casar;
+   ontolex:casar :lex_casar;
    ontolex:entry :lex_activo_intangible.
-
-:lex_alto ontolex:canonicalForm :form_alto;
-    ontolex:sense :alto_sense1.
-
-:alto_sense1 ontolex:reference &lt;http://dbpedia.org/ontology/elevation&gt;;
-     ontolex:definition &quot;La altitud de una montaña u otra elevación geográfica&quot;.
-
-:form_alto ontolex:writtenRep &quot;alto&quot;@es.
 
 :lex_gato ontolex:canonicalForm :form_gato;
     ontolex:sense :gato_sense1;
     ontolex:sense :gato_sense2.
 
-:gato_sense1 ontolex:reference &lt;http://dbpedia.org/resource/Cat&gt;;
-    ontolex:definition &quot;El gato o gato doméstico (Felis silvestris catus) es una subespecie de mamífero carnívoro de la familia Felidae.&quot;@es.
+:gato_sense1 ontolex:reference &lt;http://dbpedia.org/resource/Cat&gt;.
 
-:gato_sense2 ontolex:reference &lt;http://dbpedia.org/resource/Jack_(device)&gt;;
-   ontolex:definition &quot;El gato es una máquina empleada para la elevación de cargas mediante el accionamiento manual de una manivela o una palanca.&quot;@es.
+:gato_sense2 ontolex:reference &lt;http://dbpedia.org/resource/Jack_(device)&gt;.
 
 :form_alto ontolex:writtenRep &quot;gato&quot;@es.
 
 :lex_casar ontolex:canonicalForm :form_casar;
     ontolex:sense :casar_sense1.
 
-:casar_sense1 ontolex:reference &lt;http://dbpedia.org/ontology/spouse&gt;;
-     ontolex:definition &quot;contraer matrimonio&quot;@es.  
+:casar_sense1 ontolex:reference &lt;http://dbpedia.org/ontology/spouse&gt;.
 
 :form_casar ontolex:writtenRep &quot;casar&quot;@es.
 
 :lex_activo_intangible ontolex:canonicalForm :form_activo_intangible;
     ontolex:sense :activo_intangible_sense1.
 
-:activo_intangible_sense1 ontolex:reference &lt;http://dbpedia.org/resource/Intangible_asset&gt;;
-ontolex:gloss &quot;En el lenguaje contable el término intangible se emplea con un sentido restringido para aquellos activos que producen beneficios parecidos a los que producen los bienes de uso o de renta y que no pueden materializarse físicamente.&quot;@es.</code></pre>
+:activo_intangible_sense1 ontolex:reference &lt;http://dbpedia.org/resource/Intangible_asset&gt;.
+
+:form_activo_intangible ontolex:writtenRep &quot;activo intangible&quot;@es .</code></pre>
 </div>
 </div>
 <p>This shows how the English lexicon and the Spanish lexicon are linked via the ontological references that the different words in the lexicon denote, thus integrating the lexica at the conceptual level.</p>
 <h2 id="lexical-concept"><a href="#lexical-concept">Lexical Concept</a></h2>
 <p>We have seen above how to capture the fact that a certain lexical entry can be used to denote a certain element in the extension of a class. We capture this by saying that the lexical entry <em>denotes</em> the class or ontology element in question.</p>
 <p>However, sometimes we would like to express the fact that a certain lexical entry evokes a certain mental concept rather than that it refers to a class with a formal interpretation in some model.</p>
-<p>For this, in the lexicon model for ontologies we introduce the class of LexicalConcept that represents ``a mental abstraction, concept or unit of thought that can be lexicalized by a given collection of senses''. As such. LexicalConcept is a sublcass of skos:Concept.</p>
+<p>For this, in the lexicon model for ontologies we introduce the class of lexical concept that represents ``a mental abstraction, concept or unit of thought that can be lexicalized by a given collection of senses''. As such. lexical concept is a sublcass of skos:Concept.</p>
 <div class='entity'>
 <h3>
 <p>LexicalConcept (Class)</p>
@@ -831,7 +762,7 @@ ontolex:gloss &quot;En el lenguaje contable el término intangible se emplea con
 <p><strong>SubClassOf:</strong> skos:Concept</p>
 </div>
 </div>
-<p>The <a href="#lexical_entry" title="wikilink">lexical entry</a> is said to <a href="#evokes" title="wikilink">evoke</a> a particular concept, similar to how a lexical entry <a href="#denotes" title="wikilink">denotes</a> an ontology <a href="#reference" title="wikilink">reference</a>.</p>
+<p>The lexical entry is said to evoke a particular concept, similar to how a lexical entry denotes an ontology reference.</p>
 <div class='entity'>
 <h3>
 <p>evokes (Object Property)</p>
@@ -845,10 +776,10 @@ ontolex:gloss &quot;En el lenguaje contable el término intangible se emplea con
 <div class='description'>
 <p><strong>Domain:</strong> Lexical Entry</p>
 <p><strong>Range:</strong> Lexical Concept</p>
-<p><strong>Property Chain:</strong> sense o lexicalizedSense</p>
+<p><strong>Property Chain:</strong> sense o isLexicalizedSenseOf</p>
 </div>
 </div>
-<p>We can link a <a href="#LexicalConcept" title="wikilink">LexicalConcept</a> to a <a href="#Lexical_Sense" title="wikilink">Lexical Sense</a> to mediate the link between and entry and a concept via the property <a href="#lexicalizedSense" title="wikilink">lexicalizedSense</a></p>
+<p>We can link a lexical concept to a lexical sense to mediate the link between and entry and a concept via the property lexicalized sense</p>
 <div class='entity'>
 <h3>
 <p>lexicalizedSense (Object Property)</p>
@@ -857,25 +788,14 @@ ontolex:gloss &quot;En el lenguaje contable el término intangible se emplea con
 <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/lexicalizedSense">http://www.w3.org/nl/lemon/ontolex/lexicalizedSense</a></p>
 </div>
 <div class='comment'>
-<p>The relation between a LexicalConcept and a corresponding LexicalSense that lexicalizes the LexicalConcept.</p>
+<p>The relation between a lexical concept and a corresponding lexical sense that lexicalizes the lexical concept.</p>
 </div>
 <div class='description'>
 <p><strong>Domain:</strong> Lexical Concept</p>
 <p><strong>Range:</strong> Lexical Sense</p>
 </div>
 </div>
-<p>The properties <strong>isEvokedBy</strong> and <strong>isLexicalizedSenseOf</strong> are the inverses of these properties</p>
-<div class='entity'>
-<h3>
-<p>isEvokedBy (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/isEvokedBy">http://www.w3.org/nl/lemon/ontolex/isEvokedBy</a></p>
-</div>
-<div class='comment'>
-<p>Inverse of <a href="#evokes&lt;/div&gt;&lt;div_class=&#39;description&#39;&gt;&lt;/div&gt;&lt;/div&gt;_&lt;div_class=&#39;entity&#39;&gt;&lt;h3&gt;isLexicalizedSenseOf_(Object_Property)&lt;/h3&gt;_&lt;div&gt;&lt;strong&gt;URI:&lt;/strong&gt;_http://www.w3.org/nl/lemon/ontolex/isLexicalizedSenseOf&lt;/div&gt;_&lt;div_class=&#39;comment&#39;&gt;_Inverse_of_[[#lexicalizedSense&lt;/div&gt;&lt;div_class=&#39;description&#39;&gt;lexicalizedSense" title="wikilink">#evokes&lt;/div&gt;&lt;div class='description'&gt;&lt;/div&gt;&lt;/div&gt; &lt;div class='entity'&gt;&lt;h3&gt;isLexicalizedSenseOf (Object Property)&lt;/h3&gt; &lt;div&gt;&lt;strong&gt;URI:&lt;/strong&gt; http://www.w3.org/nl/lemon/ontolex/isLexicalizedSenseOf&lt;/div&gt; &lt;div class='comment'&gt; Inverse of [[#lexicalizedSense&lt;/div&gt;&lt;div class='description'&gt;lexicalizedSense</a></p>
-</div>
-</div>
+<p>A simple example of using lexical concepts is as follows:</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example10.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example10.png' class='beispiel'/></a></p>
 <div>
@@ -892,6 +812,18 @@ ontolex:gloss &quot;En el lenguaje contable el término intangible se emplea con
 :lend_le a ontolex:LexicalEntry;
                  ontolex_sense :lend_sense;
                  ontolex:evokes :temporary_change_of_possession.</code></pre>
+</div>
+</div>
+<p>The properties <strong>isEvokedBy</strong> and <strong>isLexicalizedSenseOf</strong> are the inverses of these properties</p>
+<div class='entity'>
+<h3>
+<p>isEvokedBy (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/isEvokedBy">http://www.w3.org/nl/lemon/ontolex/isEvokedBy</a></p>
+</div>
+<div class='comment'>
+<p>Inverse of <a href="#evokes&lt;/div&gt;&lt;div_class=&#39;description&#39;&gt;&lt;/div&gt;&lt;/div&gt;_&lt;div_class=&#39;entity&#39;&gt;&lt;h3&gt;isLexicalizedSenseOf_(Object_Property)&lt;/h3&gt;_&lt;div&gt;&lt;strong&gt;URI:&lt;/strong&gt;_http://www.w3.org/nl/lemon/ontolex/isLexicalizedSenseOf&lt;/div&gt;_&lt;div_class=&#39;comment&#39;&gt;_Inverse_of_[[#lexicalizedSense&lt;/div&gt;&lt;div_class=&#39;description&#39;&gt;lexicalizedSense" title="wikilink">#evokes&lt;/div&gt;&lt;div class='description'&gt;&lt;/div&gt;&lt;/div&gt; &lt;div class='entity'&gt;&lt;h3&gt;isLexicalizedSenseOf (Object Property)&lt;/h3&gt; &lt;div&gt;&lt;strong&gt;URI:&lt;/strong&gt; http://www.w3.org/nl/lemon/ontolex/isLexicalizedSenseOf&lt;/div&gt; &lt;div class='comment'&gt; Inverse of [[#lexicalizedSense&lt;/div&gt;&lt;div class='description'&gt;lexicalizedSense</a></p>
 </div>
 </div>
 <p>Similarly, we can link a lexical concept to a reference in the ontology by means of the concept property</p>
@@ -929,30 +861,97 @@ ontolex:gloss &quot;En el lenguaje contable el término intangible se emplea con
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example14.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example14.png' class='beispiel'/></a></p>
 <div>
-<pre><code>:cat_lex a ontolex:LexicalEntry ;                                               
-  ontolex:canonicalForm :cat_form ;                                             
-  ontolex:sense :cat_sense ;                                                    
-  ontolex:denotes dbpedia:Cat ;                                                 
-  ontolex:evokes iate:Term-cf457dab-7e3f-407f-a50d-f4268303117b .               
-                                                                                
-:cat_form ontolex:writtenRep &quot;cat&quot;@en .                                         
-                                                                                
-:cat_sense a ontolex:LexicalSense ;                                             
-  ontolex:reference dbpedia:Cat ;                                               
-  ontolex:isLexicalizedSenseOf iate:Term-cf457dab-7e3f-407f-a50d-f4268303117b . 
-                                                                                
-dbpedia:Cat                                                                     
-  ontolex:concept iate:Term-cf457dab-7e3f-407f-a50d-f4268303117b ;              
-  ontolex:isSenseOf :cat_sense ;                                                
-  ontolex:isDenotedBy :cat_lex .                                                
-                                                                                
-iate:Term-cf457dab-7e3f-407f-a50d-f4268303117b                                  
-  ontolex:isEvokedBy :cat_lex ;                                                 
-  ontolex:lexicalizedSense :cat_sense ;                                         
+<pre><code>:cat-en a ontolex:LexicalEntry ;                                               
+  ontolex:canonicalForm :cat_form ;
+  ontolex:sense :cat_sense ;
+  ontolex:denotes dbpedia:Cat ;
+  ontolex:evokes :IATE-157623 .
+
+:cat_form ontolex:writtenRep &quot;cat&quot;@en .
+
+:cat_sense a ontolex:LexicalSense ;
+  ontolex:reference dbpedia:Cat ;
+  ontolex:isLexicalizedSenseOf :IATE-157623 .
+
+dbpedia:Cat
+  ontolex:concept :IATE-157623 ;
+  ontolex:isSenseOf :cat_sense ;
+  ontolex:isDenotedBy :cat_lex .
+
+:IATE-157623
+  ontolex:isEvokedBy :cat_lex ;
+  ontolex:lexicalizedSense :cat_sense ;
   ontolex:isConceptOf dbpedia:Cat .</code></pre>
 </div>
 </div>
+<p>A property definition can be used to attach a definition to the lexical sense; such a definition is often referred to as <em>gloss</em>.</p>
+<div class='entity'>
+<h3>
+<p>definition (Datatype Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/definition">http://www.w3.org/nl/lemon/ontolex/definition</a></p>
+</div>
+<div class='comment'>
+<p>This property relates a LexicalSense to one of its defintions; multiple definitions are allowed.</p>
+</div>
+<div class='description'>
+<p><strong>Domain:</strong> LexicalConcept</p>
+<p><strong>Range:</strong> owl:Thing</p>
+</div>
+</div>
+<p>--<a href="User:Jmccrae" title="wikilink">John McCrae</a> (<a href="User talk:Jmccrae" title="wikilink">talk</a>) 14:27, 16 January 2015 (UTC) Not sure why we need this when there is a skos:definition</p>
+<p>As well as grouping set of entries into a lexicon, we may alternatively create a lexicon of concepts, by means of the the concept lexicon object. In this way lexicons can be ordered onomasiologically, that is by meanings rather than by lemmas. The concept lexicon is a special type of SKOS concept scheme and thus is linked to concepts using SKOS's inScheme property</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example15.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/ontolex/example15.png' class='beispiel'/></a></p>
+<div>
+<pre><code>&lt;ConceptLexicon&gt; a ontolex:ConceptLexicon;                                        
+  skos:inScheme &lt;Consumption1&gt; ,
+                &lt;Consumption2&gt; ,
+                &lt;Tuberculosis1&gt; .
+                                                                                
+&lt;Consumption1&gt; a ontolex:LexicalConcept ;
+  ontolex:isConceptOf dbpedia:Tuberculosis ;
+  ontolex:isEvokedBy &lt;Consumption&gt; .
+                                                                                
+&lt;Consumption2&gt; a ontolex:LexicalConcept ;                                         
+  ontolex:isConceptOf &lt;http://dbpedia.org/resource/Consumption_(Economics)&gt; ;
+  ontolex:isEvokedBy &lt;Consumption&gt; .
+
+&lt;Tuberculosis1&gt; a ontolex:LexicalConcept ;
+  ontolex:isConceptOf dbpedia:Tuberculosis ;
+  ontolex:isEvokedBy &lt;Tuberculosis&gt; .
+
+&lt;Consumption&gt; a ontolex:LexicalEntry ;
+  ontolex:canonicalForm &lt;Consumption#Lemma&gt; .
+
+&lt;Consumption#Lemma&gt; ontolex:writtenRep &quot;consumption&quot;@en .
+
+&lt;Tuberculosis&gt; a ontolex:LexicalEntry ;
+  ontolex:canonicalForm &lt;Tuberculosis#Lemma&gt; .
+
+&lt;Tuberculosis#Lemma&gt; ontolex:writtenRep &quot;tuberculosis&quot;@en .</code></pre>
+</div>
+</div>
+<div class='entity'>
+<h3>
+<p>ConceptLexicon (Class)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex/ConceptLexicon">http://www.w3.org/nl/lemon/ontolex/ConceptLexicon</a></p>
+</div>
+<div class='comment'>
+<p>A collection of lexical concepts</p>
+</div>
+<div class='description'>
+<p><strong>SubClassOf</strong>: skos:ConceptScheme, void:Dataset</p>
+</div>
+</div>
 <h1 id="syntax-and-semantics-synsem"><a href="#syntax-and-semantics-synsem">Syntax and Semantics (synsem)</a></h1>
+<div class="figure">
+<img src="Lemon Syntax and Semantics.png" title="Lemon Syntax and Semantics.png" alt="Lemon Syntax and Semantics.png" /><p class="caption">Lemon Syntax and Semantics.png</p>
+</div>
+<h2 id="syntactic-frames"><a href="#syntactic-frames">Syntactic Frames</a></h2>
 <p>Most words in a language do not stand by their own, but have a certain syntactic behaviour in the sense that they appear in certain structures and require a number of syntactic (and semantic arguments). Examples of this are transitive verbs (e.g. to own), which require a syntactic subject and a syntactic object as well as relational nouns (e.g. capital (of), mother (of), son (of), brother (of), etc.) which require a prepositional object or adjectives which require a noun to modify. Frames are defined as follows:</p>
 <div class='entity'>
 <h3>
@@ -967,7 +966,7 @@ iate:Term-cf457dab-7e3f-407f-a50d-f4268303117b
 <div class='description'>
 </div>
 </div>
-<p>In order to specify the syntactic behaviour of lexical entries in terms a number of possible (syntactic) <a href="#Frame" title="wikilink">frames</a>, the <code>synsem</code> module defines the property <a href="#synBehaviour" title="wikilink">synBehaviour</a>.</p>
+<p>In order to specify the syntactic behaviour of lexical entries in terms a number of possible (syntactic) frames, the <code>synsem</code> module defines the property syntactic behaviour.</p>
 <div class='entity'>
 <h3>
 <p>synBehaviour (Object Property)</p>
@@ -976,10 +975,14 @@ iate:Term-cf457dab-7e3f-407f-a50d-f4268303117b
 <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/synsem/synBehavior">http://www.w3.org/nl/lemon/synsem/synBehavior</a></p>
 </div>
 <div class='comment'>
-<p>The property syntacticBehaviour relates a LexicalEntry to one of its possible syntactic behaviours as represented by a <a href="#Frame&lt;/div&gt;&lt;div_class=&#39;description&#39;&gt;frame" title="wikilink">#Frame&lt;/div&gt;&lt;div class='description'&gt;frame</a></p>
+<p>The property syntacticBehaviour relates a LexicalEntry to one of its possible syntactic behaviours as represented by a frame</p>
+</div>
+<div class='description'>
+<p><strong>Domain:</strong> LexicalEntry</p>
+<p><strong>Range:</strong> Frame</p>
 </div>
 </div>
-<p>The following snippet shows how to indicate that the verb (to) own can be used as a transitive verb. This is accomplished by adding a frame own_fram that is declared as a transitive frame, using the class <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl#TransitiveFrame_TransitiveFrame" title="wikilink">http://lexinfo.net/ontology/2.0/lexinfo.owl#TransitiveFrame TransitiveFrame</a> defined in the <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl LexInfo Ontology" title="wikilink">http://lexinfo.net/ontology/2.0/lexinfo.owl LexInfo Ontology</a>.</p>
+<p>The following snippet shows how to indicate that the verb (to) own can be used as a transitive verb. This is accomplished by adding a frame own_fram that is declared as a transitive frame, using the class <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl#TransitiveFrame">TransitiveFrame</a> defined in the <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl">LexInfo Ontology</a>.</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example1.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example1.png' class='beispiel'/></a></p>
 <div>
@@ -1006,7 +1009,7 @@ iate:Term-cf457dab-7e3f-407f-a50d-f4268303117b
 <div class='description'>
 </div>
 </div>
-<p>The object property <a href="#synArg" title="wikilink">synArg</a> is used to relate a <a href="#Frame" title="wikilink"> (syntactic) frame</a> to one of its (syntactic) <a href="#Argument" title="wikilink">arguments</a></p>
+<p>The object property <strong>synArg</strong> is used to relate a (syntactic) frame to one of its (syntactic) arguments.</p>
 <div class='entity'>
 <h3>
 <p>synArg (Object Property)</p>
@@ -1022,8 +1025,8 @@ iate:Term-cf457dab-7e3f-407f-a50d-f4268303117b
 <p><strong>Range:</strong> Argument</p>
 </div>
 </div>
-<p>The following example shows how to extend the example for the verb (to) own by specifically indicating the arguments, in this case via two specific subproperties of <a href="#synArg" title="wikilink">synarg</a>, i.e. <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl#subject_lexinfo:subject" title="wikilink">http://lexinfo.net/ontology/2.0/lexinfo.owl#subject lexinfo:subject</a> or <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl#object_lexinfo:directObject" title="wikilink">http://lexinfo.net/ontology/2.0/lexinfo.owl#object lexinfo:directObject</a> defined in the external <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl LexInfo ontology" title="wikilink">http://lexinfo.net/ontology/2.0/lexinfo.owl LexInfo ontology</a>.</p>
-<p>Note that if an external ontology is used to describe the type of arguments in more detail, e.g. indicating the grammatical function as in the example below, the external property used need to be made subproperties of <a href="#synArg" title="wikilink">synArg</a> as in the example below.</p>
+<p>The following example shows how to extend the example for the verb (to) own by specifically indicating the arguments, in this case via two specific subproperties of <strong>synArg</strong>, i.e. <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl#subject">lexinfo:subject</a> or <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl#object">lexinfo:directObject</a> defined in the external <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl">LexInfo ontology</a>.</p>
+<p>Note that if an external ontology is used to describe the type of arguments in more detail, e.g. indicating the grammatical function as in the example below, the external property used need to be made subproperties of <strong>synArg</strong> as in the example below.</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example2.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example2.png' class='beispiel'/></a></p>
 <div>
@@ -1041,8 +1044,9 @@ lexinfo:subject owl:subPropertyOf synsem:synArg.
 lexinfo:directObject owl:subPropertyOf synsem:synArg.</code></pre>
 </div>
 </div>
-<p>From the semantic perspective, a (syntactic) frame corresponds to a semantic frame, defined as ``as a coherent structure of related concepts that are related such that without knowledge of all of them, one does not have complete knowledge of any one; they are in that sense types of gestalt.'' Frames are represented by a coherent structure consisting of one or more predicates from a given ontology.</p>
-<p>A Semantic Frame is thus defined as follows:</p>
+<h2 id="semantic-frames"><a href="#semantic-frames">Semantic Frames</a></h2>
+<p>From the semantic perspective, a (syntactic) frame corresponds to a semantic frame, defined as &quot;as a coherent structure of related concepts that are related such that without knowledge of all of them, one does not have complete knowledge of any one; they are in that sense types of gestalt.&quot; Frames are represented by a coherent structure consisting of one or more predicates from a given ontology.</p>
+<p>A semantic frame is thus defined as follows:</p>
 <div class='entity'>
 <h3>
 <p>SemanticFrame (Class)</p>
@@ -1051,13 +1055,14 @@ lexinfo:directObject owl:subPropertyOf synsem:synArg.</code></pre>
 <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/synsem/SemanticFrame">http://www.w3.org/nl/lemon/synsem/SemanticFrame</a></p>
 </div>
 <div class='comment'>
-<p>A Semantic Frame is a coherent structure of related concepts that are related such that without knowledge of all of them, one does not have complete knowledge of any one; they are in that sense types of gestalt. The coherent structure is represented by one or more predicates from a given ontology.</p>
+<p>A semantic frame is a coherent structure of related concepts that are related such that without knowledge of all of them, one does not have complete knowledge of any one; they are in that sense types of gestalt. The coherent structure is represented by one or more predicates from a given ontology.</p>
 </div>
 <div class='description'>
 <p><strong>subClassOf:</strong> ontolex:LexicalSense</p>
 </div>
 </div>
-<p>A Semantic Frame has (semantic) arguments that need to be filled for the frame to be complete. The property <a href="#semArg" title="wikilink">semArg</a> relates a <a href="#SemanticFrame" title="wikilink">semantic frame</a> to one of its semantic arguments.</p>
+<p>In practice, semantic frames are the same as any other lexical sense and there is no reason to state that a sense is also a frame.</p>
+<p>A semantic frame has (semantic) arguments that need to be filled for the frame to be complete. The property semArg relates a semantic frame to one of its semantic arguments.</p>
 <div class='entity'>
 <h3>
 <p>semArg (Object Property)</p>
@@ -1069,7 +1074,8 @@ lexinfo:directObject owl:subPropertyOf synsem:synArg.</code></pre>
 <p>Denotes a semantic argument slot of a semantic unit</p>
 </div>
 <div class='description'>
-<p><strong>Domain:</strong> SemanticFrame <strong>Range:</strong> Argument</p>
+<p><strong>Domain:</strong> SemanticFrame</p>
+<p><strong>Range:</strong> Argument</p>
 </div>
 </div>
 <p>Without limitation, we assume that an ontology consists of symbols representing individuals, unary predicates and binary predicates, as indicated by the following table:</p>
@@ -1099,8 +1105,8 @@ lexinfo:directObject owl:subPropertyOf synsem:synArg.</code></pre>
 </tr>
 </tbody>
 </table>
-<p>The above is not meant to be restrictive. In principle, predicates of higher arity can be considered as well, but the vocabulary would need to be extended to cover these. In this sense synsem is aligned to RDF and OWL which build on individuals/resources (constants), classes (unary predicates) and properties (predicates of arity &quot;2&quot;).</p>
-<p>We refer to the single argument of a unary predicate via the <a href="#isA" title="wikilink"> isA</a> property:</p>
+<p>Predicates with an arity of more than two are covered below as complex sense. This is due to the fact that this module is aligned to RDF and OWL which build on individuals/resources (constants), classes (unary predicates) and properties (predicates of arity &quot;2&quot;).</p>
+<p>We refer to the single argument of a unary predicate via the <strong>is a</strong> property:</p>
 <div class='entity'>
 <h3>
 <p>isA (Object Property)</p>
@@ -1115,7 +1121,7 @@ lexinfo:directObject owl:subPropertyOf synsem:synArg.</code></pre>
 <p><strong>SubPropertyOf:</strong> semArg</p>
 </div>
 </div>
-<p>Following the terminology used in RDF / OWL we call the first argument of a property its <strong>subject</strong> and the second argument the <strong>object</strong>. These are to be regarded as semantic arguments of the semantic frame represented by the property in question. The synsem module defines two properties <a href="#subfOfProp" title="wikilink">#subfOfProp</a> and <a href="#objOfProp" title="wikilink">#objOfProp</a> that can be used to refer to the semantic subject and semantic object of a (binary) property as a semantic frame:</p>
+<p>Following the terminology used in RDF / OWL we call the first argument of a property its <strong>subject</strong> and the second argument the <strong>object</strong>. These are to be regarded as semantic arguments of the semantic frame represented by the property in question. The synsem module defines two properties <strong>subfOfProp</strong> and <strong>objOfProp</strong> that can be used to refer to the semantic subject and semantic object of a (binary) property as a semantic frame:</p>
 <div class='entity'>
 <h3>
 <p>subjOfProp (Object Property)</p>
@@ -1157,7 +1163,7 @@ lexinfo:directObject owl:subPropertyOf synsem:synArg.</code></pre>
 
 :own_synframe a lexinfo:TransitiveFrame;
        :subject :own_subj;
-       :dobject :own_obj.
+       :directObject :own_obj.
 
 :own_semframe a ontolex:SemanticFrame;
          ontolex:reference &lt;http://dbpedia.org/ontology/owner&gt;;
@@ -1165,7 +1171,7 @@ lexinfo:directObject owl:subPropertyOf synsem:synArg.</code></pre>
          synsem:objOfProp :own_subj.
 
 lexinfo:subject owl:subPropertyOf synsem:synArg.
-lexinfo:dobject owl:subPropertyOf synsem:synArg.</code></pre>
+lexinfo:directObject owl:subPropertyOf synsem:synArg.</code></pre>
 </div>
 </div>
 <p>As a further example we show a lexical entry for the property <a href="http://dbpedia.org/ontology/openingFilm">dbpedia:openingFilm</a>, which can be expressed by the relational noun &quot;opening film&quot; followed by the preposition &quot;at&quot;; we use the <a href="http://www.lexinfo.net/">LexInfo</a> vocabulary to provide linguistic information. The entry indicates that the relation noun &quot;opening film at (a festival)&quot; can be used to verbalize the DBpedia property <a href="http://dbpedia.org/ontology/openingFilm">dbpedia:openingFilm</a> whereby the subject in a copula construct such as &quot;X is the opening film at Y&quot; (arg2 below) corresponds to the object of the property <a href="http://dbpedia.org/ontology/openingFilm">dbpedia:openingFilm</a>, while the prepositional argument at position Y (arg1 below) corresponds to the subject of the property <a href="http://dbpedia.org/ontology/openingFilm">dbpedia:openingFilm</a>. Further, the preposition that should we used with the noun opening film to convey the meaning <a href="http://dbpedia.org/ontology/openingFilm">dbpedia:openingFilm</a> is &quot;at&quot;, which is indicated by the property <a href="#marker" title="wikilink">marker</a>:</p>
@@ -1181,22 +1187,6 @@ lexinfo:dobject owl:subPropertyOf synsem:synArg.</code></pre>
 </div>
 <div class='description'>
 <p><strong>Domain:</strong> Argument</p>
-</div>
-</div>
-<p>Furthermore it is possible to state an argument as optional using the following property</p>
-<div class='entity'>
-<h3>
-<p>optional (Datatype Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/synsem/optional">http://www.w3.org/nl/lemon/synsem/optional</a></p>
-</div>
-<div class='comment'>
-<p>Denotes that the syntactic argument is optional, that is, it may be omitted.</p>
-</div>
-<div class='description'>
-<p><strong>Domain:</strong> Argument</p>
-<p><strong>Range:</strong> xsd:boolean</p>
 </div>
 </div>
 <div class='beispiel'>
@@ -1220,8 +1210,7 @@ ontolex:reference &lt;http://dbpedia.org/ontology/openingFilm&gt;;
 ontolex:subjOfProp :opening_film_arg2;
 ontolex:objOfProp :opening_film_arg1.
 
-:opening_film_arg2 synsem:marker :at ; 
-                   synsem:optional &quot;true&quot;^^xsd:boolean .
+:opening_film_arg2 synsem:marker :at .
 
 lexinfo:subject owl:subPropertyOf synsem:synArg.
 lexinfo:prepositionalArg owl:subPropertyOf synsem:synArg.</code></pre>
@@ -1246,8 +1235,7 @@ ontolex:reference &lt;http://dbpedia.org/ontology/almaMater&gt;;
 ontolex:subjOfProp :graduate_arg1;
 ontolex:objOfProp :graduate_arg2.
  
-:graduate_arg2 synsem:marker :from ;
-               synsem:optional &quot;true&quot;^^xsd:boolean .</code></pre>
+:graduate_arg2 synsem:marker :from .</code></pre>
 </div>
 </div>
 <p>The following example shows an example along the same lines for the intransitive (with a prepositional object introduced by the preposition &quot;in&quot;) to express either that someone died in a particular year or in a particular place. So in this case the entry has two different senses and corresponding references:</p>
@@ -1275,11 +1263,11 @@ synsem:objOfProp  :die_arg2.
 synsem:subjOfProp :die_arg1 ;
 synsem:objOfProp  :die_arg2.
 
- :die_arg2 synsem:marker :in ;
-         synsem:optional &quot;true&quot;^^xsd:boolean .</code></pre>
+ :die_arg2 synsem:marker :in .</code></pre>
 </div>
 </div>
-<p>The following example shows a case of a transitive verb (launch) subcategorizing a prepositional object introduced by the preposition &quot;in&quot; to indicate the year of the launch of the product in question. The important thing here is that there are three syntactic (subject, object and prepositional object, represented as arg1, arg2 and arg3 below, respectively) and three semantic arguments (the domain of <a href="http://dbpedia.org/ontology/product">dbpedia:product</a>, the range of <a href="http://dbpedia.org/ontology/product">dbpedia:product</a> and the range of <a href="http://dbpedia.org/ontology/launchDate">dbpedia:launchDate</a>, respectively). Given that there are three semantic arguments, the reference can not be a single (binary) property, so we show the use of the property <a href="#subsense" title="wikilink">subsense</a> to indicate that the meaning of the phrase &quot;X launched Y in Z&quot; is a composition of the properties <a href="http://dbpedia.org/ontology/product">dbpedia:product</a> and <a href="http://dbpedia.org/ontology/productionStartYear">dbpedia:productionStartYear</a> which together form the reference of a composite sense:</p>
+<h2 id="complex-and-atomic-senses"><a href="#complex-and-atomic-senses">Complex and atomic senses</a></h2>
+<p>It is often necessary to create syntactic frames that correspond to multiple properties in an ontology. The following example shows a case of a transitive verb (launch) subcategorizing a prepositional object introduced by the preposition &quot;in&quot; to indicate the year of the launch of the product in question. The important thing here is that there are three syntactic (subject, object and prepositional object, represented as arg1, arg2 and arg3 below, respectively) and three semantic arguments (the domain of <a href="http://dbpedia.org/ontology/product">dbpedia:product</a>, the range of <a href="http://dbpedia.org/ontology/product">dbpedia:product</a> and the range of <a href="http://dbpedia.org/ontology/launchDate">dbpedia:launchDate</a>, respectively). Given that there are three semantic arguments, the reference can not be a single (binary) property, so we show the use of the property <a href="#subsense" title="wikilink">subsense</a> to indicate that the meaning of the phrase &quot;X launched Y in Z&quot; is a composition of the properties <a href="http://dbpedia.org/ontology/product">dbpedia:product</a> and <a href="http://dbpedia.org/ontology/productionStartYear">dbpedia:productionStartYear</a> which together form the reference of a complex sense:</p>
 <div class='entity'>
 <h3>
 <p>subsense (Object Property)</p>
@@ -1293,6 +1281,23 @@ synsem:objOfProp  :die_arg2.
 <div class='description'>
 <p><strong>Domain:</strong> LexicalSense</p>
 <p><strong>Range:</strong> LexicalSense</p>
+</div>
+</div>
+<p>--<a href="User:Jmccrae" title="wikilink">John McCrae</a> (<a href="User talk:Jmccrae" title="wikilink">talk</a>) 15:07, 16 January 2015 (UTC)Shouldn't the domain/range be SemanticFrame?</p>
+<p>We note it is also possible to state an argument as optional using the optional property. It is generally only advised to use this property with complex senses, where the omission of the argument means that triple associated with this argument is not generated. For example in the following example omitting <code>launch_arg3</code> would cause the property <em>launch date</em> property not to be generated. Formally, the optional property infers that there is a triple but one or both of its arguments are unknown, thus if we were to associate a frame <em>X is the father of Y</em> with a property <em>father</em>, then marking <em>Y</em> as optional would indicate that it is possible to infer from the syntactic frame <em>X is a father</em> the axiom <em>X ∈ ∃father.Thing</em></p>
+<div class='entity'>
+<h3>
+<p>optional (Datatype Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/synsem/optional">http://www.w3.org/nl/lemon/synsem/optional</a></p>
+</div>
+<div class='comment'>
+<p>Denotes that the syntactic argument is optional, that is, it may be omitted.</p>
+</div>
+<div class='description'>
+<p><strong>Domain:</strong> Argument</p>
+<p><strong>Range:</strong> xsd:boolean</p>
 </div>
 </div>
 <div class='beispiel'>
@@ -1328,7 +1333,7 @@ ontolex:subsense :launch_subframe2.
                                  synsem:objOfProp  :launch_arg3.</code></pre>
 </div>
 </div>
-<p>The following shows a simple adjective &quot;female&quot; expressing the membership of some entity in the class myOnto:Female.</p>
+<p>The following shows a simple adjective &quot;female&quot; expressing the membership of an anonymous class ∃gender.female</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example8.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example8.png' class='beispiel'/></a></p>
 <div>
@@ -1340,15 +1345,18 @@ ontolex:subsense :launch_subframe2.
 
 :female_canonical_form ontolex:writtenRep &quot;female&quot;@en.
 
-:female_sense ontolex:reference :Female;
+:female_sense ontolex:reference [
+  a owl:Restriction
+  owl:onProperty :gender ;
+  owl:hasValue :female ] ;
+  synsem:isA :female_arg .
 
 :female_syn a lexinfo:AdjectivePredicateFrame;
 lexinfo:attributiveArg :female_arg;
 lexinfo:copulativeSubject :female_arg.</code></pre>
 </div>
 </div>
-<p>And the following entry shows a lexical entry for the scalar adjective high in three uses: i) AdjectivePredicateFrame as in &quot;the high mountain&quot; or &quot;the mountain is high&quot;, ii) and AdjectiveScaleFrame as in &quot;the mountain is 8000 m high&quot;. The semantics of high is related to either the property <a href="http://dbpedia.org/ontology/height">dbpedia:height</a> or the property <a href="http://dbpedia.org/ontology/elevation">dbpedia:height</a>. The semantics of the adjective high is expressed below with respect to the oils vocabulary expressing that along the scale of heights or elevation the elements that are &quot;high&quot; are rather on the higher end of the scale (indicated by oils:degree oils:strong).</p>
-<p>OILS!?</p>
+<p>And the following entry shows a lexical entry for the scalar adjective high in three uses: i) AdjectivePredicateFrame as in &quot;the high mountain&quot; or &quot;the mountain is high&quot;, ii) and AdjectiveScaleFrame as in &quot;the mountain is 8000 m high&quot;. The semantics of high is related to either the property <a href="http://dbpedia.org/ontology/height">dbpedia:height</a> or the property <a href="http://dbpedia.org/ontology/elevation">dbpedia:height</a>. The semantics of the adjective high is expressed below with respect to the <a href="http://lemon-model.net/oils">OILS</a> vocabulary expressing that along the scale of heights or elevation the elements that are &quot;high&quot; are rather on the higher end of the scale (indicated by oils:degree oils:strong).</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example9.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example9.png' class='beispiel'/></a></p>
 <div>
@@ -1387,50 +1395,6 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
 :high_sense2_ref rdfs:subClassOf oils:CovariantScalar ;
                                   oils:boundTo &lt;http://dbpedia.org/ontology/elevation&gt; ;
                                   oils:degree oils:strong.</code></pre>
-</div>
-</div>
-<p>The following shows a more intricate example of an adjective that subcategorizes further arguments, e.g. the case of being &quot;active from X to Y&quot;</p>
-<div class='beispiel'>
-<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example12.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/synsem/example12.png' class='beispiel'/></a></p>
-<div>
-<pre><code>:active_from_to a ontolex:LexicalEntry ;
-  lexinfo:partOfSpeech lexinfo:adjective ;
-  ontolex:canonicalForm :active_canonical_form;
-  synsem:synBehaviour :active_from_to_syn;
-  ontolex:sense :active_from_to_syn_sense1;
-  ontolex:sense :active_from_to_syn_sense2.
-
-:active_canonical_form ontolex:writtenRep &quot;active&quot;@en.
-
-:active_from_to_syn a  lexinfo:AdjectivePPFrame ;
-                        lexinfo:copulativeSubject   :active_arg1 ;
-                        lexinfo:prepositionalObject :active_arg2 ;
-                        lexinfo:prepositionalObject :active_arg3.
-
-:active_from_to_syn_sense1 ontolex:subsense :active_from_to_sense1_sub1;
-                        ontolex:subsense :active_from_to_sense1_sub2.
-
-:active_from_to_syn_sense2 ontolex:subsense :active_from_to_sense2_sub1;
-                        ontolex:subsense :active_from_to_sense2_sub2.
-
-:active_from_to_sense1_sub1  ontolex:reference &lt;http://dbpedia.org/ontology/activeYearsStartDate&gt; ;
-                      synsem:subjOfProp :active_arg1 ;
-                      synsem:objOfProp  :active_arg2.
-
-:active_from_to_sense1_sub2 ontolex:reference &lt;http://dbpedia.org/ontology/activeYearsEndDate&gt; ;
-                                 ontolex:subjOfProp :active_arg1 ;
-                                 ontolex:objOfProp  :active_arg3.
-
-:active_from_to_sense2_sub1  ontolex:reference &lt;http://dbpedia.org/ontology/activeYearsStartYear&gt; ;
-                                 ontolex:subjOfProp :active_arg1 ;
-                                 ontolex:objOfProp  :active_arg2.
-
-:active_from_to_sense2_sub2  ontolex:reference &lt;http://dbpedia.org/ontology/activeYearsEndYear&gt; ;
-                                 ontolex:subjOfProp :active_arg1 ;
-                                 ontolex:objOfProp  :active_arg3.
-
-:active_arg2 ontolex:marker :from .
-:active_arg3 ontolex:marker :to .</code></pre>
 </div>
 </div>
 <h2 id="conditions"><a href="#conditions">Conditions</a></h2>
@@ -1477,7 +1441,7 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
 <pre><code>:ride a ontolex:LexicalEntry ;
   ontolex:sense :ride_sense1 .
 
-:ride_sense1 ontolex:reference :travelUsing ;
+:ride_sense1 ontolex:reference :methodOfTransportation ;
   ontolex:propertyRange :Bicycle .</code></pre>
 </div>
 </div>
@@ -1510,6 +1474,9 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
 </div>
 </div>
 <h1 id="decomposition-decomp"><a href="#decomposition-decomp">Decomposition (decomp)</a></h1>
+<div class="figure">
+<img src="Lemon Decomposition.png" title="Lemon Decomposition.png" alt="Lemon Decomposition.png" /><p class="caption">Lemon Decomposition.png</p>
+</div>
 <p>Decomposition is the process of indicating which elements constitute a multi-word or compound lexical entry. The simplest way to do this is by means of <a href="#subterm" title="wikilink">subterm</a> property, which indicates that a <a href="#Lexical_entry" title="wikilink">lexical entry</a> is a part of another entry.</p>
 <div class='entity'>
 <h3>
@@ -1534,7 +1501,7 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
   decomp:subterm :Landing.</code></pre>
 </div>
 </div>
-<p>The use of <a href="#subterm" title="wikilink">sub-terms</a> has two principle limitations, firstly it is not possible to indicate inflection within a particular phrase of its individual elements, and secondly that it is not clear if the components represent the complete phrase or their relative order. To fix this we introduce an object called a <a href="#Component" title="wikilink">component</a> defined as follows</p>
+<p>The use of sub-terms has two principle limitations, firstly it is not possible to indicate inflection within a particular phrase of its individual elements, and secondly that it is not clear if the components represent the complete phrase or their relative order. To fix this we introduce an object called a component defined as follows:</p>
 <div class='entity'>
 <h3>
 <p>Component (Class)</p>
@@ -1605,10 +1572,16 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
   rdf:_1 :AfricanSwineFever_African_Component ;
   rdf:_2 :AfricanSwineFever_Swine_Component ;
   rdf:_3 :AfricanSwineFever_Fever_Component ;
-  decomp:constituent :AfricanSwineFever_African_Component;
-  decomp:constituent :AfricanSwineFever_Swine_Component;
-  decomp:constituent :AfricanSwineFever_Fever_Component .
+  decomp:subterm :SwineFever .
 
+:AfricanSwineFever_Component decomp:identifies :AfricanSwineFever ;
+  decomp:constituent :AfricanSwineFever_African_Component :
+  decomp:constituent :SwineFever_Component .
+
+:SwineFever_Component decomp:identifies :SwineFever ;
+  decomp:constituent :AfricanSwineFever_Swine_Component ;
+  decomp:constituent :AfricanSwineFever_Fever_Component .
+ 
 :AfricanSwineFever_African_Component a decomp:Component ;
   decomp:identifies :African .
 
@@ -1619,19 +1592,113 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
   decomp:identifies :Fever.</code></pre>
 </div>
 </div>
-<p>The use of hierachies of components may also allow for phrase tree structure of a lexical entry to be represented if need, as in the following example:</p>
-<div class="figure">
-<img src="Ontolex_Lemon_Syntax.png" title="Ontolex_Lemon_Syntax.png" alt="Ontolex_Lemon_Syntax.png" /><p class="caption">Ontolex_Lemon_Syntax.png</p>
+<p>A component may also be used to identify arguments in a frame structure, and in this way a full frame may be described, for example:</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/decomp/example4.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/decomp/example4.png' class='beispiel'/></a></p>
+<div>
+<pre><code>:knows a ontolex:Word ;
+  synsem:synBehavior :knows_frame .
+
+:knows_frame a synsem:Frame ;
+  lexinfo:subject :argX ;
+  lexinfo:directObjet :argY .
+
+:XknowsY a decomp:Component ;
+  decomp:constituent :argX_component ,
+                     :knows_component ,
+                     :argY_component .
+
+:argX_component decomp:identifies :argX .
+
+:knows_component decomp:identifies :knows .
+
+:argY_component decomp:identifies :argY . </code></pre>
 </div>
-<p><span style="color:red;">TODO arguments as identification of components</span></p>
+</div>
 <h1 id="variation-translation-vartrans"><a href="#variation-translation-vartrans">Variation &amp; Translation (vartrans)</a></h1>
-<p>This module provides mechanisms for representing lexical variation, both within and across languages. The module consists of an upper class <code>Variant</code> that typically reifies a variation relation between two objects of the model (e.g., two lexical senses, two lexical entries, two lexical forms, etc.) The class <code>Variant</code> is specialised into the following classes of variants:</p>
+<div class="figure">
+<img src="Lemon Variation and Translation.png" title="Lemon Variation and Translation.png" alt="Lemon Variation and Translation.png" /><p class="caption">Lemon Variation and Translation.png</p>
+</div>
+<h2 id="relations"><a href="#relations">Relations</a></h2>
+<p>The simplest method of representing relationships between two elements in the lexicon is by means of a direct link. For this reason two properties, <strong>lexical relation</strong> and <strong>sense relation</strong>, are introduced which act as super-properties of all linguistic properties in the model, they are defined as follows</p>
+<div class='entity'>
+<h3>
+<p>lexicalRelations (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans/lexicalRelation">http://www.w3.org/nl/lemon/vartrans/lexicalRelation</a></p>
+</div>
+<div class='comment'>
+<p>Indicates a relationship between two lexical entries</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: LexicalEntry</p>
+<p><strong>Range</strong>: LexicalEntry</p>
+</div>
+</div>
+<div class='entity'>
+<h3>
+<p>senseRelation (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans/senseRelation">http://www.w3.org/nl/lemon/vartrans/senseRelation</a></p>
+</div>
+<div class='comment'>
+<p>Indicates a relationship between two senses</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: LexicalSense</p>
+<p><strong>Range</strong>: LexicalSense</p>
+</div>
+</div>
+<p>A useful subproperty of lexical relationship is translatable as stating that one lexical entry can be translated as another, for example:</p>
+<p>--<a href="User:Jmccrae" title="wikilink">John McCrae</a> (<a href="User talk:Jmccrae" title="wikilink">talk</a>) 16:19, 16 January 2015 (UTC) It seems crazy that we now have a property that does something 'wrong' IMHO, but not for the correct way to represent translations...</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example5.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example5.png' class='beispiel'/></a></p>
+<div>
+<pre><code>:surrogate_mother a ontolex:LexicalEntry;
+      ontolex:language &quot;en&quot;;
+      ontolex:sense :surrogate_mother_sense.
+
+:surrogate_mother_sense ontolex:reference &lt;http://dbpedia.org/page/Surrogacy&gt;.
+
+:madre_de_alquiler a ontolex:LexicalEntry;
+      ontolex:language &quot;es&quot;;
+      ontolex:sense :madre_de_alquiler_sense.
+
+:madre_de_alquiler_sense ontolex:reference &lt;http://es.dbpedia.org/resource/Madre_de_alquiler&gt;.
+
+:leihmutter a ontolex:LexicalEntry;
+      ontolex:language &quot;de&quot;;
+      ontolex:sense :leihmutter_sense.
+
+:surrogate_mother_sense ontolex:reference &lt;http://de.dbpedia.org/resource/Leihmutter&gt;.
+
+:surrogate_mother vartrans:translatableAs :madre_de_alquiler.</code></pre>
+</div>
+</div>
+<div class='entity'>
+<h3>
+<p>translatableAs (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans/translatableAs">http://www.w3.org/nl/lemon/vartrans/translatableAs</a></p>
+</div>
+<div class='comment'>
+</div>
+<div class='description'>
+<p><strong>Range</strong>: LexicalEntry</p>
+<p><strong>Domain</strong>:LexicalEntry</p>
+</div>
+</div>
+<h2 id="variants"><a href="#variants">Variants</a></h2>
+<p>This module provides mechanisms for representing lexical variation, both within and across languages. The module consists of variants that reifies a variation relation between two objects of the model (i.e., two lexical senses, two lexical entries) The class variant is specialised into the following classes of variants:</p>
 <ul>
 <li><strong>TerminologicalVariant</strong>: defined as a semantic variation relation between two lexical senses</li>
 <li><strong>LexicalVariant</strong>: defines as a lexical relation between two lexical entries or forms that represents a difference at the formal level, i.e., they are limited to morphosyntactic variants, inflectional variants, compounds that do not incur a difference in meaning</li>
 </ul>
-<p><strong><em>PROPOSAL: to devide LexicalVariant in two, one for forms (LexicalFormVariant?) and another for entries (LexicalEntryVariant?). To be consistent... shouldn't &quot;TerminologicalVariant be renamed as &quot;LexicalSenseVariant?&quot;</em></strong></p>
-<p><strong>'' I would say that the it is up to you to model Lexical Variation between LexicalEntry or Form. I think that the most elegant (and simple) modelling solution is to model them as variants between Form, but there may be reasons to model them as variants between LexicalEntry (The example that we discussed in the last telco do-undo would probably require a variation relation between lexical entries, right?). I am not sure the subclassification that is being proposed is worth it (Elena)</strong>''</p>
+<p><strong><em>PROPOSAL: to devide LexicalVariant in two, one for forms (LexicalFormVariant?) and another for entries (LexicalEntryVariant?). To be consistent... shouldn't &quot;TerminologicalVariant be renamed as &quot;LexicalSenseVariant?&quot;</em></strong> --<a href="User:Jmccrae" title="wikilink">John McCrae</a> (<a href="User talk:Jmccrae" title="wikilink">talk</a>) 16:19, 16 January 2015 (UTC) Nah... let's keep it as terminological variant before we risk another war</p>
+<p><strong>'' I would say that the it is up to you to model Lexical Variation between LexicalEntry or Form. I think that the most elegant (and simple) modelling solution is to model them as variants between Form, but there may be reasons to model them as variants between LexicalEntry (The example that we discussed in the last telco do-undo would probably require a variation relation between lexical entries, right?). I am not sure the subclassification that is being proposed is worth it (Elena)</strong>'' --<a href="User:Jmccrae" title="wikilink">John McCrae</a> (<a href="User talk:Jmccrae" title="wikilink">talk</a>) 16:19, 16 January 2015 (UTC) Variants between forms quickly become excessive, it is better to use properties to implicitly express relationships, e.g., plurals, past tense etc.</p>
 <p>Each Variant has the following properties: i) source, ii) target, iii) category.</p>
 <div class='entity'>
 <h3>
@@ -1694,7 +1761,6 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
 <p><strong>SubPropertyOf:</strong> edge</p>
 </div>
 </div>
-<p><strong><em>PROPOSAL: to add a superproperty of vartras:source, vartras:target, which does not account for the directionality of the relation</em></strong></p>
 <p>The variation categories (e.g., diachronic, abbreviations, dimensional variants, etc.) have been clearly separated from the model. They can be defined separately and pointed by means of the vartrans:variationCategory property.</p>
 <div class='entity'>
 <h3>
@@ -1741,12 +1807,12 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
 :fao_fullform a vartrans:LexicalVariant ;
       vartrans:source :food_agriculture_organization_form ;
       vartrans:target :fao_form ; 
-      vartrans:category isocat:DC-241.
+      vartrans:category :abbreviation .
 
 :fao_initialism a vartrans:LexicalVariant ;
       vartrans:source :fao_form ;
       vartrans:target :food_agriculture_organization_form ; 
-      vartrans:category isocat:DC-272 .</code></pre>
+      vartrans:category :full_form .</code></pre>
 </div>
 </div>
 <p>We further consider TeminologicalVariants, which are defined as follows:</p>
@@ -1758,7 +1824,7 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
 <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans/TerminologicalVariant">http://www.w3.org/nl/lemon/vartrans/TerminologicalVariant</a></p>
 </div>
 <div class='comment'>
-<p>Terminological variants are variants that are semantically related in the sense that they can be exhcanged in most contenxt, but their surface forms are not directly related. The variants vary along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused.</p>
+<p>Terminological variants are variants that are semantically related in the sense that they can be exhcanged in most contexts, but their surface forms are not directly related. The variants vary along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused.</p>
 </div>
 <div class='description'>
 <p><strong>SubclassOf:</strong> vartrans:source exactly 1 ontolex:LexicalSense; vartrans:target exactly 1 ontolex:LexicalSense; vartrans:Variant</p>
@@ -1770,25 +1836,28 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
 <li>Diaphasic (register) (e.g., headache and cephalalgia; swine flu and pig flu and H1N1 and Mexican pandemic flu)</li>
 <li>Diachronic (or chronological variants) (e.g., tuberculosis and phthisis)</li>
 <li>Diastratic (discursive or stylistic vari‐ants) (e.g., man vs. bloke)</li>
-<li>Dimensional variants: the terms point to the same concept but highlight a different</li>
+<li>Dimensional variants: the terms point to the same concept but highlight a different property or dimension of the concept (e.g., biosanitary waste vs. hospital waste; Novel Coronavirus vs. Middle East Respiratory Syndrome Coronavirus; obsolete technology vs. dangerous technology; madre de alquiler (rental mother) vs. vientre de alquiler (womb mother), in Spanish).</li>
 </ul>
-<p>property or dimension of the concept (e.g., biosanitary waste vs. hospital waste; Novel Coronavirus vs. Middle East Respiratory Syndrome Coronavirus; obsolete technology vs. dangerous technology; madre de alquiler (rental mother) vs. vientre de alquiler (womb mother), in Spanish).</p>
 <p>We illustrate the use of TerminologicalVariants with the following example of a diachronic variant:</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example2.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example2.png' class='beispiel'/></a></p>
 <div>
 <pre><code>:tuberculosis a ontolex:LexicalEntry ;
-       ontolex:lexicalForm [ ontolex:writtenRep &quot;tuberculosis&quot;@en ] ;
+       ontolex:lexicalForm :tuberculosis_form ; 
        ontolex:sense :tuberculosis_sense.
+
+:tuberculosis_form ontolex:writtenRep &quot;tuberculosis&quot;@en .
 
 :tuberculosis_sense ontolex:reference &lt;http://dbpedia.org/resource/Tuberculosis&gt;.
 
 :phthisis a ontolex:LexicalEntry ;
-       ontolex:lexicalForm [ ontolex:writtenRep &quot;phthisis&quot;@en ];
+       ontolex:lexicalForm :phthisis_form ; 
        ontolex:sense :phthisis_sense.
 
+:phthisis_form ontolex:writtenRep &quot;phthisis&quot;@en .
+
 :phtisis_sense ontolex:reference &lt;http://dbpedia.org/resource/Tuberculosis&gt;;
-                       ontolex:use isocat:DC-506.
+               dct:subject &lt;http://dbpedia/resource/Medicine&gt; .
 
 :phtisis_diachronic_var a vartrans:TerminologicalVariant ;
       vartrans:source :phthisis_sense ;
@@ -1800,10 +1869,10 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
 <p>A context can be defined for the variant with the following property</p>
 <div class='entity'>
 <h3>
-<p>variationContext (Object Property)</p>
+<p>context (Object Property)</p>
 </h3>
 <div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans/variationContext">http://www.w3.org/nl/lemon/vartrans/variationContext</a></p>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans/context">http://www.w3.org/nl/lemon/vartrans/context</a></p>
 </div>
 <div class='comment'>
 <p>Property with unrestricted range intended to specify, if needed, the specific application context in which a variation happens</p>
@@ -1812,11 +1881,11 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
 <p><strong>Domain:</strong> vartrans:Variant or ontolex:LexicalSense</p>
 </div>
 </div>
-<p>The variation categories (e.g., diachronic, abbreviations, dimensional variants, etc.) have been clearly separated from the model. They can be defined separately and pointed by means of the <code>var:variationCategory</code> property. In that way, our variation &amp; translation module does not commit to specific views or translation theories and adheres to the design principle in lemon of “being descriptive not prescriptive”. For instance, for translations we propose the set of categories available at <a href="http://purl.org/net/translation-categories">http://purl.org/net/translation-categories</a></p>
-<p>Finally, a <code>VariantSet</code> class is defined, which is responsible of grouping a set of variations sharing certain properties. For instance, a set of translations could group translations coming from the same language resource, or belonging to the same organisation, etc.</p>
+<p>--<a href="User:Jmccrae" title="wikilink">John McCrae</a> (<a href="User talk:Jmccrae" title="wikilink">talk</a>) 16:19, 16 January 2015 (UTC) Is this necessary... I have used dct:subject without trouble in previous examples</p>
+<p>The variation categories (e.g., diachronic, abbreviations, dimensional variants, etc.) have been clearly separated from the model. They can be defined separately and pointed by means of the variation category property. In that way, our variation and translation module does not commit to specific views or translation theories and adheres to the design principle in lemon of “being descriptive not prescriptive”. For instance, for translations we propose the set of categories available at <a href="http://purl.org/net/translation-categories">http://purl.org/net/translation-categories</a></p>
+<p>Finally, a variant set class is defined, which is responsible of grouping a set of variations sharing certain properties. For instance, a set of translations could group translations coming from the same language resource, or belonging to the same organisation, etc.</p>
 <h2 id="translation"><a href="#translation">Translation</a></h2>
-<p>A special type of <code> Variant </code> is a variant that relates lexical senses across languages. We call such a variant <code> Translation </code>. Special types of such <code> Translations</code> are <code> Direct Equivalents </code> (representing terms that describe (highly) semantically equivalent entities that refer to entities that exist in both cultures and languages. E.g. <em>surrogate mother</em> in English, <em>madre de alquiler</em> in Spanish and <em>mère porteuse</em> in French.) and <code> Cultural Equivalents </code> (representing the closest equivalent -or counterpart- of a sense in another language. Eg. Prime Minister, Bundeskanzler). Such translation categories are not included in the model and will be referred to external catalogs by means of the <code> vartrans:variationCategory </code>.</p>
-<p>As such a Translation is defined as follows:</p>
+<p>A special type of variant is a variant that relates lexical senses across languages. We call such a variant a translation. Special types of such translations are &quot;direct equivalents&quot; (representing terms that describe (highly) semantically equivalent entities that refer to entities that exist in both cultures and languages. E.g. <em>surrogate mother</em> in English, <em>madre de alquiler</em> in Spanish and <em>mère porteuse</em> in French.) and &quot;cultural equivalents&quot; (representing the closest equivalent -or counterpart- of a sense in another language. Eg. Prime Minister, Bundeskanzler). Such translation categories are not included in the model and will be referred to external catalogs by means of the variation category. As such a Translation is defined as follows:</p>
 <div class='entity'>
 <h3>
 <p>Translation (Class)</p>
@@ -1831,8 +1900,7 @@ lexinfo:copulativeSubject :female_arg.</code></pre>
 <p><strong>SubclassOf:</strong> vartrans:TerminologicalVariant; ontolex:source exactly 1 ontolex:LexicalSense ontolex:target exactly 1 ontolex:LexicalSense;</p>
 </div>
 </div>
-<p>As an example of a rather literal translation we give the following ones:</p>
-<p>E.g. surrogate mother in English, madre de alquiler in Spanish and mère porteuse in French.) and Cultural Equivalents (representing the closest equivalent -or counterpart- of a sense in another language. Eg. Prime Minister, Bundeskanzler).</p>
+<p>As an example of a rather literal translation we give the following: &quot;surrogate mother&quot; in English, &quot;madre de alquiler&quot; in Spanish and &quot;mère porteuse&quot; in French; and cultural qquivalents: &quot;prime minister&quot; in English and &quot;Bundeskanzler&quot; in German. These are represented as follows:</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example4.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example4.png' class='beispiel'/></a></p>
 <div>
@@ -1867,49 +1935,362 @@ vartrans:variationCategory :literalTranslation.
 :trans3: a vartrans:Translation;
 vartrans:source :leihmutter_sense;
 vartrans:target :madre_de_alquiler_sense;
-vartrans:variationCategory :literalTranslation.
-     </code></pre>
+vartrans:variationCategory :literalTranslation.</code></pre>
+</div>
+</div>
+<h1 id="metadata-lime"><a href="#metadata-lime">Metadata (lime)</a></h1>
+<div class="figure">
+<img src="Lemon Lime Metadata.png" title="Lemon Lime Metadata.png" alt="Lemon Lime Metadata.png" /><p class="caption">Lemon Lime Metadata.png</p>
+</div>
+<p>The Linguistic Metadata (lime) module allows for describing metadata about lexical resources expressed using the Lemon-OntoLex vocabulary. This vocabulary is not intended to replace existing metadata schemas such as <a href="http://purl.org/dc/terms">Dublin Core</a>, <a href="http://www.w3.org/TR/prov-o/">The PROV ontology</a>, <a href="http://www.w3.org/TR/vocab-dcat/">DCAT</a> or <a href="http://www.w3.org/TR/void/">VoID</a>. Instead the Lime module allows metadata specific to the lexicon and its interaction with an ontology to be described. For example, Lime defines a property as follows to describe how many entries there are in a lexicon:</p>
+<div class='entity'>
+<h3>
+<p>lexicalEntries (Datatype Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/lexicalEntries">http://www.w3.org/nl/lemon/lime/lexicalEntries</a></p>
+</div>
+<div class='comment'>
+<p>Number of distinct lexical entries.</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: Lexicalization or ResourceCoverage or Lexicon</p>
+<p><strong>Range</strong>: integer</p>
+</div>
+</div>
+<p>We may also specify the linguistic (annotation model) used in a lexicon with the <em>linguistic model</em> property</p>
+<div class='entity'>
+<h3>
+<p>linguisticModel (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/linguisticModel">http://www.w3.org/nl/lemon/lime/linguisticModel</a></p>
+</div>
+<div class='comment'>
+<p>The linguistic model used in a lime:LexicalizationSet.</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: Lexicalization or Lexicon</p>
+</div>
+</div>
+<p>As an example we may describe a simple lexicon using this property as well as properties from Dublin Core and VoID:</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/example1.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/example1.png' class='beispiel'/></a></p>
+<div>
+<pre><code>:lexicon a ontolex:Lexicon;                                                     
+   ontolex:language &quot;en&quot;;                                                       
+   ontolex:entry :lex_high;                                                     
+   ontolex:entry :lex_cat;                                                      
+   ontolex:entry :lex_marry;                                                    
+   ontolex:entry :lex_intangible_assets;                                        
+   lime:lexicalEntries &quot;4&quot;^^xsd:integer;                                               
+   lime:linguisticModel &lt;http://www.lexinfo.net/ontologies/2.0/lexinfo&gt; ;
+   dc:description &quot;This is an example lexicon&quot;@en;                              
+   dc:description &quot;Questo è un lessico di esempio&quot;@it;                          
+   dc:creator &lt;http://john.mccr.ae/&gt;;                                           
+   void:triples &quot;29&quot;^^xsd:integer .                                             
+                                                                                
+:lex_cat a ontolex:LexicalEntry;                                                
+   ontolex:canonicalForm :form_cat;                                             
+   ontolex:denotes &lt;http://dbpedia.org/resource/Cat&gt;.                           
+:form_cat ontolex:writtenRep &quot;cat&quot;@en.                                          
+                                                                                
+:lex_marry a ontolex:LexicalEntry;                                              
+   ontolex:canonicalForm :form_marry;                                           
+   ontolex:denotes &lt;http://dbpedia.org/ontology/spouse&gt;.                        
+:form_marry ontolex:writtenRep &quot;marry&quot;@en .                                     
+                                                                                
+:lex_high a ontolex:LexicalEntry;                                               
+   ontolex:canonicalForm :form_high;                                            
+   ontolex:denotes &lt;http://dbpedia.org/ontology/elevation&gt;.                     
+:form_high ontolex:writtenRep &quot;high&quot;@en .                                       
+                                                                                
+:lex_intangible_assets a ontolex:LexicalEntry;                                  
+  ontolex:canonicalForm :form_intangible_assets;                                
+  ontolex:denotes &lt;http://dbpedia.org/resource/Intangible_asset&gt;.               
+:form_intangible_assets ontolex:writtenRep &quot;intangible assets&quot;@en .</code></pre>
+</div>
+</div>
+<h2 id="lexicalization"><a href="#lexicalization">Lexicalization</a></h2>
+<p>One of the main elements that is of interest to record is how completely a lexicon covers the vocabulary of a given ontology for the language of the lexicon, and to this end a lexicon may be associated with a <em>Lexicalization Set</em> object which defines the lexicalization set of the ontology with this particular lexicon. The lexicalization set object should be unique for a given lexicon-ontology pair.</p>
+<div class='entity'>
+<h3>
+<p>LexicalizationSet (Class)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/LexicalizationSet">http://www.w3.org/nl/lemon/lime/LexicalizationSet</a></p>
+</div>
+<div class='comment'>
+<p>A lexicalization set provides the realization in a natural language of the resources found in an RDF dataset/ontology vocabulary. To that end, the lexicalizations present in the set might relate these resources to entries of a Lexicon (i.e., lexical entries or senses). Multiple linguistic models may coexist in principle, as long as the same information is expressed in each model, in the limit of its expressive power.</p>
+</div>
+<div class='description'>
+<p><strong>SubClassOf</strong>: lexicalizedDataset exactly 1 and linguisticModel exactly 1 and lexicon exactly 1 and language exactly 1</p>
+<p><strong>SubClassOf</strong>: void:Dataset</p>
+</div>
+</div>
+<p>The lexicalization set is linked to the ontology and lexicon object by means of the properties <em>reference dataset</em> and <em>lexicon dataset</em> respectively.</p>
+<div class='entity'>
+<h3>
+<p>referenceDataset (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/referenceDataset">http://www.w3.org/nl/lemon/lime/referenceDataset</a></p>
+</div>
+<div class='comment'>
+<p>The void:Dataset that stands for the data being linguistically grounded by a lime:Lexicalization.</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: LexicalizationSet</p>
+<p><strong>Range</strong>: void:Dataset</p>
 </div>
 </div>
 <div class='entity'>
 <h3>
-<p>translatableAs (Object Property)</p>
+<p>lexiconDataset (Object Property)</p>
 </h3>
 <div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans/translatableAs">http://www.w3.org/nl/lemon/vartrans/translatableAs</a></p>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/lexiconDataset">http://www.w3.org/nl/lemon/lime/lexiconDataset</a></p>
+</div>
+<div class='comment'>
+<p>The lime:Lexicon a lime:Lexicalization refers to.</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: LexicalizationSet</p>
+<p><strong>Range</strong>: Lexicon</p>
+</div>
+</div>
+<p>In the lexicalization we may give the number of <em>references</em> lexicalized in the ontology with the eponymous property as well as the number of entries used to lexicalize. These numbers may be lower than the number of entites in the ontology or entries in the lexicon respectively.</p>
+<div class='entity'>
+<h3>
+<p>references (Datatype Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/references">http://www.w3.org/nl/lemon/lime/references</a></p>
+</div>
+<div class='comment'>
+<p>Number of distinct references.</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: Lexicalization or ResourceCoverage</p>
+<p><strong>Range</strong>: integer</p>
+</div>
+</div>
+<p>So, for example we may state that we are lexicalizing an ontology with a lexicon as follows</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/example2.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/example2.png' class='beispiel'/></a></p>
+<div>
+<pre><code>:Lexicalization a lime:LexicalizationSet ;
+  lime:referenceDataset &lt;http://www.example.com/ontology&gt; ;
+  lime:lexiconDataset &lt;http://www.example.com/lexicon&gt; ;
+  lime:references 20 ;
+  lime:lexicalEntries 50 .
+
+&lt;http://www.example.com/ontology&gt; a owl:Ontology , void:Dataset ;
+  void:entities 100 .
+
+&lt;http://www.example.com/lexicon&gt; a ontolex:Lexicon ;
+  ontolex:language &quot;ja&quot; ;
+  lime:lexicalEntries 80 .</code></pre>
+</div>
+</div>
+<p>In addition to specifying the number of entities in the ontology lexicalized, it is also possible to give the total number of <em>lexicalizations</em>, that is the total connections between lexical entries and references. This number should in most cases be the same as the total number of lexical senses defined in the lexicon. The value may be given by the absolute number of lexicalizations:</p>
+<div class='entity'>
+<h3>
+<p>lexicalizations (Datatype Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/lexicalizations">http://www.w3.org/nl/lemon/lime/lexicalizations</a></p>
+</div>
+<div class='comment'>
+<p>Number of distinct lexicalizations.</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: Lexicalization or ResourceCoverage</p>
+<p><strong>Range</strong>: integer</p>
+</div>
+</div>
+<p>Or alternatively may be expressed as a ratio of the average number of terms lexicalized each ontology element</p>
+<div class='entity'>
+<h3>
+<p>avgNumOfLexicalizations (Datatype Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/avgNumOfLexicalizations">http://www.w3.org/nl/lemon/lime/avgNumOfLexicalizations</a></p>
+</div>
+<div class='comment'>
+<p>the average number of lexicalizations for each of the (??lexicalized??) references considered in the ResourceCoverage being subject of this property</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: ResourceCoverage</p>
+<p><strong>Range</strong>: decimal</p>
+</div>
+</div>
+<p>The following equality should hold: <em>avgNumOfLexicalizations</em> = <em>lexicalizations</em> ÷ <em>entities</em> (in the ontology). For example:</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/example3.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/example3.png' class='beispiel'/></a></p>
+<div>
+<pre><code>:Lexicalization a lime:LexicalizationSet ;
+  lime:lexicalizations 20 ;
+  lime:references 20 ;
+  lime:lexicalEntries 15 ;
+  lime:avgNumOfLexicalizations 0.66 ;
+  lime:referenceDataset &lt;http://www.example.com/ontology&gt; ;
+  lime:lexiconDataset &lt;http://www.example.com/lexicon&gt; .
+
+&lt;http://www.example.com/ontology&gt; a owl:Ontology, void:Dataset ;
+  void:entities 30 .</code></pre>
+</div>
+</div>
+<div class='entity'>
+<h3>
+<p>percentage (Datatype Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/percentage">http://www.w3.org/nl/lemon/lime/percentage</a></p>
+</div>
+<div class='comment'>
+<p>TODO</p>
+</div>
+<div class='description'>
+<p>TODO</p>
+</div>
+</div>
+<h2 id="coverages"><a href="#coverages">Coverages</a></h2>
+<p>The coverage allows lexicalizations to be limited to a single type, for example we may describe the lexicalization of only individuals belonging to a given class or lexicalization of only properties. To do this a <em>resource coverage</em> object is attached to a lexicalization by means of the <em>coverage</em> property and then restricted by the <em>resource type</em> property.</p>
+<div class='entity'>
+<h3>
+<p>ResourceCoverage (Class)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/ResourceCoverage">http://www.w3.org/nl/lemon/lime/ResourceCoverage</a></p>
+</div>
+<div class='comment'>
+<p>A collection of statistics about the lexicalization of resources of a given type.</p>
+</div>
+<div class='description'>
+<p><strong>SubClassOf</strong>: class exactly 1</p>
+</div>
+</div>
+<div class='entity'>
+<h3>
+<p>coverage (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/coverage">http://www.w3.org/nl/lemon/lime/coverage</a></p>
+</div>
+<div class='comment'>
+<p>Statistics about the lexicalization of resources of a given type.</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: Lexicalization <span style="color:red;">or LexicalLinkSet</span></p>
+<p><strong>Range</strong>: ResourceCoverage</p>
+</div>
+</div>
+<div class='entity'>
+<h3>
+<p>resourceType (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/resourceType">http://www.w3.org/nl/lemon/lime/resourceType</a></p>
+</div>
+<div class='comment'>
+<p>The type of resources for a given resource coverage.</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: void:Dataset</p>
+<p><strong>Range</strong>: rdfs:Class</p>
+<p><strong>Characteristics</strong>: functional</p>
+</div>
+</div>
+<p>For example, we may limit our lexicalization statistics to a particular class, for example by saying we are lexicalizing 50 country identifiers, as follows:</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/example4.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/example4.png' class='beispiel'/></a></p>
+<div>
+<pre><code>:Lexicalization a lime:LexicalizationSet ;
+  lime:coverage :CountryCoverage ;
+  lime:references 2000 .
+
+:CountryCoverage a lime:ResourceCoverage ;
+  lime:resourceType ontology:Country ;
+  lime:references 50 .</code></pre>
+</div>
+</div>
+<p>In addition it is also possible to give RDF(S) or OWL types as the target of the <em>resource type</em> property, for example to express the number of classes lexicalized in a ontology</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/example5.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/example5.png' class='beispiel'/></a></p>
+<div>
+<pre><code>:Lexicalization a lime:LexicalizationSet ;
+  lime:coverage :ClassCoverage .
+
+:ClassCoverage a lime:ResourceCoverage ;
+  lime:resourceType owl:Class ;
+  lime:references 50 .</code></pre>
+</div>
+</div>
+<h2 id="linksets"><a href="#linksets">Linksets</a></h2>
+<p>--<a href="User:Jmccrae" title="wikilink">John McCrae</a> (<a href="User talk:Jmccrae" title="wikilink">talk</a>) 16:04, 9 January 2015 (UTC) I still don't really understand the purpose of this section, could someone please write this?</p>
+<div class='entity'>
+<h3>
+<p>LexicalLinkset (Class)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/LexicalLinkset">http://www.w3.org/nl/lemon/lime/LexicalLinkset</a></p>
+</div>
+<div class='comment'>
+<p>A lexical linkset provides a collection of links between an RDF dataset and a conceptualized linguistic resource (e.g., WordNet).</p>
+</div>
+<div class='description'>
+<p><strong>SubClassOf</strong>: void:LexicalLinkset</p>
+</div>
+</div>
+<div class='entity'>
+<h3>
+<p>lexicalLinkset (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/lexicalLinkset">http://www.w3.org/nl/lemon/lime/lexicalLinkset</a></p>
+</div>
+<div class='comment'>
+<p>A known lime:LexicalLinkset of a void:Dataset.</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: void:Dataset</p>
+<p><strong>Range</strong>: LexicalLinkset</p>
+<p><strong>Characteristics</strong>: inverseFunctional</p>
+</div>
+</div>
+<p>--<a href="User:Jmccrae" title="wikilink">John McCrae</a> (<a href="User talk:Jmccrae" title="wikilink">talk</a>) 16:04, 9 January 2015 (UTC) Is this property the inverse of <em>referenceDataset</em>??</p>
+<div class='entity'>
+<h3>
+<p>lexicalization (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/lexicalization">http://www.w3.org/nl/lemon/lime/lexicalization</a></p>
+</div>
+<div class='comment'>
+<p>A known lime:LexicalizationSet of a void:Dataset.</p>
+</div>
+<div class='description'>
+<p><strong>Domain</strong>: void:Dataset</p>
+<p><strong>Range</strong>: Lexicalization</p>
+<p><strong>Characteristics</strong>:inverseFunctional</p>
+</div>
+</div>
+<div class='entity'>
+<h3>
+<p>conceptualDataset (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/conceptualDataset">http://www.w3.org/nl/lemon/lime/conceptualDataset</a></p>
 </div>
 <div class='comment'>
 </div>
 <div class='description'>
-<p><strong>Range</strong>: LexicalEntry</p>
-<p><strong>Domain</strong>:LexicalEntry</p>
+<p><span style="color:red;">not in ontology</span></p>
 </div>
 </div>
-<p>We can provide a shortcut to the above example, by underspecifying the actual senses that are involved in the translation by using the object property translatableAs:</p>
-<div class='beispiel'>
-<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example5.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example5.png' class='beispiel'/></a></p>
-<div>
-<pre><code>:surrogate_mother a ontolex:LexicalEntry;
-      ontolex:language &quot;en&quot;;
-      ontolex:sense :surrogate_mother_sense.
-
-:surrogate_mother_sense ontolex:reference &lt;http://dbpedia.org/page/Surrogacy&gt;.
-
-:madre_de_alquiler a ontolex:LexicalEntry;
-      ontolex:language &quot;es&quot;;
-      ontolex:sense :madre_de_alquiler_sense.
-
-:madre_de_alquiler_sense ontolex:reference &lt;http://es.dbpedia.org/resource/Madre_de_alquiler&gt;.
-
-:leihmutter a ontolex:LexicalEntry;
-      ontolex:language &quot;de&quot;;
-      ontolex:sense :leihmutter_sense.
-
-:surrogate_mother_sense ontolex:reference &lt;http://de.dbpedia.org/resource/Leihmutter&gt;.
-
-:surrogate_mother vartrans:translatableAs :madre_de_alquiler.</code></pre>
-</div>
-</div>
+<h2 id="provenance-using-prov-o"><a href="#provenance-using-prov-o">Provenance (using PROV-O)</a></h2>
+<p>--<a href="User:Jmccrae" title="wikilink">John McCrae</a> (<a href="User talk:Jmccrae" title="wikilink">talk</a>) 16:25, 16 January 2015 (UTC) Maybe this should be under relation to other models</p>
 <p>''Example of adding confidence by means of PROV-O ontology [UNFINISHED DRAFT] ''</p>
 <div class='beispiel'>
 <p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example6.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/vartrans/example6.png' class='beispiel'/></a></p>
@@ -1945,7 +2326,7 @@ vartrans:variationCategory :literalTranslation.
 :bench_banco-trans a prov:Entity .
     
 :humanValidationActivity a prov:Activity .
-:myTranslationAlgorithm a prov:Activity .
+:executionOfMyAlgorithm a prov:Activity .
 
 :translationConfidence a owl:DatatypeProperty ;
     rdfs:domain prov:Generation .
@@ -1964,301 +2345,194 @@ vartrans:variationCategory :literalTranslation.
 </div>
 </div>
 <p>ISSUE: still, a specific property for confidence has to be defined, either as part of Vartrans model or in the data each time it is needed</p>
-<h1 id="metadata-lime"><a href="#metadata-lime">Metadata (lime)</a></h1>
-<div class='entity'>
-<h3>
-<p>ResourceCoverage (Class)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/ResourceCoverage">http://www.w3.org/nl/lemon/lime/ResourceCoverage</a></p>
-</div>
-<div class='comment'>
-<p>A collection of statistics about the lexicalization of resources of a given type.</p>
-</div>
-<div class='description'>
-<p><strong>SubClassOf</strong>: class exactly 1</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>LexicalizationSet (Class)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/LexicalizationSet">http://www.w3.org/nl/lemon/lime/LexicalizationSet</a></p>
-</div>
-<div class='comment'>
-<p>A lexicalization set provides the realization in a natural language of the resources found in an RDF dataset/ontology vocabulary. To that end, the lexicalizations present in the set might relate these resources to entries of a Lexicon (i.e., lexical entries or senses). Multiple linguistic models may coexist in principle, as long as the same information is expressed in each model, in the limit of its expressive power.</p>
-</div>
-<div class='description'>
-<p><strong>SubClassOf</strong>: lexicalizedDataset exactly 1 and linguisticModel exactly 1 and lexicon exactly 1 and language exactly 1</p>
-<p><strong>SubClassOf</strong>: void:Dataset</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>LexicalLinkset (Class)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/LexicalLinkset">http://www.w3.org/nl/lemon/lime/LexicalLinkset</a></p>
-</div>
-<div class='comment'>
-<p>A lexical linkset provides a collection of links between an RDF dataset and a conceptualized linguistic resource (e.g., WordNet).</p>
-</div>
-<div class='description'>
-<p><strong>SubClassOf</strong>: void:LexicalLinkset</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>Lexicon (Class)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/Lexicon">http://www.w3.org/nl/lemon/lime/Lexicon</a></p>
-</div>
-<div class='comment'>
-<p>A lexicon provides a vocabulary in a given natural language and/or domain.</p>
-</div>
-<div class='description'>
-<p><strong>SubClassOf</strong>: void:Dataset</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>ConceptualizedLinguisticResource (Class)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/ConceptualizedLinguisticResource">http://www.w3.org/nl/lemon/lime/ConceptualizedLinguisticResource</a></p>
-</div>
-<div class='comment'>
-</div>
-<div class='description'>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>resourceCoverage (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/resourceCoverage">http://www.w3.org/nl/lemon/lime/resourceCoverage</a></p>
-</div>
-<div class='comment'>
-<p>Statistics about the lexicalization of resources of a given type.</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: Lexicalization</p>
-<p><strong>Range</strong>: ResourceCoverage</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>lexicalizations (Datatype Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/lexicalizations">http://www.w3.org/nl/lemon/lime/lexicalizations</a></p>
-</div>
-<div class='comment'>
-<p>Number of distinct lexicalizations.</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: Lexicalization or ResourceCoverage</p>
-<p><strong>Range</strong>: integer</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>lexicalEntries (Datatype Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/lexicalEntries">http://www.w3.org/nl/lemon/lime/lexicalEntries</a></p>
-</div>
-<div class='comment'>
-<p>Number of distinct lexical entries.</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: Lexicalization or ResourceCoverage or Lexicon</p>
-<p><strong>Range</strong>: integer</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>references (Datatype Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/references">http://www.w3.org/nl/lemon/lime/references</a></p>
-</div>
-<div class='comment'>
-<p>Number of distinct references.</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: Lexicalization or ResourceCoverage</p>
-<p><strong>Range</strong>: integer</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>linguisticModel (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/linguisticModel">http://www.w3.org/nl/lemon/lime/linguisticModel</a></p>
-</div>
-<div class='comment'>
-<p>The linguistic model used in a lime:LexicalizationSet.</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: Lexicalization</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>language (Datatype Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/language">http://www.w3.org/nl/lemon/lime/language</a></p>
-</div>
-<div class='comment'>
-<p>A natural language (expressed as a BCP 47 language tag) for which it is known a lime:LexicalizationSet for the given void:Dataset.</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: void:Dataset</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>percentage (Datatype Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/percentage">http://www.w3.org/nl/lemon/lime/percentage</a></p>
-</div>
-<div class='comment'>
-<p>the percentage of references (considering only those of the type specified in the ResourceCoverage being subject of this property) which are covered by at least one lexicalization</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: ResourceCoverage</p>
-<p><strong>Range</strong>: decimal</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>avgNumOfLexicalizations (Datatype Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/avgNumOfLexicalizations">http://www.w3.org/nl/lemon/lime/avgNumOfLexicalizations</a></p>
-</div>
-<div class='comment'>
-<p>the average number of lexicalizations for each of the (??lexicalized??) references considered in the ResourceCoverage being subject of this property</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: ResourceCoverage</p>
-<p><strong>Range</strong>: decimal</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>lexicalizedDataset (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/lexicalizedDataset">http://www.w3.org/nl/lemon/lime/lexicalizedDataset</a></p>
-</div>
-<div class='comment'>
-<p>The void:Dataset that stands for the data being linguistically grounded by a lime:LexicalizationSet.</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: Lexicalization</p>
-<p><strong>Range</strong>: void:Dataset</p>
-<p><strong>Characteristics</strong>: functional</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>lexicon (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/lexicon">http://www.w3.org/nl/lemon/lime/lexicon</a></p>
-</div>
-<div class='comment'>
-<p>The lime:Lexicon a lime:LexicalizationSet refers to.</p>
-</div>
-<div class='description'>
-<p><strong>Range</strong>: Lexicon</p>
-<p><strong>Domain</strong>: Lexicalization</p>
-<p><strong>Characteristics</strong>: functional</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>resourceType (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/resourceType">http://www.w3.org/nl/lemon/lime/resourceType</a></p>
-</div>
-<div class='comment'>
-<p>The type of resources for a given resource coverage.</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: void:Dataset</p>
-<p><strong>Range</strong>: rdfs:Class</p>
-<p><strong>Characteristics</strong>: functional</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>lexicalLinkset (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/lexicalLinkset">http://www.w3.org/nl/lemon/lime/lexicalLinkset</a></p>
-</div>
-<div class='comment'>
-<p>A known lime:LexicalLinkset of a void:Dataset.</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: void:Dataset</p>
-<p><strong>Range</strong>: LexicalLinkset</p>
-<p><strong>Characteristics</strong>: inverseFunctional</p>
-</div>
-</div>
-<div class='entity'>
-<h3>
-<p>lexicalization (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime/lexicalization">http://www.w3.org/nl/lemon/lime/lexicalization</a></p>
-</div>
-<div class='comment'>
-<p>A known lime:LexicalizationSet of a void:Dataset.</p>
-</div>
-<div class='description'>
-<p><strong>Domain</strong>: void:Dataset</p>
-<p><strong>Range</strong>: Lexicalization</p>
-<p><strong>Characteristics</strong>:inverseFunctional</p>
-</div>
-</div>
 <h1 id="linguistic-description"><a href="#linguistic-description">Linguistic Description</a></h1>
-<h1 id="lexical-nets"><a href="#lexical-nets">Lexical Nets</a></h1>
-<p>Here we will mainly describe how to describe lexical nets using the lemon vocabulary, it is not part of the model proper.</p>
+<p>One of the most important aspects for a lexicon is recording the linguistic types of words in the lexicon. However, the types used in these lexicons are often very different and as such, it is not possible to provide in advance a complete categorization of all the possible categories. Instead we will describe the application of a specific data category, that is [<a href="http://lexinfo.net/ontology/2.0/lexinfo">http://lexinfo.net/ontology/2.0/lexinfo</a># LexInfo] as a data category system.</p>
+<h2 id="morphosyntactic-description"><a href="#morphosyntactic-description">Morphosyntactic Description</a></h2>
+<p>Perhaps the most common description found in a lexicon is the part-of-speech, which may be carried shown using LexInfo as follows</p>
 <div class='beispiel'>
-<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/???.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/lime/???.png' class='beispiel'/></a></p>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/description/example1.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/description/example1.png' class='beispiel'/></a></p>
 <div>
-<pre><code>&lt;&gt; a lemon:LexicalEntry ;
+<pre><code>&lt;cat&gt; a ontolex:Word ;
+  lexinfo:partOfSpeech lexinfo:noun .</code></pre>
+</div>
+</div>
+<p>When defining a data category selection it is important to give good descriptions as well as links to other models if possible. For example, LexInfo defines <em>partOfSpeech</em> and <em>noun</em> as:</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/description/example2.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/description/example2.png' class='beispiel'/></a></p>
+<div>
+<pre><code>lexinfo:partOfSpeech 
+  rdfs:label &quot;part of speech&quot;@en ;
+  rdfs:comment &quot;A category assigned to a word based on its grammatical and semantic properties.&quot;@en ;
+  dcr:datcat &lt;http://www.isocat.org/datcat/DC-1345&gt; ,
+             &lt;http://www.isocat.org/datcat/DC-396&gt; ;
+  rdfs:range lexinfo:PartOfSpeech ;
+  rdfs:subPropertyOf lexinfo:morphosyntacticProperty .
+
+lexinfo:noun
+  a lexinfo:PartOfSpeech, lexinfo:NounPOS ;
+  rdfs:label &quot;noun&quot;@en ;
+  rdfs:comment &quot;Part of speech used to express the name of a person, place, action or thing.&quot;@en ;
+  dcr:datcat &lt;http://www.isocat.org/datcat/DC-1333&gt; .</code></pre>
+</div>
+</div>
+<p>This way LexInfo provides a label, description, link to <a href="http://www.isocat.org">ISOcat</a> as well as axioms limiting the range of values.</p>
+<p>The following morphosyntactic properties are defined in LexInfo</p>
+<ul>
+<li>Animacy: Whether a word is animate (human or animal), or agreeing form of a verb or adjective</li>
+<li>Aspect: Grammatical aspect, especially for perfect and imperfect verbs</li>
+<li>Case: Case of a noun, or case agreement of adjectives</li>
+<li>Cliticness: Whether the word acts as a clitic</li>
+<li>Definitiness: Generally of articles</li>
+<li>Degree: Comparative or superlative forms of adjectives</li>
+<li>Finiteness: Whether a form is finite</li>
+<li>Gender: Grammatical gender of a noun, or agreeing form of a verb or adjective</li>
+<li>Modification Type: Whether modification is before or after the modified word, e.g., a proclitic has cliticness and is a premodifier</li>
+<li>Mood: The modality (e.g., imperative, conditional) of a verb</li>
+<li>Negative: Negative forms of verbs, etc., e.g., in Japanese</li>
+<li>Number: Marks the plural or dual of a noun, or agreeing form of a verb or adjective</li>
+<li>Part of speech: The syntactic class of a word</li>
+<li>Person: Whether a noun or pronoun refers to the speaker (first person) or listener (second person) or other entity (third person) and agreeing forms of verbs</li>
+<li>Referent Type: Whether an article, pronoun or similar is a possessive form</li>
+<li>Tense: The temporal usage of a verb or adjective</li>
+<li>Verb Form Mood: --<a href="User:Jmccrae" title="wikilink">John McCrae</a> (<a href="User talk:Jmccrae" title="wikilink">talk</a>) 15:16, 23 January 2015 (UTC) Merge with mood?</li>
+<li>Voice: Indicates a passive form of a verb</li>
+</ul>
+<p>When using these properties care should be taken to distinguish between annotations on the form and annotations on the entry. <strong>It should be assumed that all annotations on a entry also apply to all forms</strong>. For example, in many languages gender is an entry property for nouns, but a form property for adjectives, for example:</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/description/example3.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/description/example3.png' class='beispiel'/></a></p>
+<div>
+<pre><code>&lt;spiaggia&gt; a ontolex:Word ;
+  ontolex:canonicalForm &lt;spiaggia#lemma&gt; ;
+  ontolex:otherForm &lt;spiaggia#plural&gt; ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lexinfo:gender lexinfo:feminine .
+
+&lt;spiaggia#lemma&gt; 
+  ontolex:writtenRep &quot;spiaggia&quot;@it ;
+  lexinfo:number lexinfo:singular .
+
+&lt;spiaggia#plural&gt;
+  ontolex:writtenRep &quot;spiagge&quot;@it ;
+  lexinfo:number lexinfo:plural .
+
+&lt;famoso&gt; a ontolex:Word ;
+  ontolex:canonicalForm &lt;famoso#lemma&gt; ;
+  ontolex:otherForm &lt;famoso#famosa&gt;, &lt;famoso#famose&gt;, &lt;famoso#famosi&gt; ;
+  lexinfo:partOfSpeech lexinfo:adjective .
+
+&lt;famoso#lemma&gt; 
+  ontolex:writtenRep &quot;famoso&quot;@it ;
+  lexinfo:number lexinfo:singular ;
+  lexinfo:gender lexinfo:masculine .
+
+&lt;famoso#famosa&gt; 
+  ontolex:writtenRep &quot;famosa&quot;@it ;
+  lexinfo:number lexinfo:singular ;
+  lexinfo:gender lexinfo:feminine .</code></pre>
+</div>
+</div>
+<p>For convenience, LexInfo also provides classes for parts of speech to replace using <em>Word</em>, for example <em>Noun</em> is defined as:</p>
+<p><em>Noun</em> ≡ ∃ partOfSpeech.NounPOS</p>
+<p>We recommend that you use this along side property based annotations to ensure maximum compatibility, e.g.,</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/description/example4.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/description/example4.png' class='beispiel'/></a></p>
+<div>
+<pre><code>&lt;geneesmiddel&gt; a lexinfo:Noun ;
+  lexinfo:partOfSpeech lexinfo:noun .</code></pre>
+</div>
+</div>
+<h2 id="pragmatic-description"><a href="#pragmatic-description">Pragmatic Description</a></h2>
+<p>As with morphosyntactic description, there are a number of properties that can be used to describe the pragmatic usage of a term. These terms should either be attached to the lexical sense or the concept. The following sense properties are commonly used</p>
+<ul>
+<li>Dating: The temporal usage of a term (e.g., if not modern)</li>
+<li>Normative Authorization: Any control on the usage of the term by standards bodies</li>
+<li>Register: The formality level or similar when a word should be used</li>
+</ul>
+<p>In addition there are many relationships which are generally defined between concepts in the lexicon</p>
+<ul>
+<li>Approximate(Synonym)</li>
+<li>Antonym</li>
+<li>Casually Related</li>
+<li>Holonym</li>
+<li>Hypernym</li>
+<li>Hyponym</li>
+<li>Meronym</li>
+<li>Pertains to</li>
+<li>Quasi-equivalent</li>
+<li>Related</li>
+<li>Synonym</li>
+</ul>
+<h2 id="arguments"><a href="#arguments">Arguments</a></h2>
+<p>When describing syntactic frames it is necessary to state the roles played by different arguments. For example we may wish to indicate which of an argument is the subject and which is the direct object as has been described <a href="#Syntactic_Frames" title="wikilink">previously</a>. LexInfo defines the following types of arguments</p>
+<ul>
+<li>Subject</li>
+<li>Object: Subclassed into direct, indirect, prepositional (a non-optional object marked with a preposition) and gentive</li>
+<li>Adjunct: Optional arguments subclassed into prepositional, possessive, comparative and superlative</li>
+<li>Copulative: The subject or object of the copula, <em>copulative subject</em> is used if the argument can only be the subject of the copula</li>
+<li>Clausal: An argument that is realised as a clause may be declarative, gerundive, infinitive, interrogative (infinitive), possessive infinitive, prepositional gerund/interrogative, sentential or subjunctive</li>
+<li>Attributive: The word modified by an an adjective in the attributive pseudo-frame</li>
+</ul>
+<p>Each argument is associated with a property and a class with the appropriate name, for example:</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/description/example5.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/description/example5.png' class='beispiel'/></a></p>
+<div>
+<pre><code>&lt;father&gt; a lexinfo:Noun ;
+  synsem:synBehavior &lt;father#frame&gt; .
+
+&lt;father#frame&gt; a lexinfo:NounPredicateFrame ;
+  rdfs:label &quot;X is the father of Y&quot; , &quot;X is Y&#39;s father&quot; ;
+  lexinfo:copulativeArg &lt;father#arg1&gt; ;
+  lexinfo:possessiveAdjunct &lt;father#arg2&gt; .
+
+&lt;father#arg1&gt; a lexinfo:CopulativeArg .
+
+&lt;father#arg2&gt; a lexinfo:PossessiveAdjunct .</code></pre>
+</div>
+</div>
+<h2 id="frames"><a href="#frames">Frames</a></h2>
+<p>Frames are defined by the arguments that they have, for example a frame with a subject and a direct object is called a <em>transitive</em> frame.</p>
+<p>In LexInfo, such frames are axiomatized as follows:</p>
+<p><code>   TransitiveFrame ≡ VerbFrame ⊓ (=1 subject ⊓ =1 directObject)</code></p>
+<p>In some special cases it may be possible that the frame encodes information about the that is not simply the argument, for example LexInfo contains two frames <em>DitransitiveFrame_For</em> and <em>DitransitiveFrame_To</em> both of which encode verbs that take two objects in English, however also have a form where they have only a single direct object and a prepositional phrase object, e.g.,</p>
+<p><em>X</em> gives <em>Y</em> <em>Z</em>/<em>X</em> gives <em>Z</em> to <em>Y</em></p>
+<p><em>X</em> buys <em>Y</em> <em>Z</em>/<em>X</em> buys <em>Z</em> for <em>Y</em></p>
+<h1 id="lexical-nets"><a href="#lexical-nets">Lexical Nets</a></h1>
+<p>Lexical nets, in particular wordnets, are one of the most important forms of lexical data, and we briefly describe how a wordnet may be represented on the web using the OntoLex/Lemon vocabulary.</p>
+<h2 id="wordnet-in-ontolexlemon"><a href="#wordnet-in-ontolexlemon">WordNet in OntoLex/Lemon</a></h2>
+<p>In general, the following items as termed by WordNet are considered to be equivalent to the following classes in OntoLex/Lemon</p>
+<ul>
+<li><strong>Synset</strong>: Lexical Concept</li>
+<li><strong>Word</strong>: Lexical Entry</li>
+<li><strong>(Word) Sense</strong>: Lexical Sense</li>
+<li><strong>Lemma</strong>: Canonical Form</li>
+</ul>
+<p>Other properties such as hypernym may be defined separately, such as is done by the WordNet-RDF ontology available at</p>
+<p><code>   </code><a href="http://wordnet-rdf.princeton.edu/ontology"><code>http://wordnet-rdf.princeton.edu/ontology</code></a></p>
+<p>For example, here is a simple modelling example:</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/wordnet/example1.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/wordnet/example1.png' class='beispiel'/></a></p>
+<div>
+<pre><code>&lt;&gt; a ontolex:LexicalEntry ;
     wordnet-ontology:part_of_speech wordnet-ontology:noun ;
-    lemon:canonicalForm &lt;#CanonicalForm&gt; ;
-    lemon:sense &lt;#1-n&gt;,
+    ontolex:canonicalForm &lt;#CanonicalForm&gt; ;
+    ontolex:sense &lt;#1-n&gt;,
         &lt;#2-n&gt;,
         &lt;#3-n&gt;,
         &lt;#4-n&gt;,
         &lt;#5-n&gt;,
         &lt;#6-n&gt; .
 
-&lt;#1-n&gt; a lemon:LexicalSense ;
+&lt;#1-n&gt; a ontolex:LexicalSense ;
     wordnet-ontology:gloss &quot;feline mammal usually having thick soft fur and no ability to roar: domestic cats; wildcats&quot;@eng ;
     wordnet-ontology:lex_id 0 ;
     wordnet-ontology:old_sense_key &quot;cat%1:05:00::&quot; ;
     wordnet-ontology:sense_number 1 ;
     wordnet-ontology:tag_count 18 ;
-    lemon:reference &lt;http://wordnet-rdf.princeton.edu/wn31/102124584-n&gt; ;
+    ontolex:reference &lt;http://wordnet-rdf.princeton.edu/wn31/102124584-n&gt; ;
     owl:sameAs &lt;http://lemon-model.net/lexica/uby/wn/WN_Sense_574&gt;,
         &lt;http://www.lexvo.org/page/wordnet/30/noun/cat_1_05_00&gt; .
 
-&lt;http://wordnet-rdf.princeton.edu/wn31/102124584-n&gt; a wordnet-ontology:Synset ;
+&lt;http://wordnet-rdf.princeton.edu/wn31/102124584-n&gt; a ontolex:LexicalConcept ;
     rdfs:label &quot;cat&quot;@eng,
         &quot;true cat&quot;@eng ;
     wordnet-ontology:gloss &quot;feline mammal usually having thick soft fur and no ability to roar: domestic cats; wildcats&quot;@eng ;
@@ -2268,11 +2542,56 @@ vartrans:variationCategory :literalTranslation.
     wordnet-ontology:lexical_domain wordnet-ontology:noun.animal ;
     wordnet-ontology:part_of_speech wordnet-ontology:noun ;
     wordnet-ontology:synset_member &lt;http://wordnet-rdf.princeton.edu/wn31/cat-n&gt;,
-        &lt;http://wordnet-rdf.princeton.edu/wn31/true+cat-n&gt; ;</code></pre>
+        &lt;http://wordnet-rdf.princeton.edu/wn31/true+cat-n&gt; .</code></pre>
 </div>
 </div>
-<h1 id="relation-to-skos"><a href="#relation-to-skos">Relation to SKOS</a></h1>
-<p>This part of the document is not part of the lexicon ontology model proper, but contains concrete recommendations and best practice patterns for combining SKOS models with the lexicon ontology model.</p>
+<h2 id="wordnet-json-ld-and-interlingual-indexing"><a href="#wordnet-json-ld-and-interlingual-indexing">WordNet JSON-LD and Interlingual Indexing</a></h2>
+<p>In addition to this we provide a schema for using JSON-LD with OntoLex/Lemon for creating WordNets. This schema is defined at</p>
+<p><code>   </code><a href="http://globalwordnet.github.io/schemas/wn-json-context.json"><code>http://globalwordnet.github.io/schemas/wn-json-context.json</code></a></p>
+<p>An example of using this schema is as follows</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/wordnet/example2.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/wordnet/example2.png' class='beispiel'/></a></p>
+<div>
+<pre><code>{
+    &quot;@context&quot;: [ &quot;http://globalwordnet.github.io/schemas/wn-json-context.json&quot;, { &quot;@language&quot;: &quot;en&quot; } ],
+    &quot;@id&quot;: &quot;pwn30&quot;,
+    &quot;label&quot;: &quot;Princeton WordNet&quot;,
+    &quot;language&quot;: &quot;en&quot;,
+    &quot;creator&quot;: &quot;Princeton&quot;,
+    &quot;synsets&quot;: [{    
+        &quot;@id&quot;: &quot;pwn-100001740-n&quot;,
+        &quot;gloss&quot;: &quot;that which is perceived or known or inferred to have its own distinct existence (living or nonliving)&quot;,
+        &quot;hyponym&quot;: [&quot;pwn-104431553-n&quot;,&quot;pwn-100002137-n&quot;,&quot;pwn-100001930-n&quot;],
+        &quot;partOfSpeech&quot;: &quot;wn:noun&quot;,
+        &quot;senses&quot;: [{
+            &quot;@id&quot;: &quot;pwn-100001740-n#1&quot;,
+            &quot;entry&quot;: { 
+                &quot;@id&quot;: &quot;pwn-entity-n&quot;,
+                &quot;lemma&quot;: &quot;entity&quot; 
+            }
+        }],
+        &quot;iliRef&quot;: &quot;ili:s35545&quot;
+    },{
+        &quot;@id&quot;: &quot;pwn-300001740-a&quot;,
+        &quot;gloss&quot;: &quot;(usually followed by `to&#39;) having the necessary means or skill or know-how or authority to do something&quot;,
+        &quot;attribute&quot;: [&quot;pwn-105624029-n&quot;,&quot;pwn-105207437-n&quot;],
+        &quot;partOfSpeech&quot;: &quot;wn:adjective&quot;,
+        &quot;senses&quot;: [{
+            &quot;@id&quot;: &quot;pwn-300001740-a#1&quot;,
+            &quot;entry&quot;: { 
+                &quot;@id&quot;: &quot;pwn-able-a&quot;,
+                &quot;lemma&quot;: &quot;able&quot; 
+            },
+            &quot;antonym&quot;: [&quot;pwn-300002908-a#1&quot;]
+        }],
+        &quot;iliRef&quot;: &quot;ili:s1&quot;
+    }]
+}</code></pre>
+</div>
+</div>
+<h1 id="relation-to-other-models"><a href="#relation-to-other-models">Relation to Other Models</a></h1>
+<p>This part of the document is not part of the lexicon ontology model proper, but contains concrete recommendations and best practice patterns for using Ontolex/Lemon with other models.</p>
+<h2 id="skos-xl"><a href="#skos-xl">SKOS(-XL)</a></h2>
 <p>The use case we adress is one where a thesaurus or other taxonomic resource or classification system in SKOS needs to be enriched with more detailed linguistic information.</p>
 <p>Imagine we have two concepts &quot;financial assets&quot; and &quot;tangible assets&quot; modeled in a SKOS. The official way to link a lexical entry to a SKOS concept (and viceversa) is through the property evokes (and its inverse isEvokedBy). The following example shows how to do this:</p>
 <div class='beispiel'>
@@ -2315,6 +2634,57 @@ vartrans:variationCategory :literalTranslation.
 </div>
 </div>
 <p>In case you are using reified labels as in SKOS-XL, it is possible to have Forms or LexicalEntries in the range of the skosxl:prefLabel, skosxl:altLabel and skosxl:hiddelLabel properties. However, we note that from this it would follows that LexicalEntries and Forms would be inferred to be skosxl:Labels, which does not correspond to the understanding of Forms and LexicalEntries of this community as linguistic objects rather than mere `labels'.</p>
+<h2 id="lmf"><a href="#lmf">LMF</a></h2>
+<p>The Lexical Markup Framework (ISO-24613:2008) is a standard for representing lexicons, however is currently not an open standard and thus we do not recommend using it to publish data on the web. LMF has however provided a key inspiration to the creation of the OntoLex/LMF model. As such some classes correspond nearly exactly to their correspondant in OntoLex/Lemon, e.g., LexicalEntry. A fuller description of the relationship between LMF and the original lemon model is provided <a href="http://lemon-model.net/lemon-cookbook/node46.html">here</a>, however the relationship can be briefly summarized as follows</p>
+<ul>
+<li>OntoLex/Lemon defines the meaning of a term by reference to an ontology element defined by the OWL model.</li>
+<li>OntoLex/Lemon has a much simpler usage, removing many elements that were in LMF</li>
+<li>OntoLex/Lemon uses ontologies of linguistic description such as LexInfo to annotate its elements</li>
+<li>OntoLex/Lemon does not have the following
+<ul>
+<li>Morphology: See the <a href="http://lemon-model.net/liam">LIAM</a> model for an alternative</li>
+<li>Global Lexicon Constraints: These can be stated using the OWL vocabulary if necessary</li>
+</ul></li>
+</ul>
+<h2 id="openannotation-and-nif"><a href="#openannotation-and-nif">OpenAnnotation and NIF</a></h2>
+<p>A common use case of a lexicon model is to annotate text as it occurs in a document, for example by indicating the sense, synset (concept) or entry (lemma) that is being referred to. In this section we will consider how these links can be made using two emerging standards <a href="http://openannotation.org/">Open Annotation</a> and the <a href="http://persistence.uni-leipzig.org/nlp2rdf/">NLP Interchange Format (NIF)</a>. In both models an element of lexicon may be the target of an annotation. This target may be a Form, Lexical Entry, Lexical Sense or LexicalConcept and it is important to give the class to make clear what the target of the annotation is.</p>
+<p>For both models, we will now give an example of annotating a word &quot;cat&quot; occurring at character 7 in a file at the URL <a href="http://www.example.com/doc.txt">3</a>.</p>
+<p>In NIF the connection is created by means of the <code>nif:occurrence</code> property, whose subject should be the OntoLex/Lemon element. An example is given below:</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/other/example-nif.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/other/example-nif.png' class='beispiel'/></a></p>
+<div>
+<pre><code>@prefix nif: &lt;http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#&gt; .
+@prefix ontolex: &lt;http://www.w3.org/ns/lemon/ontolex#&gt; .
+
+&lt;http://www.example.com/doc.txt#char=7,10&gt; a nif:RFC5147String ;
+  nif:beginIndex 7 ;
+  nif:endIndex 10 ;
+  nif:anchorOf &quot;cat&quot; .
+
+&lt;cat&gt; a ontolex:LexicalEntry ;
+  nif:occurrence &lt;http://www.example.com/doc.txt#char=7,10&gt; .</code></pre>
+</div>
+</div>
+<p>In OpenAnnotation, the OntoLex/Lemon element is given as the body of an annotation. For example</p>
+<div class='beispiel'>
+<p><a href='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/other/example-oa.png' class='tn'/><img src='https://raw.githubusercontent.com/cimiano/ontolex/master/Examples/other/example-oa.png' class='beispiel'/></a></p>
+<div>
+<pre><code>@prefix dctypes: &lt;http://purl.org/dc/dcmitype/&gt; .
+@prefix oa: &lt;http://www.w3.org/ns/oa#&gt; .
+@prefix ontolex: &lt;http://www.w3.org/ns/lemon/ontolex#&gt; .
+
+&lt;anno&gt; a oa:Annotation ;
+  oa:hasBody &lt;cat&gt; ;
+  oa:hasTarget &lt;anno#target&gt; .
+
+&lt;anno#target&gt; a dctypes:Text ;
+  oa:hasSelector &lt;http://www.example.com/doc.txt#char=7,10&gt; .
+
+&lt;http://www.example.com/doc.txt#char=7,10&gt; a oa:FragmentSelector .
+
+&lt;cat&gt; a ontolex:LexicalEntry .</code></pre>
+</div>
+</div>
 <script>
 $(document).ready(function() {
         $(".tn").fancybox({'transitionIn':'elastic'});
