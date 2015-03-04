@@ -196,7 +196,7 @@
 
     <!-- http://www.w3.org/ns/lemon/ontolex#languageURI -->
 
-    <owl:ObjectProperty rdf:about="&ontolex;languageURI">
+    <!--    <owl:ObjectProperty rdf:about="&ontolex;languageURI">
         <rdfs:comment xml:lang="en">A property relating a lexicon to the URI representing the language of the lexicon.</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
@@ -208,7 +208,7 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-    </owl:ObjectProperty>
+    </owl:ObjectProperty>-->
     
 
 
@@ -302,7 +302,6 @@
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&ontolex;ConceptSet"/>
                     <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
-                    <rdf:Description rdf:about="&ontolex;LexicalSense"/>
                     <rdf:Description rdf:about="&ontolex;Lexicon"/>
                 </owl:unionOf>
             </owl:Class>
