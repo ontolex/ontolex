@@ -13,11 +13,12 @@
 
 :cat_sense a ontolex:LexicalSense ;
   ontolex:reference dbpedia:Cat ;
-  ontolex:isLexicalizedSenseOf :IATE-157623 .
+  ontolex:isLexicalizedSenseOf :IATE-157623 ;
+  ontolex:isSenseOf :cat-en .
 
 dbpedia:Cat
   ontolex:concept :IATE-157623 ;
-  ontolex:isSenseOf :cat_sense ;
+  ontolex:isReferenceOf :cat_sense ;
   ontolex:isDenotedBy :cat_lex .
 
 :IATE-157623
