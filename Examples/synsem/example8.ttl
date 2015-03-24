@@ -16,8 +16,8 @@
 
 :female_sense ontolex:reference [
   a owl:Restriction ;
-  owl:onProperty :gender ;
-  owl:hasValue :female ] ;
+  owl:onProperty <http://dbpedia.org/ontology/gender> ;
+  owl:hasValue <http://dpbedia.org/resource/Female> ] ;
   synsem:isA :female_arg.
 
 :female_syn a lexinfo:AdjectivePredicateFrame;

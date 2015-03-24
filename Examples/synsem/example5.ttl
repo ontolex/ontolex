@@ -18,7 +18,7 @@
 :graduate_canonical_form a ontolex:Form;
  ontolex:writtenRep "graduate"@en.
 
-:graduate_from_intransitivepp a ontolex:Frame;
+:graduate_from_intransitivepp a synsem:Frame;
  lexinfo:subject :graduate_arg1 ;
  lexinfo:prepositionalArg :graduate_arg2.
 
