@@ -1,8 +1,9 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <#> .
 
-<bank> a ontolex:LexicalEntry ;
-  ontolex:denotes <http://dbpedia.org/resource/Bank> ,
-                  <http://dbpedia.org/resource/Bank_(geographic)> ;
-  ontolex:canonicalForm <bank#lemma> .
+:lex_intangible_assets a ontolex:LexicalEntry, ontolex:MultiwordExpression;
+     ontolex:canonicalForm :form_intangible_assets;
+     rdfs:label "intangible assets"@en .
 
-<bank#lemma> ontolex:writtenRep "bank"@en .
+:form_intangible_assets ontolex:writtenRep "intangible assets"@en .

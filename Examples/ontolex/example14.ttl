@@ -1,26 +1,21 @@
+# This example illustrates the use of evokes and lexicalizedSense
+
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix iate: <http://tbx2rdf.lider-project.eu/data/iate/> .
-@prefix dbpedia: <http://dbpedia.org/resource/> .
 @prefix : <#> .
 
-:cat-en a ontolex:LexicalEntry ;                                               
-  ontolex:canonicalForm :cat_form ;
-  ontolex:sense :cat_sense ;
-  ontolex:denotes dbpedia:Cat ;
-  ontolex:evokes :IATE-157623 .
+:temporary_change_of_possession a ontolex:LexicalConcept;
+     ontolex:lexicalizedSense :borrow_sense;
+     ontolex:lexicalizedSense :lend_sense;
+     ontolex:isEvokedBy :borrow_le;
+     ontolex:isEvokedBy :lend_le.
 
-:cat_form ontolex:writtenRep "cat"@en .
+:borrow_le a ontolex:LexicalEntry;
+                  ontolex:sense :borrow_sense;
+                  ontolex:evokes :temporary_change_of_possession.
 
-:cat_sense a ontolex:LexicalSense ;
-  ontolex:reference dbpedia:Cat ;
-  ontolex:isLexicalizedSenseOf :IATE-157623 .
+:lend_le a ontolex:LexicalEntry;
+                 ontolex:sense :lend_sense;
+                 ontolex:evokes :temporary_change_of_possession.
 
-dbpedia:Cat
-  ontolex:concept :IATE-157623 ;
-  ontolex:isSenseOf :cat_sense ;
-  ontolex:isDenotedBy :cat_lex .
 
-:IATE-157623
-  ontolex:isEvokedBy :cat_lex ;
-  ontolex:lexicalizedSense :cat_sense ;
-  ontolex:isConceptOf dbpedia:Cat .
+
