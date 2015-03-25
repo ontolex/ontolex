@@ -85,8 +85,9 @@
 
     <!-- http://www.w3.org/ns/lemon/decomp.owl#Component -->
 
-    <Class rdf:about="http://www.w3.org/ns/lemon/decomp.owl#Component"/>
+    <Class rdf:about="http://www.w3.org/ns/lemon/decomp.owl#Component">
         <rdfs:comment xml:lang="en">A component represents a part of a lexical entry, that is either a word, sequence of words, phrase, or affix</rdfs:comment>
+    </Class>
 </rdf:RDF>
 
 
