@@ -10,17 +10,23 @@
   rdf:_1 :AfricanSwineFever_African_Component ;
   rdf:_2 :AfricanSwineFever_Swine_Component ;
   rdf:_3 :AfricanSwineFever_Fever_Component ;
-  decomp:constituent :AfricanSwineFever_African_Component;
-  decomp:constituent :AfricanSwineFever_Swine_Component; 
-  decomp:constituent :AfricanSwineFever_Fever_Component .
+  decomp:constituent :African_Component ;
+  decomp:constituent :SwineFever_Component .
 
-:AfricanSwineFever_African_Component a decomp:Component ;
+:AfricanSwineFever_Component decomp:identifies :AfricanSwineFever ;
+  decomp:constituent :African_Component :
+  decomp:constituent :SwineFever_Component .
+
+:SwineFever_Component decomp:identifies :SwineFever ;
+  decomp:constituent :AfricanSwineFever_Swine_Component ;
+  decomp:constituent :AfricanSwineFever_Fever_Component .
+ 
+:African_Component a decomp:Component ;
   decomp:identifies :African .
 
-:AfricanSwineFever_Swine_Component a decomp:Component ;
+:Swine_Component a decomp:Component ;
   decomp:identifies :Swine.
 
-:AfricanSwineFever_Fever_Component a decomp:Component ;
+:Fever_Component a decomp:Component ;
   decomp:identifies :Fever.
-
 
