@@ -18,8 +18,8 @@
   decomp:constituent :SwineFever_Component .
 
 :SwineFever_Component decomp:identifies :SwineFever ;
-  decomp:constituent :AfricanSwineFever_Swine_Component ;
-  decomp:constituent :AfricanSwineFever_Fever_Component .
+  decomp:constituent :Swine_Component ;
+  decomp:constituent :Fever_Component .
  
 :African_Component a decomp:Component ;
   decomp:identifies :African .
