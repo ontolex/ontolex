@@ -35,7 +35,7 @@
     <!-- http://www.w3.org/ns/lemon/decomp.owl#constituent -->
 
     <ObjectProperty rdf:about="http://www.w3.org/ns/lemon/decomp.owl#constituent">
-        <rdfs:comment rdf:datatype="&xsd;string">Indicates a component that is part of an entry</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property relates a lexical entry or component to a components that it is constituted by.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/decomp.owl#Component"/>
         <rdfs:domain>
@@ -53,7 +53,7 @@
     <!-- http://www.w3.org/ns/lemon/decomp.owl#identifies -->
 
     <ObjectProperty rdf:about="http://www.w3.org/ns/lemon/decomp.owl#identifies">
-        <rdfs:comment rdf:datatype="&xsd;string">Indicates that the component represents the usage of this particular lexical entry within another lexical entry</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property links a component to a corresponding lexical entry or argument.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/decomp.owl#Component"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"/>
@@ -64,7 +64,9 @@
     <!-- http://www.w3.org/ns/lemon/decomp.owl#subterm -->
 
     <ObjectProperty rdf:about="http://www.w3.org/ns/lemon/decomp.owl#subterm">
-        <rdfs:comment rdf:datatype="&xsd;string">Indicates that one lexical entry is a constituent part of another lexical entry</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property relates a compound lexical entry to one of the lexical entries it is constituted by.
+
+</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"/>
