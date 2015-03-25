@@ -23,7 +23,20 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://www.w3.org/ns/lemon/ontolex"/>
     
-
+    <!--                                                                        
+                                                                                    ///////////////////////////////////////////////////////////////////////////////////////
+    //                                                                          
+        // Datatypes                                                                
+    //                                                                          
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->                                                                        
+                                                                                     
+                                                                                     
+                                                                                     
+                                                                                     
+         <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#langString -->              
+                                                                                         
+             <rdfs:Datatype rdf:about="&rdf;langString"/>
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -302,7 +315,7 @@
 
     <owl:DatatypeProperty rdf:about="&ontolex;phoneticRep">
         <rdfs:comment xml:lang="en">Gives a phonetic representation of a form using a scheme such as the International Phonetic Alphabet</rdfs:comment>
-        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:range rdf:resource="&rdf;langString"/>
         <rdfs:domain rdf:resource="&ontolex;Form"/>
         <rdfs:subPropertyOf rdf:resource="&ontolex;representation"/>
     </owl:DatatypeProperty>
@@ -313,7 +326,7 @@
 
     <owl:DatatypeProperty rdf:about="&ontolex;representation">
         <rdfs:comment xml:lang="en">specifying a string by which the form is symbolized according to some orthographic scheme</rdfs:comment>
-        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:range rdf:resource="&rdf;langString"/>
         <rdfs:domain rdf:resource="&ontolex;Form"/>
     </owl:DatatypeProperty>
     
@@ -323,7 +336,7 @@
 
     <owl:DatatypeProperty rdf:about="&ontolex;writtenRep">
         <rdfs:comment xml:lang="en">Indicates the written representation of a form</rdfs:comment>
-        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:range rdf:resource="&rdf;langString"/>
         <rdfs:domain rdf:resource="&ontolex;Form"/>
         <rdfs:subPropertyOf rdf:resource="&ontolex;representation"/>
     </owl:DatatypeProperty>

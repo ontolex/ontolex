@@ -1,22 +1,14 @@
+# This example illustrates how to specify different forms (lexical variants) of one lexical entry
+# For example, for the lexical entry "colour", we would have two different forms, one for the British English written representation "colour" and one for the American English written representation. Both representations have the same pronunciation and the same meaning, so they are two different lexicographic variants of the same lexical entry.
+
+# syntactically validated using JENA API 2.11.2
+
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix : <#> .
 
+:lex_color a ontolex:LexicalEntry;
+     :lexicalForm :form_color .
 
-:lex_cat a ontolex:LexicalEntry, ontolex:Word;
-     ontolex:canonicalForm :form_cat;
-     rdfs:label "cat"@en .
+:form_color a ontolex:Form;
+     :writtenRep "colour"@en-GB, "color"@en-US .
 
-:form_cat ontolex:writtenRep "cat"@en .
-
-:lex_marry a ontolex:LexicalEntry, ontolex:Word;
-     ontolex:canonicalForm :form_marry;
-     rdfs:label "marry"@en .
-
-:form_marry ontolex:writtenRep "marry"@en .
-
-:lex_high a ontolex:LexicalEntry, ontolex:Word;
-     ontolex:canonicalForm :form_high;
-     rdfs:label "high"@en .
-
-:form_high ontolex:writtenRep "high"@en .

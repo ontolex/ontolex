@@ -1,35 +1,27 @@
-# This is an example of a full lexicon in English
-
-# syntactically validated using JENA API 2.11.2
-
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix iate: <http://tbx2rdf.lider-project.eu/data/iate/> .
 @prefix dbpedia: <http://dbpedia.org/resource/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix : <#> .
 
-<ConceptLexicon> a ontolex:ConceptSet;                                        
-  skos:inScheme <Consumption1> ,
-                <Consumption2> ,
-                <Tuberculosis1> .
+:cat-en a ontolex:LexicalEntry ;                                               
+  ontolex:canonicalForm :cat_form ;
+  ontolex:sense :cat_sense ;
+  ontolex:denotes dbpedia:Cat ;
+  ontolex:evokes :IATE-157623 .
 
-<Consumption1> a ontolex:LexicalConcept ;
-  ontolex:isConceptOf dbpedia:Tuberculosis ;
-  ontolex:isEvokedBy <Consumption> .
-                                                                                
-<Consumption2> a ontolex:LexicalConcept ;                                         
-  ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(Economics)> ;
-  ontolex:isEvokedBy <Consumption> .
-                                                                                
-<Tuberculosis1> a ontolex:LexicalConcept ;
-  ontolex:isConceptOf dbpedia:Tuberculosis ;
-  ontolex:isEvokedBy <Tuberculosis> .
+:cat_form ontolex:writtenRep "cat"@en .
 
-<Consumption> a ontolex:LexicalEntry ;
-  ontolex:canonicalForm <Consumption#Lemma> .
+:cat_sense a ontolex:LexicalSense ;
+  ontolex:reference dbpedia:Cat ;
+  ontolex:isLexicalizedSenseOf :IATE-157623 ;
+  ontolex:isSenseOf :cat-en .
 
-<Consumption#Lemma> ontolex:writtenRep "consumption"@en .
+dbpedia:Cat
+  ontolex:concept :IATE-157623 ;
+  ontolex:isReferenceOf :cat_sense ;
+  ontolex:isDenotedBy :cat_lex .
 
-<Tuberculosis> a ontolex:LexicalEntry ;
-  ontolex:canonicalForm <Tuberculosis#Lemma> .
-
-<Tuberculosis#Lemma> ontolex:writtenRep "tuberculosis"@en .
+:IATE-157623
+  ontolex:isEvokedBy :cat_lex ;
+  ontolex:lexicalizedSense :cat_sense ;
+  ontolex:isConceptOf dbpedia:Cat .

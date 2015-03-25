@@ -1,32 +1,14 @@
-# This example shows how to represent the different senses of a word (e.g. consumption) and specify contextual conditions under which the word can be interpreted as the ontology reference given
+# This example illustrates how to indicate non-canonical forms
 
 # syntactically validated using JENA API 2.11.2
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo#> .
 @prefix : <#> .
 
-:lex_consumption a ontolex:LexicalEntry;
-       ontolex:canonicalForm :form_consumption;
-       ontolex:sense :consumption_sense1;
-       ontolex:sense :consumption_sense2;
-       ontolex:sense :consumption_sense3;
-       ontolex:sense :consumption_sense4 .
 
-:form_consumption ontolex:writtenRep "consumption"@en.
+:lex_marry a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :form_marry ;
+  ontolex:otherForm :form_marries .
 
-:consumption_sense1 dct:subject <http://dbpedia.org/resource/Ecology> ;
-  ontolex:reference <http://dbpedia.org/resource/Consumption_(ecology)> .
-
-:consumption_sense2 dct:subject <http://dbpedia.org/resource/Anatomy> ;
-  ontolex:reference <http://dbpedia.org/Resource/Ingestion> .
-
-:consumption_sense3 dct:subject <http://dbpedia.org/resource/Economics> ;
-   ontolex:reference <http://dbpedia.org/resource/Consumption_(economics)> .
-
-:consumption_sense4 dct:subject <http://dbpedia.org/resource/Medicine> ;
-   lexinfo:dating lexinfo:old ;
-   ontolex:reference <http://dbpedia.org/Resource/Tuberculosis> .
+:form_marry ontolex:writtenRep "marry"@en .
+:form_marries ontolex:writtenRep "marries"@en .
