@@ -46,10 +46,10 @@
 
     <owl:ObjectProperty rdf:about="&vartrans;category">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">Category</rdfs:label>
+        <rdfs:label xml:lang="en">category</rdfs:label>
         <rdfs:comment xml:lang="en">Property that points to an external registry of variation categories or types</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
-        <rdfs:domain rdf:resource="&vartrans;Variant"/>
+        <rdfs:domain rdf:resource="&vartrans;Variation"/>
     </owl:ObjectProperty>
     
 
@@ -64,7 +64,7 @@
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&ontolex;LexicalSense"/>
-                    <rdf:Description rdf:about="&vartrans;Variant"/>
+                    <rdf:Description rdf:about="&vartrans;Variation"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -72,22 +72,13 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#edge -->
-
-    <owl:ObjectProperty rdf:about="&vartrans;edge">
-        <rdfs:label xml:lang="en">Edge</rdfs:label>
-        <rdfs:comment xml:lang="en">One of the elements involved in a relation</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#lexicalRelation -->
 
     <owl:ObjectProperty rdf:about="&vartrans;lexicalRelation">
-        <rdfs:label xml:lang="en">LexicalRelation</rdfs:label>
+        <rdfs:label xml:lang="en">lexicalRelation</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates a relationship between two lexical entries</rdfs:comment>
-        <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
+        <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
     </owl:ObjectProperty>
     
 
@@ -95,10 +86,10 @@
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#senseRelation -->
 
     <owl:ObjectProperty rdf:about="&vartrans;senseRelation">
-        <rdfs:label xml:lang="en">Sense Relation</rdfs:label>
+        <rdfs:label xml:lang="en">senseRelation</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates a relationship between two senses</rdfs:comment>
-        <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
+        <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
     
 
@@ -107,10 +98,10 @@
 
     <owl:ObjectProperty rdf:about="&vartrans;source">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">Source</rdfs:label>
+        <rdfs:label xml:lang="en">source</rdfs:label>
         <rdfs:comment xml:lang="en">Source of a Variation.</rdfs:comment>
-        <rdfs:domain rdf:resource="&vartrans;Variant"/>
-        <rdfs:subPropertyOf rdf:resource="&vartrans;edge"/>
+        <rdfs:domain rdf:resource="&vartrans;Variation"/>
+        <rdfs:subPropertyOf rdf:resource="&vartrans;variant"/>
     </owl:ObjectProperty>
     
 
@@ -119,10 +110,10 @@
 
     <owl:ObjectProperty rdf:about="&vartrans;target">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">Target</rdfs:label>
+        <rdfs:label xml:lang="en">target</rdfs:label>
         <rdfs:comment xml:lang="en">Target of a Variation.</rdfs:comment>
-        <rdfs:domain rdf:resource="&vartrans;Variant"/>
-        <rdfs:subPropertyOf rdf:resource="&vartrans;edge"/>
+        <rdfs:domain rdf:resource="&vartrans;Variation"/>
+        <rdfs:subPropertyOf rdf:resource="&vartrans;variant"/>
     </owl:ObjectProperty>
     
 
@@ -130,11 +121,21 @@
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#translatableAs -->
 
     <owl:ObjectProperty rdf:about="&vartrans;translatableAs">
-        <rdfs:label xml:lang="en">Translatable As</rdfs:label>
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:label xml:lang="en">translatableAs</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates that a lexical entry may be a translation of another depending on relevant semantics and pragmatics of the words</rdfs:comment>
-        <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
+        <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;lexicalRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#variant -->
+
+    <owl:ObjectProperty rdf:about="&vartrans;variant">
+        <rdfs:label xml:lang="en">variant</rdfs:label>
+        <rdfs:comment xml:lang="en">One of the elements involved in a relation</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -168,14 +169,14 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#LexicalVariant -->
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#LexicalVariation -->
 
-    <owl:Class rdf:about="&vartrans;LexicalVariant">
-        <rdfs:label xml:lang="en">Lexical Variant</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&vartrans;Variant"/>
+    <owl:Class rdf:about="&vartrans;LexicalVariation">
+        <rdfs:label xml:lang="en">LexicalVariation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&vartrans;Variation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;target"/>
+                <owl:onProperty rdf:resource="&vartrans;variant"/>
                 <owl:onClass>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
@@ -184,21 +185,7 @@
                         </owl:unionOf>
                     </owl:Class>
                 </owl:onClass>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;source"/>
-                <owl:onClass>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&ontolex;Form"/>
-                            <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:onClass>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Lexical variants are defined as those variants the surface forms of which are grammatically or morphosyntactically related.  The variation can include a difference in ortography, capitalization, hyphenation, word order or morphosyntax, style that has no direct implications of the meaning.</rdfs:comment>
@@ -206,25 +193,28 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#SenseVariation -->
+
+    <owl:Class rdf:about="&vartrans;SenseVariation">
+        <rdfs:label xml:lang="en">SenseVariation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&vartrans;Variation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&vartrans;variant"/>
+                <owl:onClass rdf:resource="&ontolex;LexicalSense"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Sense Variations are relation between senses that are semantically related in that they can be exchanged in most contexts, but their meaning varies along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#TerminologicalVariant -->
 
     <owl:Class rdf:about="&vartrans;TerminologicalVariant">
-        <rdfs:label xml:lang="en">Terminological Variant</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&vartrans;Variant"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;source"/>
-                <owl:onClass rdf:resource="&ontolex;LexicalSense"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;target"/>
-                <owl:onClass rdf:resource="&ontolex;LexicalSense"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">TerminologicalVariation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&vartrans;SenseVariation"/>
         <rdfs:comment xml:lang="en">Terminological variants are variants that are semantically related in the sense that they can be exhcanged in most contexts, but their surface forms are not directly related. The variants vary along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused.</rdfs:comment>
     </owl:Class>
     
@@ -234,26 +224,29 @@
 
     <owl:Class rdf:about="&vartrans;Translation">
         <rdfs:label xml:lang="en">Translation</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&vartrans;TerminologicalVariant"/>
+        <rdfs:subClassOf rdf:resource="&vartrans;SenseVariation"/>
         <rdfs:comment xml:lang="en">Two lexical senses in different languages stand in a translation relation to each other if they are equivalent in the sense that they can be exchanged for each other without any meaning implications.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#Variant -->
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#Variation -->
 
-    <owl:Class rdf:about="&vartrans;Variant">
-        <rdfs:label>Variant</rdfs:label>
+    <owl:Class rdf:about="&vartrans;Variation">
+        <rdfs:label xml:lang="en">Variation</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;target"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;source"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                <owl:onProperty rdf:resource="&vartrans;variant"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&ontolex;Form"/>
+                            <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
+                            <rdf:Description rdf:about="&ontolex;LexicalSense"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Two forms, lexical entries or senses are variants if their meaning is exchangable in some contexts or their surface forms are grammatically or morphosyntactically related</rdfs:comment>
@@ -262,5 +255,5 @@
 
 
 
-<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
 
