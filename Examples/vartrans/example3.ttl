@@ -15,7 +15,7 @@
 
 :paella_sense ontolex:reference <http://dbpedia.org/resource/Paella>.
 
-:paella_risotto_var a vartrans:IntralingualVariant ;
+:paella_risotto_var a vartrans:InterlingualVariant ;
       vartrans:variantSource :risotto_sense ;
       vartrans:variantTarget :paella_sense;
       vartrans:variantCategory :cultural_equivalents.

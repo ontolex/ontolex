@@ -21,8 +21,8 @@
 :surrogate_mother_sense ontolex:reference <http://de.dbpedia.org/resource/Leihmutter>.
 
 :trans1: a vartrans:Translation;
-vartrans:sourceVariant :surrogate_mother_sense;
-vartrans:targetVariant :madre_de_alquiler_sense;
+vartrans:source :surrogate_mother_sense;
+vartrans:target :madre_de_alquiler_sense;
 vartrans:variantCategory :literalTranslation.
      
 :trans2: a vartrans:Translation;
