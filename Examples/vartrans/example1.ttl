@@ -5,21 +5,18 @@
 
 :fao a ontolex:LexicalEntry ;
      ontolex:sense [ ontolex:reference <http://dbpedia.org/resource/Food_and_Agriculture_Organization> ] ;
-     ontolex:form :fao_form ;
-     ontolex:form :food_agriculture_organization_form .
+     ontolex:lexicalForm :fao_form ;
+     ontolex:lexicalForm :food_agriculture_organization_form .
 
 :fao_form ontolex:writtenRep "FAO"@en .
 :food_agriculture_organization_form ontolex:writtenRep "Food and Agriculture Organisation"@en .
 
-:fao_fullform a vartrans:LexicalVariation;
-      :fullForm :food_agriculture_organization_form ;
-      :initialism :fao_form ; 
-      vartrans:variantCategory :initialism.
+:fao_initialism a vartrans:LexicalVariation ;
+      myvocab:initialism :fao_form ;
+      myvocab:fullForm :food_agriculture_organization_form ; 
+      vartrans:category :initialism .
 
-:fao_initialism a vartrans:LexicalVariant ;
-      :initialism :fao_form ;
-      :fullForm :food_agriculture_organization_form ; 
-      vartrans:variantCategory :fullForm .
+myvocab:initialism rdfs:subPropertyOf vartrans:variation.
+myvocab:fullForm rdfs:subPropertyOf vartrans:variation.
 
-:fullForm rdfs:subProperty vartrans:variant.
-:initialism rdfs:subProperty vartrans:variant.
+

@@ -18,7 +18,7 @@
       ontolex:language "de";
       ontolex:sense :leihmutter_sense.
 
-:surrogate_mother_sense ontolex:reference <http://de.dbpedia.org/resource/Leihmutter>.
+:leihmutter_sense ontolex:reference <http://de.dbpedia.org/resource/Leihmutter>.
 
 :surrogate_mother vartrans:translatableAs :madre_de_alquiler.
 :surrogate_mother vartrans:translatableAs :leihmutter.
