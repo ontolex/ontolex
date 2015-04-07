@@ -4,6 +4,7 @@
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY lime "http://www.w3.org/ns/lemon/lime#" >
     <!ENTITY ontolex "http://www.w3.org/ns/lemon/ontolex#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -299,6 +300,7 @@
                     <rdf:Description rdf:about="&ontolex;ConceptSet"/>
                     <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
                     <rdf:Description rdf:about="&ontolex;Lexicon"/>
+                    <rdf:Description rdf:about="&lime;LexicalizationSet"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
