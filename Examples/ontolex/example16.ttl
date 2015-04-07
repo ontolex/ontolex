@@ -7,22 +7,22 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix : <#> .
 
-<ConceptLexicon> a ontolex:ConceptSet;                                        
-  skos:inScheme <Consumption1> ,
-                <Consumption2> ,
-                <Tuberculosis1> .
+<ConceptLexicon> a ontolex:ConceptSet .
 
 <Consumption1> a ontolex:LexicalConcept ;
   ontolex:isConceptOf dbpedia:Tuberculosis ;
-  ontolex:isEvokedBy <Consumption> .
+  ontolex:isEvokedBy <Consumption> ;
+  skos:inScheme <ConceptLexicon> .
                                                                                 
 <Consumption2> a ontolex:LexicalConcept ;                                         
   ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(Economics)> ;
-  ontolex:isEvokedBy <Consumption> .
+  ontolex:isEvokedBy <Consumption> ;
+  skos:inScheme <ConceptLexicon> .
                                                                                 
 <Tuberculosis1> a ontolex:LexicalConcept ;
   ontolex:isConceptOf dbpedia:Tuberculosis ;
-  ontolex:isEvokedBy <Tuberculosis> .
+  ontolex:isEvokedBy <Tuberculosis> ;
+  skos:inScheme <ConceptLexicon> .
 
 <Consumption> a ontolex:LexicalEntry ;
   ontolex:canonicalForm <Consumption#Lemma> .

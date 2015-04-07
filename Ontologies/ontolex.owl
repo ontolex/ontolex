@@ -9,6 +9,7 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY semiotics "http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#" >
+    <!ENTITY void "http://rdfs.org/ns/void#" >
 ]>
 
 
@@ -483,6 +484,7 @@
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="&void;Dataset"/>
         <rdfs:comment xml:lang="en">A collection of lexical entries specific to the given language and/or domain</rdfs:comment>
     </owl:Class>
     
