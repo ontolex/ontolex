@@ -24,7 +24,7 @@
 
 :gato_sense2 ontolex:reference <http://dbpedia.org/resource/Jack_(device)>.
 
-:form_alto ontolex:writtenRep "gato"@es.
+:form_gato ontolex:writtenRep "gato"@es.
 
 :lex_casar ontolex:canonicalForm :form_casar;
     ontolex:sense :casar_sense1.
