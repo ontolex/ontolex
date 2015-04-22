@@ -86,7 +86,7 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#concept -->
 
     <owl:ObjectProperty rdf:about="&ontolex;concept">
-        <rdfs:comment xml:lang="en">States that a concept represents the meaning of an ontology entity in a conceptual scheme</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property relates an ontological entity to a Lexical Concept that represents the corresponding meaning.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
     </owl:ObjectProperty>
     
@@ -151,7 +151,7 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#isConceptOf -->
 
     <owl:ObjectProperty rdf:about="&ontolex;isConceptOf">
-        <rdfs:comment xml:lang="en">Indicates a formalzation of a concept from a conceptual scheme by means of an ontology entity</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property formalizes the meaning of a Lexical Concept by linking it to a particular ontological meaning.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
     </owl:ObjectProperty>
     
@@ -439,7 +439,7 @@
 
     <owl:Class rdf:about="&ontolex;LexicalConcept">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:comment xml:lang="en">a mental abstraction, concept or unit of thought that can be lexicalized by a given collection of senses.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Lexical Concept is a mental abstraction, concept or unit of thought that can be lexicalized by a given collection of senses.</rdfs:comment>
     </owl:Class>
     
 
@@ -474,15 +474,15 @@
         <rdfs:subClassOf rdf:resource="&semiotics;Meaning"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontolex;reference"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                <owl:onProperty rdf:resource="&ontolex;isSenseOf"/>
+                <owl:onClass rdf:resource="&ontolex;LexicalEntry"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontolex;isSenseOf"/>
-                <owl:onClass rdf:resource="&ontolex;LexicalEntry"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&ontolex;reference"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Represents the lexical meaning of a lexical entry when interpreted as the ontology entity it refers to. A link between a lexical entry and an ontology entity via a LexicalSense object implies that the lexical entry can be used to refer to the ontology entity in question, under corresponding connotations, pragmatic implications and meaning nuances that might no be directly modeled in the ontology. These pragmatic conditions and meaning nuances can be attached to the LexicalSense object, which represents a reification of a pair of lexical entry and ontological entity it can refer to. The Lexical Sense thus uniquely determines a lexical entry and an ontological entity it is associated with.</rdfs:comment>
