@@ -5,13 +5,11 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix loc: <http://id.loc.gov/vocabulary/iso639-1/> .
-@prefix lexvo: <http://www.lexvo.org/page/iso639-3/> .
 @prefix : <#> .
 
 :lexicon a ontolex:Lexicon;
    ontolex:language "es";
-   dct:language loc:es, lexvo:spa ;
+   dct:language <http://www.lexvo.org/page/iso639-3/spa>, <http://id.loc.gov/vocabulary/iso639-1/es>;
    ontolex:entry :lex_gato;
    ontolex:casar :lex_casar;
    ontolex:entry :lex_activo_intangible.

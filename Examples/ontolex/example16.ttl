@@ -7,29 +7,29 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix : <#> .
 
-<ConceptLexicon> a ontolex:ConceptSet .
+:conceptLexicon a ontolex:ConceptSet .
 
-<Consumption1> a ontolex:LexicalConcept ;
+:consumption1 a ontolex:LexicalConcept ;
   ontolex:isConceptOf dbpedia:Tuberculosis ;
-  ontolex:isEvokedBy <Consumption> ;
-  skos:inScheme <ConceptLexicon> .
+  ontolex:isEvokedBy :comsumption ;
+  skos:inScheme :conceptLexicon .
                                                                                 
-<Consumption2> a ontolex:LexicalConcept ;                                         
+:consumption2 a ontolex:LexicalConcept ;                                         
   ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(Economics)> ;
-  ontolex:isEvokedBy <Consumption> ;
-  skos:inScheme <ConceptLexicon> .
+  ontolex:isEvokedBy :consumption ;
+  skos:inScheme :conceptLexicon .
                                                                                 
-<Tuberculosis1> a ontolex:LexicalConcept ;
+:tuberculosis1 a ontolex:LexicalConcept ;
   ontolex:isConceptOf dbpedia:Tuberculosis ;
-  ontolex:isEvokedBy <Tuberculosis> ;
-  skos:inScheme <ConceptLexicon> .
+  ontolex:isEvokedBy :tuberculosis ;
+  skos:inScheme :conceptLexicon .
 
-<Consumption> a ontolex:LexicalEntry ;
-  ontolex:canonicalForm <Consumption#Lemma> .
+:consumption a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :consumption_lemma .
 
-<Consumption#Lemma> ontolex:writtenRep "consumption"@en .
+:consumption_lemma ontolex:writtenRep "consumption"@en .
 
-<Tuberculosis> a ontolex:LexicalEntry ;
-  ontolex:canonicalForm <Tuberculosis#Lemma> .
+:tuberculosis a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :tuberculosis_lemma .
 
-<Tuberculosis#Lemma> ontolex:writtenRep "tuberculosis"@en .
+:tuberculosis_lemma ontolex:writtenRep "tuberculosis"@en .
