@@ -10,5 +10,8 @@
   ontolex:canonicalForm :form_marry ;
   ontolex:otherForm :form_marries .
 
-:form_marry ontolex:writtenRep "marry"@en .
-:form_marries ontolex:writtenRep "marries"@en .
+:form_marry a ontolex:Form;
+     ontolex:writtenRep "marry"@en .
+
+:form_marries a ontolex:Form;
+     ontolex:writtenRep "marries"@en .

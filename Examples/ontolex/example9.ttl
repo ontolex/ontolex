@@ -9,9 +9,13 @@
 :lex_cat a ontolex:LexicalEntry;
    ontolex:canonicalForm :form_cat;
    ontolex:denotes <http://dbpedia.org/resource/Cat>.
-:form_cat ontolex:writtenRep "cat"@en.
+
+:form_cat a ontolex:Form;
+   ontolex:writtenRep "cat"@en.
 
 :lex_marry a ontolex:LexicalEntry;
    ontolex:canonicalForm :form_marry;
    ontolex:denotes <http://dbpedia.org/ontology/spouse>.
-:form_marry ontolex:writtenRep "marry"@en .
+
+:form_marry a ontolex:Form;
+   ontolex:writtenRep "marry"@en .

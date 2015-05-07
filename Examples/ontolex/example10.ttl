@@ -1,8 +1,9 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 
-<bank> a ontolex:LexicalEntry ;
+:bank a ontolex:LexicalEntry ;
   ontolex:denotes <http://dbpedia.org/resource/Bank> ,
                   <http://dbpedia.org/resource/Bank_(geographic)> ;
-  ontolex:canonicalForm <bank#lemma> .
+  ontolex:canonicalForm :bank_lemma .
 
-<bank#lemma> ontolex:writtenRep "bank"@en .
+:bank_lemma a ontolex:Form;
+    ontolex:writtenRep "bank"@en .

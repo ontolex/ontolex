@@ -14,7 +14,8 @@
    ontolex:casar :lex_casar;
    ontolex:entry :lex_activo_intangible.
 
-:lex_gato ontolex:canonicalForm :form_gato;
+:lex_gato a ontolex:LexicalEntry; 
+    ontolex:canonicalForm :form_gato;
     ontolex:sense :gato_sense1;
     ontolex:sense :gato_sense2.
 
@@ -22,18 +23,23 @@
 
 :gato_sense2 ontolex:reference <http://dbpedia.org/resource/Jack_(device)>.
 
-:form_gato ontolex:writtenRep "gato"@es.
+:form_gato a ontolex:Form;
+    ontolex:writtenRep "gato"@es.
 
-:lex_casar ontolex:canonicalForm :form_casar;
+:lex_casar a ontolex:LexicalEntry;
+    ontolex:canonicalForm :form_casar;
     ontolex:sense :casar_sense1.
 
 :casar_sense1 ontolex:reference <http://dbpedia.org/ontology/spouse>.
 
-:form_casar ontolex:writtenRep "casar"@es.
+:form_casar a ontolex:Form;
+    ontolex:writtenRep "casar"@es.
 
-:lex_activo_intangible ontolex:canonicalForm :form_activo_intangible;
+:lex_activo_intangible a ontolex:LexicalEntry; 
+    ontolex:canonicalForm :form_activo_intangible;
     ontolex:sense :activo_intangible_sense1.
 
 :activo_intangible_sense1 ontolex:reference <http://dbpedia.org/resource/Intangible_asset>.
 
-:form_activo_intangible ontolex:writtenRep "activo intangible"@es .
+:form_activo_intangible a ontolex:Form;
+    ontolex:writtenRep "activo intangible"@es .
