@@ -15,7 +15,7 @@
 
 :lex_marry a ontolex:LexicalEntry;
    ontolex:canonicalForm :form_marry;
-   ontolex:denotes <http://dbpedia.org/ontology/spouse>.
+   ontolex:denotes <http://dbpedia.org/resource/Marriage>.
 
 :form_marry a ontolex:Form;
    ontolex:writtenRep "marry"@en .
