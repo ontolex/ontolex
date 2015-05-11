@@ -19,15 +19,15 @@
 :die_canonical_form ontolex:writtenRep "die"@en.
 
 :die_in_intransitive_pp a lexinfo:intransitivePP;
-lexinfo:subject  :die_arg1 ;
-lexinfo:prepositionalArg :die_arg2.
+    lexinfo:subject  :die_arg1 ;
+    lexinfo:prepositionalArg :die_arg2.
 
 :die_in_frame1 ontolex:reference  <http://dbpedia.org/ontology/deathYear>;
-synsem:subjOfProp :die_arg1 ;
-synsem:objOfProp  :die_arg2.
+    synsem:subjOfProp :die_arg1 ;
+    synsem:objOfProp  :die_arg2.
 
 :die_in_frame2 ontolex:reference  <http://dbpedia.org/ontology/deathPlace>;
-synsem:subjOfProp :die_arg1 ;
-synsem:objOfProp  :die_arg2.
+    synsem:subjOfProp :die_arg1 ;
+    synsem:objOfProp  :die_arg2.
 
  :die_arg2 synsem:marker :in .

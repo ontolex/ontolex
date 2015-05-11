@@ -16,20 +16,20 @@
     ontolex:sense :opening_film_frame.
 
 :opening_film_form a ontolex:Form;
-ontolex:writtenRep "opening film"@en.
+    ontolex:writtenRep "opening film"@en.
 
 :opening_film_nounpp a lexinfo:NounPPFrame;
-lexinfo:subject :opening_film_arg1;
-lexinfo:prepositionalArg :opening_film_arg2.
+    lexinfo:subject :opening_film_arg1;
+    lexinfo:prepositionalArg :opening_film_arg2.
 
 :opening_film_frame a synsem:SemanticFrame;
-ontolex:reference <http://dbpedia.org/ontology/openingFilm>;
-ontolex:subjOfProp :opening_film_arg2;
-ontolex:objOfProp :opening_film_arg1.
+    ontolex:reference <http://dbpedia.org/ontology/openingFilm>;
+    ontolex:subjOfProp :opening_film_arg2;
+    ontolex:objOfProp :opening_film_arg1.
 
 :opening_film_arg2 synsem:marker :at . 
 
 :at a ontolex:LexicalEntry ;
-  ontolex:canonicalForm :at_from .
+    ontolex:canonicalForm :at_from .
 
 :at_from ontolex:writtenRep "at"@en .
