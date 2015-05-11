@@ -1,0 +1,26 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix iate: <http://tbx2rdf.lider-project.eu/data/iate/> .
+@prefix : <#> .
+
+:cat_lex a ontolex:LexicalEntry ;                                               
+  ontolex:canonicalForm :cat_form ;
+  ontolex:sense :cat_sense ;
+  ontolex:denotes <http://dbpedia.org/resource/Cat> ;
+  ontolex:evokes :IATE-157623 .
+
+:cat_form ontolex:writtenRep "cat"@en .
+
+:cat_sense a ontolex:LexicalSense ;
+  ontolex:reference <http://dbpedia.org/resource/Cat> ;
+  ontolex:isLexicalizedSenseOf :IATE-157623 ;
+  ontolex:isSenseOf :cat_lex .
+
+<http://dbpedia.org/resource/Cat>
+  ontolex:concept :IATE-157623 ;
+  ontolex:isReferenceOf :cat_sense ;
+  ontolex:isDenotedBy :cat_lex .
+
+:IATE-157623
+  ontolex:isEvokedBy :cat_lex ;
+  ontolex:lexicalizedSense :cat_sense ;
+  ontolex:isConceptOf <http://dbpedia.org/resource/Cat> .
