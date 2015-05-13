@@ -24,4 +24,4 @@
 lexinfo:copulativeSubject :female_arg.
 
 :female_syn1 a lexinfo:AdjectiveAttributiveFrame ;
-lexinfo:attributiveArg :female_arg.
+   lexinfo:attributiveArg :female_arg.
