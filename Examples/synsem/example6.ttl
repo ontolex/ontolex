@@ -30,4 +30,4 @@ synsem:objOfProp  :die_arg2.
 synsem:subjOfProp :die_arg1 ;
 synsem:objOfProp  :die_arg2.
 
- :die_arg2 synsem:marker :in .
+:die_arg2 synsem:marker :in .
