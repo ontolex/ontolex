@@ -28,8 +28,8 @@
 
 
 :launch_semframe a synsem:SemanticFrame;
-synsem:subsense :launch_subframe1;
-synsem:subsense :launch_subframe2.
+synsem:subframe :launch_subframe1;
+synsem:subframe :launch_subframe2.
 
 :launch_subframe1 ontolex:reference <http://dbpedia.org/ontology/product>;
                                  synsem:subjOfProp :launch_arg1;

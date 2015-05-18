@@ -1,10 +1,12 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix : <#>.
 
-<child> a ontolex:LexicalEntry ;
-  ontolex:lexicalForm <child#form_singular>, <child#form_plural> .
 
-<child#form_singular> a ontolex:Form ;
-  ontolex:writtenRep "child"@en .
-
-<child#form_plural> a ontolex:Form ;
+:lex_child a ontolex:LexicalEntry ;                                                
+  ontolex:lexicalForm :form_child_singular, :form_child_plural .              
+                                                                                
+:form_child_singular a ontolex:Form ;                                          
+  ontolex:writtenRep "child"@en .                                               
+                                                                                
+:form_child_plural a ontolex:Form ;                                            
   ontolex:writtenRep "children"@en .

@@ -13,7 +13,7 @@
 
 :own_lex a ontolex:LexicalEntry ;
   synsem:canonicalForm :own_form ;
-  synsem:synBehavior :own_synframe ;
+  synsem:synBehavior :own_frame_transitive ;
   ontolex:sense :own_semframe.
 
 :own_form ontolex:writtenRep "own"@en. 

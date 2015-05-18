@@ -47,9 +47,9 @@
     <owl:ObjectProperty rdf:about="&vartrans;category">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">category</rdfs:label>
-        <rdfs:comment xml:lang="en">Property that points to an external registry of variation categories or types</rdfs:comment>
+        <rdfs:comment xml:lang="en">The object property category indicates the specific type of relation by which two lexical entries or two lexical senses are related.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
-        <rdfs:domain rdf:resource="&vartrans;Variation"/>
+        <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
     </owl:ObjectProperty>
     
 
@@ -58,13 +58,13 @@
 
     <owl:ObjectProperty rdf:about="&vartrans;context">
         <rdfs:label xml:lang="en">context</rdfs:label>
-        <rdfs:comment xml:lang="en">This property can be used to indicate contextual conditions under which a certain variation holds.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The object property context indicates the contextual conditions under which a certain sense relation holds.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&ontolex;LexicalSense"/>
-                    <rdf:Description rdf:about="&vartrans;Variation"/>
+                    <rdf:Description rdf:about="&vartrans;LexicoSemanticRelation"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -72,22 +72,40 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#lexicalRelation -->
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#lexicalRel -->
 
-    <owl:ObjectProperty rdf:about="&vartrans;lexicalRelation">
-        <rdfs:label xml:lang="en">lexicalRelation</rdfs:label>
-        <rdfs:comment xml:lang="en">Indicates a relationship between two lexical entries</rdfs:comment>
-        <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
+    <owl:ObjectProperty rdf:about="&vartrans;lexicalRel">
+        <rdfs:label xml:lang="en">lexical relation</rdfs:label>
+        <rdfs:comment xml:lang="en">The object property lexicalRel relates two lexical entries that stand in some lexical relation.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
+        <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#senseRelation -->
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#relates -->
 
-    <owl:ObjectProperty rdf:about="&vartrans;senseRelation">
+    <owl:ObjectProperty rdf:about="&vartrans;relates">
+        <rdfs:label xml:lang="en">relates</rdfs:label>
+        <rdfs:comment xml:lang="en">The object property &apos;&apos;&apos;relates&apos;&apos;&apos; links a lexico-semantic relation to the two lexical entries or lexical senses between which it establishes the relation.</rdfs:comment>
+        <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
+                    <rdf:Description rdf:about="&ontolex;LexicalSense"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#senseRel -->
+
+    <owl:ObjectProperty rdf:about="&vartrans;senseRel">
         <rdfs:label xml:lang="en">sense relation</rdfs:label>
-        <rdfs:comment xml:lang="en">Indicates a relationship between two senses</rdfs:comment>
+        <rdfs:comment xml:lang="en">The object property senseRel relates to lexical senses that stand in some sense relation.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
         <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
@@ -100,8 +118,8 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">source</rdfs:label>
         <rdfs:comment xml:lang="en">Source of a Variation.</rdfs:comment>
-        <rdfs:domain rdf:resource="&vartrans;Variation"/>
-        <rdfs:subPropertyOf rdf:resource="&vartrans;variant"/>
+        <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
+        <rdfs:subPropertyOf rdf:resource="&vartrans;relates"/>
     </owl:ObjectProperty>
     
 
@@ -112,8 +130,8 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">target</rdfs:label>
         <rdfs:comment xml:lang="en">Target of a Variation.</rdfs:comment>
-        <rdfs:domain rdf:resource="&vartrans;Variation"/>
-        <rdfs:subPropertyOf rdf:resource="&vartrans;variant"/>
+        <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
+        <rdfs:subPropertyOf rdf:resource="&vartrans;relates"/>
     </owl:ObjectProperty>
     
 
@@ -123,19 +141,10 @@
     <owl:ObjectProperty rdf:about="&vartrans;translatableAs">
         <rdf:type rdf:resource="&owl;SymmetricProperty"/>
         <rdfs:label xml:lang="en">translatableAs</rdfs:label>
-        <rdfs:comment xml:lang="en">Indicates that a lexical entry may be a translation of another depending on the particular context and specific senses of the involved lexical entries.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The object property translatableAs relates a lexical entry to a lexical entry that it can be translated as depending on the particular context and specific senses of the involved lexical entries.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
-        <rdfs:subPropertyOf rdf:resource="&vartrans;lexicalRelation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#variant -->
-
-    <owl:ObjectProperty rdf:about="&vartrans;variant">
-        <rdfs:label xml:lang="en">variant</rdfs:label>
-        <rdfs:comment xml:lang="en">The property links a Variation to one of the variants involved. </rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&vartrans;lexicalRel"/>
     </owl:ObjectProperty>
     
 
@@ -169,88 +178,30 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#LexicalVariation -->
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#LexicalRelation -->
 
-    <owl:Class rdf:about="&vartrans;LexicalVariation">
-        <rdfs:label xml:lang="en">Lexical Variation</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&vartrans;Variation"/>
+    <owl:Class rdf:about="&vartrans;LexicalRelation">
+        <rdfs:label xml:lang="en">Lexical Relation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;variant"/>
-                <owl:onClass>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&ontolex;Form"/>
-                            <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:onClass>
+                <owl:onProperty rdf:resource="&vartrans;relates"/>
+                <owl:onClass rdf:resource="&ontolex;LexicalEntry"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The class LexicalVariation reifies the relation between lexical entries or forms the surface forms of which are grammatically or morphosyntactically related.  The variation can include a difference in ortography, capitalization, hyphenation, word order or morphosyntax, style that has no direct implications of the meaning.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class &apos;&apos;&apos;lexical relation&apos;&apos;&apos; reifies the relation between two lexical entries that are related by some lexical relation.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#SenseVariation -->
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#LexicoSemanticRelation -->
 
-    <owl:Class rdf:about="&vartrans;SenseVariation">
-        <rdfs:label xml:lang="en">Sense Variation</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&vartrans;Variation"/>
+    <owl:Class rdf:about="&vartrans;LexicoSemanticRelation">
+        <rdfs:label xml:lang="en">Lexico-Semantic Relation</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;variant"/>
-                <owl:onClass rdf:resource="&ontolex;LexicalSense"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;source"/>
-                <owl:onClass rdf:resource="&ontolex;LexicalSense"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The class SenseVariation reifies the relation between two senses that are semantically related in that they can be exchanged in most contexts, but their meaning varies along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#TerminologicalVariant -->
-
-    <owl:Class rdf:about="&vartrans;TerminologicalVariant">
-        <rdfs:label xml:lang="en">Terminological Variation</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&vartrans;SenseVariation"/>
-        <rdfs:comment xml:lang="en">Terminological variants are variants that are semantically related in the sense that they can be exhcanged in most contexts, but their surface forms are not directly related. The variants vary along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#Translation -->
-
-    <owl:Class rdf:about="&vartrans;Translation">
-        <rdfs:label xml:lang="en">Translation</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&vartrans;SenseVariation"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;target"/>
-                <owl:onClass rdf:resource="&ontolex;LexicalSense"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A Translation is a special case of SenseVariation involving two lexical senses in &apos;different languages that stand in a translation relation in the sense that they can be exchanged for each other without any meaning implications.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#Variation -->
-
-    <owl:Class rdf:about="&vartrans;Variation">
-        <rdfs:label xml:lang="en">Variation</rdfs:label>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&vartrans;variant"/>
+                <owl:onProperty rdf:resource="&vartrans;relates"/>
                 <owl:onClass>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
@@ -263,7 +214,51 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Two forms, lexical entries or senses are variants if their meaning is exchangable in some contexts or their surface forms are grammatically or morphosyntactically related</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class lexico-semantic relation reifies the relation between two lexical entries or lexical senses that are related by some lexical or semantic relationship.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#SenseRelation -->
+
+    <owl:Class rdf:about="&vartrans;SenseRelation">
+        <rdfs:label xml:lang="en">Sense Relation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&vartrans;LexicoSemanticRelation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&vartrans;relates"/>
+                <owl:onClass rdf:resource="&ontolex;LexicalSense"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class sense relation reifies the relation between two lexical entries that are related by a relation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#TerminologicalRelation -->
+
+    <owl:Class rdf:about="&vartrans;TerminologicalRelation">
+        <rdfs:label xml:lang="en">Terminological Relation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&vartrans;SenseRelation"/>
+        <rdfs:comment xml:lang="en">The class terminological relation reifies the relation between terms that are semantically related in the sense that they can be exchanged in most contexts, but their surface forms are not directly related. The variants vary along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#Translation -->
+
+    <owl:Class rdf:about="&vartrans;Translation">
+        <rdfs:label xml:lang="en">Translation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&vartrans;SenseRelation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&vartrans;target"/>
+                <owl:onClass rdf:resource="&ontolex;LexicalSense"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class translation represents a special case of SenseRelation involving two lexical senses that correspond to two lexical entries in different languages that stand in a translation relation so that they can be exchanged without any meaning implications.</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 

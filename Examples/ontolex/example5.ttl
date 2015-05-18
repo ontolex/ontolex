@@ -13,7 +13,8 @@
      ontolex:canonicalForm :form_marry;
      rdfs:label "marry"@en .
 
-:form_marry ontolex:writtenRep "marry"@en .
+:form_marry a ontolex:Form;
+     ontolex:writtenRep "marry"@en .
 
 :lex_high a ontolex:LexicalEntry, ontolex:Word;
      ontolex:canonicalForm :form_high;

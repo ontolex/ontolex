@@ -5,18 +5,17 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix loc: <http://id.loc.gov/vocabulary/iso639-1/> .
-@prefix lexvo: <http://www.lexvo.org/page/iso639-3/> .
 @prefix : <#> .
 
 :lexicon a ontolex:Lexicon;
    ontolex:language "es";
-   dct:language loc:es, lexvo:spa ;
+   dct:language <http://www.lexvo.org/page/iso639-3/spa>, <http://id.loc.gov/vocabulary/iso639-1/es>;
    ontolex:entry :lex_gato;
    ontolex:casar :lex_casar;
    ontolex:entry :lex_activo_intangible.
 
-:lex_gato ontolex:canonicalForm :form_gato;
+:lex_gato a ontolex:LexicalEntry; 
+    ontolex:canonicalForm :form_gato;
     ontolex:sense :gato_sense1;
     ontolex:sense :gato_sense2.
 
@@ -24,18 +23,23 @@
 
 :gato_sense2 ontolex:reference <http://dbpedia.org/resource/Jack_(device)>.
 
-:form_alto ontolex:writtenRep "gato"@es.
+:form_gato a ontolex:Form;
+    ontolex:writtenRep "gato"@es.
 
-:lex_casar ontolex:canonicalForm :form_casar;
+:lex_casar a ontolex:LexicalEntry;
+    ontolex:canonicalForm :form_casar;
     ontolex:sense :casar_sense1.
 
 :casar_sense1 ontolex:reference <http://dbpedia.org/ontology/spouse>.
 
-:form_casar ontolex:writtenRep "casar"@es.
+:form_casar a ontolex:Form;
+    ontolex:writtenRep "casar"@es.
 
-:lex_activo_intangible ontolex:canonicalForm :form_activo_intangible;
+:lex_activo_intangible a ontolex:LexicalEntry; 
+    ontolex:canonicalForm :form_activo_intangible;
     ontolex:sense :activo_intangible_sense1.
 
 :activo_intangible_sense1 ontolex:reference <http://dbpedia.org/resource/Intangible_asset>.
 
-:form_activo_intangible ontolex:writtenRep "activo intangible"@es .
+:form_activo_intangible a ontolex:Form;
+    ontolex:writtenRep "activo intangible"@es .

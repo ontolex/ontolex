@@ -6,4 +6,5 @@
      ontolex:canonicalForm :form_intangible_assets;
      rdfs:label "intangible assets"@en .
 
-:form_intangible_assets ontolex:writtenRep "intangible assets"@en .
+:form_intangible_assets a ontolex:Form;
+     ontolex:writtenRep "intangible assets"@en .

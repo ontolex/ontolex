@@ -59,19 +59,10 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/synsem.owl#condition -->
-
-    <owl:ObjectProperty rdf:about="&synsem;condition">
-        <rdfs:comment xml:lang="en">Indicates a pragmatic restriction on the applicability of this sense</rdfs:comment>
-        <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.w3.org/ns/lemon/synsem.owl#isA -->
 
     <owl:ObjectProperty rdf:about="&synsem;isA">
-        <rdfs:comment xml:lang="en">Indicates the single semantic argument of a class or unary  predicate.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The object property is a represents the single semantic argument of a class or unary  predicate.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&synsem;semArg"/>
     </owl:ObjectProperty>
     
@@ -80,7 +71,8 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#marker -->
 
     <owl:ObjectProperty rdf:about="&synsem;marker">
-        <rdfs:comment xml:lang="en">Denotes the marker of a semantic argument. This should generally either be a semantic property i.e., case or another lexical entry e.g., a preposition or particle.</rdfs:comment>
+        <rdfs:label xml:lang="en">marker</rdfs:label>
+        <rdfs:comment xml:lang="en">The object property &apos;marker&apos; indicates the marker of a semantic argument; this can be a case marker or some other lexical entry such as a preposition or particle.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&synsem;Argument"/>
     </owl:ObjectProperty>
@@ -90,29 +82,10 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#objOfProp -->
 
     <owl:ObjectProperty rdf:about="&synsem;objOfProp">
-        <rdfs:comment xml:lang="en">Indicates the semantic argument which represents the objects (range) of the property referred to by this sense.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Indicates the semantic argument which represents the objects (range) of the property referred to by this semantic frame.</rdfs:comment>
+        <rdfs:label xml:lang="en">object of property</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:subPropertyOf rdf:resource="&synsem;semArg"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/synsem.owl#propertyDomain -->
-
-    <owl:ObjectProperty rdf:about="&synsem;propertyDomain">
-        <rdfs:comment xml:lang="en">Provides a pragmatic restriction on the domain of the property referred to by this sense</rdfs:comment>
-        <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
-        <rdfs:subPropertyOf rdf:resource="&synsem;condition"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/synsem.owl#propertyRange -->
-
-    <owl:ObjectProperty rdf:about="&synsem;propertyRange">
-        <rdfs:comment xml:lang="en">Provides a pragmatic restriction on the range of the property referred to by this sense</rdfs:comment>
-        <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
-        <rdfs:subPropertyOf rdf:resource="&synsem;condition"/>
     </owl:ObjectProperty>
     
 
@@ -120,7 +93,8 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#semArg -->
 
     <owl:ObjectProperty rdf:about="&synsem;semArg">
-        <rdfs:comment xml:lang="en">Denotes a semantic argument slot of a semantic unit.</rdfs:comment>
+        <rdfs:label xml:lang="en">semantic argument</rdfs:label>
+        <rdfs:comment xml:lang="en">The object property semantic argument represents an argument or slot of a semantic frame.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:range rdf:resource="&synsem;Argument"/>
         <rdfs:domain rdf:resource="&synsem;SemanticFrame"/>
@@ -128,24 +102,25 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/synsem.owl#subjOfProp -->
+    <!-- http://www.w3.org/ns/lemon/synsem.owl#subframe -->
 
-    <owl:ObjectProperty rdf:about="&synsem;subjOfProp">
-        <rdfs:comment xml:lang="en">Indicates the semantic argument which represents the subjects (domain) of the property referred to by this sense</rdfs:comment>
+    <owl:ObjectProperty rdf:about="&synsem;subframe">
+        <rdfs:label xml:lang="en">subframe</rdfs:label>
+        <rdfs:comment xml:lang="en">The object property subframe relates a (complex) semantic frame to the subframes that together represent the meaning of a semantic frame as a Gestalt.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
-        <rdfs:subPropertyOf rdf:resource="&synsem;semArg"/>
+        <rdfs:domain rdf:resource="&synsem;SemanticFrame"/>
+        <rdfs:range rdf:resource="&synsem;SemanticFrame"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/synsem.owl#subsense -->
+    <!-- http://www.w3.org/ns/lemon/synsem.owl#subjOfProp -->
 
-    <owl:ObjectProperty rdf:about="&synsem;subsense">
-        <rdfs:comment xml:lang="en">Indicates that the relation between a compound sense and its atomic subsenses. It can be also used to relate a Semantic Frame to the single subframes that together compose the overall meaning as a Gestalt.
-</rdfs:comment>
+    <owl:ObjectProperty rdf:about="&synsem;subjOfProp">
+        <rdfs:label xml:lang="en">subject of property</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates the semantic argument which represents the subjects (domain) of the property referred to by this sense.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
-        <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
-        <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
+        <rdfs:subPropertyOf rdf:resource="&synsem;semArg"/>
     </owl:ObjectProperty>
     
 
@@ -153,7 +128,8 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#synArg -->
 
     <owl:ObjectProperty rdf:about="&synsem;synArg">
-        <rdfs:comment xml:lang="en">The property synArg relates a Frame to one of its (syntactic) arguments.</rdfs:comment>
+        <rdfs:label xml:lang="en">syntactic argument</rdfs:label>
+        <rdfs:comment xml:lang="en">The property syntactic argument relates a frame to one of its (syntactic) arguments. </rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:range rdf:resource="&synsem;Argument"/>
         <rdfs:domain rdf:resource="&synsem;Frame"/>
@@ -164,12 +140,39 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#synBehavior -->
 
     <owl:ObjectProperty rdf:about="&synsem;synBehavior">
-        <rdfs:comment xml:lang="en">Indicates a syntactic behavior of a lexical entry</rdfs:comment>
+        <rdfs:label xml:lang="en">syntactic behaviour</rdfs:label>
+        <rdfs:comment xml:lang="en">The object property synBehavior relates a lexical entry to one of its syntactic behaviours as captured by a (syntactic) frame.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:range rdf:resource="&synsem;Frame"/>
     </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&synsem;condition">
+        <rdfs:label xml:lang="en">condition</rdfs:label>
+        <rdfs:comment xml:lang="en">&apos;Condition&apos; provides an evaluable restriction on the mapping of this semantic frame.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ontolex;usage"/>
+        <rdfs:domain rdf:resource="&synsem;SemanticFrame"/>
+    </owl:ObjectProperty>
     
+    <!-- http://www.w3.org/ns/lemon/ontolex#propertyDomain -->
+
+    <owl:ObjectProperty rdf:about="&synsem;propertyDomain">
+        <rdfs:label xml:lang="en">property domain</rdfs:label>
+        <rdfs:comment xml:lang="en">&apos;Property domain&apos; provides a pragmatic restriction on the domain of the property referred to by this sense.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&synsem;condition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/ontolex#propertyRange -->
+
+    <owl:ObjectProperty rdf:about="&synsem;propertyRange">
+        <rdfs:label xml:lang="en">property range</rdfs:label>
+        <rdfs:comment xml:lang="en">&apos;Property domain&apos; provides a pragmatic restriction on the range of the property referred to by this sense.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&synsem;condition"/>
+    </owl:ObjectProperty>
+    
+
 
 
     <!-- 
@@ -194,8 +197,8 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#optional -->
 
     <owl:DatatypeProperty rdf:about="&synsem;optional">
-        <rdfs:comment xml:lang="en">Denotes that the syntactic argument is optional, that is, it may be omitted.
-</rdfs:comment>
+        <rdfs:label xml:lang="en">optional</rdfs:label>
+        <rdfs:comment xml:lang="en">The datatype property &apos;optional&apos; indicates whether a syntactic argument is optional, that is, it can be syntactically ommitted.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;boolean"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
         <rdfs:domain rdf:resource="&synsem;Argument"/>
@@ -229,7 +232,8 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#Argument -->
 
     <owl:Class rdf:about="&synsem;Argument">
-        <rdfs:comment xml:lang="en">An argument represents a slot that needs to be filled for a certain syntactic structure/projection of a lexical entry or a semantic frame to be complete. Syntactic arguments typically realise a certain grammatical function (e.g. subject, direct object, indirect object, prepositional object, etc.); semantic arguments represent an entity that plays some role in a semantic frame.</rdfs:comment>
+        <rdfs:label xml:lang="en">Argument</rdfs:label>
+        <rdfs:comment xml:lang="en">The class argument represents a slot that needs to be filled for a certain syntactic or semantic structure of a lexical entry or a semantic frame to be complete. Syntactic arguments typically realise a certain grammatical function (e.g. subject, direct object, indirect object, prepositional object, etc.); semantic arguments represent an entity that plays some role in a semantic frame.</rdfs:comment>
     </owl:Class>
     
 
@@ -237,7 +241,8 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#Frame -->
 
     <owl:Class rdf:about="&synsem;Frame">
-        <rdfs:comment xml:lang="en">A (syntactic) frame is a linguistic object that represents the syntactic behaviour of an open class word in terms of (syntactic) arguments it requires. It essentially describes the subcategorization structure of the open class word in question, in particular the (syntactic) arguments it requires.</rdfs:comment>
+        <rdfs:label xml:lang="en">Frame</rdfs:label>
+        <rdfs:comment xml:lang="en">The class (syntactic) frame represents the syntactic behaviour of an open class word in terms of (syntactic) arguments it requires. It essentially describes the subcategorization structure of the open class word in question, in particular the (syntactic) arguments it requires. </rdfs:comment>
     </owl:Class>
     
 
@@ -245,8 +250,19 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#SemanticFrame -->
 
     <owl:Class rdf:about="&synsem;SemanticFrame">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontolex;LexicalSense"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&synsem;semArg"/>
+                        <owl:someValuesFrom rdf:resource="&synsem;Argument"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&ontolex;LexicalSense"/>
-        <rdfs:comment xml:lang="en">A semantic frame is a coherent structure of related concepts that are related such that without knowledge of all of them, one does not have complete knowledge of any one; they are in that sense types of gestalt. The coherent structure is represented by one or more predicates from a given ontology.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class semantic frame represents a coherent structure of related concepts that are related such that without knowledge of all of them, one does not have complete knowledge of any one; they are in that sense types of gestalt. The coherent structure is represented by one or more predicates from a given ontology.</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 
