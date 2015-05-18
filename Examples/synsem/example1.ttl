@@ -6,7 +6,7 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
-@prefix : <> .
+@prefix : <#> .
 
 
 :own_lex a ontolex:LexicalEntry ;

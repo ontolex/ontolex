@@ -5,7 +5,7 @@
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
 @prefix myVocab: <http://some.vocab> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix : <> .
+@prefix : <#> .
 
 
 

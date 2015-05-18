@@ -2,7 +2,7 @@
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix : <> .
+@prefix : <#> .
 
 
 

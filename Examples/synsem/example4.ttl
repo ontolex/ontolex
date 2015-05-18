@@ -7,7 +7,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-@prefix : <> .
+@prefix : <#> .
 
 :opening_film_at a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:noun ;

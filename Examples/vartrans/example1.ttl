@@ -1,7 +1,9 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix isocat: <http://www.isocat.org/datacat/>.
-@prefix : <> .
+@prefix myvocab: <http://www.example.com/myvocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <#> .
 
 :fao a ontolex:LexicalEntry ;
      ontolex:sense [ ontolex:reference <http://dbpedia.org/resource/Food_and_Agriculture_Organization> ] ;

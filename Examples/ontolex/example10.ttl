@@ -1,5 +1,5 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix : <>.
+@prefix : <#>.
 
 :lex_bank1 a ontolex:LexicalEntry ;
   ontolex:denotes <http://dbpedia.org/resource/Bank>;

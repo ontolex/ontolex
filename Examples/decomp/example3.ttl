@@ -4,7 +4,7 @@
 @prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix : <> .
+@prefix : <#> .
 
 :AfricanSwineFever a ontolex:LexicalEntry ;
   rdf:_1 :AfricanSwineFever_African_Component ;
@@ -14,7 +14,7 @@
   decomp:constituent :SwineFever_Component .
 
 :AfricanSwineFever_Component decomp:identifies :AfricanSwineFever ;
-  decomp:constituent :African_Component :
+  decomp:constituent :African_Component ;
   decomp:constituent :SwineFever_Component .
 
 :SwineFever_Component decomp:identifies :SwineFever ;

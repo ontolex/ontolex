@@ -1,6 +1,6 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
-@prefix : <> .
+@prefix : <#> .
 
 
 :risotto a ontolex:LexicalEntry ;

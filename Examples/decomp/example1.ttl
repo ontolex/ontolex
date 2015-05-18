@@ -2,7 +2,7 @@
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
-@prefix : <> .
+@prefix : <#> .
 
 :AmphibiousLanding a ontolex:LexicalEntry ;
   decomp:subterm :Landing.

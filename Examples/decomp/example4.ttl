@@ -1,4 +1,4 @@
-@prefix : <> .
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .

@@ -1,7 +1,7 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
-@prefix : <> .
+@prefix : <#> .
 
 :DesembarcoAnfibio a ontolex:LexicalEntry ;
   decomp:constituent :DesembarcoAnfibio_Desembarco_Component; 

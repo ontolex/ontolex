@@ -1,4 +1,4 @@
-@prefix : <> .
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .

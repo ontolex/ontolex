@@ -1,6 +1,6 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
-@prefix : <> .
+@prefix : <#> .
 
 :surrogate_mother a ontolex:LexicalEntry;
       ontolex:language "en";
