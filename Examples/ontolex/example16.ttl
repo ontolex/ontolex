@@ -1,35 +1,29 @@
-# This is an example of a full lexicon in English
-
-# syntactically validated using JENA API 2.11.2
-
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix dbpedia: <http://dbpedia.org/resource/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/>.
 
-:conceptLexicon a ontolex:ConceptSet .
+:cat_lex a ontolex:LexicalEntry ;                                               
+  ontolex:canonicalForm :cat_form ;
+  ontolex:sense :cat_sense ;
+  ontolex:denotes <http://dbpedia.org/resource/Cat> ;
+  ontolex:evokes :IATE-157623 .
 
-:consumption1 a ontolex:LexicalConcept ;
-  ontolex:isConceptOf dbpedia:Tuberculosis ;
-  ontolex:isEvokedBy :comsumption ;
-  skos:inScheme :conceptLexicon .
-                                                                                
-:consumption2 a ontolex:LexicalConcept ;                                         
-  ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(Economics)> ;
-  ontolex:isEvokedBy :consumption ;
-  skos:inScheme :conceptLexicon .
-                                                                                
-:tuberculosis1 a ontolex:LexicalConcept ;
-  ontolex:isConceptOf dbpedia:Tuberculosis ;
-  ontolex:isEvokedBy :tuberculosis ;
-  skos:inScheme :conceptLexicon .
+:cat_form ontolex:writtenRep "cat"@en .
 
-:consumption a ontolex:LexicalEntry ;
-  ontolex:canonicalForm :consumption_lemma .
+:cat_sense a ontolex:LexicalSense ;
+  ontolex:reference <http://dbpedia.org/resource/Cat> ;
+  ontolex:isLexicalizedSenseOf :IATE-157623 ;
+  ontolex:isSenseOf :cat_lex .
 
-:consumption_lemma ontolex:writtenRep "consumption"@en .
+<http://dbpedia.org/resource/Cat>
+  ontolex:concept :IATE-157623 ;
+  ontolex:isReferenceOf :cat_sense ;
+  ontolex:isDenotedBy :cat_lex .
 
-:tuberculosis a ontolex:LexicalEntry ;
-  ontolex:canonicalForm :tuberculosis_lemma .
+:IATE-157623
+  ontolex:isEvokedBy :cat_lex ;
+  ontolex:lexicalizedSense :cat_sense ;
+  ontolex:isConceptOf <http://dbpedia.org/resource/Cat> .
 
-:tuberculosis_lemma ontolex:writtenRep "tuberculosis"@en .

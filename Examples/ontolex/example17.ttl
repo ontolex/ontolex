@@ -1,26 +1,35 @@
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix iate: <http://tbx2rdf.lider-project.eu/data/iate/> .
 @prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix skos: <http://www.w3.org/2004/02/skos#>.
 
-:cat_lex a ontolex:LexicalEntry ;                                               
-  ontolex:canonicalForm :cat_form ;
-  ontolex:sense :cat_sense ;
-  ontolex:denotes <http://dbpedia.org/resource/Cat> ;
-  ontolex:evokes :IATE-157623 .
 
-:cat_form ontolex:writtenRep "cat"@en .
+:conceptLexicon a ontolex:ConceptSet .
 
-:cat_sense a ontolex:LexicalSense ;
-  ontolex:reference <http://dbpedia.org/resource/Cat> ;
-  ontolex:isLexicalizedSenseOf :IATE-157623 ;
-  ontolex:isSenseOf :cat_lex .
+:consumption1 a ontolex:LexicalConcept ;
+  ontolex:isConceptOf <dbpedia.org/resource/Tuberculosis> ;
+  ontolex:isEvokedBy :comsumption ;
+  skos:inScheme :conceptLexicon .
+                                                                                
+:consumption2 a ontolex:LexicalConcept ;                                         
+  ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(Economics)> ;
+  ontolex:isEvokedBy :consumption ;
+  skos:inScheme :conceptLexicon .
+                                                                                
+:tuberculosis1 a ontolex:LexicalConcept ;
+  ontolex:isConceptOf <dbpedia.org/resource/Tuberculosis> ;
+  ontolex:isEvokedBy :tuberculosis ;
+  skos:inScheme :conceptLexicon .
 
-<http://dbpedia.org/resource/Cat>
-  ontolex:concept :IATE-157623 ;
-  ontolex:isReferenceOf :cat_sense ;
-  ontolex:isDenotedBy :cat_lex .
+:consumption a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :consumption_lemma .
 
-:IATE-157623
-  ontolex:isEvokedBy :cat_lex ;
-  ontolex:lexicalizedSense :cat_sense ;
-  ontolex:isConceptOf <http://dbpedia.org/resource/Cat> .
+:consumption_lemma ontolex:writtenRep "consumption"@en .
+
+:tuberculosis a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :tuberculosis_lemma .
+
+:tuberculosis_lemma ontolex:writtenRep "tuberculosis"@en .
+

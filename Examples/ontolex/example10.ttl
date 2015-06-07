@@ -13,3 +13,9 @@
 
 :lex_bank2_lemma ontolex:writtenRep "bank"@en .
 
+:lex_apothecary a ontolex:LexicalEntry ;
+  ontolex:denotes <http://dbpedia.org/resource/Pharmacist>;
+  ontolex:denotes <http://dbpedia.org/resource/Pharmacy>;
+  ontolex:canonicalForm :lex_apothecary_lemma .
+
+:lex_apothecary_lemma ontolex:writtenRep "apothecary"@en .
