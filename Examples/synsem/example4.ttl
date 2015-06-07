@@ -1,5 +1,5 @@
-# This example shows how to add the subcategorization information for a relational noun such as "opening film (at)", e.g. in constructions such as "X was the opening film at Y". The X represents the (external) subject of the copula construct, while the Y represent the prepositional object introduced by the preposition "at". 
 
+# This example shows how to model a relational noun such as brother (of)
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
@@ -9,27 +9,24 @@
 
 @prefix : <#> .
 
-:opening_film_at a ontolex:LexicalEntry ; 
+:father_of a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:noun ;
-    ontolex:canonicalForm :opening_film_form;
-    synsem:synBehavior :opening_film_nounpp;
-    ontolex:sense :opening_film_frame.
+    ontolex:canonicalForm :father_form;
+    synsem:synBehaviour :father_of_nounpp;
+    ontolex:sense :father_frame.
 
-:opening_film_form a ontolex:Form;
-    ontolex:writtenRep "opening film"@en.
+:father_form a ontolex:Form;
+    ontolex:writtenRep "father"@en.
 
-:opening_film_nounpp a lexinfo:NounPPFrame;
-    lexinfo:subject :opening_film_arg1;
-    lexinfo:prepositionalArg :opening_film_arg2.
+:father_of_nounpp a lexinfo:NounPPFrame;
+   lexinfo:subject :arg1;
+   lexinfo:prepositionalArg :arg2.
 
-:opening_film_frame a synsem:SemanticFrame;
-    ontolex:reference <http://dbpedia.org/ontology/openingFilm>;
-    ontolex:subjOfProp :opening_film_arg2;
-    ontolex:objOfProp :opening_film_arg1.
+:father_frame a synsem:SemanticFrame;
+   ontolex:reference <http://dbpedia.org/ontology/father>;
+   ontolex:subjOfProp :arg2;
+   ontolex:objOfProp :arg1.
 
-:opening_film_arg2 synsem:marker :at . 
+:arg2 synsem:marker :of .
 
-:at a ontolex:LexicalEntry ;
-    ontolex:canonicalForm :at_from .
 
-:at_from ontolex:writtenRep "at"@en .

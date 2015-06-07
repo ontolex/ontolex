@@ -1,4 +1,3 @@
-# This example shows the subcategorization structure and mappings for the verb "(to) die (in)" which can be interpreted as referring to the date in which the subject died, thus referring to <http://dbpedia.org/ontology/deathYear>, or to the place where the subject died. 
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
@@ -8,26 +7,31 @@
 
 @prefix : <#> .
 
+:launch a ontolex:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  ontolex:canonicalForm :launch_canonical_form;
+  synsem:synBehaviour :launch_transitive_pp;
+  ontolex:sense :launch_semframe.
 
-:die_in a ontolex:LexicalEntry ; 
-    lexinfo:partOfSpeech lexinfo:verb ;
-    ontolex:canonicalForm :die_canonical_form;
-    synsem:synBehavior :die_in_intransitive_pp;
-    synsem:sense :die_in_frame1;
-    synsem:sense :die_in_frame2.
+:launch_canonical_form ontolex:writtenRep "launch"@en.
 
-:die_canonical_form ontolex:writtenRep "die"@en.
+:launch_transitive_pp a lexinfo:TransitivePPFrame;
+ lexinfo:subject  :launch_subj ;
+ lexinfo:directObject         :launch_dobj ;
+ lexinfo:prepositionalAdjunct :launch_pAdj.
 
-:die_in_intransitive_pp a lexinfo:intransitivePP;
-    lexinfo:subject  :die_arg1 ;
-    lexinfo:prepositionalArg :die_arg2.
+:launch_arg3 synsem:marker :in ;
+             synsem:optional "true"^^xsd:boolean .
 
-:die_in_frame1 ontolex:reference  <http://dbpedia.org/ontology/deathYear>;
-    synsem:subjOfProp :die_arg1 ;
-    synsem:objOfProp  :die_arg2.
 
-:die_in_frame2 ontolex:reference  <http://dbpedia.org/ontology/deathPlace>;
-    synsem:subjOfProp :die_arg1 ;
-    synsem:objOfProp  :die_arg2.
+:launch_semframe a synsem:SemanticFrame;
+   synsem:subframe :launch_subframe1;
+   synsem:subframe :launch_subframe2.
 
-:die_arg2 synsem:marker :in .
+:launch_subframe1 ontolex:reference <http://dbpedia.org/ontology/product>;
+                                 synsem:subjOfProp :launch_subj;
+                                 synsem:objOfProp  :launch_dobj.
+
+:launch_subframe2 ontolex:reference <http://dbpedia.org/ontology/launchDate>;
+                                 synsem:subjOfProp :launch_dobj;
+                                 synsem:objOfProp  :launch_pAdj.

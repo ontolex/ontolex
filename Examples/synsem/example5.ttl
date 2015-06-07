@@ -1,4 +1,3 @@
-# Example showing how to specify a the subcategorization frame for the verb "(to) graduate (from)", intepreted with respect to the property <http://dbpedia.org/ontology/almaMater>; the example extends previous examples in that it shows how the syntactic arguments (subject and prepositionalObject) map to the subj and object of the property, respectively.
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
@@ -8,28 +7,22 @@
 
 @prefix : <#> .
 
-
-:graduate_from a ontolex:LexicalEntry ; 
+:operate_in a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:verb ;
-    ontolex:canonicalForm :graduate_canonical_form;
-    synsem:synBehavior :graduate_from_intransitivepp;
-    ontolex:sense :graduate_from_semframe.
+    ontolex:canonicalForm :operate_form;
+    synsem:synBehavior :operate_intransitivepp;
+    ontolex:sense :operate_semframe.
 
-:graduate_canonical_form a ontolex:Form;
-    ontolex:writtenRep "graduate"@en.
+:operate_form a ontolex:Form;
+   ontolex:writtenRep "operate"@en.
 
-:graduate_from_intransitivepp a synsem:Frame;
-    lexinfo:subject :graduate_arg1 ;
-    lexinfo:prepositionalArg :graduate_arg2.
+:operate_intransitivepp a synsem:Frame;
+   lexinfo:subject :operate_subj ;
+   lexinfo:prepositionalArg :operate_pobj.
 
-:graduate_from_semframe a synsem:SemanticFrame;
-    ontolex:reference <http://dbpedia.org/ontology/almaMater>;
-    ontolex:subjOfProp :graduate_arg1;
-    ontolex:objOfProp :graduate_arg2.
+:operate_semframe a synsem:SemanticFrame;
+   ontolex:reference <http://dbpedia.org/ontology/regionServed>;
+   ontolex:subjOfProp :operate_subj;
+   ontolex:objOfProp :operate_pobj.
  
-:graduate_arg2 synsem:marker :from .
-
-:from a ontolex:LexicalEntry ;
-    ontolex:canonicalForm :from_form .
-
-:from_form ontolex:writtenRep "from"@en .
+:operate_arg_2 synsem:marker :in .

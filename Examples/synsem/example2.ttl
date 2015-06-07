@@ -1,6 +1,5 @@
 # Example extending example1, showing how the grammatical roles (subject or directObject) can be specified.  
 
-
 # syntactically validated using JENA API 2.11.2
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
@@ -11,14 +10,10 @@
 
 :own_lex a ontolex:LexicalEntry ;
   synsem:canonicalForm :own_form ;
-  synsem:synBehavior :own_frame_transitive .
+  synsem:synBehavior :own_frame .
 
 :own_form ontolex:writtenRep "own"@en. 
 
-:own_form_transitive a lexinfo:TransitiveFrame;
+:own_frame a lexinfo:TransitiveFrame;
        lexinfo:subject :own_frame_subj;
        lexinfo:directObject :own_frame_obj.
-
-lexinfo:subject owl:subPropertyOf synsem:synArg.
-lexinfo:directObject owl:subPropertyOf synsem:synArg.
-

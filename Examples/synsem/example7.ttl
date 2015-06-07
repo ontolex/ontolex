@@ -1,40 +1,55 @@
-# This example shows a more complex example for the verb "(to) launch" as used in "X launched Y in Z", where X is the company, Y the launched product and Z the launching year. In order to interpret this syntactic frame, a chain of two properties is needed, involving the properties <> and <>. 
-
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
 @prefix : <#> .
 
+:give a ontolex:LexicalEntry ; 
+    lexinfo:partOfSpeech lexinfo:verb ;
+    ontolex:canonicalForm :give_form;
+    synsem:synBehavior :give_ditransitive;
+    synsem:synBehaviour :give_transitive_pp;
+    ontolex:sense :giving_semframe.
 
+:give_form a ontolex:Form;
+   ontolex:writtenRep "give"@en.
 
-:launch a ontolex:LexicalEntry ;
-  lexinfo:partOfSpeech lexinfo:verb ;
-  ontolex:canonicalForm :launch_canonical_form;
-  synsem:synBehavior :launch_transitive_pp;
-  ontolex:sense :launch_semframe.
+:give_transitive_pp a lexinfo:TransitivePPFrame;
+   lexinfo:subject :give_subj1 ;
+   lexinfo:directObject :give_dobj1; 
+   lexinfo:prepositionalArg :give_pobj1.
 
-:launch_canonical_form ontolex:writtenRep "launch"@en.
+:give_ditransitive a lexinfo:DitransitiveFrame;
+   lexinfo:subject :give_subj2 ;
+   lexinfo:indirectObject :give_iobj2;
+   lexinfo:directObject :give_dobj2.
 
-:launch_transitive_pp a lexinfo:TransitivePPFrame;
- lexinfo:subject  :launch_arg1 ;
- lexinfo:directObject         :launch_arg2 ;
- lexinfo:prepositionalAdjunct :launch_arg3.
+:giving_semframe a synsem:SemanticFrame;
+   ontolex:reference <http://example.org/giving>;
+   synsem:subframe :giving_subframe1;
+   synsem:subframe :giving_subframe2;
+   synsem:subframe :giving_subframe3.
+ 
+:giving_subframe1 ontolex:reference <http://example.org/giver>;
+                                 synsem:subjOfProp :giving_event;
+                                 synsem:objOfProp  :give_subj1;
+                                 synsem:objOfProp  :give_subj2.
 
-:launch_arg3 synsem:marker :in ;
-             synsem:optional "true"^^xsd:boolean .
+:giving_subframe2 ontolex:reference <http://example.org/given>;
+                                 synsem:subjOfProp :giving_event;
+                                 synsem:objOfProp  :give_dobj2;
+                                 synsem:objOfProp :give_dobj1.
 
+:giving_subframe3 ontolex:reference <http://example.org/receiver>;
+                                 synsem:subjOfProp :giving_event;
+                                 synsem:objOfProp  :give_iobj2;
+                                 synsem:objOfProp :give_pobj1.
 
-:launch_semframe a synsem:SemanticFrame;
-synsem:subframe :launch_subframe1;
-synsem:subframe :launch_subframe2.
+:give_pobj1 synsem:marker :to .
 
-:launch_subframe1 ontolex:reference <http://dbpedia.org/ontology/product>;
-                                 synsem:subjOfProp :launch_arg1;
-                                 synsem:objOfProp  :launch_arg2.
-
-:launch_subframe2 ontolex:reference <http://dbpedia.org/ontology/launchDate>;
-                                 synsem:subjOfProp :launch_arg2;
-                                 synsem:objOfProp  :launch_arg3.
+<http://example.org/giver> rdfs:subProperty <http://example.org/agent>.
+<http://example.org/given> rdfs:subProperty <http://example.org/patient>.
+<http://example.org/receiver> rdfs:subProperty <http://example.org/beneficiary>.

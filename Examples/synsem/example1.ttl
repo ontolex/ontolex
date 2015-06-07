@@ -8,11 +8,10 @@
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
 @prefix : <#> .
 
-
 :own_lex a ontolex:LexicalEntry ;
   ontolex:canonicalForm :own_form ;
-  synsem:synBehavior :own_frame_transitive .
+  synsem:synBehavior :own_frame .
 
-:own_frame_transitive a synsem:Frame, lexinfo:TransitiveFrame .
+:own_frame a synsem:SyntacticFrame, lexinfo:TransitiveFrame.
 
 :own_form ontolex:writtenRep "own"@en . 

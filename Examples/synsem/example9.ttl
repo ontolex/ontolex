@@ -3,25 +3,17 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix oils: <http://lemon-model.net/oils#> .
 @prefix : <#> .
 
-:high a ontolex:LexicalEntry ;
-  lexinfo:partOfSpeech lexinfo:adjective ;
-  ontolex:canonicalForm :high_canonical_form;
-  synsem:synBehavior :high_syn;
-  ontolex:sense :high_sense.
+:ride a ontolex:LexicalEntry ;
+  ontolex:sense :ride_sense1 .
 
-:high_canonical_form ontolex:writtenRep "high"@en.
+:ride_sense1 a synsem:SemanticFrame ;
+  ontolex:reference :methodOfTransportation ;
+  synsem:propertyRange :Bicycle ;
+  synsem:semArg :subj, :obj .
 
-:high_syn lexinfo:copulativeSubject :high_arg.
+:methodOfTransporation a rdf:Property ;
+  rdfs:range :Vehicle .
 
-:high_sense ontolex:reference :high_sense_ref;
-  synsem:isA :high_arg.
-
-:high_sense_ref rdfs:subClassOf oils:CovariantScalar ;
-                                  oils:boundTo <http://dbpedia.org/ontology/elevation> ;
-                                  oils:degree oils:strong.
