@@ -3,27 +3,46 @@
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
 @prefix : <#> .
 
-:DesembarcoAnfibio a ontolex:LexicalEntry ;
-  decomp:constituent :DesembarcoAnfibio_Desembarco_Component; 
-  decomp:constituent :DesembarcoAnfibio_Anfibio_Component .
+:federal_state a ontolex:LexicalEntry ;
+  ontolex:language "en";
+  decomp:subterm :federal_lex;
+  decomp:subterm :state_lex;
+  ontolex:denotes <http://dbpedia.org/ontology/federalState>.
 
-:DesembarcoAnfibio_Desembarco_Component a decomp:Component ;
-  decomp:identifies :Desembarco .
+:federal_lex a lexinfo:Adjective;
+    ontolex:canonicalForm :federal_lex_canonical_form.
 
-:DesembarcoAnfibio_Anfibio_Component a decomp:Component ;
-  lexinfo:gender lexinfo:masculine ;
-  lexinfo:number lexinfo:plural ;
-  decomp:identifies :Anfibio .
+:federal_lex_canonical_form ontolex:writtenRep "federal"@en.
 
-:DesembarcoAnfibio ontolex:canonicalForm :DesembarcoAnfibio_CF.
+:state_lex a lexinfo:Noun;
+    ontolex:canonicalForm :state_lex_canonical_form.
 
-:DesembarcoAnfibio_CF ontolex:writtenRep "desembarco anfibio"@it.
+:state_lex_canonical_form ontolex:writtenRep "state"@en.
 
-:Desembarco ontolex:canonicalForm :Desembarco_CF.
-:Desembarco_CF ontolex:writtenRep "desembarco"@it.
+:comunidad_autonoma_lex a ontolex:LexicalEntry ;
+  ontolex:language "es";
+  decomp:subterm :comunidad_lex;
+  decomp:subterm :autonoma_lex;
+  ontolex:denotes <http://dbpedia.org/ontology/federalState>;
+  ontolex:canonicalForm :comunidad_autonoma_lex_canonical_form.
 
-:Anfibio ontolex:canonicalForm :Anfibio_CF.
-:Anfibio_CF ontolex:writtenRep "anfibio"@it.
+:comunidad_autonoma_lex_canonical_form ontolex:writtenRep "comunidad autónoma"@es.
 
+:comunidad_lex a lexinfo:Noun;
+    ontolex:canonicalForm :comunidad_lex_canonical_form.
+
+:autonoma_lex a lexinfo:Noun;
+    ontolex:canonicalForm :autonomo_lex_canonical_form;
+    ontolex:otherForm :autonoma_lex__femenine_singular_form.
+
+:comunidad_lex_canonical_form ontolex:writtenRep "comunidad"@es.
+
+:autonomo_lex_canonical_form ontolex:writtenRep "autónomo"@es;
+                            lexinfo:gender lexinfo:masculine;
+                            lexinfo:number lexinfo:singular.
+
+:autonoma_lex_femenine_singular_form ontolex:writtenRep "autónoma"@en;
+                            lexinfo:gender lexinfo:femenine;
+                            lexinfo:number lexinfo:singular.
 
 

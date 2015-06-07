@@ -1,0 +1,23 @@
+@prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+
+:knows a ontolex:Word ;
+  synsem:synBehavior :knows_frame .
+
+:knows_frame a synsem:Frame ;
+  lexinfo:subject :subject ;
+  lexinfo:directObjet :directObject .
+
+:XknowsY a decomp:Component ;
+  decomp:correspondsTo :knows_frame;
+  decomp:constituent :X_component ,
+                     :knows_component ,
+                     :Y_component .
+
+:X_component decomp:correspondsTo :subject .
+:knows_component decomp:correspondsTo :knows_component.
+:Y_component decomp:correspondsTo :directObject .
+

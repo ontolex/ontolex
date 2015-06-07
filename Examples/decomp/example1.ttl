@@ -2,18 +2,41 @@
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl>.
 @prefix : <#> .
 
-:AmphibiousLanding a ontolex:LexicalEntry ;
-  decomp:subterm :Landing.
+:Ohrenentzündung a ontolex:LexicalEntry ;
+  ontolex:language "de";
+  decomp:subterm :ohr_lex;
+  decomp:subterm :entzuendung_lex;
+  ontolex:denotes <http://dbpedia.org/resource/Otitis_media>;
+  ontolex:denotes <http://dbpedia.org/resource/Otitis_externa>.
 
-:AmphibiousLanding ontolex:canonicalForm :AmphibiousLanding_CanonicalForm.
+:ohr_lex a lexinfo:Noun;
+    ontolex:canonicalForm :ohr_lex_canonical_form;
+    ontolex:denotes <http://dbpedia.org/resource/Ear>.
 
-:Landing ontolex:canonicalForm :Landing_CanonicalForm.
+:ohr_lex_canonical_form ontolex:writtenRep "Ohr"@de.
 
-:AmphibiousLanding_CanonicalForm ontolex:writtenRep "amphibious landing"@en.
+:entzuendung_lex a  lexinfo:Noun;
+    ontolex:canonicalForm :entzuendung_lex_canonical_form;
+    ontolex:denotes <http://dbpedia.org/resource/Inflammation>.
 
-:Landing_CanonicalForm ontolex:writtenRep "landing"@en.
+:entzuendung_lex_canonical_form ontolex:writtenRep "Entzündung"@de.
 
+:otitis a ontolex:LexicalEntry ;
+  ontolex:language "es";
+  decomp:subterm :itis_lex;
+  ontolex:denotes <http://dbpedia.org/resource/Otitis_media>;
+  ontolex:denotes <http://dbpedia.org/resource/Otitis_externa>;
+  ontolex:canonicalForm :otitis_canonical_form.
+
+:otitis_canonical_form ontolex:writtenRep "otitis"@es.
+
+:itis_lex a ontolex:Affix;
+    ontolex:canonicalForm :itis_lex_canonical_form;
+    ontolex:denotes <http://dbpedia.org/resource/Inflammation>.
+
+:itis_lex_canonical_form ontolex:writtenRep "itis"@en.
 
 

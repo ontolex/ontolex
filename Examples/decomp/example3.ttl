@@ -6,27 +6,36 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix : <#> .
 
-:AfricanSwineFever a ontolex:LexicalEntry ;
-  rdf:_1 :AfricanSwineFever_African_Component ;
-  rdf:_2 :AfricanSwineFever_Swine_Component ;
-  rdf:_3 :AfricanSwineFever_Fever_Component ;
-  decomp:constituent :African_Component ;
-  decomp:constituent :SwineFever_Component .
+:comunidad_autonoma_lex a ontolex:LexicalEntry ;
+  ontolex:language "es";
+  decomp:constituent :comunidad_component;
+  decomp:constituent :autonoma_comonent;
+  ontolex:denotes <http://dbpedia.org/ontology/federalState>;
+  ontolex:canonicalForm :comunidad_autonoma_lex_canonical_form.
 
-:AfricanSwineFever_Component decomp:identifies :AfricanSwineFever ;
-  decomp:constituent :African_Component ;
-  decomp:constituent :SwineFever_Component .
+:comunidad_autonoma_lex_canonical_form ontolex:writtenRep "comunidad autónoma"@es.
 
-:SwineFever_Component decomp:identifies :SwineFever ;
-  decomp:constituent :Swine_Component ;
-  decomp:constituent :Fever_Component .
- 
-:African_Component a decomp:Component ;
-  decomp:identifies :African .
+:comunidad_component a decomp:Component;
+     decomp:correspondsTo :comunidad_lex.
 
-:Swine_Component a decomp:Component ;
-  decomp:identifies :Swine.
+:autonoma_component a decomp:Component;
+     decomp:correspondsTo :autonomo_lex;
+     lexinfo:gender :femenine;
+     lexinfo:masculine :masculine.
 
-:Fever_Component a decomp:Component ;
-  decomp:identifies :Fever.
+:comunidad_lex a lexinfo:Noun;
+    ontolex:canonicalForm :comunidad_lex_canonical_form.
 
+:autonoma_lex a lexinfo:Noun;
+    ontolex:canonicalForm :autonomo_lex_canonical_form;
+    ontolex:otherForm :autonoma_lex__femenine_singular_form.
+
+:comunidad_lex_canonical_form ontolex:writtenRep "comunidad"@es.
+
+:autonomo_lex_canonical_form ontolex:writtenRep "autónomo"@es;
+                            lexinfo:gender lexinfo:masculine;
+                            lexinfo:number lexinfo:singular.
+
+:autonoma_lex_femenine_singular_form ontolex:writtenRep "autónoma"@en;
+                            lexinfo:gender lexinfo:femenine;
+                            lexinfo:number lexinfo:singular.

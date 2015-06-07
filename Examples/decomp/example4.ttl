@@ -1,23 +1,43 @@
-@prefix : <#> .
+# This example extends example 3, showing how an RDF List can be used to order the components
+
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
-@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix : <#> .
 
-:knows a ontolex:Word ;
-  synsem:synBehavior :knows_frame .
+:comunidad_autonoma_lex a ontolex:LexicalEntry ;
+  ontolex:language "es";
+  decomp:constituent :comunidad_component;
+  decomp:constituent :autonoma_comonent;
+  rdf:_1 :comunidad_component; 
+  rdf:_2 :autonoma_component;
+  ontolex:denotes <http://dbpedia.org/ontology/federalState>;
+  ontolex:canonicalForm :comunidad_autonoma_lex_canonical_form.
 
-:knows_frame a synsem:Frame ;
-  lexinfo:subject :argX ;
-  lexinfo:directObjet :argY .
+:comunidad_autonoma_lex_canonical_form ontolex:writtenRep "comunidad autónoma"@es.
 
-:XknowsY a decomp:Component ;
-  decomp:constituent :argX_component ,
-                     :knows_component ,
-                     :argY_component .
+:comunidad_component a decomp:Component;
+     decomp:correspondsTo :comunidad_lex.
 
-:argX_component decomp:identifies :argX .
+:autonoma_component a decomp:Component;
+     decomp:correspondsTo :autonomo_lex;
+     lexinfo:gender :femenine;
+     lexinfo:masculine :masculine.
 
-:knows_component decomp:identifies :knows .
+:comunidad_lex a lexinfo:Noun;
+    ontolex:canonicalForm :comunidad_lex_canonical_form.
 
-:argY_component decomp:identifies :argY .
+:autonoma_lex a lexinfo:Noun;
+    ontolex:canonicalForm :autonomo_lex_canonical_form;
+    ontolex:otherForm :autonoma_lex__femenine_singular_form.
+
+:comunidad_lex_canonical_form ontolex:writtenRep "comunidad"@es.
+
+:autonomo_lex_canonical_form ontolex:writtenRep "autónomo"@es;
+                            lexinfo:gender lexinfo:masculine;
+                            lexinfo:number lexinfo:singular.
+
+:autonoma_lex_femenine_singular_form ontolex:writtenRep "autónoma"@en;
+                            lexinfo:gender lexinfo:femenine;
+                            lexinfo:number lexinfo:singular.
