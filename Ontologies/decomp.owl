@@ -35,7 +35,8 @@
     <!-- http://www.w3.org/ns/lemon/decomp.owl#constituent -->
 
     <ObjectProperty rdf:about="http://www.w3.org/ns/lemon/decomp.owl#constituent">
-        <rdfs:comment xml:lang="en">This property relates a lexical entry or component to a components that it is constituted by.</rdfs:comment>
+        <rdfs:label xml:lang="en">constituent</rdfs:label>
+        <rdfs:comment xml:lang="en">The property &apos;constituent&apos; relates a lexical entry or component to a component that it is constituted by</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/decomp.owl#Component"/>
         <rdfs:domain>
@@ -50,10 +51,11 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/decomp.owl#identifies -->
+    <!-- http://www.w3.org/ns/lemon/decomp.owl#correspondsTo -->
 
-    <ObjectProperty rdf:about="http://www.w3.org/ns/lemon/decomp.owl#identifies">
-        <rdfs:comment xml:lang="en">This property links a component to a corresponding lexical entry or argument.</rdfs:comment>
+    <ObjectProperty rdf:about="http://www.w3.org/ns/lemon/decomp.owl#correspondsTo">
+        <rdfs:label xml:lang="en">corresponds to</rdfs:label>
+        <rdfs:comment xml:lang="en">The property &apos;correspondsTo&apos; links a component to a corresponding lexical entry or argument.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/decomp.owl#Component"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"/>
@@ -64,7 +66,7 @@
     <!-- http://www.w3.org/ns/lemon/decomp.owl#subterm -->
 
     <ObjectProperty rdf:about="http://www.w3.org/ns/lemon/decomp.owl#subterm">
-        <rdfs:comment xml:lang="en">This property relates a compound lexical entry to one of the lexical entries it is constituted by.
+        <rdfs:comment xml:lang="en">The property &apos;subterm&apos; relates a compound lexical entry to one of the lexical entries it is composed of.
 
 </rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
@@ -88,7 +90,8 @@
     <!-- http://www.w3.org/ns/lemon/decomp.owl#Component -->
 
     <Class rdf:about="http://www.w3.org/ns/lemon/decomp.owl#Component">
-        <rdfs:comment xml:lang="en">A component represents a part of a lexical entry, that is either a word, sequence of words, phrase, or affix</rdfs:comment>
+        <rdfs:label xml:lang="en">Component</rdfs:label>
+        <rdfs:comment xml:lang="en">The class &apos;component&apos; represents a lexical entry that is part of another lexical entry.</rdfs:comment>
     </Class>
 </rdf:RDF>
 

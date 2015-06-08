@@ -265,7 +265,6 @@
     
 
 
-
     <!-- http://www.w3.org/ns/lemon/ontolex#reference -->
 
     <owl:ObjectProperty rdf:about="&ontolex;reference">
@@ -293,8 +292,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#usage -->
 
     <owl:ObjectProperty rdf:about="&ontolex;usage">
-        <rdfs:label xml:lang="en">usage condition</rdfs:label>
-        <rdfs:comment xml:lang="en">The object property usage (condition) indicates a pragmatic restriction on the use this sense. </rdfs:comment>
+        <rdfs:label xml:lang="en">usage</rdfs:label>
+        <rdfs:comment xml:lang="en">The property &apos;usage&apos; indicates a pragmatic restriction on the use of this sense.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
     
@@ -392,7 +391,9 @@
 
     <!-- http://rdfs.org/ns/void#Dataset -->
 
-    <owl:Class rdf:about="http://rdfs.org/ns/void#Dataset"/>
+    <owl:Class rdf:about="http://rdfs.org/ns/void#Dataset">
+        <rdfs:label xml:lang="en">Dataset</rdfs:label>
+    </owl:Class>
     
 
 
@@ -418,7 +419,9 @@
 
     <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+        <rdfs:label xml:lang="en">Concept Scheme</rdfs:label>
+    </owl:Class>
     
 
 
@@ -504,15 +507,15 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontolex;lexicalForm"/>
-                <owl:onClass rdf:resource="&ontolex;Form"/>
-                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onProperty rdf:resource="&ontolex;language"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontolex;language"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                <owl:onProperty rdf:resource="&ontolex;lexicalForm"/>
+                <owl:onClass rdf:resource="&ontolex;Form"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The class lexical entry represents a unit of analysis of the lexicon that consist of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses.</rdfs:comment>
