@@ -3,46 +3,6 @@
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
 @prefix : <#> .
 
-:federal_state a ontolex:LexicalEntry ;
-  ontolex:language "en";
-  decomp:subterm :federal_lex;
-  decomp:subterm :state_lex;
-  ontolex:denotes <http://dbpedia.org/ontology/federalState>.
-
-:federal_lex a lexinfo:Adjective;
-    ontolex:canonicalForm :federal_lex_canonical_form.
-
-:federal_lex_canonical_form ontolex:writtenRep "federal"@en.
-
-:state_lex a lexinfo:Noun;
-    ontolex:canonicalForm :state_lex_canonical_form.
-
-:state_lex_canonical_form ontolex:writtenRep "state"@en.
-
-:comunidad_autonoma_lex a ontolex:LexicalEntry ;
-  ontolex:language "es";
-  decomp:subterm :comunidad_lex;
-  decomp:subterm :autonoma_lex;
-  ontolex:denotes <http://dbpedia.org/ontology/federalState>;
-  ontolex:canonicalForm :comunidad_autonoma_lex_canonical_form.
-
-:comunidad_autonoma_lex_canonical_form ontolex:writtenRep "comunidad autónoma"@es.
-
-:comunidad_lex a lexinfo:Noun;
-    ontolex:canonicalForm :comunidad_lex_canonical_form.
-
-:autonoma_lex a lexinfo:Noun;
-    ontolex:canonicalForm :autonomo_lex_canonical_form;
-    ontolex:otherForm :autonoma_lex__femenine_singular_form.
-
-:comunidad_lex_canonical_form ontolex:writtenRep "comunidad"@es.
-
-:autonomo_lex_canonical_form ontolex:writtenRep "autónomo"@es;
-                            lexinfo:gender lexinfo:masculine;
-                            lexinfo:number lexinfo:singular.
-
-:autonoma_lex_femenine_singular_form ontolex:writtenRep "autónoma"@en;
-                            lexinfo:gender lexinfo:femenine;
-                            lexinfo:number lexinfo:singular.
-
-
+:Lungenentzündung a ontolex:LexicalEntry ;
+  decomp:subterm :lunge_lex ;
+  decomp:subterm :entzündung_lex .

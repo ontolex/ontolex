@@ -2,11 +2,11 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="Imports Wizard Entry" name="http://www.w3.org/2004/02/skos/core" uri="http://www.w3.org/2004/02/skos/core#"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1431958187619" name="http://www.w3.org/2002/07/owl" uri="decomp.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1431958187619" name="http://www.w3.org/ns/lemon/all" uri="all.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1431958187619" name="http://www.w3.org/ns/lemon/lime" uri="lime.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1431958187619" name="http://www.w3.org/ns/lemon/ontolex" uri="ontolex.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1431958187619" name="http://www.w3.org/ns/lemon/synsem.owl" uri="synsem.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1431958187619" name="http://www.w3.org/ns/lemon/vartrans.owl" uri="vartrans.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1434029722228" name="http://www.w3.org/2002/07/owl" uri="decomp.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1434029722228" name="http://www.w3.org/ns/lemon/all" uri="all.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1434029722228" name="http://www.w3.org/ns/lemon/lime" uri="lime.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1434029722228" name="http://www.w3.org/ns/lemon/ontolex" uri="ontolex.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1434029722228" name="http://www.w3.org/ns/lemon/synsem.owl" uri="synsem.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1434029722228" name="http://www.w3.org/ns/lemon/vartrans.owl" uri="vartrans.owl"/>
     </group>
 </catalog>

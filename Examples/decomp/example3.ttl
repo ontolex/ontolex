@@ -1,41 +1,18 @@
-# This example extends examples 1 and 2, showing how an RDF List can be used to order the components
-
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix : <#> .
 
-:comunidad_autonoma_lex a ontolex:LexicalEntry ;
-  ontolex:language "es";
-  decomp:constituent :comunidad_component;
-  decomp:constituent :autonoma_comonent;
-  ontolex:denotes <http://dbpedia.org/ontology/federalState>;
-  ontolex:canonicalForm :comunidad_autonoma_lex_canonical_form.
+:AfricanSwineFever a ontolex:MultiwordExpression ;
+  decomp:constituent :African_comp , :Swine_comp , :Fever_comp ;
+  decomp:subterm :SwineFever .
 
-:comunidad_autonoma_lex_canonical_form ontolex:writtenRep "comunidad autónoma"@es.
+:African_comp a decomp:Component .
 
-:comunidad_component a decomp:Component;
-     decomp:correspondsTo :comunidad_lex.
+:Swine_comp a decomp:Component .
 
-:autonoma_component a decomp:Component;
-     decomp:correspondsTo :autonomo_lex;
-     lexinfo:gender :femenine;
-     lexinfo:masculine :masculine.
+:Fever_comp a decomp:Component .
 
-:comunidad_lex a lexinfo:Noun;
-    ontolex:canonicalForm :comunidad_lex_canonical_form.
-
-:autonoma_lex a lexinfo:Noun;
-    ontolex:canonicalForm :autonomo_lex_canonical_form;
-    ontolex:otherForm :autonoma_lex__femenine_singular_form.
-
-:comunidad_lex_canonical_form ontolex:writtenRep "comunidad"@es.
-
-:autonomo_lex_canonical_form ontolex:writtenRep "autónomo"@es;
-                            lexinfo:gender lexinfo:masculine;
-                            lexinfo:number lexinfo:singular.
-
-:autonoma_lex_femenine_singular_form ontolex:writtenRep "autónoma"@en;
-                            lexinfo:gender lexinfo:femenine;
-                            lexinfo:number lexinfo:singular.
+:SwineFever a ontolex:MultiwordExpression ;
+  decomp:constituent :Swine_comp , :Fever_comp .

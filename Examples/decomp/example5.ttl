@@ -3,21 +3,23 @@
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
 @prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-:knows a ontolex:Word ;
-  synsem:synBehavior :knows_frame .
+:comunidad_autonoma_lex a ontolex:LexicalEntry ;
+  ontolex:language "es";
+  decomp:constituent :comunidad_component;
+  rdf:_1             :comunidad_component; 
+  decomp:constituent :autonoma_component;
+  rdf:_2             :autonoma_component;
+  ontolex:denotes <http://dbpedia.org/ontology/federalState>;
+  ontolex:canonicalForm :comunidad_autonoma_lex_canonical_form.
 
-:knows_frame a synsem:Frame ;
-  lexinfo:subject :subject ;
-  lexinfo:directObjet :directObject .
+:comunidad_autonoma_lex_canonical_form ontolex:writtenRep "comunidad autónoma"@es.
 
-:XknowsY a decomp:Component ;
-  decomp:correspondsTo :knows_frame;
-  decomp:constituent :X_component ,
-                     :knows_component ,
-                     :Y_component .
+:comunidad_component a decomp:Component;
+     decomp:correspondsTo :comunidad_lex.
 
-:X_component decomp:correspondsTo :subject .
-:knows_component decomp:correspondsTo :knows_component.
-:Y_component decomp:correspondsTo :directObject .
-
+:autonoma_component a decomp:Component;
+     decomp:correspondsTo :autonomo_lex;
+     lexinfo:gender :femenine;
+     lexinfo:masculine :masculine.

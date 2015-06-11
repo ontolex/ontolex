@@ -1,42 +1,7 @@
-# This example how to indicate a lexical entry that is part of a larger multi-word or compound lexical entry
-
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl>.
 @prefix : <#> .
 
-:Ohrenentzündung a ontolex:LexicalEntry ;
-  ontolex:language "de";
-  decomp:subterm :ohr_lex;
-  decomp:subterm :entzuendung_lex;
-  ontolex:denotes <http://dbpedia.org/resource/Otitis_media>;
-  ontolex:denotes <http://dbpedia.org/resource/Otitis_externa>.
-
-:ohr_lex a lexinfo:Noun;
-    ontolex:canonicalForm :ohr_lex_canonical_form;
-    ontolex:denotes <http://dbpedia.org/resource/Ear>.
-
-:ohr_lex_canonical_form ontolex:writtenRep "Ohr"@de.
-
-:entzuendung_lex a  lexinfo:Noun;
-    ontolex:canonicalForm :entzuendung_lex_canonical_form;
-    ontolex:denotes <http://dbpedia.org/resource/Inflammation>.
-
-:entzuendung_lex_canonical_form ontolex:writtenRep "Entzündung"@de.
-
-:otitis a ontolex:LexicalEntry ;
-  ontolex:language "es";
-  decomp:subterm :itis_lex;
-  ontolex:denotes <http://dbpedia.org/resource/Otitis_media>;
-  ontolex:denotes <http://dbpedia.org/resource/Otitis_externa>;
-  ontolex:canonicalForm :otitis_canonical_form.
-
-:otitis_canonical_form ontolex:writtenRep "otitis"@es.
-
-:itis_lex a ontolex:Affix;
-    ontolex:canonicalForm :itis_lex_canonical_form;
-    ontolex:denotes <http://dbpedia.org/resource/Inflammation>.
-
-:itis_lex_canonical_form ontolex:writtenRep "itis"@en.
-
-
+:AfricanSwineFever a ontolex:LexicalEntry ;
+  decomp:subterm :SwineFever .

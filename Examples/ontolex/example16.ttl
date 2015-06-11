@@ -3,26 +3,27 @@
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct: <http://purl.org/dc/terms/>.
+@prefix pwn: <http://wordnet-rdf.princeton.edu/wn31/> .
 
 :cat_lex a ontolex:LexicalEntry ;                                               
   ontolex:canonicalForm :cat_form ;
   ontolex:sense :cat_sense ;
   ontolex:denotes <http://dbpedia.org/resource/Cat> ;
-  ontolex:evokes :IATE-157623 .
+  ontolex:evokes pwn:102124272-n .
 
 :cat_form ontolex:writtenRep "cat"@en .
 
 :cat_sense a ontolex:LexicalSense ;
   ontolex:reference <http://dbpedia.org/resource/Cat> ;
-  ontolex:isLexicalizedSenseOf :IATE-157623 ;
+  ontolex:isLexicalizedSenseOf pwn:102124272-n ;
   ontolex:isSenseOf :cat_lex .
 
 <http://dbpedia.org/resource/Cat>
-  ontolex:concept :IATE-157623 ;
+  ontolex:concept pwn:102124272-n ;
   ontolex:isReferenceOf :cat_sense ;
   ontolex:isDenotedBy :cat_lex .
 
-:IATE-157623
+pwn:102124272-n
   ontolex:isEvokedBy :cat_lex ;
   ontolex:lexicalizedSense :cat_sense ;
   ontolex:isConceptOf <http://dbpedia.org/resource/Cat> .
