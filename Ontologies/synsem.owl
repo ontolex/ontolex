@@ -171,7 +171,7 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#synBehavior -->
 
     <owl:ObjectProperty rdf:about="&synsem;synBehavior">
-        <rdfs:label xml:lang="en">syntactic behaviour</rdfs:label>
+        <rdfs:label xml:lang="en">syntactic behavior</rdfs:label>
         <rdfs:comment xml:lang="en">The object property &apos;syntactic behaviour&apos; relates a lexical entry to one of its syntactic behaviours as captured by a syntactic frame.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
@@ -279,7 +279,7 @@
     <owl:Class rdf:about="&synsem;SyntacticArgument">
         <rdfs:label xml:lang="en">Syntactic Argument</rdfs:label>
         <rdfs:subClassOf rdf:resource="&synsem;Argument"/>
-        <rdfs:comment xml:lang="en">The class syntactic argument represents a slot that needs to be filled for a certain syntactic or semantic structure of a lexical entry or a semantic frame to be complete. Syntactic arguments typically realise a certain grammatical function (e.g. subject, direct object, indirect object, prepositional object, etc.).</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class SyntacticArgument represents a slot that needs to be filled for a certain syntactic or semantic structure of a lexical entry or a semantic frame to be complete. Syntactic arguments typically realise a certain grammatical function (e.g. subject, direct object, indirect object, prepositional object, etc.).</rdfs:comment>
     </owl:Class>
     
 
