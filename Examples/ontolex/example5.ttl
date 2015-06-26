@@ -7,7 +7,8 @@
      ontolex:canonicalForm :form_cat;
      rdfs:label "cat"@en .
 
-:form_cat ontolex:writtenRep "cat"@en .
+:form_cat a ontolex:Form;
+     ontolex:writtenRep "cat"@en .
 
 :lex_marry a ontolex:LexicalEntry, ontolex:Word;
      ontolex:canonicalForm :form_marry;
@@ -20,4 +21,5 @@
      ontolex:canonicalForm :form_high;
      rdfs:label "high"@en .
 
-:form_high ontolex:writtenRep "high"@en .
+:form_high a ontolex:Form; 
+    ontolex:writtenRep "high"@en .

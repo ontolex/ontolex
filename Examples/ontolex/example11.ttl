@@ -18,15 +18,19 @@
 
 :form_consumption ontolex:writtenRep "consumption"@en.
 
-:consumption_sense1 dct:subject <http://dbpedia.org/resource/Ecology> ;
+:consumption_sense1 a ontolex:LexicalSense;
+  dct:subject <http://dbpedia.org/resource/Ecology> ;
   ontolex:reference <http://dbpedia.org/resource/Consumption_(ecology)> .
 
-:consumption_sense2 dct:subject <http://dbpedia.org/resource/Anatomy> ;
+:consumption_sense2 a ontolex:LexicalSense;
+  dct:subject <http://dbpedia.org/resource/Anatomy> ;
   ontolex:reference <http://dbpedia.org/Resource/Ingestion> .
 
-:consumption_sense3 dct:subject <http://dbpedia.org/resource/Economics> ;
+:consumption_sense3 a ontolex:LexicalSense;
+   dct:subject <http://dbpedia.org/resource/Economics> ;
    ontolex:reference <http://dbpedia.org/resource/Consumption_(economics)> .
 
-:consumption_sense4 dct:subject <http://dbpedia.org/resource/Medicine> ;
+:consumption_sense4 a ontolex:LexicalSense;
+   dct:subject <http://dbpedia.org/resource/Medicine> ;
    lexinfo:dating lexinfo:old ;
    ontolex:reference <http://dbpedia.org/Resource/Tuberculosis> .
