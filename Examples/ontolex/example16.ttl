@@ -1,30 +1,19 @@
-@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix dct: <http://purl.org/dc/terms/>.
-@prefix pwn: <http://wordnet-rdf.princeton.edu/wn31/> .
+@prefix : <#> .
 
-:cat_lex a ontolex:LexicalEntry ;                                               
-  ontolex:canonicalForm :cat_form ;
-  ontolex:sense :cat_sense ;
-  ontolex:denotes <http://dbpedia.org/resource/Cat> ;
-  ontolex:evokes pwn:102124272-n .
+:riviere a ontolex:LexicalEntry ;
+  ontolex:sense :riviere_sense1 .
 
-:cat_form ontolex:writtenRep "cat"@en .
+:fleuve a ontolex:LexicalEntry ;
+  ontolex:sense :fleuve_sense1 .
 
-:cat_sense a ontolex:LexicalSense ;
-  ontolex:reference <http://dbpedia.org/resource/Cat> ;
-  ontolex:isLexicalizedSenseOf pwn:102124272-n ;
-  ontolex:isSenseOf :cat_lex .
+:riviere_sense1 ontolex:reference <http://dbpedia.org/ontology/river> ;
+  ontolex:definition [ 
+    rdf:value "A riviere is a river that flows into the sea"@en
+  ] .
 
-<http://dbpedia.org/resource/Cat>
-  ontolex:concept pwn:102124272-n ;
-  ontolex:isReferenceOf :cat_sense ;
-  ontolex:isDenotedBy :cat_lex .
-
-pwn:102124272-n
-  ontolex:isEvokedBy :cat_lex ;
-  ontolex:lexicalizedSense :cat_sense ;
-  ontolex:isConceptOf <http://dbpedia.org/resource/Cat> .
-
+:fleuve_sense2 ontolex:reference <http://dbpedia.org/ontology/river>;
+  ontolex:definition [
+    rdf:value "A fleuve is a river that flows into another river"@en
+  ] .

@@ -3,19 +3,28 @@
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct: <http://purl.org/dc/terms/>.
+@prefix pwn: <http://wordnet-rdf.princeton.edu/wn31/> .
 
-:temporary_change_of_possession a ontolex:LexicalConcept;
-     ontolex:lexicalizedSense :borrow_sense;
-     ontolex:lexicalizedSense :lend_sense;
-     ontolex:isEvokedBy :borrow_le;
-     ontolex:isEvokedBy :lend_le.
+:cat_lex a ontolex:LexicalEntry ;                                               
+  ontolex:canonicalForm :cat_form ;
+  ontolex:sense :cat_sense ;
+  ontolex:denotes <http://dbpedia.org/resource/Cat> ;
+  ontolex:evokes pwn:102124272-n .
 
-:borrow_le a ontolex:LexicalEntry;
-                  ontolex:sense :borrow_sense;
-                  ontolex:evokes :temporary_change_of_possession.
+:cat_form ontolex:writtenRep "cat"@en .
 
-:lend_le a ontolex:LexicalEntry;
-                 ontolex:sense :lend_sense;
-                 ontolex:evokes :temporary_change_of_possession.
+:cat_sense a ontolex:LexicalSense ;
+  ontolex:reference <http://dbpedia.org/resource/Cat> ;
+  ontolex:isLexicalizedSenseOf pwn:102124272-n ;
+  ontolex:isSenseOf :cat_lex .
 
+<http://dbpedia.org/resource/Cat>
+  ontolex:concept pwn:102124272-n ;
+  ontolex:isReferenceOf :cat_sense ;
+  ontolex:isDenotedBy :cat_lex .
+
+pwn:102124272-n
+  ontolex:isEvokedBy :cat_lex ;
+  ontolex:lexicalizedSense :cat_sense ;
+  ontolex:isConceptOf <http://dbpedia.org/resource/Cat> .
 
