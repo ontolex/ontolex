@@ -1,52 +1,26 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix : <#> .
 
-:surrogate_mother a ontolex:LexicalEntry;
-      ontolex:language "en";
-      ontolex:sense :surrogate_mother_sense.
+:tuberculosis a ontolex:LexicalEntry ;
+       ontolex:lexicalForm :tuberculosis_form ; 
+       ontolex:sense :tuberculosis_sense.
 
-:surrogate_mother_sense ontolex:reference <http://dbpedia.org/page/Surrogacy>.
+:tuberculosis_form ontolex:writtenRep "tuberculosis"@en .
 
-:madre_de_alquiler a ontolex:LexicalEntry;
-      ontolex:language "es";
-      ontolex:sense :madre_de_alquiler_sense.
+:tuberculosis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>.
 
-:madre_de_alquiler_sense ontolex:reference <http://es.dbpedia.org/resource/Madre_de_alquiler>.
+:phthisis a ontolex:LexicalEntry ;
+       ontolex:lexicalForm :phthisis_form ; 
+       ontolex:sense :phthisis_sense.
 
-:leihmutter a ontolex:LexicalEntry;
-      ontolex:language "de";
-      ontolex:sense :leihmutter_sense.
+:phthisis_form ontolex:writtenRep "phthisis"@en .
 
-:surrogate_mother_sense ontolex:reference <http://de.dbpedia.org/resource/Leihmutter>.
+:phtisis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>;
+               dct:subject <http://dbpedia/resource/Medicine> .
 
-:trans1: a vartrans:Translation;
-vartrans:source :surrogate_mother_sense;
-vartrans:target :madre_de_alquiler_sense;
-vartrans:variantCategory :literalTranslation.
-     
-:trans2: a vartrans:Translation;
-vartrans:targetVariant :surrogate_mother_sense;
-vartrans:sourceVariant :madre_de_alquiler_sense;
-vartrans:variantCategory :literalTranslation.
-
-:trans3: a vartrans:Translation;
-vartrans:sourceVariant :surrogate_mother_sense;
-vartrans:targetVariant :leihmutter_sense;
-vartrans:variantCategory :literalTranslation.
-     
-:trans4: a vartrans:Translation;
-vartrans:targetVariant :leihmutter_sense;
-vartrans:sourceVariant :surrogate_mother_sense;
-vartrans:variantCategory :literalTranslation.
-
-:trans5: a vartrans:Translation;
-vartrans:sourceVariant :leihmutter_sense;
-vartrans:targetVariant :madre_de_alquiler_sense;
-vartrans:variantCategory :literalTranslation.
-     
-:trans6: a vartrans:Translation;
-vartrans:targetVariant :madre_de_alquiler_sense;
-vartrans:sourceVariant :leihmutter_sense;
-vartrans:variantCategory :literalTranslation.
-
+:phtisis_diachronic_relation a vartrans:TerminologicalRelation ;
+      vartrans:source :phthisis_sense ;
+      vartrans:target :tuberculosis_sense ; 
+      vartrans:category <http://www.isocat.org/rest/dc/3666>.

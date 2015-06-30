@@ -4,24 +4,23 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix : <#>.   
  
-:tuberculosis a ontolex:LexicalEntry ;
-       ontolex:lexicalForm :tuberculosis_form ; 
-       ontolex:sense :tuberculosis_sense.
+:surrogate_mother a ontolex:LexicalEntry ;
+     ontolex:sense :surrogate_mother_sense ;
+     ontolex:canonicalForm :surrogate_mother_form.
 
-:tuberculosis_form ontolex:writtenRep "tuberculosis"@en .
+:surrogate_mother_sense ontolex:reference <http://dbpedia.org/ontology/surrogate_mother>.
 
-:tuberculosis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>.
+:surrogate_mother_form ontolex:writtenRep "surrogate mother"@en .
 
-:phthisis a ontolex:LexicalEntry ;
-       ontolex:lexicalForm :phthisis_form ; 
-       ontolex:sense :phthisis_sense.
+:mother a ontolex:LexicalEntry ;
+     ontolex:sense :mother_sense ;
+     ontolex:canonicalForm :mother_form.
 
-:phthisis_form ontolex:writtenRep "phthisis"@en .
+:mother_sense ontolex:reference <http://dbpedia.org/ontology/mother>.
 
-:phtisis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>;
-               dct:subject <http://dbpedia.org/resource/Medicine> .
+:surrogate_mother_form ontolex:writtenRep "surrogate mother"@en .
 
-:phtisis_diachronic_var a vartrans:TerminologicalVariation ;
-      vartrans:variant :phthisis_sense ;
-      vartrans:variant :tuberculosis_sense ; 
-      vartrans:category isocat:diachronic.
+:senseRelation a vartrans:SenseRelation ;
+      vartrans:relates :surrogate_mother ;
+      vartrans:relates :mother ; 
+      vartrans:category <http://www.lexinfo.net/ontology/2.0/lexinfo#hypernym> .

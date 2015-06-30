@@ -1,22 +1,10 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix lexinfo: <>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix : <#> .
 
+:fao lexinfo:initialismFor :food_and_agriculture_organization.
 
-:risotto a ontolex:LexicalEntry ;
-       ontolex:form [ ontolex:writtenRep "risotto"@it ] ;
-       ontolex:sense :risotto_sense.
-
-:risotto_sense ontolex:reference <http://dbpedia.org/resource/Risotto>.
-
-:paella a ontolex:LexicalEntry ;
-       ontolex:form [ ontolex:writtenRep "paella"@es ];
-       ontolex:sense :paella_sense.
-
-:paella_sense ontolex:reference <http://dbpedia.org/resource/Paella>.
-
-:paella_risotto_var a vartrans:InterlingualVariant ;
-      vartrans:variantSource :risotto_sense ;
-      vartrans:variantTarget :paella_sense;
-      vartrans:variantCategory :cultural_equivalents.
+lexinfo:initialismFor rdfs:subProperty vartrans:lexicalRel.
 
