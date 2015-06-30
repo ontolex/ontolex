@@ -47,27 +47,9 @@
     <owl:ObjectProperty rdf:about="&vartrans;category">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">category</rdfs:label>
-        <rdfs:comment xml:lang="en">The object property category indicates the specific type of relation by which two lexical entries or two lexical senses are related.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;category&apos; property indicates the specific type of relation by which two lexical entries or two lexical senses are related.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#context -->
-
-    <owl:ObjectProperty rdf:about="&vartrans;context">
-        <rdfs:label xml:lang="en">context</rdfs:label>
-        <rdfs:comment xml:lang="en">The object property context indicates the contextual conditions under which a certain sense relation holds.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontolex;LexicalSense"/>
-                    <rdf:Description rdf:about="&vartrans;LexicoSemanticRelation"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -76,7 +58,7 @@
 
     <owl:ObjectProperty rdf:about="&vartrans;lexicalRel">
         <rdfs:label xml:lang="en">lexical relation</rdfs:label>
-        <rdfs:comment xml:lang="en">The object property lexicalRel relates two lexical entries that stand in some lexical relation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;lexicalRel&apos; property relates two lexical entries that stand in some lexical relation.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
     </owl:ObjectProperty>
@@ -87,7 +69,7 @@
 
     <owl:ObjectProperty rdf:about="&vartrans;relates">
         <rdfs:label xml:lang="en">relates</rdfs:label>
-        <rdfs:comment xml:lang="en">The object property &apos;&apos;&apos;relates&apos;&apos;&apos; links a lexico-semantic relation to the two lexical entries or lexical senses between which it establishes the relation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The relates property links a lexico-semantic relation to the two lexical entries or lexical senses between which it establishes the relation.</rdfs:comment>
         <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:range>
             <owl:Class>
@@ -105,7 +87,7 @@
 
     <owl:ObjectProperty rdf:about="&vartrans;senseRel">
         <rdfs:label xml:lang="en">sense relation</rdfs:label>
-        <rdfs:comment xml:lang="en">The object property senseRel relates to lexical senses that stand in some sense relation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;senseRel&apos; property relates two lexical senses that stand in some sense relation.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
         <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
@@ -117,7 +99,7 @@
     <owl:ObjectProperty rdf:about="&vartrans;source">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">source</rdfs:label>
-        <rdfs:comment xml:lang="en">Source of a Variation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;source&apos; property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a &apos;source&apos;.</rdfs:comment>
         <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;relates"/>
     </owl:ObjectProperty>
@@ -129,7 +111,7 @@
     <owl:ObjectProperty rdf:about="&vartrans;target">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">target</rdfs:label>
-        <rdfs:comment xml:lang="en">Target of a Variation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;target&apos; property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a &apos;target&apos;.</rdfs:comment>
         <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;relates"/>
     </owl:ObjectProperty>
@@ -181,7 +163,7 @@
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#LexicalRelation -->
 
     <owl:Class rdf:about="&vartrans;LexicalRelation">
-        <rdfs:label xml:lang="en">Lexical Relation</rdfs:label>
+        <rdfs:label xml:lang="en">lexical relation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -190,7 +172,7 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The class &apos;&apos;&apos;lexical relation&apos;&apos;&apos; reifies the relation between two lexical entries that are related by some lexical relation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A lexical relation is a lexico-semantic relation that represents the relation between two lexical entries that are related by some lexical relation.</rdfs:comment>
     </owl:Class>
     
 
@@ -198,7 +180,7 @@
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#LexicoSemanticRelation -->
 
     <owl:Class rdf:about="&vartrans;LexicoSemanticRelation">
-        <rdfs:label xml:lang="en">Lexico-Semantic Relation</rdfs:label>
+        <rdfs:label xml:lang="en">lexico-semantic relation</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&vartrans;relates"/>
@@ -214,7 +196,7 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The class lexico-semantic relation reifies the relation between two lexical entries or lexical senses that are related by some lexical or semantic relationship.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A &apos;lexico-semantic relation&apos; represents the relation between two lexical entries or lexical senses that are related by some lexical or semantic relationship.</rdfs:comment>
     </owl:Class>
     
 
@@ -222,7 +204,7 @@
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#SenseRelation -->
 
     <owl:Class rdf:about="&vartrans;SenseRelation">
-        <rdfs:label xml:lang="en">Sense Relation</rdfs:label>
+        <rdfs:label xml:lang="en">sense relation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -231,7 +213,7 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The class sense relation reifies the relation between two lexical entries that are related by a relation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A sense relation is a lexico-semantic relation that represents the relation between two lexical senses that are related by a semantic relation.</rdfs:comment>
     </owl:Class>
     
 
@@ -239,9 +221,9 @@
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#TerminologicalRelation -->
 
     <owl:Class rdf:about="&vartrans;TerminologicalRelation">
-        <rdfs:label xml:lang="en">Terminological Relation</rdfs:label>
+        <rdfs:label xml:lang="en">terminological relation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;SenseRelation"/>
-        <rdfs:comment xml:lang="en">The class terminological relation reifies the relation between terms that are semantically related in the sense that they can be exchanged in most contexts, but their surface forms are not directly related. The variants vary along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A &apos;terminological relation&apos; is a sense relation that relates two lexical senses of terms that are semantically related in the sense that they can be exchanged in most contexts, but their surface forms are not directly related. The variants vary along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused.</rdfs:comment>
     </owl:Class>
     
 
