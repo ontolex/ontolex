@@ -122,12 +122,35 @@
 
     <owl:ObjectProperty rdf:about="&vartrans;translatableAs">
         <rdf:type rdf:resource="&owl;SymmetricProperty"/>
-        <rdfs:label xml:lang="en">translatableAs</rdfs:label>
-        <rdfs:comment xml:lang="en">The object property translatableAs relates a lexical entry to a lexical entry that it can be translated as depending on the particular context and specific senses of the involved lexical entries.</rdfs:comment>
+        <rdfs:label xml:lang="en">translatable as</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;translatableAs&apos; property relates a lexical entry to a lexical entry that it can be translated as depending on the particular context and specific senses of the involved lexical entries.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;lexicalRel"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#translation -->
+
+    <owl:ObjectProperty rdf:about="&vartrans;translation">
+        <rdfs:label xml:lang="en">translation</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;translation&apos; property relates two lexical senses of two lexical entries that stand in a translation relation two each other. </rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&vartrans;senseRel"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="&vartrans;source"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="&vartrans;translation_reflexive"/>
+            <rdf:Description rdf:about="&vartrans;target"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#translation_reflexive -->
+
+    <owl:ObjectProperty rdf:about="&vartrans;translation_reflexive"/>
     
 
 
@@ -231,7 +254,7 @@
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#Translation -->
 
     <owl:Class rdf:about="&vartrans;Translation">
-        <rdfs:label xml:lang="en">Translation</rdfs:label>
+        <rdfs:label xml:lang="en">translation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;SenseRelation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -240,7 +263,7 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The class translation represents a special case of SenseRelation involving two lexical senses that correspond to two lexical entries in different languages that stand in a translation relation so that they can be exchanged without any meaning implications.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A translation is a sense relation expressing that two lexical senses corresponding to two lexical entries in different languages can be translated to each other without any major meaning shifts.</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 
