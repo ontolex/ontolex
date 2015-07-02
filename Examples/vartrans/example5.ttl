@@ -6,21 +6,18 @@
       ontolex:language "en";
       ontolex:sense :surrogate_mother_sense.
 
-:surrogate_mother_sense ontolex:reference <http://dbpedia.org/page/Surrogacy>.
+:surrogate_mother_sense ontolex:reference <http://dbpedia.org/resource/Surrogacy>.
 
 :madre_de_alquiler a ontolex:LexicalEntry;
       ontolex:language "es";
       ontolex:sense :madre_de_alquiler_sense.
 
-:madre_de_alquiler_sense ontolex:reference <http://es.dbpedia.org/resource/Madre_de_alquiler>.
+:madre_de_alquiler_sense ontolex:reference <http://dbpedia.org/resource/Surrogacy>.
 
 :leihmutter a ontolex:LexicalEntry;
       ontolex:language "de";
       ontolex:sense :leihmutter_sense.
 
-:leihmutter_sense ontolex:reference <http://de.dbpedia.org/resource/Leihmutter>.
+:surrogate_mother_sense ontolex:reference <http://dbpedia.org/resource/Surrogacy>.
 
-:surrogate_mother vartrans:translatableAs :madre_de_alquiler.
-:surrogate_mother vartrans:translatableAs :leihmutter.
-:leihmutter vartrans:translatableAs :madre_de_alquiler.
 

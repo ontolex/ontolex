@@ -14,9 +14,4 @@
 
 :postleitzahl:sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
 
-
-:trans a vartrans:Translation;
-       vartrans:source :zip_code_sense;
-       vartrans:target :postleitzahl_sense;
-       vartrans:category <http://purl.org/net/translation-categories#directEquivalent>.
-
+:zip_code_sense vartrans:translation :postleitzahl_sense.
