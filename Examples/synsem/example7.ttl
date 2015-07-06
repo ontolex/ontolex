@@ -12,7 +12,7 @@
     ontolex:canonicalForm :give_form;
     synsem:synBehavior :give_ditransitive;
     synsem:synBehaviour :give_transitive_pp;
-    ontolex:sense :giving_semframe.
+    ontolex:sense :giving_ontomap.
 
 :give_form a ontolex:Form;
    ontolex:writtenRep "give"@en.
@@ -27,11 +27,11 @@
    lexinfo:indirectObject :give_iobj2;
    lexinfo:directObject :give_dobj2.
 
-:giving_semframe a synsem:SemanticFrame;
+:giving_ontomap a synsem:OntoMap;
    ontolex:reference <http://example.org/giving>;
-   synsem:subframe :giving_subframe1;
-   synsem:subframe :giving_subframe2;
-   synsem:subframe :giving_subframe3.
+   synsem:submap :giving_submap1;
+   synsem:submap :giving_submap2;
+   synsem:submap :giving_submap3.
  
 :giving_subframe1 ontolex:reference <http://example.org/giver>;
                                  synsem:subjOfProp :giving_event;

@@ -1,5 +1,3 @@
-# This example shows how to model a scalar adjective such as "high" using the oils vocabulary
-
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .

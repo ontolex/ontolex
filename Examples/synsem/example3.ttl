@@ -11,7 +11,7 @@
 :own_lex a ontolex:LexicalEntry ;
   synsem:canonicalForm :own_form ;
   synsem:synBehavior :own_synframe ;
-  ontolex:sense :own_semframe.
+  ontolex:sense :own_ontomap.
 
 :own_form ontolex:writtenRep "own"@en. 
 
@@ -19,7 +19,7 @@
        lexinfo:subject :own_subj;
        lexinfo:directObject :own_obj.
 
-:own_semframe a synsem:SemanticFrame;
+:own_ontomap a synsem:OntoMap;
          ontolex:reference <http://dbpedia.org/ontology/owner>;
          synsem:subjOfProp :own_obj;
          synsem:objOfProp :own_subj.

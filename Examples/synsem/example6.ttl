@@ -11,7 +11,7 @@
   lexinfo:partOfSpeech lexinfo:verb ;
   ontolex:canonicalForm :launch_canonical_form;
   synsem:synBehaviour :launch_transitive_pp;
-  ontolex:sense :launch_semframe.
+  ontolex:sense :launch_ontomap.
 
 :launch_canonical_form ontolex:writtenRep "launch"@en.
 
@@ -24,14 +24,14 @@
              synsem:optional "true"^^xsd:boolean .
 
 
-:launch_semframe a synsem:SemanticFrame;
-   synsem:subframe :launch_subframe1;
-   synsem:subframe :launch_subframe2.
+:launch_semframe a synsem:OntoMap;
+   synsem:submap :launch_submap1;
+   synsem:submap :launch_submap2.
 
-:launch_subframe1 ontolex:reference <http://dbpedia.org/ontology/product>;
+:launch_submap1 ontolex:reference <http://dbpedia.org/ontology/product>;
                                  synsem:subjOfProp :launch_subj;
                                  synsem:objOfProp  :launch_dobj.
 
-:launch_subframe2 ontolex:reference <http://dbpedia.org/ontology/launchDate>;
+:launch_submap2 ontolex:reference <http://dbpedia.org/ontology/launchDate>;
                                  synsem:subjOfProp :launch_dobj;
                                  synsem:objOfProp  :launch_pAdj.
