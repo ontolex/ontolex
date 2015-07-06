@@ -123,7 +123,7 @@
     <owl:ObjectProperty rdf:about="&vartrans;translatableAs">
         <rdf:type rdf:resource="&owl;SymmetricProperty"/>
         <rdfs:label xml:lang="en">translatable as</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;translatableAs&apos; property relates a lexical entry to a lexical entry that it can be translated as depending on the particular context and specific senses of the involved lexical entries.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;translatableAs&apos; property relates a lexical entry in some language to a lexical entry in another language that it can be translated as depending on the particular context and specific senses of the involved lexical entries.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;lexicalRel"/>
@@ -195,7 +195,7 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A lexical relation is a lexico-semantic relation that represents the relation between two lexical entries that are related by some lexical relation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A &apos;lexical relation&apos; is a lexico-semantic relation that represents the relation between two lexical entries the surface forms of which are related grammatically, stylistically or by some operation motivated by linguistic economy.</rdfs:comment>
     </owl:Class>
     
 
@@ -236,7 +236,7 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A sense relation is a lexico-semantic relation that represents the relation between two lexical senses that are related by a semantic relation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A &apos;sense relation&apos; is a lexico-semantic relation that represents the relation between two lexical senses the meanings of which are related.</rdfs:comment>
     </owl:Class>
     
 
@@ -263,7 +263,7 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A translation is a sense relation expressing that two lexical senses corresponding to two lexical entries in different languages can be translated to each other without any major meaning shifts.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A &apos;translation&apos; is a &apos;sense relation&apos; expressing that two lexical senses corresponding to two lexical entries in different languages can be translated to each other without any major meaning shifts.</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 
