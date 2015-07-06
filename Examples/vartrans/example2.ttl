@@ -21,6 +21,6 @@
 :surrogate_mother_form ontolex:writtenRep "surrogate mother"@en .
 
 :senseRelation a vartrans:SenseRelation ;
-      vartrans:relates :surrogate_mother ;
-      vartrans:relates :mother ; 
+      vartrans:source :surrogate_mother ;
+      vartrans:target :mother ; 
       vartrans:category <http://www.lexinfo.net/ontology/2.0/lexinfo#hypernym> .
