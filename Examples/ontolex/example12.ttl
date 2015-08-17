@@ -10,10 +10,10 @@
 
 :riviere_sense1 ontolex:reference <http://dbpedia.org/ontology/river> ;
   ontolex:context [ 
-    rdf:value "A riviere is a river that flows into the sea"@en
+    rdf:value "A riviere is a river that flows into another river"@en
   ] .
 
 :fleuve_sense2 ontolex:reference <http://dbpedia.org/ontology/river>;
   ontolex:context [
-    rdf:value "A fleuve is a river that flows into another river"@en
+    rdf:value "A fleuve is a river that flows into the sea"@en
   ] .
