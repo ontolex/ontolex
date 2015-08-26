@@ -10,7 +10,7 @@
 
 :consumption1 a ontolex:LexicalConcept ;
   ontolex:isConceptOf <dbpedia.org/resource/Tuberculosis> ;
-  ontolex:isEvokedBy :comsumption ;
+  ontolex:isEvokedBy :consumption ;
   skos:inScheme :conceptLexicon .
                                                                                 
 :consumption2 a ontolex:LexicalConcept ;                                         
