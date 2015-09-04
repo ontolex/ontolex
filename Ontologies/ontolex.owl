@@ -259,7 +259,7 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;otherForm">
         <rdfs:label xml:lang="en">other form</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;other form&apos; property relates a lexical entry to a non-preferred (&quot;non-dictionary&quot;) representation of it. This should be a variant that is either a morphological variant, an abbreviation, short form or acronym.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;other form&apos; property relates a lexical entry to a non-preferred (&quot;non-lemma&quot;) representation of it. This should be a variant that is either a morphological variant, an abbreviation, short form or acronym.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;Form"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:subPropertyOf rdf:resource="&ontolex;lexicalForm"/>
