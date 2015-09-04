@@ -24,7 +24,7 @@
 
 :consumption_sense2 a ontolex:LexicalSense;
   dct:subject <http://dbpedia.org/resource/Anatomy> ;
-  ontolex:reference <http://dbpedia.org/Resource/Ingestion> .
+  ontolex:reference <http://dbpedia.org/resource/Ingestion> .
 
 :consumption_sense3 a ontolex:LexicalSense;
    dct:subject <http://dbpedia.org/resource/Economics> ;
@@ -33,4 +33,4 @@
 :consumption_sense4 a ontolex:LexicalSense;
    dct:subject <http://dbpedia.org/resource/Medicine> ;
    lexinfo:dating lexinfo:old ;
-   ontolex:reference <http://dbpedia.org/Resource/Tuberculosis> .
+   ontolex:reference <http://dbpedia.org/resource/Tuberculosis> .

@@ -2,5 +2,5 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 
 :die a ontolex:Word ;
-     ontolex:denotes <http://dbpedia.org/property/deathDate> ;
+     ontolex:denotes <http://dbpedia.org/ontology/deathDate> ;
      ontolex:evokes  :Dying .
