@@ -202,7 +202,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <h1 id="core"><a href="#core">Core</a></h1>
 <p>The following diagram depicts the core model (ontolex). Boxes represent classes of the model. Arrows with filled heads represent object properties, while arrows with empty heads represent subclass relations. In arrows labeled 'X/Y' (e.g. <em>sense/isSenseOf</em>), X (<em>sense</em>) is the name of the object property and Y (<em>isSenseOf</em>) the name of the inverse property.</p>
 <div class="figure">
-<img src="Lemon OntoLex Core.png" title="Lemon OntoLex Core.png" alt="Lemon OntoLex Core.png" /><p class="caption">Lemon OntoLex Core.png</p>
+<img src="Lemon_OntoLex_Core.png" title="Lemon_OntoLex_Core.png" alt="Lemon_OntoLex_Core.png" /><p class="caption">Lemon_OntoLex_Core.png</p>
 </div>
 <h2 id="lexical-entries"><a href="#lexical-entries">Lexical Entries</a></h2>
 <p>The main class of the core of the lexicon ontology model is the class <a href="#Lexical_Entry" title="wikilink">Lexical Entry</a>. A lexical entry is defined as follows:</p>
@@ -1022,7 +1022,7 @@ pwn:102124272-n
 </div>
 <h1 id="syntax-and-semantics-synsem"><a href="#syntax-and-semantics-synsem">Syntax and Semantics (synsem)</a></h1>
 <div class="figure">
-<img src="Lemon Syntax and Semantics.png" title="Lemon Syntax and Semantics.png" alt="Lemon Syntax and Semantics.png" /><p class="caption">Lemon Syntax and Semantics.png</p>
+<img src="Lemon_Syntax_and_Semantics.png" title="Lemon_Syntax_and_Semantics.png" alt="Lemon_Syntax_and_Semantics.png" /><p class="caption">Lemon_Syntax_and_Semantics.png</p>
 </div>
 <h2 id="syntactic-frames"><a href="#syntactic-frames">Syntactic Frames</a></h2>
 <p>Most words in a language do not stand by their own, but have a certain syntactic behavior in the sense that they appear in certain syntactic structures and require a number of syntactic (and semantic arguments). Examples of this are i) transitive verbs (e.g. to own), which require a syntactic subject and a syntactic object, ii) relational nouns (e.g. capital (of), mother (of), son (of), brother (of), etc.), which require a prepositional object, or iii) adjectives, which require a noun to modify, etc. The syntactic behavior of a lexical entry is defined in the lexicon model for ontologies by a syntactic frame:</p>
@@ -1519,7 +1519,7 @@ pwn:102124272-n
 </div>
 <h1 id="decomposition-decomp"><a href="#decomposition-decomp">Decomposition (decomp)</a></h1>
 <div class="figure">
-<img src="Lemon Decomposition.png" title="Lemon Decomposition.png" alt="Lemon Decomposition.png" /><p class="caption">Lemon Decomposition.png</p>
+<img src="Lemon_Decomposition.png" title="Lemon_Decomposition.png" alt="Lemon_Decomposition.png" /><p class="caption">Lemon_Decomposition.png</p>
 </div>
 <h2 id="subterms"><a href="#subterms">Subterms</a></h2>
 <p>Decomposition is the process of indicating which elements constitute a multi-word or compound lexical entry. The simplest way to do this is by means of the <a href="#subterm" title="wikilink">subterm</a> property, which indicates that a <a href="#Lexical_entry" title="wikilink">lexical entry</a> is a part of another entry. This property allows to specify which lexical entries a certain compound lexical entry is composed of.</p>
@@ -1750,7 +1750,7 @@ pwn:102124272-n
 </div>
 <h1 id="variation-translation-vartrans"><a href="#variation-translation-vartrans">Variation &amp; Translation (vartrans)</a></h1>
 <div class="figure">
-<img src="Lemon Variation and Translation.png" title="Lemon Variation and Translation.png" alt="Lemon Variation and Translation.png" /><p class="caption">Lemon Variation and Translation.png</p>
+<img src="Lemon_Variation_and_Translation.png" title="Lemon_Variation_and_Translation.png" alt="Lemon_Variation_and_Translation.png" /><p class="caption">Lemon_Variation_and_Translation.png</p>
 </div>
 <h2 id="lexico-semantic-relations"><a href="#lexico-semantic-relations">Lexico-Semantic Relations</a></h2>
 <p>The model defines a generic class <a href="#Lexico-Semantic_Relation" title="wikilink">lexico-semantic relation</a> that allows to relate two lexical entries or two lexical senses to each other. The relation is represented by way of a class that reifies the relation:</p>
@@ -2203,7 +2203,7 @@ lexinfo:initialismFor rdfs:subProperty vartrans:lexicalRel.
 <p>ISSUE: still, a specific property for confidence has to be defined, either as part of <code>vartrans</code> model or in the data each time it is needed</p>
 <h1 id="metadata-lime"><a href="#metadata-lime">Metadata (lime)</a></h1>
 <div class="figure">
-<img src="Lemon Lime Metadata.png" title="Lemon Lime Metadata.png" alt="Lemon Lime Metadata.png" /><p class="caption">Lemon Lime Metadata.png</p>
+<img src="Lemon_Lime_Metadata.png" title="Lemon_Lime_Metadata.png" alt="Lemon_Lime_Metadata.png" /><p class="caption">Lemon_Lime_Metadata.png</p>
 </div>
 <p>The LInguistic MEtadata (lime) module allows for describing metadata at the level of the lexicon-ontology interface. This module is intended to complement existing metadata schemas such as <a href="http://purl.org/dc/terms">Dublin Core</a>, <a href="http://www.w3.org/TR/prov-o/">The PROV ontology</a>, <a href="http://www.w3.org/TR/vocab-dcat/">DCAT</a> or <a href="http://www.w3.org/TR/void/">VoID</a>, as Lime provides a metadata vocabulary to specifically describe the lexicon-ontology interface.</p>
 <p>Following the conceptual model of the lexicon-ontology interface defined by <em>lemon</em>, lime distinguishes three metadata entities:</p>
