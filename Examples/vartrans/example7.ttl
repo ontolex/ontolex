@@ -1,0 +1,17 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix : <#> .
+
+:zip_code a ontolex:LexicalEntry;
+      ontolex:language "en";
+      ontolex:sense :zip_code_sense.
+
+:zip_code_sense ontolex:reference <http://dbpedia.org/ontology/zipCode>.
+
+:postleitzahl a ontolex:LexicalEntry;
+      ontolex:language "de";
+      ontolex:sense :postleitzahl_sense.
+
+:postleitzahl:sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
+
+:zip_code_sense vartrans:translation :postleitzahl_sense.

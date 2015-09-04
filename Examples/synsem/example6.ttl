@@ -1,0 +1,37 @@
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+@prefix : <#> .
+
+:launch a ontolex:LexicalEntry ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  ontolex:canonicalForm :launch_canonical_form;
+  synsem:synBehaviour :launch_transitive_pp;
+  ontolex:sense :launch_ontomap.
+
+:launch_canonical_form ontolex:writtenRep "launch"@en.
+
+:launch_transitive_pp a lexinfo:TransitivePPFrame;
+ lexinfo:subject  :launch_subj ;
+ lexinfo:directObject         :launch_dobj ;
+ lexinfo:prepositionalAdjunct :launch_pAdj.
+
+:launch_arg3 synsem:marker :in ;
+             synsem:optional "true"^^xsd:boolean .
+
+
+:launch_semframe a synsem:OntoMap;
+   synsem:submap :launch_submap1;
+   synsem:submap :launch_submap2.
+
+:launch_submap1 ontolex:reference <http://dbpedia.org/ontology/product>;
+                                 synsem:subjOfProp :launch_subj;
+                                 synsem:objOfProp  :launch_dobj.
+
+:launch_submap2 ontolex:reference <http://dbpedia.org/ontology/launchDate>;
+                                 synsem:subjOfProp :launch_dobj;
+                                 synsem:objOfProp  :launch_pAdj.

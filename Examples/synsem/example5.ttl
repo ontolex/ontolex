@@ -1,0 +1,28 @@
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+@prefix : <#> .
+
+:operate_in a ontolex:LexicalEntry ; 
+    lexinfo:partOfSpeech lexinfo:verb ;
+    ontolex:canonicalForm :operate_form;
+    synsem:synBehavior :operate_intransitivepp;
+    ontolex:sense :operate_ontomap.
+
+:operate_form a ontolex:Form;
+   ontolex:writtenRep "operate"@en.
+
+:operate_intransitivepp a synsem:Frame;
+   lexinfo:subject :operate_subj ;
+   lexinfo:prepositionalArg :operate_pobj.
+
+:operate_ontomap a synsem:OntoMap;
+   ontolex:reference <http://dbpedia.org/ontology/regionServed>;
+   ontolex:subjOfProp :operate_subj;
+   ontolex:objOfProp :operate_pobj.
+ 
+:operate_arg_2 synsem:marker :in .

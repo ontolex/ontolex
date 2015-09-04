@@ -1,0 +1,9 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix : <#> .
+
+:lex_color a ontolex:LexicalEntry;
+     :lexicalForm :form_color .
+
+:form_color a ontolex:Form;
+     :writtenRep "colour"@en-GB, "color"@en-US .
+

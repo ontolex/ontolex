@@ -1,0 +1,12 @@
+@prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+
+:ride a ontolex:LexicalEntry ;
+  ontolex:sense :ride_sense1 .
+
+:ride_sense1 a synsem:SemanticFrame ;
+  ontolex:reference :methodOfTransportation ;
+  ontolex:propertyRange :Bicycle ;
+  synsem:semArg :arg1, :arg2 .
+

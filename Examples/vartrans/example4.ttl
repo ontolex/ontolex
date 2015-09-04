@@ -1,0 +1,26 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix : <#> .
+
+:tuberculosis a ontolex:LexicalEntry ;
+       ontolex:lexicalForm :tuberculosis_form ; 
+       ontolex:sense :tuberculosis_sense.
+
+:tuberculosis_form ontolex:writtenRep "tuberculosis"@en .
+
+:tuberculosis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>.
+
+:phthisis a ontolex:LexicalEntry ;
+       ontolex:lexicalForm :phthisis_form ; 
+       ontolex:sense :phthisis_sense.
+
+:phthisis_form ontolex:writtenRep "phthisis"@en .
+
+:phtisis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>;
+               dct:subject <http://dbpedia.org/resource/Medicine> .
+
+:phtisis_diachronic_relation a vartrans:TerminologicalRelation ;
+      vartrans:source :phthisis_sense ;
+      vartrans:target :tuberculosis_sense ; 
+      vartrans:category <http://www.isocat.org/rest/dc/3666>.

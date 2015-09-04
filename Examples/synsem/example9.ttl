@@ -1,0 +1,18 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix : <#> .
+
+:ride a ontolex:LexicalEntry ;
+  ontolex:sense :ride_sense1 .
+
+:ride_sense1 a synsem:SemanticFrame ;
+  ontolex:reference :methodOfTransportation ;
+  synsem:propertyRange :Bicycle ;
+  synsem:semArg :subj, :obj .
+
+:methodOfTransporation a rdf:Property ;
+  rdfs:range :Vehicle .
+

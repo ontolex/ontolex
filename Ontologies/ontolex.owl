@@ -14,14 +14,31 @@
 
 <rdf:RDF xmlns="http://www.w3.org/ns/lemon/ontolex#"
      xml:base="http://www.w3.org/ns/lemon/ontolex"
-     xmlns:semiotics="http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-     xmlns:ontolex="http://www.w3.org/ns/lemon/ontolex#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:ontolex="http://www.w3.org/ns/lemon/ontolex#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:semiotics="http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#">
     <owl:Ontology rdf:about="http://www.w3.org/ns/lemon/ontolex"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#langString -->
+
+    <rdfs:Datatype rdf:about="&rdf;langString"/>
     
 
 
@@ -48,11 +65,20 @@
     
 
 
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
+        <rdfs:label xml:lang="en">in scheme</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/ontolex#canonicalForm -->
 
     <owl:ObjectProperty rdf:about="&ontolex;canonicalForm">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:comment xml:lang="en">The canonical (&quot;dictionary&quot;) form of the lexical entry. This usually indicates the &quot;lemma&quot; form of a lexical entry</rdfs:comment>
+        <rdfs:label xml:lang="en">canonical form</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;canonical form&apos; property relates a lexical entry to its canoncical or dictionary form. This usually indicates the &quot;lemma&quot; form of a lexical entry. </rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;Form"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:subPropertyOf rdf:resource="&ontolex;lexicalForm"/>
@@ -63,7 +89,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#concept -->
 
     <owl:ObjectProperty rdf:about="&ontolex;concept">
-        <rdfs:comment xml:lang="en">States that a concept represents the meaning of an ontology entity in a conceptual scheme</rdfs:comment>
+        <rdfs:label xml:lang="en">concept</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;concept&apos; property relates an ontological entity to a lexical concept that represents the corresponding meaning.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
     </owl:ObjectProperty>
     
@@ -72,8 +99,16 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#definition -->
 
     <owl:ObjectProperty rdf:about="&ontolex;definition">
-        <rdfs:comment xml:lang="en">This property relates a LexicalSense to one of its defintions; multiple definitions are allowed.</rdfs:comment>
-        <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
+        <rdfs:label xml:lang="en">definition</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;definition&apos; property can be used to provide a definition for a lexical sense or lexical concept.</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontolex;LexicalConcept"/>
+                    <rdf:Description rdf:about="&ontolex;LexicalSense"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -81,7 +116,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#denotes -->
 
     <owl:ObjectProperty rdf:about="&ontolex;denotes">
-        <rdfs:comment xml:lang="en">The relation between a lexical entry and the logical predicate in an ontology that represents its meaning and has some denotational or model-theoretic semantics</rdfs:comment>
+        <rdfs:label xml:lang="en">denotes</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;denotes&apos; property relates a lexical entry to a predicate in a given ontology that represents its meaning and has some denotational or model-theoretic semantics. </rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&semiotics;denotes"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -95,7 +131,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#entry -->
 
     <owl:ObjectProperty rdf:about="&ontolex;entry">
-        <rdfs:comment xml:lang="en">This property links a lexicon to one of the lexical entries contained in it.</rdfs:comment>
+        <rdfs:label xml:lang="en">entry</rdfs:label>
+        <rdfs:comment xml:lang="en">The entry &apos;property&apos; relates a lexicon to one of the lexical entries contained in it.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:domain rdf:resource="&ontolex;Lexicon"/>
     </owl:ObjectProperty>
@@ -105,7 +142,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#evokes -->
 
     <owl:ObjectProperty rdf:about="&ontolex;evokes">
-        <rdfs:comment xml:lang="en">The relation between a lexical entry and the lexical concept it evokes, i.e. the mental concept that speakers of a language might associate when hearing the lexical entry.</rdfs:comment>
+        <rdfs:label xml:lang="en">evokes</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;evokes&apos; property relates a lexical entry to one of the lexical concepts it evokes, i.e. the mental concept that speakers of a language might associate when hearing the lexical entry.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -116,19 +154,11 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/ontolex#example -->
-
-    <owl:ObjectProperty rdf:about="&ontolex;example">
-        <rdfs:comment xml:lang="en">This property relates a LexicalSense to an example of its usage.</rdfs:comment>
-        <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.w3.org/ns/lemon/ontolex#isConceptOf -->
 
     <owl:ObjectProperty rdf:about="&ontolex;isConceptOf">
-        <rdfs:comment xml:lang="en">Indicates a formalzation of a concept from a conceptual scheme by means of an ontology entity</rdfs:comment>
+        <rdfs:label xml:lang="en">is concept of</rdfs:label>
+        <rdfs:comment xml:lang="en">This property formalizes the meaning of a Lexical Concept by linking it to a particular ontological meaning.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
     </owl:ObjectProperty>
     
@@ -137,7 +167,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#isDenotedBy -->
 
     <owl:ObjectProperty rdf:about="&ontolex;isDenotedBy">
-        <rdfs:comment xml:lang="en">Inverse Relation of denotes</rdfs:comment>
+        <rdfs:label xml:lang="en">is denoted by</rdfs:label>
+        <rdfs:comment xml:lang="en">The object property isDenotedBy is the inverse of the object property denotes.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
         <owl:inverseOf rdf:resource="&ontolex;denotes"/>
     </owl:ObjectProperty>
@@ -147,7 +178,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#isEvokedBy -->
 
     <owl:ObjectProperty rdf:about="&ontolex;isEvokedBy">
-        <rdfs:comment xml:lang="en">Inverse of evokes.</rdfs:comment>
+        <rdfs:label xml:lang="en">is evoked by</rdfs:label>
+        <rdfs:comment xml:lang="en">The inverse relation to evokes.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
         <owl:inverseOf rdf:resource="&ontolex;evokes"/>
@@ -158,7 +190,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#isLexicalizedSenseOf -->
 
     <owl:ObjectProperty rdf:about="&ontolex;isLexicalizedSenseOf">
-        <rdfs:comment xml:lang="en">The inverse relation to lexicalizedSense.</rdfs:comment>
+        <rdfs:label xml:lang="en">is lexicalized sense of</rdfs:label>
+        <rdfs:comment xml:lang="en">The object property isLexicalizedSenseOf is the inverse property of lexicalized sense.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
         <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
         <owl:inverseOf rdf:resource="&ontolex;lexicalizedSense"/>
@@ -170,7 +203,8 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;isReferenceOf">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:comment xml:lang="en">Inverse relation of reference</rdfs:comment>
+        <rdfs:label xml:lang="en">is reference of</rdfs:label>
+        <rdfs:comment xml:lang="en">The object property isReferenceOf is the inverse property of reference.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
         <owl:inverseOf rdf:resource="&ontolex;reference"/>
     </owl:ObjectProperty>
@@ -181,27 +215,10 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;isSenseOf">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:comment xml:lang="en">Inverse relation of sense</rdfs:comment>
+        <rdfs:label xml:lang="en">is sense of</rdfs:label>
+        <rdfs:comment xml:lang="en">The property isSenseOf is the inverse property of sense.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/ontolex#languageURI -->
-
-    <owl:ObjectProperty rdf:about="&ontolex;languageURI">
-        <rdfs:comment xml:lang="en">A property relating a lexicon to the URI representing the language of the lexicon.</rdfs:comment>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
-                    <rdf:Description rdf:about="&ontolex;LexicalSense"/>
-                    <rdf:Description rdf:about="&ontolex;Lexicon"/>
-                    <rdf:Description rdf:about="&ontolex;SenseLexicon"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -209,7 +226,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#lexicalForm -->
 
     <owl:ObjectProperty rdf:about="&ontolex;lexicalForm">
-        <rdfs:comment xml:lang="en">Indicates a single morphological form of an entry</rdfs:comment>
+        <rdfs:label xml:lang="en">lexical form</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;lexical form&apos; property relates a lexical entry to one grammatical form variant of the lexical entry.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;Form"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
     </owl:ObjectProperty>
@@ -219,7 +237,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#lexicalizedSense -->
 
     <owl:ObjectProperty rdf:about="&ontolex;lexicalizedSense">
-        <rdfs:comment xml:lang="en">The relation between a LexicalConcept and a corresponding LexicalSense that lexicalizes the LexicalConcept.</rdfs:comment>
+        <rdfs:label xml:lang="en">lexicalized sense</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;lexicalized sense&apos; property relates a lexical concept to a corresponding lexical sense that lexicalizes the concept.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
         <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
@@ -229,7 +248,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#morphologicalPattern -->
 
     <owl:ObjectProperty rdf:about="&ontolex;morphologicalPattern">
-        <rdfs:comment xml:lang="en">Indicates the morphological class of a word</rdfs:comment>
+        <rdfs:label xml:lang="en">morphological pattern</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;morphological pattern&apos; property indicates the morphological class of a word.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
     </owl:ObjectProperty>
     
@@ -238,7 +258,8 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#otherForm -->
 
     <owl:ObjectProperty rdf:about="&ontolex;otherForm">
-        <rdfs:comment xml:lang="en">A non-preferred (&quot;non-dictionary&quot;) representation of a lexical entry. This should be a variant that is either a morphological variant, an abbreviation, short form or acronym</rdfs:comment>
+        <rdfs:label xml:lang="en">other form</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;other form&apos; property relates a lexical entry to a non-preferred (&quot;non-lemma&quot;) representation of it. This should be a variant that is either a morphological variant, an abbreviation, short form or acronym.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;Form"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:subPropertyOf rdf:resource="&ontolex;lexicalForm"/>
@@ -250,7 +271,9 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;reference">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:comment xml:lang="en">The relation between the lexical sense of a lexical entry and the ontological predicate that represents the denotation</rdfs:comment>
+        <rdfs:label xml:lang="en">reference</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;reference&apos; property relates a lexical sense to an ontological predicate that represents the denotation of the corresponding lexical entry. </rdfs:comment>
+        <rdfs:range rdf:resource="&owl;Thing"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
     
@@ -260,7 +283,8 @@
 
     <owl:ObjectProperty rdf:about="&ontolex;sense">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:comment xml:lang="en">The relation between a lexical entry and one of its lexical senses.</rdfs:comment>
+        <rdfs:label xml:lang="en">sense</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;sense&apos; property relates a lexical entry to one of its lexical senses. </rdfs:comment>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
         <owl:inverseOf rdf:resource="&ontolex;isSenseOf"/>
@@ -268,11 +292,12 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/ontolex#senseEntry -->
+    <!-- http://www.w3.org/ns/lemon/ontolex#usage -->
 
-    <owl:ObjectProperty rdf:about="&ontolex;senseEntry">
-        <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
-        <rdfs:domain rdf:resource="&ontolex;SenseLexicon"/>
+    <owl:ObjectProperty rdf:about="&ontolex;usage">
+        <rdfs:label xml:lang="en">context</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;context&apos; property indicates contextual conditions or pragmatic implications when using the lexical entry to refer to the given ontological meaning.</rdfs:comment>
+        <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
     
 
@@ -297,28 +322,36 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#language -->
 
     <owl:DatatypeProperty rdf:about="&ontolex;language">
-        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:label xml:lang="en">language</rdfs:label>
+        <rdfs:comment xml:lang="en">The  &apos;language&apos; property indicates the language of a lexicon, a lexical entry, a concept set or a lexicalization set.</rdfs:comment>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
+                    <rdf:Description rdf:about="&ontolex;ConceptSet"/>
                     <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
-                    <rdf:Description rdf:about="&ontolex;LexicalSense"/>
                     <rdf:Description rdf:about="&ontolex;Lexicon"/>
-                    <rdf:Description rdf:about="&ontolex;SenseLexicon"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
     </owl:DatatypeProperty>
+    <owl:Axiom>
+        <rdfs:comment></rdfs:comment>
+        <owl:annotatedTarget xml:lang="en">The  &apos;language&apos; property indicates the language of a lexicon, a lexical entry, a concept set or a lexicalization set.</owl:annotatedTarget>
+        <owl:annotatedProperty rdf:resource="&rdfs;comment"/>
+        <owl:annotatedSource rdf:resource="&ontolex;language"/>
+    </owl:Axiom>
     
 
 
     <!-- http://www.w3.org/ns/lemon/ontolex#phoneticRep -->
 
     <owl:DatatypeProperty rdf:about="&ontolex;phoneticRep">
-        <rdfs:comment xml:lang="en">Gives a phonetic representation of a form using a scheme such as the International Phonetic Alphabet</rdfs:comment>
-        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:label xml:lang="en">phonetic representation</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;phonetic representation&apos; property indicates one phonetic representation of the pronunciation of the form using a scheme such as the International Phonetic Alphabet (IPA). </rdfs:comment>
+        <rdfs:range rdf:resource="&rdf;langString"/>
         <rdfs:domain rdf:resource="&ontolex;Form"/>
         <rdfs:subPropertyOf rdf:resource="&ontolex;representation"/>
     </owl:DatatypeProperty>
@@ -328,8 +361,9 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#representation -->
 
     <owl:DatatypeProperty rdf:about="&ontolex;representation">
-        <rdfs:comment xml:lang="en">specifying a string by which the form is symbolized according to some orthographic scheme</rdfs:comment>
-        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:label xml:lang="en">representation</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;representation&apos; property indicates a string by which the form is represented according to some scheme. </rdfs:comment>
+        <rdfs:range rdf:resource="&rdf;langString"/>
         <rdfs:domain rdf:resource="&ontolex;Form"/>
     </owl:DatatypeProperty>
     
@@ -338,8 +372,9 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#writtenRep -->
 
     <owl:DatatypeProperty rdf:about="&ontolex;writtenRep">
-        <rdfs:comment xml:lang="en">Indicates the written representation of a form</rdfs:comment>
-        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:label xml:lang="en">written representation</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;written representation&apos; property indicates the written representation of a form.</rdfs:comment>
+        <rdfs:range rdf:resource="&rdf;langString"/>
         <rdfs:domain rdf:resource="&ontolex;Form"/>
         <rdfs:subPropertyOf rdf:resource="&ontolex;representation"/>
     </owl:DatatypeProperty>
@@ -357,6 +392,14 @@
     
 
 
+    <!-- http://rdfs.org/ns/void#Dataset -->
+
+    <owl:Class rdf:about="http://rdfs.org/ns/void#Dataset">
+        <rdfs:label xml:lang="en">dataset</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Expression -->
 
     <owl:Class rdf:about="&semiotics;Expression"/>
@@ -371,15 +414,58 @@
 
     <!-- http://www.w3.org/2004/02/skos/core#Concept -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+        <rdfs:label xml:lang="en">concept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+        <rdfs:label xml:lang="en">concept scheme</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#LexicalizationSet -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/lemon/lime#LexicalizationSet">
+        <rdfs:label xml:lang="en">lexicalization set</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontolex;language"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
     <!-- http://www.w3.org/ns/lemon/ontolex#Affix -->
 
     <owl:Class rdf:about="&ontolex;Affix">
+        <rdfs:label xml:lang="en">affix</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontolex;LexicalEntry"/>
-        <rdfs:comment xml:lang="en">A lexical entry which is realized by joining as a prefix or similar to another word|</rdfs:comment>
+        <rdfs:comment xml:lang="en">An affix is a lexical entry that represents a morpheme (suffix, prefix, infix, circumfix, etc.) that is attached to a word stem to form a new word.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/ontolex#ConceptSet -->
+
+    <owl:Class rdf:about="&ontolex;ConceptSet">
+        <rdfs:label xml:lang="en">concept set</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+                <owl:onClass rdf:resource="&ontolex;LexicalConcept"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:comment xml:lang="en">The class concept set represents a collection of lexical concepts.</rdfs:comment>
     </owl:Class>
     
 
@@ -387,14 +473,16 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#Form -->
 
     <owl:Class rdf:about="&ontolex;Form">
+        <rdfs:label xml:lang="en">form</rdfs:label>
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontolex;writtenRep"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&rdf;langString"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The Form class represents one lexical variant of the written representation of a lexical entry.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A form represents one grammatical realization of a lexical entry.</rdfs:comment>
     </owl:Class>
     
 
@@ -402,8 +490,9 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#LexicalConcept -->
 
     <owl:Class rdf:about="&ontolex;LexicalConcept">
+        <rdfs:label xml:lang="en">lexical concept</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:comment xml:lang="en">A mental representation or unit of thought that is expressable in some language.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A lexical concept represents a mental abstraction, concept or unit of thought that can be lexicalized by a given collection of senses.</rdfs:comment>
     </owl:Class>
     
 
@@ -411,6 +500,7 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#LexicalEntry -->
 
     <owl:Class rdf:about="&ontolex;LexicalEntry">
+        <rdfs:label xml:lang="en">lexical entry</rdfs:label>
         <rdfs:subClassOf rdf:resource="&semiotics;Expression"/>
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
         <rdfs:subClassOf>
@@ -422,12 +512,18 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontolex;language"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontolex;canonicalForm"/>
                 <owl:onClass rdf:resource="&ontolex;Form"/>
                 <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A single unit of analysis in the lexicon comprising a collection of forms that are morphologically related or have a single pronunciation and have the same set of meaning</rdfs:comment>
+        <rdfs:comment xml:lang="en">A lexical entry represents a unit of analysis of the lexicon that consist of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses.</rdfs:comment>
     </owl:Class>
     
 
@@ -435,6 +531,7 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#LexicalSense -->
 
     <owl:Class rdf:about="&ontolex;LexicalSense">
+        <rdfs:label xml:lang="en">lexical sense</rdfs:label>
         <rdfs:subClassOf rdf:resource="&semiotics;Meaning"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -449,7 +546,8 @@
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Represents the lexical meaning of a lexical entry when interpreted as the ontology entity it refers to. A link between a lexical entry and an ontology entity via a LexicalSense object implies that the lexical entry can be used to refer to the ontology entity in question, under corresponding connotations, pragmatic implications and meaning nuances that might no be directly modeled in the ontology. These pragmatic conditions and meaning nuances can be attached to the LexicalSense object, which represents a reification of a pair of lexical entry and ontological entity it can refer to. The Lexical Sense thus uniquely determines a lexical entry and an ontological entity it is associated with.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A lexical sense represents the lexical meaning of a lexical entry when interpreted as referring to the corresponding ontology element. A lexical sense thus represents a reification of a pair of a uniquely determined lexical entry and a uniquely determined ontology entity it refers to. 
+A link between a lexical entry and an ontology entity via a Lexical Sense object implies that the lexical entry can be used to refer to the ontology entity in question.</rdfs:comment>
     </owl:Class>
     
 
@@ -457,6 +555,14 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#Lexicon -->
 
     <owl:Class rdf:about="&ontolex;Lexicon">
+        <rdfs:label xml:lang="en">lexicon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://rdfs.org/ns/void#Dataset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontolex;language"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontolex;entry"/>
@@ -464,7 +570,7 @@
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A collection of lexical entries specific to the given language and/or domain</rdfs:comment>
+        <rdfs:comment xml:lang="en">A lexicon represents a collection of lexical entries for a particular language or domain.</rdfs:comment>
     </owl:Class>
     
 
@@ -472,17 +578,9 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#MultiWordExpression -->
 
     <owl:Class rdf:about="&ontolex;MultiWordExpression">
+        <rdfs:label xml:lang="en">multi-word expression</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontolex;LexicalEntry"/>
-        <rdfs:comment xml:lang="en">A lexical entry consisting of two or more words</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/ontolex#SenseLexicon -->
-
-    <owl:Class rdf:about="&ontolex;SenseLexicon">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-        <rdfs:comment xml:lang="en">Represents a collection of senses</rdfs:comment>
+        <rdfs:comment xml:lang="en">A multiword expression is a lexical entry that consists of two or more words.</rdfs:comment>
     </owl:Class>
     
 
@@ -490,12 +588,13 @@
     <!-- http://www.w3.org/ns/lemon/ontolex#Word -->
 
     <owl:Class rdf:about="&ontolex;Word">
+        <rdfs:label xml:lang="en">word</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontolex;LexicalEntry"/>
-        <rdfs:comment xml:lang="en">A lexical entry consisting of a single word</rdfs:comment>
+        <rdfs:comment xml:lang="en">A word is a lexical entry that consists of a single word.</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
 

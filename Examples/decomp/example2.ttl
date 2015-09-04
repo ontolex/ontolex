@@ -1,0 +1,8 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix : <#> .
+
+:Lungenentzündung a ontolex:LexicalEntry ;
+  decomp:subterm :lunge_lex ;
+  decomp:subterm :entzündung_lex .

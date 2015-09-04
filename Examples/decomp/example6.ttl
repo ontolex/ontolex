@@ -1,0 +1,27 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo#>.
+@prefix penn: <http://purl.org/olia/penn-syntax.owl#> .
+@prefix olia: <http://purl.org/olia/system.owl#> .
+@prefix : <#> .
+
+:AfricanSwineFever_root a decomp:Component ;
+  decomp:correspondsTo :AfricanSwineFever ;
+  decomp:constituent :African_node, :SwineFever_node ;
+  olia:hasTag penn:NP .
+
+:African_node a decomp:Component ;
+  decomp:correspondsTo :African ;
+  olia:hasTag penn:JJ .
+
+:SwineFever_node a decomp:Component ;
+  decomp:constituent :Swine_node, :Fever_node ;
+  olia:hasTag penn:NP .
+
+:Swine_node a decomp:Component ; 
+  decomp:correspondsTo :Swine ;
+  olia:hasTag penn:NN .
+
+:Fever_node a decomp:Component ; 
+  decomp:correpondsTo :Fever ;
+  olia:hasTag penn:NN .

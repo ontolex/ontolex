@@ -1,0 +1,35 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo#>.
+@prefix penn: <http://purl.org/olia/penn-syntax.owl#> .
+@prefix olia: <http://purl.org/olia/system.owl#> .
+@prefix : <#> .
+
+:know a ontolex:Word ;
+  synsem:synBehavior :know_frame .
+
+:know_frame a synsem:Frame ;
+  lexinfo:subject :subject ;
+  lexinfo:directObjet :directObject .
+
+:know_root a decomp:Component ;
+  decomp:correspondsTo :know_frame ;
+  decomp:constituent :X_node, :knowY_node ;
+  olia:hasTag penn:S .
+
+:X_node a decomp:Component ;
+  decomp:correspondsTo :subject ;
+  olia:hasTag penn:NP .
+
+:knowY_node a decomp:Component ;
+  decomp:constituent :know_node, :Y_node ;
+  olia:hasTag penn:VP .
+
+:know_node a decomp:Component ;
+  decomp:correspondsTo :know ;
+  olia:hasTag penn:V .
+
+:Y_node a decomp:Component ;
+  decomp:correspondsTo :directObject ;
+  olia:hasTag penn:NP .

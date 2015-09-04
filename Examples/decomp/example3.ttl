@@ -1,0 +1,18 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix : <#> .
+
+:AfricanSwineFever a ontolex:MultiwordExpression ;
+  decomp:constituent :African_comp , :Swine_comp , :Fever_comp ;
+  decomp:subterm :SwineFever .
+
+:African_comp a decomp:Component .
+
+:Swine_comp a decomp:Component .
+
+:Fever_comp a decomp:Component .
+
+:SwineFever a ontolex:MultiwordExpression ;
+  decomp:constituent :Swine_comp , :Fever_comp .

@@ -1,0 +1,11 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix : <#> .
+
+:lex_privacy a ontolex:LexicalEntry;
+     ontolex:lexicalForm :form_privacy.
+
+:form_privacy a ontolex:Form;
+     ontolex:writtenRep "privacy"@en;
+     ontolex:phoneticRep "ˈpɹɪv.ə.si"@en-US-fonipa;
+     ontolex:phoneticRep "ˈpɹaɪ.və.si"@en-GB-fonipa.
+

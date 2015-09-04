@@ -1,0 +1,32 @@
+
+# This example shows how to model a relational noun such as brother (of)
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+@prefix : <#> .
+
+:father_of a ontolex:LexicalEntry ; 
+    lexinfo:partOfSpeech lexinfo:noun ;
+    ontolex:canonicalForm :father_form;
+    synsem:synBehaviour :father_of_nounpp;
+    ontolex:sense :father_ontomap.
+
+:father_form a ontolex:Form;
+    ontolex:writtenRep "father"@en.
+
+:father_of_nounpp a lexinfo:NounPPFrame;
+   lexinfo:subject :arg1;
+   lexinfo:prepositionalArg :arg2.
+
+:father_ontomap a synsem:OntoMap;
+   ontolex:reference <http://dbpedia.org/ontology/father>;
+   ontolex:subjOfProp :arg2;
+   ontolex:objOfProp :arg1.
+
+:arg2 synsem:marker :of .
+
+

@@ -1,0 +1,7 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl>.
+@prefix : <#> .
+
+:AfricanSwineFever a ontolex:LexicalEntry ;
+  decomp:subterm :SwineFever .

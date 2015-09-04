@@ -1,0 +1,26 @@
+# Extension of examples 1 and 2 showing how a lexical sense referring to <http://dbpedia.org/ontology/owner> can be added.
+
+# syntactically validated using JENA API 2.11.2
+
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix : <#> .
+
+:own_lex a ontolex:LexicalEntry ;
+  synsem:canonicalForm :own_form ;
+  synsem:synBehavior :own_synframe ;
+  ontolex:sense :own_ontomap.
+
+:own_form ontolex:writtenRep "own"@en. 
+
+:own_synframe a lexinfo:TransitiveFrame;
+       lexinfo:subject :own_subj;
+       lexinfo:directObject :own_obj.
+
+:own_ontomap a synsem:OntoMap;
+         ontolex:reference <http://dbpedia.org/ontology/owner>;
+         synsem:subjOfProp :own_obj;
+         synsem:objOfProp :own_subj.
+

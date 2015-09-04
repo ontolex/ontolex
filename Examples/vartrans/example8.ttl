@@ -1,0 +1,16 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix : <#> .
+
+:corner a ontolex:LexicalEntry;
+      ontolex:language "en".
+ 
+:rincón a ontolex:LexicalEntry;
+       ontolex:language "es".
+
+:esquina a ontolex:LexicalEntry;
+       ontolex:language "es".
+
+:corner vartrans:translatableAs :rincón.
+:corner vartrans:translatableAs :esquina.
+

@@ -1,0 +1,14 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix : <#> .
+
+:amare ontolex:morphologicalPattern :latin_first_conjugation ;
+  ontolex:canonicalForm :amare_form .
+
+:amare_form a ontolex:Form;
+  ontolex:writtenRep "amare"@la .
+
+:videre ontolex:morphologicalPattern :latin_second_conjugation ;
+  ontolex:canonicalForm :videre_form .
+
+:videre_form a ontolex:Form;
+  ontolex:writtenRep "videre"@la .

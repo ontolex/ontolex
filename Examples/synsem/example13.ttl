@@ -1,0 +1,20 @@
+@prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+:riviere a ontolex:LexicalEntry ;
+  ontolex:sense :riviere_sense1 .
+
+:fleuve a ontolex:LexicalEntry ;
+  ontolex:sense :fleuve_sense1 .
+
+:riviere_sense1 ontolex:reference <http://dbpedia.org/ontology/river> ;
+  synsem:condition [ 
+    rdf:value "A riviere is a river that flows into the sea"@en
+  ] .
+
+:fleuve_sense2 ontolex:reference <http://dbpedia.org/ontology/river>;
+  synsem:condition [
+    rdf:value "A fleuve is a river that flows into another river"@en
+  ] .

@@ -1,0 +1,35 @@
+@prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix skos: <http://www.w3.org/2004/02/skos#>.
+
+
+:conceptLexicon a ontolex:ConceptSet .
+
+:consumption1 a ontolex:LexicalConcept ;
+  ontolex:isConceptOf <http://dbpedia.org/resource/Tuberculosis> ;
+  ontolex:isEvokedBy :consumption ;
+  skos:inScheme :conceptLexicon .
+                                                                                
+:consumption2 a ontolex:LexicalConcept ;                                         
+  ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(Economics)> ;
+  ontolex:isEvokedBy :consumption ;
+  skos:inScheme :conceptLexicon .
+                                                                                
+:tuberculosis1 a ontolex:LexicalConcept ;
+  ontolex:isConceptOf <http://dbpedia.org/resource/Tuberculosis> ;
+  ontolex:isEvokedBy :tuberculosis ;
+  skos:inScheme :conceptLexicon .
+
+:consumption a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :consumption_lemma .
+
+:consumption_lemma ontolex:writtenRep "consumption"@en .
+
+:tuberculosis a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :tuberculosis_lemma .
+
+:tuberculosis_lemma ontolex:writtenRep "tuberculosis"@en .
+

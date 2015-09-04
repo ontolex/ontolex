@@ -1,0 +1,10 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix lexinfo: <>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <#> .
+
+:fao lexinfo:initialismFor :food_and_agriculture_organization.
+
+lexinfo:initialismFor rdfs:subProperty vartrans:lexicalRel.
+
