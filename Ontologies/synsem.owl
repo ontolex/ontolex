@@ -63,7 +63,7 @@
 
     <owl:ObjectProperty rdf:about="&synsem;condition">
         <rdfs:label xml:lang="en">condition</rdfs:label>
-        <rdfs:comment xml:lang="en">The property condition defines an evaluable restriction on the mapping of this semantic frame.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;condition&apos; property defines an evaluable constraint that derives from using a certain lexical entry to express a given ontological predicate.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&ontolex;usage"/>
         <rdfs:domain rdf:resource="&synsem;OntoMap"/>
     </owl:ObjectProperty>
@@ -73,7 +73,7 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#isA -->
 
     <owl:ObjectProperty rdf:about="&synsem;isA">
-        <rdfs:comment xml:lang="en">The object property is a represents the single semantic argument of a class or unary  predicate.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;is a&apos; property represents the single argument of a class or unary  predicate.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&synsem;ontoCorrespondence"/>
     </owl:ObjectProperty>
     
@@ -83,7 +83,7 @@
 
     <owl:ObjectProperty rdf:about="&synsem;marker">
         <rdfs:label xml:lang="en">marker</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;optional&apos; property indicates whether a syntactic argument is optional, that is, it can be syntactically omitted.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;marker&apos; property indicates the marker of a syntactic argument; this can be a case marker or some other lexical entry such as a preposition or particle.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&synsem;SyntacticArgument"/>
     </owl:ObjectProperty>
@@ -94,7 +94,7 @@
 
     <owl:ObjectProperty rdf:about="&synsem;objOfProp">
         <rdfs:label xml:lang="en">object of property</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;objOfProp&apos; property indicates the semantic argument which represents the objects (range) of the property referred to by this sense.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;objOfProp&apos; represents the 2nd argument or object of a binary predicate (property) in the ontology.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:subPropertyOf rdf:resource="&synsem;ontoCorrespondence"/>
     </owl:ObjectProperty>
@@ -105,8 +105,7 @@
 
     <owl:ObjectProperty rdf:about="&synsem;ontoCorrespondence">
         <rdfs:label xml:lang="en">ontological correspondence</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;ontoCorrespondence&apos;  property binds a semantic argument defined in the ontology to a syntactic argument that realizes this argument syntactically.
-
+        <rdfs:comment xml:lang="en">The &apos;ontoCorrespondence&apos; property binds an argument of a predicate defined in the ontology to a syntactic argument that realizes this predicate argument syntactically.
 </rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain rdf:resource="&synsem;OntoMap"/>
@@ -138,7 +137,7 @@
 
     <owl:ObjectProperty rdf:about="&synsem;subframe">
         <rdfs:label xml:lang="en">submap</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;submap&apos; property relates a (complex) ontological map to a set of bindings that together bound all the semantic arguments of a set of ontological predicates to a set of syntactic arguments that realize them syntactically.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;submap&apos; property relates a (complex) ontological mapping to a set of bindings that together bind the arguments of the involved predicates to a set of syntactic arguments that realize them syntactically.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:range rdf:resource="&synsem;OntoMap"/>
         <rdfs:domain rdf:resource="&synsem;OntoMap"/>
@@ -150,7 +149,7 @@
 
     <owl:ObjectProperty rdf:about="&synsem;subjOfProp">
         <rdfs:label xml:lang="en">subject of property</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;subjOfProp&apos; property indicates the semantic argument which represents the subjects (domain) of the property referred to by this sense.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;subjOfProp&apos; property represents the 1st argument or subject of a binary predicate (property) in the ontology.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:subPropertyOf rdf:resource="&synsem;ontoCorrespondence"/>
     </owl:ObjectProperty>
@@ -204,7 +203,7 @@
 
     <owl:DatatypeProperty rdf:about="&synsem;optional">
         <rdfs:label xml:lang="en">optional</rdfs:label>
-        <rdfs:comment xml:lang="en">The datatype property &apos;optional&apos; indicates whether a syntactic argument is optional, that is, it can be syntactically ommitted.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;optional&apos; property indicates whether a syntactic argument is optional, that is, it can be syntactically omitted.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;boolean"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
         <rdfs:domain rdf:resource="&synsem;SyntacticArgument"/>
@@ -238,7 +237,7 @@
     <!-- http://www.w3.org/ns/lemon/synsem.owl#OntoMap -->
 
     <owl:Class rdf:about="&synsem;OntoMap">
-        <rdfs:label xml:lang="en">ontology map</rdfs:label>
+        <rdfs:label xml:lang="en">ontology mapping</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontolex;LexicalSense"/>
         <rdfs:comment xml:lang="en">An &apos;ontology mapping&apos; (OntoMap for short) specifies how a syntactic frame and its syntactic arguments map to a set of concepts and properties in the ontology that together specify the meaning of the syntactic frame.</rdfs:comment>
     </owl:Class>
@@ -249,7 +248,7 @@
 
     <owl:Class rdf:about="&synsem;SyntacticArgument">
         <rdfs:label xml:lang="en">Syntactic Argument</rdfs:label>
-        <rdfs:comment xml:lang="en">The class SyntacticArgument represents a slot that needs to be filled for a certain syntactic or semantic structure of a lexical entry or a semantic frame to be complete. Syntactic arguments typically realise a certain grammatical function (e.g. subject, direct object, indirect object, prepositional object, etc.).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A &apos;syntactic argument&apos; represents a slot that needs to be filled for a certain syntactic frame to be complete. Syntactic arguments typically realize a certain grammatical function (e.g. subject, direct object, indirect object, prepositional object, etc.).</rdfs:comment>
     </owl:Class>
     
 
@@ -258,7 +257,7 @@
 
     <owl:Class rdf:about="&synsem;SyntacticFrame">
         <rdfs:label xml:lang="en">Syntactic Frame</rdfs:label>
-        <rdfs:comment xml:lang="en">A &apos;syntactic frame&apos; represents the syntactic behavior of an open class word in terms of (syntactic) arguments it requires. It essentially describes the subcategorization structure of the open class word in question, in particular the syntactic arguments it requires.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A &apos;syntactic frame&apos; represents the syntactic behavior of an open class word in terms of the (syntactic) arguments it requires. It essentially describes the so called subcategorization structure of the word in question, in particular the syntactic arguments it requires.</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 
