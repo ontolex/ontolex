@@ -9,7 +9,7 @@
 :conceptLexicon a ontolex:ConceptSet .
 
 :consumption1 a ontolex:LexicalConcept ;
-  ontolex:isConceptOf <dbpedia.org/resource/Tuberculosis> ;
+  ontolex:isConceptOf <http://dbpedia.org/resource/Tuberculosis> ;
   ontolex:isEvokedBy :consumption ;
   skos:inScheme :conceptLexicon .
                                                                                 
@@ -19,7 +19,7 @@
   skos:inScheme :conceptLexicon .
                                                                                 
 :tuberculosis1 a ontolex:LexicalConcept ;
-  ontolex:isConceptOf <dbpedia.org/resource/Tuberculosis> ;
+  ontolex:isConceptOf <http://dbpedia.org/resource/Tuberculosis> ;
   ontolex:isEvokedBy :tuberculosis ;
   skos:inScheme :conceptLexicon .
 

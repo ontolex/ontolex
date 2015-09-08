@@ -16,7 +16,10 @@ def make_name(n):
         i = s.rindex('#')
     if '/' in s:
         i = max(i, s.rindex('/'))
-    return s[i + 1:]
+    if s[i + 1].isdigit():
+        return "_" + s[i + 1:]
+    else:
+        return s[i + 1:]
 
 
 def write_obj(o):

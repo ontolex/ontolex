@@ -4,7 +4,7 @@
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix dbr: <http://dbpedia.org/resource/>.
 @prefix : <#> .
 
 :female a ontolex:LexicalEntry; 
@@ -18,7 +18,7 @@
 :female_sense ontolex:reference [
   a owl:Restriction;
   owl:onProperty <http://dbpedia.org/ontology/gender> ;
-  owl:hasValue dbpedia:Female ] ;
+  owl:hasValue dbr:Female ] ;
   synsem:isA :female_arg .
 
 :female_syn a lexinfo:AdjectivePredicateFrame;

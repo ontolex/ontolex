@@ -7,6 +7,9 @@ end_doc_trigger = """</textarea><div class="templatesUsed">"""
 doc = ""
 
 for line in open("spec-raw.html").readlines():
+    if "[[File:" in line:
+        for i in range(0, 10):
+            line = re.sub("(\\[\\[File:.*) (.*\\.png)", "\\1_\\2", line)
     if line.startswith(in_doc_trigger) and not in_doc:
         in_doc = True
         doc += line[len(in_doc_trigger):] 

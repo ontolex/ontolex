@@ -1,0 +1,19 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix : <#> .
+
+:nasa a ontolex:LexicalEntry, lexinfo:Acronym ;
+  ontolex:canonicalForm :form_nasa ;
+  rdfs:label "NASA"@en .
+
+:form_nasa a ontolex:Form ;
+  ontolex:writtenRep "NASA"@en .
+
+:national_aeronautics_and_space_administration a ontolex:MultiwordExpression ;
+  ontolex:canonicalForm :form_national_aeronautics_and_space_administration ;
+  lexinfo:abbreviationFor :nasa ;
+  rdfs:label "National Aeronautics and Space Administration"@en .
+
+:form_national_aeronautics_and_space_administration a ontolex:Form ;
+  ontolex:writtenRep "National Aeronautics and Space Administration"@en .

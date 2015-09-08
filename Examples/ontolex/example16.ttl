@@ -8,12 +8,12 @@
 :fleuve a ontolex:LexicalEntry ;
   ontolex:sense :fleuve_sense1 .
 
-:riviere_sense1 ontolex:reference <http://dbpedia.org/ontology/river> ;
+:riviere_sense1 ontolex:reference <http://dbpedia.org/ontology/River> ;
   ontolex:definition [ 
     rdf:value "A riviere is a river that flows into the sea"@en
   ] .
 
-:fleuve_sense2 ontolex:reference <http://dbpedia.org/ontology/river>;
+:fleuve_sense2 ontolex:reference <http://dbpedia.org/ontology/River>;
   ontolex:definition [
     rdf:value "A fleuve is a river that flows into another river"@en
   ] .
