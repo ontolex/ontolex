@@ -10,10 +10,12 @@
 
 :own_lex a ontolex:LexicalEntry ;
   synsem:canonicalForm :own_form ;
-  synsem:synBehavior :own_frame .
+  synsem:synBehavior :own_frame_transitive .
 
 :own_form ontolex:writtenRep "own"@en. 
 
-:own_frame a lexinfo:TransitiveFrame;
+:own_frame_transitive a lexinfo:TransitiveFrame;
        lexinfo:subject :own_frame_subj;
        lexinfo:directObject :own_frame_obj.
+
+

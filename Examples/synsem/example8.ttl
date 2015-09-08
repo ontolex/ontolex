@@ -1,5 +1,3 @@
-# This example shows how to model the meaning of an adjective such as "female" using the prototypical frame "X is female", by referring to a local class Female that is modeled as follows: Female \equiv \exists gender.{}
-
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
@@ -16,9 +14,9 @@
 :female_canonical_form ontolex:writtenRep "female"@en.
 
 :female_sense ontolex:reference [
-  a owl:Restriction;
-  owl:onProperty <http://dbpedia.org/ontology/gender> ;
-  owl:hasValue dbr:Female ] ;
+    a owl:Restriction;
+    owl:onProperty <http://dbpedia.org/ontology/gender> ;
+    owl:hasValue dbr:Female ] ;
   synsem:isA :female_arg .
 
 :female_syn a lexinfo:AdjectivePredicateFrame;
@@ -26,4 +24,5 @@
                                                                                 
 :female_syn1 a lexinfo:AdjectiveAttributiveFrame ;                              
    lexinfo:attributiveArg :female_arg.  
+
 

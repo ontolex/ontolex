@@ -25,4 +25,4 @@
    ontolex:subjOfProp :operate_subj;
    ontolex:objOfProp :operate_pobj.
  
-:operate_arg_2 synsem:marker :in .
+:operate_pobj synsem:marker :in .
