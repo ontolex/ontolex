@@ -8,6 +8,7 @@
 
 @prefix : <#> .
 
+
 :give a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:verb ;
     ontolex:canonicalForm :give_form;
@@ -29,30 +30,25 @@
    lexinfo:directObject :give_dobj2.
 
 :giving_semframe a synsem:OntoMap;
-   ontolex:reference myontology:giving;
+   ontolex:reference <http://www.ontologyportal.org/SUMO.owl#Giving>;
    synsem:submap :giving_submap1;
    synsem:submap :giving_submap2;
    synsem:submap :giving_submap3.
  
-:giving_submap1 ontolex:reference myontology:giver;
+:giving_submap1 ontolex:reference <http://www.ontologyportal.org/SUMO.owl#agent>;
                                  synsem:subjOfProp :giving_event;
                                  synsem:objOfProp  :give_subj1;
                                  synsem:objOfProp  :give_subj2.
 
-:giving_submap2 ontolex:reference myontology:given;
+:giving_submap2 ontolex:reference <http://www.ontologyportal.org/SUMO.owl#patient>;
                                  synsem:subjOfProp :giving_event;
                                  synsem:objOfProp  :give_dobj2;
                                  synsem:objOfProp :give_dobj1.
 
-:giving_submap3 ontolex:reference myontology:receiver;
+:giving_submap3 ontolex:reference <http://www.ontologyportal.org/SUMO.owl#destination>;
                                  synsem:subjOfProp :giving_event;
                                  synsem:objOfProp  :give_iobj2;
                                  synsem:objOfProp :give_pobj1.
 
 :give_pobj1 synsem:marker :to .
-
-myontology:giver rdfs:subPropertyOf <http://www.ontologyportal.org/SUMO.owl#agent>.
-myontology:given rdfs:subPropertyOf <http://www.ontologyportal.org/SUMO.owl#patient>.
-myontology:receiver rdfs:subPropertyOf <http://www.ontologyportal.org/SUMO.owl#destination>.
-
 
