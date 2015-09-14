@@ -5,21 +5,23 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix skos: <http://www.w3.org/2004/02/skos#>.
 
-
 :conceptLexicon a ontolex:ConceptSet .
 
 :consumption1 a ontolex:LexicalConcept ;
-  ontolex:isConceptOf <http://dbpedia.org/resource/Tuberculosis> ;
-  ontolex:isEvokedBy :consumption ;
-  skos:inScheme :conceptLexicon .
+ontolex:isConceptOf <http://dbpedia.org/resource/Tuberculosis> ;
+skos:definition "Tuberculosis, MTB, or TB (short for tubercle bacillus), in the past also called phthisis, phthisis pulmonalis, or consumption, is a widespread, and in many cases fatal, infectious disease caused by various strains of mycobacteria, usually Mycobacterium tuberculosis. Tuberculosis typically attacks the lungs, but can also affect other parts of the body. It is spread through the air when people who have an active TB infection cough, sneeze, or otherwise transmit respiratory fluids through the air."@en;
+ontolex:isEvokedBy :consumption ;
+skos:inScheme :conceptLexicon .
                                                                                 
 :consumption2 a ontolex:LexicalConcept ;                                         
   ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(Economics)> ;
+  skos:definition "Consumption is a major concept in economics and is also studied by many other social sciences. Economists are particularly interested in the relationship between consumption and income, and therefore in economics the consumption function plays a major role.";
   ontolex:isEvokedBy :consumption ;
   skos:inScheme :conceptLexicon .
                                                                                 
 :tuberculosis1 a ontolex:LexicalConcept ;
   ontolex:isConceptOf <http://dbpedia.org/resource/Tuberculosis> ;
+  skos:definition "Tuberculosis, MTB, or TB (short for tubercle bacillus), in the past also called phthisis, phthisis pulmonalis, or consumption, is a widespread, and in many cases fatal, infectious disease caused by various strains of mycobacteria, usually Mycobacterium tuberculosis. Tuberculosis typically attacks the lungs, but can also affect other parts of the body. It is spread through the air when people who have an active TB infection cough, sneeze, or otherwise transmit respiratory fluids through the air."@en;
   ontolex:isEvokedBy :tuberculosis ;
   skos:inScheme :conceptLexicon .
 
@@ -32,4 +34,3 @@
   ontolex:canonicalForm :tuberculosis_lemma .
 
 :tuberculosis_lemma ontolex:writtenRep "tuberculosis"@en .
-
