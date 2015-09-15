@@ -1,0 +1,54 @@
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .  
+@prefix dc: <http://purl.org/dc/terms/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix : <#>.
+
+#LEXICONS
+:lexiconEN a ontolex:Lexicon ;
+        ontolex:entry :bench .
+:bench a ontolex:LexicalEntry ;
+        ontolex:lexicalForm [ ontolex:writtenRep "bench"@en].
+:bench-sense a ontolex:LexicalSense ;
+        ontolex:isSenseOf :bench .
+
+:lexiconES a ontolex:Lexicon ;
+        ontolex:entry :banco .
+:banco a ontolex:LexicalEntry ;
+        ontolex:lexicalForm [ ontolex:writtenRep "banco"@es].
+:banco-sense a ontolex:LexicalSense ;       
+        ontolex:isSenseOf :banco .
+
+
+#TRANSLATION SET
+:tranSetEN-ES a vartrans:TranslationSet ;
+        dc:source <http://hdl.handle.net/10230/17110> ;
+        vartrans:trans :bench_banco-trans .
+:bench_banco-trans a vartrans:Translation ;
+        vartrans:source :bench-sense ;
+        vartrans:target :banco-sense .
+
+
+#PROVENANCE 
+:tranSetEN-ES a prov:Entity .  
+:bench_banco-trans a prov:Entity .
+    
+:humanValidationActivity a prov:Activity .
+:executionOfMyAlgorithm a prov:Activity .
+
+:translationConfidence a owl:DatatypeProperty ;
+    rdfs:domain prov:Generation .
+
+:bench_banco-trans prov:qualifiedGeneration [
+     a prov:Generation ;
+     prov:activity :humanTranslationActivity ;
+     :translationConfidence 1.0 ;
+] .
+
+:bench_banco-trans prov:qualifiedGeneration [
+     a prov:Generation ;
+     prov:activity :executionOfMyAlgorithm ;
+     :translationConfidence 0.3 ;
+] .

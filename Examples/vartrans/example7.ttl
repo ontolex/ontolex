@@ -12,6 +12,7 @@
       ontolex:language "de";
       ontolex:sense :postleitzahl_sense.
 
-:postleitzahl:sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
+:postleitzahl_sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
 
 :zip_code_sense vartrans:translation :postleitzahl_sense.
+

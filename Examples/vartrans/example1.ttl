@@ -2,6 +2,7 @@
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix isocat: <http://www.isocat.org/datacat/>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix : <#> .
 
 :fao a ontolex:LexicalEntry ;
@@ -10,7 +11,7 @@
 
 :food_and_agriculture_organization a ontolex:LexicalEntry;
      ontolex:sense [ ontolex:reference <http://dbpedia.org/resource/Food_and_Agriculture_Organization> ] ;
-     ontolex:lexicalForm :food_agriculture_organization_form.
+     ontolex:lexicalForm :food_and_agriculture_organization_form.
 
 :fao_form ontolex:writtenRep "FAO"@en .
 :food_and_agriculture_organization_form ontolex:writtenRep "Food and Agriculture Organisation"@en .
@@ -18,5 +19,8 @@
 :fao_initialism a vartrans:LexicalRelation ;
       vartrans:source :food_and_agriculture_organization ; 
       vartrans:target :fao ;
-      vartrans:category <http://www.isocat.org/rest/dc/333> .
+      vartrans:category :initialism.
+
+:initialism owl:sameAs <http://www.isocat.org/rest/dc/333> .
+
 

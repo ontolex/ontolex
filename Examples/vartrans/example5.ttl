@@ -18,6 +18,5 @@
       ontolex:language "de";
       ontolex:sense :leihmutter_sense.
 
-:surrogate_mother_sense ontolex:reference <http://dbpedia.org/resource/Surrogacy>.
-
+:leihmutter_sense ontolex:reference <http://dbpedia.org/resource/Surrogacy>.
 
