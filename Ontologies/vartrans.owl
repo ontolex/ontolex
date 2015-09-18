@@ -65,6 +65,17 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#member -->
+
+    <owl:ObjectProperty rdf:about="&vartrans;member">
+        <rdfs:label xml:lang="en">member</rdfs:label>
+        <rdfs:comment xml:lang="en">The property &apos;member&apos; relates a TranslationSet to one of its translations.</rdfs:comment>
+        <rdfs:range rdf:resource="&vartrans;Translation"/>
+        <rdfs:domain rdf:resource="&vartrans;TranslationSet"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#relates -->
 
     <owl:ObjectProperty rdf:about="&vartrans;relates">
@@ -256,6 +267,15 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;translation&apos; is a &apos;sense relation&apos; expressing that two lexical senses corresponding to two lexical entries in different languages can be translated to each other without any major meaning shifts.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#TranslationSet -->
+
+    <owl:Class rdf:about="&vartrans;TranslationSet">
+        <rdfs:label xml:lang="en">translation set</rdfs:label>
+        <rdfs:comment xml:lang="en">A &apos;translation set&apos; is a set of translations that have some common source.</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 

@@ -97,6 +97,10 @@
         <rdfs:comment xml:lang="en">The &apos;objOfProp&apos; represents the 2nd argument or object of a binary predicate (property) in the ontology.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:subPropertyOf rdf:resource="&synsem;ontoCorrespondence"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&synsem;ontoMapping"/>
+            <rdf:Description rdf:about="&synsem;objOfProp"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -108,6 +112,25 @@
         <rdfs:comment xml:lang="en">The &apos;ontoCorrespondence&apos; property binds an argument of a predicate defined in the ontology to a syntactic argument that realizes this predicate argument syntactically.
 </rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontolex;LexicalSense"/>
+                    <rdf:Description rdf:about="&synsem;OntoMap"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/synsem.owl#ontoMapping -->
+
+    <owl:ObjectProperty rdf:about="&synsem;ontoMapping">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:comment xml:lang="en">The &apos;ontoMapping&apos;  property relates an ontology mapping to its corresponding lexical sense.</rdfs:comment>
+        <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
         <rdfs:domain rdf:resource="&synsem;OntoMap"/>
     </owl:ObjectProperty>
     
@@ -152,6 +175,10 @@
         <rdfs:comment xml:lang="en">The &apos;subjOfProp&apos; property represents the 1st argument or subject of a binary predicate (property) in the ontology.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:subPropertyOf rdf:resource="&synsem;ontoCorrespondence"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&synsem;ontoMapping"/>
+            <rdf:Description rdf:about="&synsem;subjOfProp"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -238,7 +265,6 @@
 
     <owl:Class rdf:about="&synsem;OntoMap">
         <rdfs:label xml:lang="en">ontology mapping</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&ontolex;LexicalSense"/>
         <rdfs:comment xml:lang="en">An &apos;ontology mapping&apos; (OntoMap for short) specifies how a syntactic frame and its syntactic arguments map to a set of concepts and properties in the ontology that together specify the meaning of the syntactic frame.</rdfs:comment>
     </owl:Class>
     
