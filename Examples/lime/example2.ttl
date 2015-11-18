@@ -5,13 +5,11 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix loc: <http://id.loc.gov/vocabulary/iso639-2/>.
-@prefix lexvo: <http://lexvo.org/id/iso639-1/>.
 @prefix voaf: <http://purl.org/vocommons/voaf#>.
 
 :Lexicalization a lime:LexicalizationSet ;
   ontolex:language "ja" ;
-  dct:language loc:ja, lexvo:jpn ;
+  dct:language  <http://id.loc.gov/vocabulary/iso639-1/ja>, <http://lexvo.org/id/iso639-3/jpn> ;
   lime:lexicalizationModel <http://www.w3.org/ns/lemon/all> ;
   lime:referenceDataset <http://www.example.com/ontology> ;
   lime:lexiconDataset <http://www.example.com/lexicon> ;
@@ -21,11 +19,10 @@
 <http://www.example.com/ontology> a owl:Ontology, voaf:Vocabulary, void:Dataset ;
   void:entities 100 ;
   voaf:classNumber 60 ;
-  voaf:propertyNumber 40
-  .
+  voaf:propertyNumber 40 .
 
 <http://www.example.com/lexicon> a ontolex:Lexicon ;
   ontolex:language "ja" ;
-  dct:language loc:ja, lexvo:jpn ;
+  dct:language  <http://id.loc.gov/vocabulary/iso639-1/ja>, <http://lexvo.org/id/iso639-3/jpn> ;
   lime:lexicalEntries 80 .
 

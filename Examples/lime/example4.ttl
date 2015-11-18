@@ -9,5 +9,3 @@
 :CountryPartition
   lime:resourceType ontology:Country ;
   lime:references 50 .
-
-
