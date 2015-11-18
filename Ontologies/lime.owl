@@ -50,9 +50,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#conceptualDataset">
         <rdfs:label xml:lang="en">conceptual dataset</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;conceptual dataset&apos; property relates a lexical link set or a conceptualization set to a corresponding concept set.
-
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;conceptual dataset&apos; property relates a lexical link set or a conceptualization set to a corresponding concept set.</rdfs:comment>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
         <rdfs:range rdf:resource="&ontolex;ConceptSet"/>
         <rdfs:domain>
@@ -71,9 +69,11 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#lexicalizationModel">
         <rdfs:label xml:lang="en">lexicalization model</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&void;vocabulary"/>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">The &apos;lexicalization model&apos; property indicates the model used for representing lexical information. Possible values include (but are not limited to) http://www.w3.org/2000/01/rdf-schema# (for the use of rdfs:label), http://www.w3.org/2004/02/skos/core (for the use of skos:pref/alt/hiddenLabel), http://www.w3.org/2008/05/skos-xl (for the use of skosxl:pref/alt/hiddenLabel) and http://www.w3.org/ns/lemon/all for lemon.</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
+        <rdfs:range rdf:resource="&rdfs;Resource"/>
     </owl:ObjectProperty>
     
 
@@ -83,7 +83,7 @@
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#lexiconDataset">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">lexicon dataset</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;lexicon dataset&apos; property indicates the lexicon that contains the entries refered to in a lexicalization set or a conceptualization set. </rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;lexicon dataset&apos; property indicates the lexicon that contains the entries refered to in a lexicalization set or a conceptualization set.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
         <rdfs:range rdf:resource="&ontolex;Lexicon"/>
@@ -95,7 +95,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#linguisticModel">
         <rdfs:label xml:lang="en">linguistic model</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;linguistic model&apos; property indicates the catalog of linguistic categories used in a lexicon to define linguistic properties of lexical entries. </rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&void;vocabulary"/>
+        <rdfs:comment xml:lang="en">The &apos;linguistic model&apos; property indicates the catalog of linguistic categories used in a lexicon to define linguistic properties of lexical entries.</rdfs:comment>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
         <rdfs:domain rdf:resource="&ontolex;Lexicon"/>
     </owl:ObjectProperty>
@@ -106,6 +107,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#partition">
         <rdfs:label xml:lang="en">partition</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&void;subset"/>
         <rdfs:comment xml:lang="en">The &apos;partition&apos; property relates a lexicalization set or lexical linkset to a logical subset that contains lexicalizations for a given ontological type only.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
         <rdfs:domain>
@@ -218,9 +220,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/lemon/lime#avgSynonymy">
         <rdfs:label xml:lang="en">average synonymy</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;average synonymy&apos; property indicates the average number of lexical entries evoking each lexical concept in the concept set.
-
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;average synonymy&apos; property indicates the average number of lexical entries evoking each lexical concept in the concept set.</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -260,7 +260,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/lemon/lime#lexicalEntries">
         <rdfs:label xml:lang="en">lexical entries</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;lexical entries&apos; property indicates the number of distinct lexical entries contained in a lexicon or lexicalization set. </rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;lexical entries&apos; property indicates the number of distinct lexical entries contained in a lexicon or lexicalization set.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;integer"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
         <rdfs:domain>
@@ -410,9 +410,7 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A lexical linkset represents a collection of links between a reference dataset and a set of lexical concepts (e.g. synsets of a wordnet).
-
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">A lexical linkset represents a collection of links between a reference dataset and a set of lexical concepts (e.g. synsets of a wordnet).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
     </owl:Class>
     
