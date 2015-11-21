@@ -1,7 +1,7 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix lime: <http://www.w3.org/ns/lemon/lime#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dct: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix lexinfo: <http://www.lexinfo.net/ontologies/2.0/lexinfo>.
 @prefix : <#> .
