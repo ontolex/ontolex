@@ -1,10 +1,8 @@
 @prefix : <> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix lime: <http://www.w3.org/ns/lemon/lime#> .
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix void: <http://rdfs.org/ns/void#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
 
 :Lexicalization a lime:LexicalizationSet ;
   lime:lexicalizations 20 ;
