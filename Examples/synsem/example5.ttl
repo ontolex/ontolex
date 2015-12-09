@@ -11,7 +11,7 @@
     lexinfo:partOfSpeech lexinfo:verb ;
     ontolex:canonicalForm :operate_form;
     synsem:synBehavior :operate_intransitivepp;
-    ontolex:sense :operate_ontomap.
+    ontolex:sense :operate_sense.
 
 :operate_form a ontolex:Form;
    ontolex:writtenRep "operate"@en.
@@ -20,8 +20,11 @@
    lexinfo:subject :operate_subj ;
    lexinfo:prepositionalArg :operate_pobj.
 
+:operate_sense a ontolex:LexicalSense;
+   ontolex:reference <http://dbpedia.org/ontology/regionServed>.
+
 :operate_ontomap a synsem:OntoMap;
-   ontolex:reference <http://dbpedia.org/ontology/regionServed>;
+   synsem:ontoMapping :operate_sense;
    ontolex:subjOfProp :operate_subj;
    ontolex:objOfProp :operate_pobj.
  
