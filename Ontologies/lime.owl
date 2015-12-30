@@ -76,14 +76,6 @@
     
 
 
-    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
-
-    <rdf:Description rdf:about="&owl;topObjectProperty">
-        <rdfs:comment xml:lang="en">The &apos;metadata&apos; property related a lexicon to the resource representing metadata about the lexicon.</rdfs:comment>
-    </rdf:Description>
-    
-
-
     <!-- http://www.w3.org/ns/lemon/lime#conceptualDataset -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#conceptualDataset">
@@ -148,16 +140,6 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/lime#metadata -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#metadata">
-        <rdfs:label xml:lang="en">metadata</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;metadata&apos; property relates a lexicon to the resource representing metadata about the lexicon.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.w3.org/ns/lemon/lime#partition -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#partition">
@@ -165,14 +147,6 @@
         <rdfs:comment xml:lang="en">The &apos;partition&apos; property relates a lexicalization set or lexical linkset to a logical subset that contains lexicalizations for a given ontological type only.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&void;subset"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#LexicalLinkset"/>
-                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -181,6 +155,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#LexicalLinkset"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -440,13 +422,6 @@
         <rdfs:subClassOf rdf:resource="&void;Linkset"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#referenceDataset"/>
-                <owl:onClass rdf:resource="&void;Dataset"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#conceptualDataset"/>
                 <owl:onClass rdf:resource="&ontolex;ConceptSet"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -456,6 +431,13 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#partition"/>
                 <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalLinkset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#referenceDataset"/>
+                <owl:onClass rdf:resource="&void;Dataset"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A lexical linkset represents a collection of links between a reference dataset and a set of lexical concepts (e.g. synsets of a wordnet).</rdfs:comment>
@@ -471,12 +453,6 @@
         <rdfs:subClassOf rdf:resource="&void;Dataset"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#lexicalizationModel"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#partition"/>
                 <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
             </owl:Restriction>
@@ -486,6 +462,12 @@
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#referenceDataset"/>
                 <owl:onClass rdf:resource="&void;Dataset"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#lexicalizationModel"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;lexicalization set&apos; is a dataset that comprises a collection of lexicalizations, that is pairs of lexical entry and corresponding reference in the associated ontology/vocabulary/dataset.</rdfs:comment>
@@ -514,6 +496,20 @@
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A lexicon represents a collection of lexical entries for a particular language or domain.</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&owl;topObjectProperty">
+        <rdfs:comment xml:lang="en">The &apos;metadata&apos; property related a lexicon to the resource representing metadata about the lexicon.</rdfs:comment>
+    </rdf:Description>
 </rdf:RDF>
 
 
