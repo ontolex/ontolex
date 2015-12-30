@@ -103,6 +103,17 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/lime#entry -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#entry">
+        <rdfs:label xml:lang="en">entry</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;entry&apos; property relates a lexicon to one of the lexical entries contained in it.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#lexicon"/>
+        <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/lime#lexicalizationModel -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#lexicalizationModel">
@@ -165,14 +176,6 @@
         <rdfs:comment xml:lang="en">The &apos;partition&apos; property relates a lexicalization set or lexical linkset to a logical subset that contains lexicalizations for a given ontological type only.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&void;subset"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#LexicalLinkset"/>
-                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -181,6 +184,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#LexicalLinkset"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -307,6 +318,15 @@
         <rdfs:comment xml:lang="en">The &apos;conceptualizations&apos; property indicates the number of distinct conceptualizations in a conceptualization set.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;integer"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#ConceptualizationSet"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#language -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/lemon/lime#language">
+        <rdfs:label xml:lang="en">language</rdfs:label>
+        <rdfs:comment xml:lang="en">The  &apos;language&apos; property indicates the language of a lexicon, a lexical entry, a concept set or a lexicalization set.</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -448,12 +468,6 @@
         <rdfs:subClassOf rdf:resource="&void;Linkset"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#partition"/>
-                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalLinkset"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#referenceDataset"/>
                 <owl:onClass rdf:resource="&void;Dataset"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -464,6 +478,12 @@
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#conceptualDataset"/>
                 <owl:onClass rdf:resource="&ontolex;ConceptSet"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#partition"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalLinkset"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A lexical linkset represents a collection of links between a reference dataset and a set of lexical concepts (e.g. synsets of a wordnet).</rdfs:comment>
@@ -478,6 +498,12 @@
         <rdfs:subClassOf rdf:resource="&void;Dataset"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#lexicalizationModel"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#lexiconDataset"/>
                 <owl:onClass rdf:resource="&ontolex;Lexicon"/>
                 <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
@@ -485,21 +511,15 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#partition"/>
-                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#lexicalizationModel"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#referenceDataset"/>
                 <owl:onClass rdf:resource="&void;Dataset"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#partition"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;lexicalization set&apos; is a dataset that comprises a collection of lexicalizations, that is pairs of lexical entry and corresponding reference in the associated ontology/vocabulary/dataset.</rdfs:comment>
@@ -514,6 +534,29 @@
         <rdfs:label>lexicon metadata</rdfs:label>
         <rdfs:subClassOf rdf:resource="&void;Dataset"/>
         <rdfs:comment xml:lang="en">The class &apos;Lexicon Metadata&apos; captures metadata about a lexicon.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lime#lexicon -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/lemon/lime#lexicon">
+        <rdfs:label xml:lang="en">lexicon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&void;Dataset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#entry"/>
+                <owl:onClass rdf:resource="&ontolex;LexicalEntry"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/lemon/lime#language"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A lexicon represents a collection of lexical entries for a particular language or domain.</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 

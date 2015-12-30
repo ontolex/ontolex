@@ -160,6 +160,28 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#translationConfidence -->
+
+    <owl:DatatypeProperty rdf:about="&vartrans;translationConfidence">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">translation confidence</rdfs:label>
+        <rdfs:comment xml:lang="en">The &apos;translationConfidence&apos; property indicates the confidence of some generation process in the generated translation.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
