@@ -1,28 +1,38 @@
-@prefix : <> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix void: <http://rdfs.org/ns/void#> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix voaf: <http://purl.org/vocommons/voaf#>.
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontologies/2.0/lexinfo>.
+@prefix : <#> .
 
-:Lexicalization a lime:LexicalizationSet ;
-  ontolex:language "ja" ;
-  dct:language  <http://id.loc.gov/vocabulary/iso639-1/ja>, <http://lexvo.org/id/iso639-3/jpn> ;
-  lime:lexicalizationModel <http://www.w3.org/ns/lemon/all> ;
-  lime:referenceDataset <http://www.example.com/ontology> ;
-  lime:lexiconDataset <http://www.example.com/lexicon> ;
-  lime:references 20 ;
-  lime:lexicalEntries 50 .
-
-<http://www.example.com/ontology> a owl:Ontology, voaf:Vocabulary, void:Dataset ;
-  void:entities 100 ;
-  voaf:classNumber 60 ;
-  voaf:propertyNumber 40 .
-
-<http://www.example.com/lexicon> a ontolex:Lexicon ;
-  ontolex:language "ja" ;
-  dct:language  <http://id.loc.gov/vocabulary/iso639-1/ja>, <http://lexvo.org/id/iso639-3/jpn> ;
-  lime:lexicalEntries 80 .
+:lexicon a ontolex:Lexicon, lime:LexiconMetadata;
+   ontolex:language "en";
+   dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
+   lime:lexicalEntries "4"^^xsd:integer;                                               
+   lime:linguisticCatalog <http://www.lexinfo.net/ontologies/2.0/lexinfo> ;
+   dct:description "This is an example lexicon"@en;                              
+   dct:description "Questo è un lessico di esempio"@it;                          
+   dct:creator <http://john.mccr.ae/>;                                           
+   void:triples "29"^^xsd:integer ;                                                       
+   ontolex:entry :lex_high;                                                     
+   ontolex:entry :lex_cat;                                                      
+   ontolex:entry :lex_marry;                                                    
+   ontolex:entry :lex_intangible_assets.     
+                                                                                
+:lex_cat a ontolex:LexicalEntry, lexinfo:Noun;                                                
+   ontolex:canonicalForm :form_cat .
+:form_cat ontolex:writtenRep "cat"@en .                                          
+                                                                                
+:lex_marry a ontolex:LexicalEntry, lexinfo:Verb;                                              
+   ontolex:canonicalForm :form_marry .                    
+:form_marry ontolex:writtenRep "marry"@en .                                     
+                                                                                
+:lex_high a ontolex:LexicalEntry, lexinfo:Adjective;                                               
+   ontolex:canonicalForm :form_high .                   
+:form_high ontolex:writtenRep "high"@en .                                       
+                                                                                
+:lex_intangible_assets a ontolex:LexicalEntry, lexinfo:Noun;                               
+  ontolex:canonicalForm :form_intangible_assets .               
+:form_intangible_assets ontolex:writtenRep "intangible assets"@en . 
 

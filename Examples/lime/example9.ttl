@@ -1,0 +1,46 @@
+@prefix : <> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix loc: <http://id.loc.gov/vocabulary/iso639-2/>.
+@prefix lexvo: <http://lexvo.org/id/iso639-1/>.
+@prefix voaf: <http://purl.org/vocommons/voaf#>.
+
+:FOAFEnglishLexicon a ontolex:Lexicon ;
+  void:dataDump <http://example.org/.../foaf-eng-lexicon.ttl> ;
+  void:triples 127 ;
+  ontolex:language "en" ;
+  dct:language loc:eng, lexvo:eng ;
+  lime:linguisticModel <http://www.lexinfo.net/ontologies/2.0/lexinfo> ;
+  lime:lexicalEntries 15 ;
+  void:subset :EnglishLexicalizationSet
+  .
+
+:EnglishLexicalizationSet a lime:LexicalizationSet ;
+  lime:language "en" ;
+  ontolex:language "en" ;
+  dct:language loc:eng, lexvo:eng ;
+  lime:lexicalizationModel <http://www.w3.org/ns/lemon/ontolex> ;
+  lime:referenceDataset :VocabularyFOAF ;
+  lime:lexiconDataset :FOAFEnglishLexicon ;
+  lime:references 13 ;
+  lime:lexicalEntries 15 ;
+  lime:lexicalizations 15 ; 
+  lime:percentage 0.173 ;
+  lime:avgNumOfLexicalizations 0.2 ;
+  lime:partition :EnglishLexicalizationSetForClasses ;
+  lime:subset :EnglishLexicalizationSetForClasses
+  .
+  
+:EnglishLexicalizationSetForClasses a lime:LexicalizationSet ;
+  lime:references 13 ;
+  lime:lexicalEntries 15 ;
+  lime:lexicalizations 15 ;
+  # Every class has at least one lexicalization
+  lime:percentage 1.0 ;
+  # 11 classes have 1 lexicalization, 2 classess have 2 lexicalicazions
+  lime:avgNumOfLexicalizations 1.15
+  .

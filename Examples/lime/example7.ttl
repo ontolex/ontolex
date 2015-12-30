@@ -1,77 +1,20 @@
-@prefix : <> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix void: <http://rdfs.org/ns/void#> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix loc: <http://id.loc.gov/vocabulary/iso639-2/>.
-@prefix lexvo: <http://lexvo.org/id/iso639-1/>.
-@prefix voaf: <http://purl.org/vocommons/voaf#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix : <#> .
 
-# FOAF defines 13 classes and 62 properties (27 datatype props, 34 object props, 1 annotation prop) 
-:VocabularyFOAF a voaf:Vocabulary ;
-  foaf:homepage <http://www.foaf-project.org/> ;
-  void:dataDump <http://xmlns.com/foaf/spec/index.rdf> ;
-  void:uriSpace "http://xmlns.com/foaf/0.1/"^^xsd:string ;
-  void:triples 631 ;
-  voaf:classNumber 13 ;
-  voaf:propertyNumber 62 ;
-  # A known lexicalization that is embedded within the FOAF vocabulary
-  lime:lexicalization :EmbeddedRDFSEnglishLexicalizationSet ;
-  void:subset :EmbeddedRDFSEnglishLexicalizationSet .
-
-:EmbeddedRDFSEnglishLexicalizationSet a lime:LexicalizationSet ;
-  ontolex:language "en" ;
-  dct:language loc:en, lexvo:eng ;
-  lime:referenceDataset :VocabularyFOAF ;
-  lime:lexicalizationModel <http://www.w3.org/2000/01/rdf-schema#> ;
-  # the number of owl:Things that are lexicalized. This datum does not reflect that
-  # in fact they are only a fraction of the owl:Things in the referenceDataset.
-  lime:references 75 ;
-  lime:lexicalizations 75 ;
-  lime:percentage 1.0;
-  lime:avgNumOfLexicalizations 1.0
+:WnConceptualizationSet a lime:ConceptualizationSet ;
+  lime:conceptualDataset :WnConceptSet ;
+  lime:lexiconDataset :WnLexicon ;
+  lime:lexicalEntries "155287"^^xsd:integer ;
+  lime:concepts "117659"^^xsd:integer ;
+  lime:conceptualizations "206941"^^xsd:integer ;
+  lime:avgAmbiguity "1.33"^^xsd:decimal ;
+  lime:avgSynonymy "1.76"^^xsd:decimal
   .
 
-:EmbeddedRDFSEnglishLexicalizationSetForClasses a lime:LexicalizationSet ;
-  lime:resourceType owl:Class ;
-  lime:references 13 ;      
-  lime:lexicalizations 13 ; 
-  lime:percentage 1.0 ; 
-  lime:avgNumOfLexicalizations 1.0
-  .
+:WnConceptSet a ontolex:ConceptSet ;
+  lime:concepts "117659"^^xsd:integer .
 
-:EmbeddedRDFSEnglishLexicalizationSetForProperties a lime:LexicalizationSet ;
-  lime:resourceType rdf:Property ;
-  lime:references 62 ;
-  lime:lexicalizations 62 ;
-  lime:percentage 1.0 ; 
-  lime:avgNumOfLexicalizations 1.0
-  . 
-
-:EmbeddedRDFSEnglishLexicalizationSetForDatatypeProperties a lime:LexicalizationSet ;
-  lime:resourceType owl:DatatypeProperty ;
-  lime:references 27 ;      
-  lime:lexicalizations 27 ;
-  lime:percentage 1.0 ; 
-  lime:avgNumOfLexicalizations 1.0
-  .
-
-:EmbeddedRDFSEnglishLexicalizationSetForObjectProperties a lime:LexicalizationSet ;
-  lime:resourceType owl:ObjectProperty ;
-  lime:references 34 ;
-  lime:lexicalizations 34 ;
-  lime:percentage 1.0 ; 
-  lime:avgNumOfLexicalizations 1.0 
-  .
-
-:EmbeddedRDFSEnglishLexicalizationSetForAnnotationProperties a lime:LexicalizationSet ;
-  lime:resourceType owl:AnnotationProperty ;
-  lime:references 1 ;      
-  lime:lexicalizations 1 ;
-  lime:percentage 1.0 ; 
-  lime:avgNumOfLexicalizations 1.0
-  .
+:WnLexicon a ontolex:Lexicon ;
+  lime:lexicalEntries "155287"^^xsd:integer .

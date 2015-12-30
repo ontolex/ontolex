@@ -1,20 +1,10 @@
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix lime: <http://www.w3.org/ns/lemon/lime#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix : <#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <> .
 
-:WnConceptualizationSet a lime:ConceptualizationSet ;
-  lime:conceptualDataset :WnConceptSet ;
-  lime:lexiconDataset :WnLexicon ;
-  lime:lexicalEntries "155287"^^xsd:integer ;
-  lime:concepts "117659"^^xsd:integer ;
-  lime:conceptualizations "206941"^^xsd:integer ;
-  lime:avgAmbiguity "1.33"^^xsd:decimal ;
-  lime:avgSynonymy "1.76"^^xsd:decimal
-  .
+:Lexicalization a lime:LexicalizationSet ;
+  lime:partition :ClassPartition .
 
-:WnConceptSet a ontolex:ConceptSet ;
-  lime:concepts "117659"^^xsd:integer .
-
-:WnLexicon a ontolex:Lexicon ;
-  lime:lexicalEntries "155287"^^xsd:integer .
+:ClassPartition
+  lime:resourceType owl:Class ;
+  lime:references 50 .
