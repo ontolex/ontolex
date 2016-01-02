@@ -24,7 +24,7 @@
   void:subset :EmbeddedRDFSEnglishLexicalizationSet .
 
 :EmbeddedRDFSEnglishLexicalizationSet a lime:LexicalizationSet ;
-  ontolex:language "en" ;
+  lime:language "en" ;
   dct:language loc:en, lexvo:eng ;
   lime:referenceDataset :VocabularyFOAF ;
   lime:lexicalizationModel <http://www.w3.org/2000/01/rdf-schema#> ;
@@ -33,16 +33,14 @@
   lime:references 75 ;
   lime:lexicalizations 75 ;
   lime:percentage 1.0;
-  lime:avgNumOfLexicalizations 1.0
-  .
+  lime:avgNumOfLexicalizations 1.0.
 
 :EmbeddedRDFSEnglishLexicalizationSetForClasses a lime:LexicalizationSet ;
   lime:resourceType owl:Class ;
   lime:references 13 ;      
   lime:lexicalizations 13 ; 
   lime:percentage 1.0 ; 
-  lime:avgNumOfLexicalizations 1.0
-  .
+  lime:avgNumOfLexicalizations 1.0.
 
 :EmbeddedRDFSEnglishLexicalizationSetForProperties a lime:LexicalizationSet ;
   lime:resourceType rdf:Property ;
@@ -57,21 +55,18 @@
   lime:references 27 ;      
   lime:lexicalizations 27 ;
   lime:percentage 1.0 ; 
-  lime:avgNumOfLexicalizations 1.0
-  .
+  lime:avgNumOfLexicalizations 1.0.
 
 :EmbeddedRDFSEnglishLexicalizationSetForObjectProperties a lime:LexicalizationSet ;
   lime:resourceType owl:ObjectProperty ;
   lime:references 34 ;
   lime:lexicalizations 34 ;
   lime:percentage 1.0 ; 
-  lime:avgNumOfLexicalizations 1.0 
-  .
+  lime:avgNumOfLexicalizations 1.0.
 
 :EmbeddedRDFSEnglishLexicalizationSetForAnnotationProperties a lime:LexicalizationSet ;
   lime:resourceType owl:AnnotationProperty ;
   lime:references 1 ;      
   lime:lexicalizations 1 ;
   lime:percentage 1.0 ; 
-  lime:avgNumOfLexicalizations 1.0
-  .
+  lime:avgNumOfLexicalizations 1.0.

@@ -8,7 +8,7 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#>.
 
 :Lexicalization a lime:LexicalizationSet ;
-  ontolex:language "ja" ;
+  lime:language "ja";
   dct:language  <http://id.loc.gov/vocabulary/iso639-1/ja>, <http://lexvo.org/id/iso639-3/jpn> ;
   lime:lexicalizationModel <http://www.w3.org/ns/lemon/all> ;
   lime:referenceDataset <http://www.example.com/ontology> ;
