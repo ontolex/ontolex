@@ -6,7 +6,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 :comunidad_autonoma_lex a ontolex:LexicalEntry ;
-  ontolex:language "es";
   decomp:constituent :comunidad_component;
   rdf:_1             :comunidad_component; 
   decomp:constituent :autonoma_component;
