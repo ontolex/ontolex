@@ -25,7 +25,7 @@
 
 :EmbeddedRDFSEnglishLexicalizationSet a lime:LexicalizationSet ;
   lime:language "en" ;
-  dct:language loc:en, lexvo:eng ;
+  dct:language  <http://id.loc.gov/vocabulary/iso639-1/eng>, <http://lexvo.org/id/iso639-3/en> ;
   lime:referenceDataset :VocabularyFOAF ;
   lime:lexicalizationModel <http://www.w3.org/2000/01/rdf-schema#> ;
   # the number of owl:Things that are lexicalized. This datum does not reflect that

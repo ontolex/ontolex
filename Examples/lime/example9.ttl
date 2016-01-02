@@ -9,11 +9,11 @@
 @prefix lexvo: <http://lexvo.org/id/iso639-1/>.
 @prefix voaf: <http://purl.org/vocommons/voaf#>.
 
-:FOAFEnglishLexicon a ontolex:Lexicon ;
+:FOAFEnglishLexicon a lime:Lexicon ;
   void:dataDump <http://example.org/.../foaf-eng-lexicon.ttl> ;
   void:triples 127 ;
-  ontolex:language "en" ;
-  dct:language loc:eng, lexvo:eng ;
+  lime:language "en" ;
+  dct:language  <http://id.loc.gov/vocabulary/iso639-1/eng>, <http://lexvo.org/id/iso639-3/en> ;
   lime:linguisticModel <http://www.lexinfo.net/ontologies/2.0/lexinfo> ;
   lime:lexicalEntries 15 ;
   void:subset :EnglishLexicalizationSet
@@ -21,8 +21,7 @@
 
 :EnglishLexicalizationSet a lime:LexicalizationSet ;
   lime:language "en" ;
-  ontolex:language "en" ;
-  dct:language loc:eng, lexvo:eng ;
+  dct:language  <http://id.loc.gov/vocabulary/iso639-1/eng>, <http://lexvo.org/id/iso639-3/en> ;
   lime:lexicalizationModel <http://www.w3.org/ns/lemon/ontolex> ;
   lime:referenceDataset :VocabularyFOAF ;
   lime:lexiconDataset :FOAFEnglishLexicon ;
