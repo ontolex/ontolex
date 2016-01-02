@@ -65,17 +65,6 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#member -->
-
-    <owl:ObjectProperty rdf:about="&vartrans;member">
-        <rdfs:label xml:lang="en">member</rdfs:label>
-        <rdfs:comment xml:lang="en">The property &apos;member&apos; relates a TranslationSet to one of its translations.</rdfs:comment>
-        <rdfs:range rdf:resource="&vartrans;Translation"/>
-        <rdfs:domain rdf:resource="&vartrans;TranslationSet"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.w3.org/ns/lemon/vartrans.owl#relates -->
 
     <owl:ObjectProperty rdf:about="&vartrans;relates">
@@ -125,6 +114,17 @@
         <rdfs:comment xml:lang="en">The &apos;target&apos; property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a &apos;target&apos;.</rdfs:comment>
         <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;relates"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/vartrans.owl#trans -->
+
+    <owl:ObjectProperty rdf:about="&vartrans;trans">
+        <rdfs:label xml:lang="en">member</rdfs:label>
+        <rdfs:comment xml:lang="en">The property &apos;trans&apos; relates a TranslationSet to one of its translations.</rdfs:comment>
+        <rdfs:range rdf:resource="&vartrans;Translation"/>
+        <rdfs:domain rdf:resource="&vartrans;TranslationSet"/>
     </owl:ObjectProperty>
     
 
