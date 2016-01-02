@@ -3,13 +3,13 @@
 @prefix : <#> .
 
 :corner a ontolex:LexicalEntry;
-      ontolex:language "en".
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> .
  
 :rincón a ontolex:LexicalEntry;
-       ontolex:language "es".
+       dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> .
 
 :esquina a ontolex:LexicalEntry;
-       ontolex:language "es".
+       dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> .
 
 :corner vartrans:translatableAs :rincón.
 :corner vartrans:translatableAs :esquina.

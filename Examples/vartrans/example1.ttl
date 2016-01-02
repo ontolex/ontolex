@@ -14,7 +14,7 @@
      ontolex:lexicalForm :food_and_agriculture_organization_form.
 
 :fao_form ontolex:writtenRep "FAO"@en .
-:food_and_agriculture_organization_form ontolex:writtenRep "Food and Agriculture Organisation"@en .
+:food_and_agriculture_organization_form ontolex:writtenRep "Food and Agriculture Organization"@en .
 
 :fao_initialism a vartrans:LexicalRelation ;
       vartrans:source :food_and_agriculture_organization ; 

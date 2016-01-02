@@ -19,7 +19,7 @@
 
 :mother_sense ontolex:reference <http://dbpedia.org/ontology/mother>.
 
-:surrogate_mother_form ontolex:writtenRep "surrogate mother"@en .
+:mother_form ontolex:writtenRep "mother"@en .
 
 :senseRelation a vartrans:SenseRelation ;
       vartrans:source :surrogate_mother ;
