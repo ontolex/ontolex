@@ -7,7 +7,6 @@
 
 @prefix : <#> .
 
-
 :launch a ontolex:LexicalEntry ;
   lexinfo:partOfSpeech lexinfo:verb ;
   ontolex:canonicalForm :launch_canonical_form;
@@ -17,25 +16,23 @@
 :launch_canonical_form ontolex:writtenRep "launch"@en.
 
 :launch_transitive_pp a lexinfo:TransitivePPFrame;
- lexinfo:subject  :launch_subj ;
- lexinfo:directObject         :launch_dobj ;
- lexinfo:prepositionalAdjunct :launch_pAdj.
+ lexinfo:subject  :arg1 ;
+ lexinfo:directObject         :arg2 ;
+ lexinfo:prepositionalAdjunct :arg3.
 
 :launch_pAdj synsem:marker :in ;
              synsem:optional "true"^^xsd:boolean .
 
 
-:launch_sense a synsem:OntoMapping, a ontolex:LexicalSense;
+:launch_ontomap a synsem:SemanticFrame;
+   synsem:ontoMapping :launch_sense;
    synsem:submap :launch_submap1;
    synsem:submap :launch_submap2.
 
 :launch_submap1 ontolex:reference <http://dbpedia.org/ontology/product>;
-                                 synsem:subjOfProp :launch_subj;
-                                 synsem:objOfProp  :launch_dobj.
+                                 synsem:subjOfProp :arg1;
+                                 synsem:objOfProp  :arg2.
 
 :launch_submap2 ontolex:reference <http://dbpedia.org/ontology/launchDate>;
-                                 synsem:subjOfProp :launch_dobj;
-                                 synsem:objOfProp  :launch_pAdj.
-
-
-
+                                 synsem:subjOfProp :arg2;
+                                 synsem:objOfProp  :arg3.
