@@ -1,5 +1,5 @@
 
-# This example shows how to model a relational noun such as brother (of)
+# This example shows how to model a relational noun such as father (of)
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
@@ -23,7 +23,7 @@
    lexinfo:prepositionalArg :arg2.
 
 :father_sense a ontolex:LexicalSense;
-   ontolex:reference <http://dbpedia.org/ontology/father>;
+   ontolex:reference <http://dbpedia.org/ontology/father>.
 
 :father_ontomap a synsem:OntoMap;
    synsem:ontoMapping :father_sense; 
