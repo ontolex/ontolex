@@ -1,0 +1,16 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <#>.
+
+:female a ontolex:LexicalEntry; 
+  lexinfo:partOfSpeech lexinfo:adjective;
+  ontolex:canonicalForm :female_canonical_form;
+  ontolex:sense :female_sense.
+
+:female_canonical_form ontolex:writtenRep "female"@en.
+
+:female_sense ontolex:reference [
+    a owl:Restriction;
+    owl:onProperty <http://dbpedia.org/ontology/gender> ;
+    owl:hasValue <http://dbpedia.org/resource/Female> ] .

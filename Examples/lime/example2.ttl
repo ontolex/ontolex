@@ -13,7 +13,7 @@
    lime:linguisticCatalog <http://www.lexinfo.net/ontologies/2.0/lexinfo> ;
    dct:description "This is an example lexicon"@en;                              
    dct:description "Questo è un lessico di esempio"@it;                          
-   dct:creator <http://john.mccr.ae/>;                                           
+   dct:creator <http://john.mccr.ae>;                                           
    void:triples "29"^^xsd:integer ;                                                       
    ontolex:entry :lex_high;                                                     
    ontolex:entry :lex_cat;                                                      

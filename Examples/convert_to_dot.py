@@ -16,8 +16,8 @@ def make_name(n):
         i = s.rindex('#')
     if '/' in s:
         i = max(i, s.rindex('/'))
-    if s[i + 1].isdigit():
-        return "_" + s[i + 1:]
+    if i + 1 < len(s) and s[i + 1].isdigit():
+        return "Synset " + s[i + 1:]
     else:
         return s[i + 1:]
 
