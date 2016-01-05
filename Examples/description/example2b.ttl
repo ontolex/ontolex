@@ -1,0 +1,10 @@
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcr: <http://www.isocat.org/ns/dcr.rdf#> .
+
+
+lexinfo:noun
+  a lexinfo:PartOfSpeech, lexinfo:NounPOS ;
+  rdfs:label "noun"@en ;
+  rdfs:comment "Part of speech used to express the name of a person, place, action or thing."@en ;
+  dcr:datcat <http://www.isocat.org/datcat/DC-1333> .
