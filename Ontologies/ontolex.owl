@@ -307,7 +307,7 @@
 
     <owl:DatatypeProperty rdf:about="&ontolex;representation">
         <rdfs:label xml:lang="en">representation</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;representation&apos; property indicates a string by which the form is represented according to some scheme. </rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;representation&apos; property indicates a string by which the form is represented according to some orthography. </rdfs:comment>
         <rdfs:range rdf:resource="&rdf;langString"/>
         <rdfs:domain rdf:resource="&ontolex;Form"/>
     </owl:DatatypeProperty>
@@ -374,7 +374,7 @@
     <owl:Class rdf:about="&ontolex;Affix">
         <rdfs:label xml:lang="en">affix</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontolex;LexicalEntry"/>
-        <rdfs:comment xml:lang="en">An affix is a lexical entry that represents a morpheme (suffix, prefix, infix, circumfix, etc.) that is attached to a word stem to form a new word.
+        <rdfs:comment xml:lang="en">An affix is a lexical entry that represents a morpheme (suffix, prefix, infix, circumfix) that is attached to a word stem to form a new word.
 </rdfs:comment>
     </owl:Class>
     

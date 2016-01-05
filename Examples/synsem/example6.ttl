@@ -11,7 +11,7 @@
   lexinfo:partOfSpeech lexinfo:verb ;
   ontolex:canonicalForm :launch_canonical_form;
   synsem:synBehaviour :launch_transitive_pp;
-  ontolex:sense :launch_sense.
+  ontolex:sense :launch_sense_ontomap.
 
 :launch_canonical_form ontolex:writtenRep "launch"@en.
 
@@ -24,8 +24,8 @@
              synsem:optional "true"^^xsd:boolean .
 
 
-:launch_ontomap a synsem:SemanticFrame;
-   synsem:ontoMapping :launch_sense;
+:launch_sense_ontomap a ontolex:LexicalSense, synsem:OntoMap;
+   synsem:ontoMapping :launch_sense_ontomap;
    synsem:submap :launch_submap1;
    synsem:submap :launch_submap2.
 

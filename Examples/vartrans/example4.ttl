@@ -25,5 +25,3 @@
       vartrans:source :phthisis_sense ;
       vartrans:target :tuberculosis_sense ; 
       vartrans:category :diachronic.
-
-:diachronic owl:sameAs <http://www.isocat.org/rest/dc/3666>.
