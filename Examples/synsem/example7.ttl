@@ -4,15 +4,17 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix myontology: <http://myontology.org#>.
 
 @prefix : <#> .
+
 
 :give a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:verb ;
     ontolex:canonicalForm :give_form;
     synsem:synBehavior :give_ditransitive;
     synsem:synBehaviour :give_transitive_pp;
-    ontolex:sense :giving_ontomap.
+    ontolex:sense :giving_sense.
 
 :give_form a ontolex:Form;
    ontolex:writtenRep "give"@en.
@@ -27,29 +29,29 @@
    lexinfo:indirectObject :give_iobj2;
    lexinfo:directObject :give_dobj2.
 
+:giving_sense a ontolex:LexicalSense;
+   ontolex:reference <http://www.ontologyportal.org/SUMO.owl#Giving>.
+
 :giving_ontomap a synsem:OntoMap;
-   ontolex:reference <http://example.org/giving>;
+   synsem:ontoMapping :giving_sense;
    synsem:submap :giving_submap1;
    synsem:submap :giving_submap2;
    synsem:submap :giving_submap3.
  
-:giving_subframe1 ontolex:reference <http://example.org/giver>;
+:giving_submap1 ontolex:reference <http://www.ontologyportal.org/SUMO.owl#agent>;
                                  synsem:subjOfProp :giving_event;
                                  synsem:objOfProp  :give_subj1;
                                  synsem:objOfProp  :give_subj2.
 
-:giving_subframe2 ontolex:reference <http://example.org/given>;
+:giving_submap2 ontolex:reference <http://www.ontologyportal.org/SUMO.owl#patient>;
                                  synsem:subjOfProp :giving_event;
                                  synsem:objOfProp  :give_dobj2;
                                  synsem:objOfProp :give_dobj1.
 
-:giving_subframe3 ontolex:reference <http://example.org/receiver>;
+:giving_submap3 ontolex:reference <http://www.ontologyportal.org/SUMO.owl#destination>;
                                  synsem:subjOfProp :giving_event;
                                  synsem:objOfProp  :give_iobj2;
                                  synsem:objOfProp :give_pobj1.
 
 :give_pobj1 synsem:marker :to .
 
-<http://example.org/giver> rdfs:subProperty <http://example.org/agent>.
-<http://example.org/given> rdfs:subProperty <http://example.org/patient>.
-<http://example.org/receiver> rdfs:subProperty <http://example.org/beneficiary>.

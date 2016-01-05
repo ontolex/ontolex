@@ -2,9 +2,10 @@
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix isocat: <http://www.isocat.org/datacat/>.
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#>.
 @prefix : <#>.   
  
-:surrogate_mother a ontolex:LexicalEntry ;
+:surrogate_mother_lex a ontolex:LexicalEntry ;
      ontolex:sense :surrogate_mother_sense ;
      ontolex:canonicalForm :surrogate_mother_form.
 
@@ -12,15 +13,16 @@
 
 :surrogate_mother_form ontolex:writtenRep "surrogate mother"@en .
 
-:mother a ontolex:LexicalEntry ;
+:mother_lex a ontolex:LexicalEntry ;
      ontolex:sense :mother_sense ;
      ontolex:canonicalForm :mother_form.
 
 :mother_sense ontolex:reference <http://dbpedia.org/ontology/mother>.
 
-:surrogate_mother_form ontolex:writtenRep "surrogate mother"@en .
+:mother_form ontolex:writtenRep "mother"@en .
 
 :senseRelation a vartrans:SenseRelation ;
       vartrans:source :surrogate_mother ;
       vartrans:target :mother ; 
-      vartrans:category <http://www.lexinfo.net/ontology/2.0/lexinfo#hypernym> .
+      vartrans:category lexinfo:hypernym .
+

@@ -3,15 +3,16 @@
 @prefix : <#> .
 
 :zip_code a ontolex:LexicalEntry;
-      ontolex:language "en";
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
       ontolex:sense :zip_code_sense.
 
 :zip_code_sense ontolex:reference <http://dbpedia.org/ontology/zipCode>.
 
 :postleitzahl a ontolex:LexicalEntry;
-      ontolex:language "de";
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :postleitzahl_sense.
 
-:postleitzahl:sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
+:postleitzahl_sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
 
 :zip_code_sense vartrans:translation :postleitzahl_sense.
+

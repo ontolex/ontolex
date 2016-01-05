@@ -5,9 +5,8 @@
 @prefix : <#> .
 
 :comunidad_autonoma_lex a ontolex:LexicalEntry ;
-  ontolex:language "es";
   decomp:constituent :comunidad_component;
-  decomp:constituent :autonoma_comonent .
+  decomp:constituent :autonoma_component .
 
 :comunidad_component a decomp:Component;
      decomp:correspondsTo :comunidad_lex.

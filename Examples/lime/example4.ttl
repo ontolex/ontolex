@@ -1,13 +1,16 @@
 @prefix : <> .
 @prefix lime: <http://www.w3.org/ns/lemon/lime#> .
-@prefix ontology: <http://www.example.com/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
 
 :Lexicalization a lime:LexicalizationSet ;
-  lime:partition :CountryPartition ;
-  lime:references 2000 .
+  lime:lexicalizations 20 ;
+  lime:references 20 ;
+  lime:lexicalEntries 15 ;
+  lime:avgNumOfLexicalizations 0.66 ;
+  lime:referenceDataset <http://www.example.com/ontology> ;
+  lime:lexiconDataset <http://www.example.com/lexicon> .
 
-:CountryPartition
-  lime:resourceType ontology:Country ;
-  lime:references 50 .
-
-
+<http://www.example.com/ontology> a owl:Ontology, voaf:Vocabulary, void:Dataset ;
+  void:entities 30 .

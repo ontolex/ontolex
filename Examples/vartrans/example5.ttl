@@ -3,21 +3,20 @@
 @prefix : <#> .
 
 :surrogate_mother a ontolex:LexicalEntry;
-      ontolex:language "en";
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
       ontolex:sense :surrogate_mother_sense.
 
 :surrogate_mother_sense ontolex:reference <http://dbpedia.org/resource/Surrogacy>.
 
 :madre_de_alquiler a ontolex:LexicalEntry;
-      ontolex:language "es";
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> ;
       ontolex:sense :madre_de_alquiler_sense.
 
 :madre_de_alquiler_sense ontolex:reference <http://dbpedia.org/resource/Surrogacy>.
 
 :leihmutter a ontolex:LexicalEntry;
-      ontolex:language "de";
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :leihmutter_sense.
 
-:surrogate_mother_sense ontolex:reference <http://dbpedia.org/resource/Surrogacy>.
-
+:leihmutter_sense ontolex:reference <http://dbpedia.org/resource/Surrogacy>.
 

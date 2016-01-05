@@ -1,10 +1,11 @@
-@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix : <> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix ontology: <http://www.example.com/ontology#> .
 
 :Lexicalization a lime:LexicalizationSet ;
-  lime:partition :ClassPartition .
+  lime:partition :CountryPartition ;
+  lime:references 2000 .
 
-:ClassPartition
-  lime:resourceType owl:Class ;
+:CountryPartition
+  lime:resourceType ontology:Country ;
   lime:references 50 .

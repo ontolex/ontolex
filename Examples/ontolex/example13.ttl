@@ -1,12 +1,6 @@
 @prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-:lexicon a ontolex:Lexicon;
-   ontolex:language "en";
-   ontolex:entry :lex_high;
-   ontolex:entry :lex_cat;
-   ontolex:entry :lex_marry;
-   ontolex:entry :lex_intangible_assets.
-
+:die a ontolex:Word ;
+     ontolex:denotes <http://dbpedia.org/ontology/deathDate> ;
+     ontolex:evokes  :Dying .
