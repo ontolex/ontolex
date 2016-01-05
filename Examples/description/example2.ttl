@@ -10,8 +10,3 @@ lexinfo:partOfSpeech
   rdfs:range lexinfo:PartOfSpeech ;
   rdfs:subPropertyOf lexinfo:morphosyntacticProperty .
 
-lexinfo:noun
-  a lexinfo:PartOfSpeech, lexinfo:NounPOS ;
-  rdfs:label "noun"@en ;
-  rdfs:comment "Part of speech used to express the name of a person, place, action or thing."@en ;
-  dcr:datcat <http://www.isocat.org/datcat/DC-1333> .
