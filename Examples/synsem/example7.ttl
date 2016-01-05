@@ -1,12 +1,12 @@
-@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix myontology: <http://myontology.org#>.
+    @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+    @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+    @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+    @prefix owl: <http://www.w3.org/2002/07/owl#>.
+    @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+    @prefix myontology: <http://myontology.org#>.
 
-@prefix : <#> .
+    @prefix : <#> .
 
 
 :give a ontolex:LexicalEntry ; 
@@ -14,7 +14,7 @@
     ontolex:canonicalForm :give_form;
     synsem:synBehavior :give_ditransitive;
     synsem:synBehaviour :give_transitive_pp;
-    ontolex:sense :giving_sense.
+    ontolex:sense :giving_sense_ontomap.
 
 :give_form a ontolex:Form;
    ontolex:writtenRep "give"@en.
@@ -29,11 +29,10 @@
    lexinfo:indirectObject :give_iobj2;
    lexinfo:directObject :give_dobj2.
 
-:giving_sense a ontolex:LexicalSense;
-   ontolex:reference <http://www.ontologyportal.org/SUMO.owl#Giving>.
 
-:giving_ontomap a synsem:OntoMap;
-   synsem:ontoMapping :giving_sense;
+:giving_sense_ontomap a ontolex:LexicalSense, synsem:OntoMap;
+   synsem:ontoMapping :giving_sense_ontomap;
+   ontolex:reference <http://www.ontologyportal.org/SUMO.owl#Giving>;
    synsem:submap :giving_submap1;
    synsem:submap :giving_submap2;
    synsem:submap :giving_submap3.

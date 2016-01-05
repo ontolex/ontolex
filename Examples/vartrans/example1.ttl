@@ -6,12 +6,16 @@
 @prefix : <#> .
 
 :fao a ontolex:LexicalEntry ;
-     ontolex:sense [ ontolex:reference <http://dbpedia.org/resource/Food_and_Agriculture_Organization> ] ;
+     ontolex:sense :fao_sense; 
      ontolex:lexicalForm :fao_form.
 
+:fao_sense ontolex:reference <http://dbpedia.org/resource/Food_and_Agriculture_Organization> .
+
 :food_and_agriculture_organization a ontolex:LexicalEntry;
-     ontolex:sense [ ontolex:reference <http://dbpedia.org/resource/Food_and_Agriculture_Organization> ] ;
+     ontolex:sense :food_and_agriculture_organization_sense ;
      ontolex:lexicalForm :food_and_agriculture_organization_form.
+
+:food_and_agriculture_organization_sense ontolex:reference <http://dbpedia.org/resource/Food_and_Agriculture_Organization> .
 
 :fao_form ontolex:writtenRep "FAO"@en .
 :food_and_agriculture_organization_form ontolex:writtenRep "Food and Agriculture Organization"@en .
@@ -20,7 +24,3 @@
       vartrans:source :food_and_agriculture_organization ; 
       vartrans:target :fao ;
       vartrans:category :initialism.
-
-:initialism owl:sameAs <http://www.isocat.org/rest/dc/333> .
-
-

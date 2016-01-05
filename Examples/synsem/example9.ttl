@@ -8,7 +8,7 @@
 :ride a ontolex:LexicalEntry ;
   ontolex:sense :ride_sense1 .
 
-:ride_sense1 a synsem:SemanticFrame ;
+:ride_sense1 a ontolex:SemanticFrame ;
   ontolex:reference :methodOfTransportation ;
   synsem:propertyRange :Bicycle ;
   synsem:semArg :subj, :obj .

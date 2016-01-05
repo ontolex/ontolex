@@ -13,7 +13,7 @@
     lexinfo:partOfSpeech lexinfo:noun ;
     ontolex:canonicalForm :father_form;
     synsem:synBehaviour :father_of_nounpp;
-    ontolex:sense :father_sense.
+    ontolex:sense :father_sense_ontomap.
 
 :father_form a ontolex:Form;
     ontolex:writtenRep "father"@en.
@@ -22,14 +22,10 @@
    lexinfo:subject :arg1;
    lexinfo:prepositionalArg :arg2.
 
-:father_sense a ontolex:LexicalSense;
-   ontolex:reference <http://dbpedia.org/ontology/father>.
-
-:father_ontomap a synsem:OntoMap;
-   synsem:ontoMapping :father_sense; 
+:father_sense_ontomap a synsem:OntoMap, ontolex:LexicalSense;
+   ontolex:ontoMapping :father_sense_ontomap;
+   ontolex:reference <http://dbpedia.org/ontology/father>;
    ontolex:subjOfProp :arg2;
    ontolex:objOfProp :arg1.
 
 :arg2 synsem:marker :of .
-
-
