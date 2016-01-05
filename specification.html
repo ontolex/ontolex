@@ -1342,7 +1342,7 @@ pwn:102124272-n
 
 :giving_sense_ontomap a ontolex:LexicalSense, synsem:OntoMap;
    synsem:ontoMapping :giving_sense_ontomap;
-   ontolex:reference &lt;http://www.ontologyportal.org/SUMO.owl#Giving&gt;.
+   ontolex:reference &lt;http://www.ontologyportal.org/SUMO.owl#Giving&gt;;
    synsem:submap :giving_submap1;
    synsem:submap :giving_submap2;
    synsem:submap :giving_submap3.
@@ -2428,7 +2428,9 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 </div>
 </div>
 <p>Finally, the percentage property may be used to express the percentage of entities in an ontology which are lexicalized, formally:</p>
-<p><em>percentage = | { o ∈ Ontology | ∃ l LexicalEntry(l) &amp; (o,l) ∈ LexicalizationSet } | &amp;nbsp;&amp;nbsp;/&amp;nbsp;&amp;nbsp; | Ontology |</em></p>
+<div class="figure">
+<img src="percentage.png" title="percentage.png" alt="percentage.png" /><p class="caption">percentage.png</p>
+</div>
 <div class='entity'>
 <h3>
 <p>Percentage (Datatype Property)</p>
@@ -2795,7 +2797,12 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
              &lt;http://www.isocat.org/datcat/DC-396&gt; ;
   rdfs:range lexinfo:PartOfSpeech ;
   rdfs:subPropertyOf lexinfo:morphosyntacticProperty .</code></pre>
-<p>The concrete part of speech &quot;noun&quot; is defined as follows and linked to the isocat category DC-1333.</p>
+</div>
+</div>
+<p>The concrete part of speech &quot;noun&quot; is defined as follows and linked to the ISOcat category DC-1333.</p>
+<div class='beispiel'>
+<p><a href='Examples/description/example2b.png' class='tn'/><img src='Examples/description/example2b.png'/></a></p>
+<div>
 <pre><code>lexinfo:noun
   a lexinfo:PartOfSpeech, lexinfo:NounPOS ;
   rdfs:label &quot;noun&quot;@en ;
@@ -2968,7 +2975,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <p>In this section, we informally clarify the relation to other models, in particular SKOS, NIF and the Open Annotation standard.</p>
 <h2 id="skos-xl"><a href="#skos-xl">SKOS(-XL)</a></h2>
 <p>SKOS is a vocabulary used to represent so called <em>knowledge organization systems</em> (KOS), comprising taxonomies, classification schemes, thesauri etc. SKOS thus addresses an orthogonal use case to lemon. lemon was designed to provide detailed information about the linguistic grounding of an ontological vocabulary, specifying in particular by which lexical entries a class or property can be verbalized. SKOS has only a very rudimentary way of doing this, that is by means of SKOS labels and the properties (prefLabel, altLabel and hiddenLabel). This is by no means a criticism of SKOS, but merely to make clear that SKOS and lemon have been designed with a different purpose and use case in mind.</p>
-<p>Nevertheless, SKOS and lemon can be used in conjunction to provide more detailed information about the &quot;labels&quot;. We recommend to use the property <a href="#Evokes" title="wikilink">evokes</a> and its inverse [[#isEvokedBy|isEvokedBy] to relate a skos:Concept to a [[#Lexical Entry|lexical entry]. This is shown in the following example:</p>
+<p>Nevertheless, SKOS and lemon can be used in conjunction to provide more detailed information about the &quot;labels&quot;. We recommend to use the property <a href="#Evokes" title="wikilink">evokes</a> and its inverse <a href="#isEvokedBy" title="wikilink">isEvokedBy</a> to relate a skos:Concept to a <a href="#Lexical_Entry" title="wikilink">lexical entry</a>. This is shown in the following example:</p>
 <p>The use case we address is one where a thesaurus or other taxonomic resource or classification system in SKOS needs to be enriched with more detailed linguistic information.</p>
 <div class='beispiel'>
 <p><a href='Examples/other/example-skos1.png' class='tn'/><img src='Examples/other/example-skos1.png'/></a></p>
@@ -3020,7 +3027,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <li>ontolex does not include a module for describing inflectional morphology patterns (called intentional morphology in LMF). Further, it does not allow to define global constraints on the lexicon. This can be done using OWL axioms, but not in lemon itself.</li>
 </ul>
 <h2 id="openannotation"><a href="#openannotation">OpenAnnotation</a></h2>
-<p>In many uses cases the need arises to annotate a text corpus with links to entities defined in a lexicon, e.g. lexical entries, forms, lexical senses, lexical concepts etc. lemon does not support this annotation per se, as there are other models that are dedicated exactly to this. This is the case for the [<a href="http://openannotation.org/">Open Annotation</a> standard. In both models an element of lexicon may be the target of an annotation. This target may be a form, lexical entry, lexical sense or lexical concept and it is important to give the class to make clear what the target of the annotation is.</p>
+<p>In many uses cases the need arises to annotate a text corpus with links to entities defined in a lexicon, e.g. lexical entries, forms, lexical senses, lexical concepts etc. lemon does not support this annotation per se, as there are other models that are dedicated exactly to this. This is the case for the <a href="http://openannotation.org/">Open Annotation</a> standard. In both models an element of lexicon may be the target of an annotation. This target may be a form, lexical entry, lexical sense or lexical concept and it is important to give the class to make clear what the target of the annotation is.</p>
 <p>We will now give an example of annotating a word &quot;cat&quot; occurring at character 7 in a file at the URL <a href="http://www.example.com/doc.txt">2</a>, where the <em>lemon</em> element is given as the body of an annotation. For example</p>
 <div class='beispiel'>
 <p><a href='Examples/other/example-oa.png' class='tn'/><img src='Examples/other/example-oa.png'/></a></p>
