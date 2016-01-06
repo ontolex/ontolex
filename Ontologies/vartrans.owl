@@ -2,25 +2,56 @@
 
 
 <!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY vann "http://purl.org/vocab/vann/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY cc "http://creativecommons.org/ns#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY ontolex "http://www.w3.org/ns/lemon/ontolex#" >
+    <!ENTITY vartrans "http://www.w3.org/ns/lemon/vartrans#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY vartrans "http://www.w3.org/ns/lemon/vartrans.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>
 
 
-<rdf:RDF xmlns="http://www.w3.org/ns/lemon/vartrans.owl#"
-     xml:base="http://www.w3.org/ns/lemon/vartrans.owl"
-     xmlns:vartrans="http://www.w3.org/ns/lemon/vartrans.owl#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:ontolex="http://www.w3.org/ns/lemon/ontolex#"
+<rdf:RDF xmlns="http://www.w3.org/ns/lemon/vartrans#"
+     xml:base="http://www.w3.org/ns/lemon/vartrans"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:vartrans="http://www.w3.org/ns/lemon/vartrans#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="http://www.w3.org/ns/lemon/vartrans.owl">
+     xmlns:ontolex="http://www.w3.org/ns/lemon/ontolex#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://www.w3.org/ns/lemon/vartrans">
+        <versionInfo rdf:datatype="&xsd;decimal">1.0</versionInfo>
+        <dc:issued rdf:datatype="&xsd;date">2016-01-10</dc:issued>
+        <dc:modified rdf:datatype="&xsd;date">2016-01-10</dc:modified>
+        <dc:rights>CC-Zero</dc:rights>
+        <dc:description xml:lang="en">A model for the representation of lexical information relative to ontologies. Variation and translation module.</dc:description>
+        <dc:title xml:lang="en">Lexicon Model for Ontologies - Vartrans</dc:title>
+        <vann:preferredNamespaceUri>http://www.w3.org/ns/lemon/vartrans#</vann:preferredNamespaceUri>
+        <vann:preferredNamespacePrefix>vartrans</vann:preferredNamespacePrefix>
+        <dc:contributor rdf:resource="http://art.uniroma2.it/fiorelli/"/>
+        <dc:contributor rdf:resource="http://art.uniroma2.it/stellato/"/>
+        <dc:contributor rdf:resource="http://jogracia.url.ph/web/"/>
+        <dc:creator rdf:resource="http://john.mccr.ae/"/>
+        <dc:contributor rdf:resource="http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/teachers/52-emontiel"/>
+        <dc:creator rdf:resource="http://www.cimiano.de/"/>
+        <dc:contributor rdf:resource="http://www.dfki.de/~declerck/"/>
+        <dc:contributor rdf:resource="http://www.ilc.cnr.it/en/content/anas-fahad-khan"/>
+        <dc:contributor rdf:resource="http://www.istc.cnr.it/people/aldo-gangemi"/>
+        <dc:contributor rdf:resource="http://www.oeg-upm.net/index.php/teachers/53-lupe"/>
+        <dc:contributor rdf:resource="http://www.paulbuitelaar.net/"/>
+        <dc:publisher rdf:resource="http://www.w3.org/community/ontolex"/>
+        <imports rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
+        <cc:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
+        <dc:contributor rdf:resource="https://sites.google.com/site/francescafrontini/"/>
     </owl:Ontology>
     
 
@@ -42,34 +73,56 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#category -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#category -->
 
     <owl:ObjectProperty rdf:about="&vartrans;category">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="af">kategorie</rdfs:label>
+        <rdfs:label xml:lang="de">Kategorie</rdfs:label>
         <rdfs:label xml:lang="en">category</rdfs:label>
+        <rdfs:label xml:lang="es">categoría</rdfs:label>
+        <rdfs:label xml:lang="fr">contexte</rdfs:label>
+        <rdfs:label xml:lang="it">categoria</rdfs:label>
+        <rdfs:label xml:lang="nl">categorie</rdfs:label>
+        <rdfs:label xml:lang="pt">categoria</rdfs:label>
+        <rdfs:label xml:lang="ro">categorie</rdfs:label>
+        <rdfs:label xml:lang="sv">kategori</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;category&apos; property indicates the specific type of relation by which two lexical entries or two lexical senses are related.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#lexicalRel -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#lexicalRel -->
 
     <owl:ObjectProperty rdf:about="&vartrans;lexicalRel">
+        <rdfs:label xml:lang="de">lexikalische Beziehung</rdfs:label>
         <rdfs:label xml:lang="en">lexical relation</rdfs:label>
+        <rdfs:label xml:lang="es">relación léxica</rdfs:label>
+        <rdfs:label xml:lang="fr">relation lexicale</rdfs:label>
+        <rdfs:label xml:lang="it">relazione lessicale</rdfs:label>
+        <rdfs:label xml:lang="nl">lexikaal relatie</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;lexicalRel&apos; property relates two lexical entries that stand in some lexical relation.</rdfs:comment>
-        <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
+        <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#relates -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#relates -->
 
     <owl:ObjectProperty rdf:about="&vartrans;relates">
+        <rdfs:label xml:lang="de">bezieht</rdfs:label>
         <rdfs:label xml:lang="en">relates</rdfs:label>
+        <rdfs:label xml:lang="es">relaciona</rdfs:label>
+        <rdfs:label xml:lang="fr">relate</rdfs:label>
+        <rdfs:label xml:lang="it">rapporta</rdfs:label>
+        <rdfs:label xml:lang="nl">relateert</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;relates&apos; property links a lexico-semantic relation to the two lexical entries or lexical senses between which it establishes the relation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:range>
             <owl:Class>
@@ -83,58 +136,104 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#senseRel -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#senseRel -->
 
     <owl:ObjectProperty rdf:about="&vartrans;senseRel">
+        <rdfs:label xml:lang="de">Sinnbeziehung</rdfs:label>
         <rdfs:label xml:lang="en">sense relation</rdfs:label>
+        <rdfs:label xml:lang="es">relación entre acepciones</rdfs:label>
+        <rdfs:label xml:lang="fr">relation sémantique</rdfs:label>
+        <rdfs:label xml:lang="it">relazione di sensi</rdfs:label>
+        <rdfs:label xml:lang="nl">sinnrelatie</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;senseRel&apos; property relates two lexical senses that stand in some sense relation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
         <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#source -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#source -->
 
     <owl:ObjectProperty rdf:about="&vartrans;source">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="af">bron</rdfs:label>
+        <rdfs:label xml:lang="de">Quelle</rdfs:label>
         <rdfs:label xml:lang="en">source</rdfs:label>
+        <rdfs:label xml:lang="es">origen</rdfs:label>
+        <rdfs:label xml:lang="fr">source</rdfs:label>
+        <rdfs:label xml:lang="it">origine</rdfs:label>
+        <rdfs:label xml:lang="nl">bron</rdfs:label>
+        <rdfs:label xml:lang="pt">origem</rdfs:label>
+        <rdfs:label xml:lang="ro">sursă</rdfs:label>
+        <rdfs:label xml:lang="sv">källa</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;source&apos; property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a &apos;source&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;relates"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#target -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#target -->
 
     <owl:ObjectProperty rdf:about="&vartrans;target">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="af">doel</rdfs:label>
+        <rdfs:label xml:lang="de">Ziel</rdfs:label>
         <rdfs:label xml:lang="en">target</rdfs:label>
+        <rdfs:label xml:lang="es">destino</rdfs:label>
+        <rdfs:label xml:lang="fr">destination</rdfs:label>
+        <rdfs:label xml:lang="it">destinazione</rdfs:label>
+        <rdfs:label xml:lang="nl">doel</rdfs:label>
+        <rdfs:label xml:lang="pt">destino</rdfs:label>
+        <rdfs:label xml:lang="ro">ţintă</rdfs:label>
+        <rdfs:label xml:lang="sv">mål</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;target&apos; property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a &apos;target&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;relates"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#trans -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#trans -->
 
     <owl:ObjectProperty rdf:about="&vartrans;trans">
-        <rdfs:label xml:lang="en">member</rdfs:label>
+        <rdfs:label xml:lang="af">vertaling</rdfs:label>
+        <rdfs:label xml:lang="de">Übersetzung</rdfs:label>
+        <rdfs:label xml:lang="en">translation</rdfs:label>
+        <rdfs:label xml:lang="es">traducción</rdfs:label>
+        <rdfs:label xml:lang="fr">traduction</rdfs:label>
+        <rdfs:label xml:lang="it">traduzione</rdfs:label>
+        <rdfs:label xml:lang="nl">vertaling</rdfs:label>
+        <rdfs:label xml:lang="pt">tradução</rdfs:label>
+        <rdfs:label xml:lang="ro">traducere</rdfs:label>
+        <rdfs:label xml:lang="sv">versättning</rdfs:label>
         <rdfs:comment xml:lang="en">The property &apos;trans&apos; relates a TranslationSet to one of its translations.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:range rdf:resource="&vartrans;Translation"/>
         <rdfs:domain rdf:resource="&vartrans;TranslationSet"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#translatableAs -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#translatableAs -->
 
     <owl:ObjectProperty rdf:about="&vartrans;translatableAs">
         <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:label xml:lang="af">vertaalbaar As</rdfs:label>
+        <rdfs:label xml:lang="de">übersetzbar als</rdfs:label>
         <rdfs:label xml:lang="en">translatable as</rdfs:label>
+        <rdfs:label xml:lang="es">traducibile como</rdfs:label>
+        <rdfs:label xml:lang="fr">traduisible par</rdfs:label>
+        <rdfs:label xml:lang="it">traducibile come</rdfs:label>
+        <rdfs:label xml:lang="nl">vertaalbar als</rdfs:label>
+        <rdfs:label xml:lang="pt">traduzivel como</rdfs:label>
+        <rdfs:label xml:lang="ro">traductibil ca</rdfs:label>
+        <rdfs:label xml:lang="sv">översättbar som</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;translatableAs&apos; property relates a lexical entry in some language to a lexical entry in another language that it can be translated as depending on the particular context and specific senses of the involved lexical entries.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;lexicalRel"/>
@@ -147,26 +246,24 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#translation -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#translation -->
 
     <owl:ObjectProperty rdf:about="&vartrans;translation">
+        <rdfs:label xml:lang="af">vertaling</rdfs:label>
+        <rdfs:label xml:lang="de">Übersetzung</rdfs:label>
         <rdfs:label xml:lang="en">translation</rdfs:label>
+        <rdfs:label xml:lang="es">traducción</rdfs:label>
+        <rdfs:label xml:lang="fr">traduction</rdfs:label>
+        <rdfs:label xml:lang="it">traduzione</rdfs:label>
+        <rdfs:label xml:lang="nl">vertaling</rdfs:label>
+        <rdfs:label xml:lang="pt">tradução</rdfs:label>
+        <rdfs:label xml:lang="ro">traducere</rdfs:label>
+        <rdfs:label xml:lang="sv">versättning</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;translation&apos; property relates two lexical senses of two lexical entries that stand in a translation relation to one another. </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;senseRel"/>
     </owl:ObjectProperty>
     
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
 
 
     <!-- 
@@ -180,28 +277,19 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/ontolex#Form -->
-
-    <owl:Class rdf:about="&ontolex;Form"/>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/ontolex#LexicalEntry -->
-
-    <owl:Class rdf:about="&ontolex;LexicalEntry"/>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/ontolex#LexicalSense -->
-
-    <owl:Class rdf:about="&ontolex;LexicalSense"/>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#LexicalRelation -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#LexicalRelation -->
 
     <owl:Class rdf:about="&vartrans;LexicalRelation">
+        <rdfs:label xml:lang="af">leksikale relasie</rdfs:label>
+        <rdfs:label xml:lang="de">lexikalische Beziehung</rdfs:label>
         <rdfs:label xml:lang="en">lexical relation</rdfs:label>
+        <rdfs:label xml:lang="es">relación léxica</rdfs:label>
+        <rdfs:label xml:lang="fr">relation lexicale</rdfs:label>
+        <rdfs:label xml:lang="it">relazione lessicale</rdfs:label>
+        <rdfs:label xml:lang="nl">lexikaal relatie</rdfs:label>
+        <rdfs:label xml:lang="pt">relação semantica</rdfs:label>
+        <rdfs:label xml:lang="ro">relație lexicală</rdfs:label>
+        <rdfs:label xml:lang="sv">lexikalisk relation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -211,14 +299,24 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;lexical relation&apos; is a lexico-semantic relation that represents the relation between two lexical entries the surface forms of which are related grammatically, stylistically or by some operation motivated by linguistic economy.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#LexicoSemanticRelation -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#LexicoSemanticRelation -->
 
     <owl:Class rdf:about="&vartrans;LexicoSemanticRelation">
+        <rdfs:label xml:lang="af">leksikosemantiese relasie</rdfs:label>
+        <rdfs:label xml:lang="de">lexikosemantische Beziehung</rdfs:label>
         <rdfs:label xml:lang="en">lexico-semantic relation</rdfs:label>
+        <rdfs:label xml:lang="es">relación léxico semántica</rdfs:label>
+        <rdfs:label xml:lang="fr">relation lexico-sémantique</rdfs:label>
+        <rdfs:label xml:lang="it">relazione lessico-semantica</rdfs:label>
+        <rdfs:label xml:lang="nl">lexikosemantische relatie</rdfs:label>
+        <rdfs:label xml:lang="pt">relação lexica semantica</rdfs:label>
+        <rdfs:label xml:lang="ro">relație lexico-semantică</rdfs:label>
+        <rdfs:label xml:lang="sv">lexikalisk-semantisk relation</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&vartrans;relates"/>
@@ -235,14 +333,24 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;lexico-semantic relation&apos; represents the relation between two lexical entries or lexical senses that are related by some lexical or semantic relationship.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#SenseRelation -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#SenseRelation -->
 
     <owl:Class rdf:about="&vartrans;SenseRelation">
+        <rdfs:label xml:lang="af">sinsrelasie</rdfs:label>
+        <rdfs:label xml:lang="de">Sinnbeziehung</rdfs:label>
         <rdfs:label xml:lang="en">sense relation</rdfs:label>
+        <rdfs:label xml:lang="es">relación entre acepciones</rdfs:label>
+        <rdfs:label xml:lang="fr">relation sémantique</rdfs:label>
+        <rdfs:label xml:lang="it">relazione di sensi</rdfs:label>
+        <rdfs:label xml:lang="nl">sinnrelatie</rdfs:label>
+        <rdfs:label xml:lang="pt">relação semantica</rdfs:label>
+        <rdfs:label xml:lang="ro">relație de sens</rdfs:label>
+        <rdfs:label xml:lang="sv">betydelserelation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -252,24 +360,44 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;sense relation&apos; is a lexico-semantic relation that represents the relation between two lexical senses the meanings of which are related.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#TerminologicalRelation -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#TerminologicalRelation -->
 
     <owl:Class rdf:about="&vartrans;TerminologicalRelation">
+        <rdfs:label xml:lang="af">terminologiese variant</rdfs:label>
+        <rdfs:label xml:lang="de">terminologische Variante</rdfs:label>
         <rdfs:label xml:lang="en">terminological relation</rdfs:label>
+        <rdfs:label xml:lang="es">variante terminológica</rdfs:label>
+        <rdfs:label xml:lang="fr">variante terminologique</rdfs:label>
+        <rdfs:label xml:lang="it">variante terminologica</rdfs:label>
+        <rdfs:label xml:lang="nl">terminologische variant</rdfs:label>
+        <rdfs:label xml:lang="pt">variante terminologica</rdfs:label>
+        <rdfs:label xml:lang="ro">variantă terminologică</rdfs:label>
+        <rdfs:label xml:lang="sv">terminologivariant</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;SenseRelation"/>
         <rdfs:comment xml:lang="en">A &apos;terminological relation&apos; is a sense relation that relates two lexical senses of terms that are semantically related in the sense that they can be exchanged in most contexts, but their surface forms are not directly related. The variants vary along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#Translation -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#Translation -->
 
     <owl:Class rdf:about="&vartrans;Translation">
+        <rdfs:label xml:lang="af">vertaling</rdfs:label>
+        <rdfs:label xml:lang="de">Übersetzung</rdfs:label>
         <rdfs:label xml:lang="en">translation</rdfs:label>
+        <rdfs:label xml:lang="es">traducción</rdfs:label>
+        <rdfs:label xml:lang="fr">traduction</rdfs:label>
+        <rdfs:label xml:lang="it">traduzione</rdfs:label>
+        <rdfs:label xml:lang="nl">vertaling</rdfs:label>
+        <rdfs:label xml:lang="pt">tradução</rdfs:label>
+        <rdfs:label xml:lang="ro">traducere</rdfs:label>
+        <rdfs:label xml:lang="sv">versättning</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;SenseRelation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -279,19 +407,26 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;translation&apos; is a &apos;sense relation&apos; expressing that two lexical senses corresponding to two lexical entries in different languages can be translated to each other without any major meaning shifts.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans.owl#TranslationSet -->
+    <!-- http://www.w3.org/ns/lemon/vartrans#TranslationSet -->
 
     <owl:Class rdf:about="&vartrans;TranslationSet">
+        <rdfs:label xml:lang="de">Übersetzungsatz</rdfs:label>
         <rdfs:label xml:lang="en">translation set</rdfs:label>
+        <rdfs:label xml:lang="es">conjunto de traducciones</rdfs:label>
+        <rdfs:label xml:lang="fr">banque de traductions</rdfs:label>
+        <rdfs:label xml:lang="it">bance traduzioni</rdfs:label>
+        <rdfs:label xml:lang="nl">verzameling van vertalingen</rdfs:label>
         <rdfs:comment xml:lang="en">A &apos;translation set&apos; is a set of translations that have some common source.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
 

@@ -54,14 +54,14 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
     <dd>Paul Buitelaar, Insight Centre for Data Analytics, National University of Ireland, Galway</dd>
 <dt>Contributors</dt>
     <dd>Guadalupe Aguado-de-Cea, Ontology Engineering Group, Universidad Polit&eacute;cnica de Madrid, Spain</dd>
-    <dd>Manuel Fiorelli, Roma &ldquo;Tor Vergata&rdquo;, Italy</dd>
+    <dd>Manuel Fiorelli, Universit&agrave; degli Studi di Roma Tor Vergata, Italy</dd>
     <dd>Francesca Frontini, Institute for Computational Linguistics &laquo;A. Zampolli&raquo;, Italian National Research Council, Italy</dd>
     <dd>Aldo Gangemi, Institute for Cognitive Sciences and Technologies, Italian National Research Council, Italy</dd>
     <dd>Jorge Gracia, Ontology Engineering Group, Universidad Polit&eacute;cnica de Madrid, Spain</dd>
     <dd>Thierry Declerck, Deutsches Forschungszentrum f&uuml;r K&uuml;nstliche Intelligenz GmbH, Germany</dd>
     <dd>Anas Fahad Khan, Institute for Computational Linguistics &laquo;A. Zampolli&raquo;, Italian National Research Council, Italy</dd>
     <dd>Elena Montiel Ponsoda, Ontology Engineering Group, Universidad Polit&eacute;cnica de Madrid, Spain</dd>
-    <dd>Armando Stellato, Roma &ldquo;Tor Vergata&rdquo;, Italy</dd>
+    <dd>Armando Stellato, Universit&agrave; degli Studi di Roma Tor Vergata, Italy</dd>
 </dl>
 <p class="copyright">Copyright &copy; 2015 the Contributors to the OntoLex CG Specification, published by the  <a href="http://www.w3.org/community/grouphome/">OntoLex Community Group</a> under the <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/">summary</a> is available.</p>
 <hr /></div>
@@ -734,7 +734,7 @@ dct:subject &lt;http://dbpedia.org/resource/Anatomy&gt; ;
 <p>The <strong>reference</strong> property relates a lexical sense to an ontological predicate that represents the denotation of the corresponding lexical entry.</p>
 </div>
 <div class='description'>
-<p><strong>Domain:</strong> LexicalSense</p>
+<p><strong>Domain:</strong> LexicalSense or synsem:OntoMap</p>
 <p><strong>Range:</strong> rdfs:Resource</p>
 <p><strong>InverseOf:</strong> isReferenceOf</p>
 <p><strong>Characteristics:</strong> Functional</p>
@@ -972,7 +972,7 @@ pwn:102124272-n
 <div class='description'>
 </div>
 </div>
-<p>In order to relate a lexical entry to one of its various syntactic behaviors as captured by a syntactic frame, the <code>synsem</code> module defines the <a href="#Syntactic_Behavior" title="wikilink">syntactic behaviour</a> property:</p>
+<p>In order to relate a lexical entry to one of its various syntactic behaviors as captured by a syntactic frame, the <code>synsem</code> module defines the <a href="#Syntactic_Behavior" title="wikilink">syntactic behaviour</a> property. Each lexical entry should have its own syntactic frame instance, generic behavior such as 'transitive' should be captured by classes.</p>
 <div class='entity'>
 <h3>
 <p>Syntactic Behavior (Object Property)</p>
@@ -986,6 +986,7 @@ pwn:102124272-n
 <div class='description'>
 <p><strong>Domain:</strong> ontolex:LexicalEntry</p>
 <p><strong>Range:</strong> SyntacticFrame</p>
+<p><strong>Characteristics:</strong> InverseFunctional</p>
 </div>
 </div>
 <p>The following example shows how to indicate that the verb <em>(to) own</em> can be used as a transitive verb. This is accomplished by adding a frame <em>own_frame_transitive</em> that is declared as a transitive frame, using the class <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl#TransitiveFrame">TransitiveFrame</a> defined in the <a href="http://lexinfo.net/ontology/2.0/lexinfo.owl">LexInfo Ontology</a>.</p>
@@ -2334,7 +2335,6 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <p><strong>SubPropertyOf</strong>: void:vocabulary</p>
 </div>
 </div>
-<p>A rich linguistic grounding of ontologies by a model such as lemon is sometimes not viable, affordable or simply not in scope of a project. As a minimum requirement, though, RDFS labels for the ontology entities should be provided in one or (preferably) more natural languages. Therefore, we advocate against the bad practice of putting the sole linguistic grounding of an ontology into somehow human-readable local names for its vocabulary elements. In any case, <em>lime</em> should support the description of this sort of ontologies, because of the <em>descriptive stance</em> characterizing <em>lime</em> as a metadata vocabulary and the fact that metadata may be created independently for an existing ontology. By a strong abuse of the class <a href="#Lexicalization_Set" title="wikilink">LexicalizationSet</a>, we suggest to describe the linguistic information provided by human-readable local names as a <em>lexicalization set</em> whose <em>lexicalization model</em> is set to the URI <a href="http://www.w3.org/ns/lemon/meaningfulURIs"><a href="http://www.w3.org/ns/lemon/meaningfulURIs">http://www.w3.org/ns/lemon/meaningfulURIs</a></a>.</p>
 <p>The model defines the property <a href="#References" title="wikilink">references</a>, which indicates the number of vocabulary elements lexicalized by at least one lexical entry. This number can be obviously smaller than the number of entities in the ontology (in case some vocabulary elements are not lexicalized) and the number of lexical entries in the lexicon (in case that several lexical entries refer to the same ontology element), respectively.</p>
 <div class='entity'>
 <h3>
