@@ -12,7 +12,7 @@
    
 :tuberculosis_sense a ontolex:LexicalSense;
       ontolex:isContainedIn :tuberculosis; 
-      ontolex:context "preferred".
+      ontolex:usage [ rdf:value "preferred" ] .
 
 :consumption_lex a ontolex:LexicalEntry;
        ontolex:sense :consumption_sense;
@@ -20,4 +20,4 @@
 
 :consumption_sense a ontolex:LexicalSense;
         ontolex:isContainedIn :tuberculosis;
-        ontolex:context "outdated". 
+        ontolex:usage [ rdf:value "outdated" ] . 
