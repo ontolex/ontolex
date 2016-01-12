@@ -822,7 +822,7 @@ A link between a lexical entry and an ontology entity via a Lexical Sense object
         <rdfs:label xml:lang="ro">cuvânt</rdfs:label>
         <rdfs:label xml:lang="sv">ord</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontolex;LexicalEntry"/>
-        <rdfs:comment xml:lang="en">A word is a lexical entry that consists of a single word.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A word is a lexical entry that consists of a single token.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
     </owl:Class>
     
