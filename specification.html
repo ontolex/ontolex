@@ -2236,7 +2236,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <p><strong>SubPropertyOf</strong>: void:vocabulary</p>
 </div>
 </div>
-<p>As an example we may describe a simple lexicon using the above introduced properties in addition to Dublin Core properties. The part-of-speech of the four lexical entries is indicated using the lexinfo vocabulary, so that the value of <a href="#Linguistic_Catalog" title="wikilink">linguisticCatalog</a> is set to <a href="http://www.lexinfo.net/ontologies/2.0/lexinfo"><a href="http://www.lexinfo.net/ontologies/2.0/lexinfo" class="uri">http://www.lexinfo.net/ontologies/2.0/lexinfo</a></a>. In the example, there is one (RDF) resource that represents both the lexicon itself and its metadata:</p>
+<p>As an example we may describe a simple lexicon using the above introduced properties in addition to Dublin Core properties. The part-of-speech of the four lexical entries is indicated using the lexinfo vocabulary, so that the value of <a href="#Linguistic_Catalog" title="wikilink">linguisticCatalog</a> is set to <a href="http://www.lexinfo.net/ontologies/2.0/lexinfo"><a href="http://www.lexinfo.net/ontologies/2.0/lexinfo">http://www.lexinfo.net/ontologies/2.0/lexinfo</a></a>. In the example, there is one (RDF) resource that represents both the lexicon itself and its metadata:</p>
 <div class='beispiel'>
 <p><a href='Examples/lime/example2.png' class='tn'/><img src='Examples/lime/example2.png'/></a></p>
 <div>
@@ -2249,10 +2249,10 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
    dct:description &quot;Questo è un lessico di esempio&quot;@it;                          
    dct:creator &lt;http://john.mccr.ae/&gt;;                                           
    void:triples &quot;29&quot;^^xsd:integer ;                                                       
-   ontolex:entry :lex_high;                                                     
-   ontolex:entry :lex_cat;                                                      
-   ontolex:entry :lex_marry;                                                    
-   ontolex:entry :lex_intangible_assets.                                        
+   lime:entry :lex_high;                                                     
+   lime:entry :lex_cat;                                                      
+   lime:entry :lex_marry;                                                    
+   lime:entry :lex_intangible_assets.                                        
 
                                                                                 
 :lex_cat a ontolex:LexicalEntry, lexinfo:Noun;                                                
