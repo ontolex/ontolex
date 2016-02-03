@@ -242,7 +242,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/ontolex#Word" class="uri">http://www.w3.org/nl/lemon/ontolex#Word</a></p>
 </div>
 <div class='comment'>
-<p>A <strong>word</strong> is a lexical entry that consists of a single word.</p>
+<p>A <strong>word</strong> is a lexical entry that consists of a single token.</p>
 </div>
 <div class='description'>
 <p><strong>SubClassOf:</strong> LexicalEntry</p>
@@ -2249,10 +2249,10 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
    dct:description &quot;Questo è un lessico di esempio&quot;@it;                          
    dct:creator &lt;http://john.mccr.ae/&gt;;                                           
    void:triples &quot;29&quot;^^xsd:integer ;                                                       
-   ontolex:entry :lex_high;                                                     
-   ontolex:entry :lex_cat;                                                      
-   ontolex:entry :lex_marry;                                                    
-   ontolex:entry :lex_intangible_assets.                                        
+   lime:entry :lex_high;                                                     
+   lime:entry :lex_cat;                                                      
+   lime:entry :lex_marry;                                                    
+   lime:entry :lex_intangible_assets.                                        
 
                                                                                 
 :lex_cat a ontolex:LexicalEntry, lexinfo:Noun;                                                
@@ -3014,7 +3014,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
    
 :tuberculosis_sense a ontolex:LexicalSense;
       ontolex:isContainedIn :tuberculosis; 
-      ontolex:context &quot;preferred&quot;.
+      ontolex:usage [ rdf:value &quot;preferred&quot; ].
 
 :consumption_lex a ontolex:LexicalEntry;
        ontolex:sense :consumption_sense;
@@ -3022,7 +3022,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 
 :consumption_sense a ontolex:LexicalSense;
         ontolex:isLexicalizedSenseOf :tuberculosis;
-        ontolex:context &quot;outdated&quot;. </code></pre>
+        ontolex:usage [ rdf:value &quot;outdated&quot; ]. </code></pre>
 </div>
 </div>
 <p>In case you are using reified labels as in SKOS-XL, it is possible to have forms or lexical entries in the range of the <code>skosxl:prefLabel</code>, <code>skosxl:altLabel</code> and <code>skosxl:hiddelLabel</code> properties. However, we note that from this it would follows that lexical entries and forms would be inferred to be <code>skosxl:Label</code>s, which does not correspond to the understanding of forms and lexical entries of this community as linguistic objects rather than mere `labels'.</p>
