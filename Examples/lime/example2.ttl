@@ -15,10 +15,10 @@
    dct:description "Questo è un lessico di esempio"@it;                          
    dct:creator <http://john.mccr.ae>;                                           
    void:triples "29"^^xsd:integer ;                                                       
-   ontolex:entry :lex_high;                                                     
-   ontolex:entry :lex_cat;                                                      
-   ontolex:entry :lex_marry;                                                    
-   ontolex:entry :lex_intangible_assets.                                        
+   lime:entry :lex_high;                                                     
+   lime:entry :lex_cat;                                                      
+   lime:entry :lex_marry;                                                    
+   lime:entry :lex_intangible_assets.                                        
 
                                                                                 
 :lex_cat a ontolex:LexicalEntry, lexinfo:Noun;                                                
