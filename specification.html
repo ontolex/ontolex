@@ -56,7 +56,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
     <dd>Guadalupe Aguado-de-Cea, Ontology Engineering Group, Universidad Polit&eacute;cnica de Madrid, Spain</dd>
     <dd>Manuel Fiorelli, Universit&agrave; degli Studi di Roma Tor Vergata, Italy</dd>
     <dd>Francesca Frontini, Institute for Computational Linguistics &laquo;A. Zampolli&raquo;, Italian National Research Council, Italy</dd>
-    <dd>Aldo Gangemi, Institute for Cognitive Sciences and Technologies, Italian National Research Council, Italy</dd>
+    <dd>Aldo Gangemi, Laboratoire d'Informatique de Paris Nord, Université Paris 13, France</dd>
     <dd>Jorge Gracia, Ontology Engineering Group, Universidad Polit&eacute;cnica de Madrid, Spain</dd>
     <dd>Thierry Declerck, Deutsches Forschungszentrum f&uuml;r K&uuml;nstliche Intelligenz GmbH, Germany</dd>
     <dd>Anas Fahad Khan, Institute for Computational Linguistics &laquo;A. Zampolli&raquo;, Italian National Research Council, Italy</dd>
@@ -69,14 +69,19 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <section id="abstract">
 <h2>Abstract</h2>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget tincidunt est. Nulla eu elit in orci ultrices volutpat. Nullam non est commodo ante dapibus faucibus. Aenean ipsum elit, venenatis vel viverra vel, egestas vehicula ante. Quisque pharetra dolor in diam egestas vel tempor urna pulvinar. Sed in leo ac ante pulvinar euismod. </p>
+<p>
+Ontologies are an important component of the Saemantic Web but current standards such as OWL only support the addition of a simple label to entities in the ontology. It is not currently possible to add inflected forms, different genders, usage notes or even create a full lexical resource such as Princeton WordNet. The model described in this document aims to close this gap by providing a vocabulary that allows to enrich ontologies with information about how the vocabulary elements described in them are realized linguistically, in particular also in different natural languages.
+OWL and RDF(S) rely on a property rdfs:label to capture the relation between a vocabulary element and its (preferred) lexicalization in a given language. This lexicalization provides a lexical anchor that makes the concept, property, individual etc. understandable to a human user. The use of a simple label for linguistic grounding as available in OWL and RDF(S) is far from being able to capture the necessary linguistic and lexical information that Natural Language Processing (NLP) applications working with a particular ontology need.
+The aim of the lexicon model for ontologies (lemon) is to provide rich linguistic grounding for ontologies. Rich linguistic grounding includes the representation of morphological and syntactic properties of lexical entries as well as the syntax-semantics interface, i.e. the meaning of these lexical entries with respect to an ontology or vocabulary.
+
+ </p>
 </section>
 
 <h2>Status of This Document</h2>
 
 <p><em>This specification was published by the <a href="http://www.w3.org/community/grouphome/">Group Name</a>. It is not a W3C Standard nor is it on the W3C Standards Track. Please note that under the <a href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a> there is a limited opt-out and other conditions apply. Learn more about <a href="http://www.w3.org/community/">W3C Community and Business Groups</a>.</em></p>
 
-<p>In ipsum lectus, gravida id egestas vel, auctor quis ipsum. Nam congue nisi ullamcorper elit suscipit a accumsan sapien ullamcorper. Morbi urna mauris, tempus at bibendum eget, iaculis in nunc. Aliquam aliquam orci nec enim laoreet porta. Nulla libero mi, consequat vel ultricies ultricies, ornare fermentum lorem. Praesent tincidunt, nisl at suscipit molestie, justo neque tempus dui, eget porttitor libero leo nec ligula. </p>
+<p>This document is the first official report of the ontolex community group. It does not represent the view of single individuals but reflects the consensus and agreement reach as part of the regular group discussions. The report should be regarded as the official specification of the lexicon model for ontologies (lemon).</p>
 
 <h2 class="introductory">Table of Contents</h2>
 <ul>
@@ -138,7 +143,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 </ul>
 
 <p>This document describes the specification of the <em>lexicon model for ontologies</em> (lemon) as resulting from the work of the W3C Ontology Lexicon Community Group.</p>
-<p>The aim of the <em>lexicon model for ontologies</em> (lemon) is to provide rich linguistic grounding for ontologies. Rich linguistic grounding includes the representation of morphological and syntactic properties of lexical entries as well as the syntax-semantics interface, i.e. the meaning of these lexical entries with respect to an ontology or vocabulary.</p>
+<p>The aim of the <em>lexicon model for ontologies</em> (lemon) is to provide rich linguistic grounding for ontologies. Rich linguistic grounding includes the representation of morphological and syntactic properties of lexical entries as well as the syntax-semantics interface, i.e. the meaning of these lexical entries with respect to an ontology or ontological vocabulary.</p>
 <p>This document is structured into nine sections, where the first five correspond to the main modules of the lexicon model for ontologies. Depending on their needs and requirements, applications will use one or more of the modules mentioned below, with the use of the ontolex module being the minimal choice.</p>
 <ul>
 <li>Ontology-lexicon interface (ontolex)</li>
@@ -149,12 +154,12 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 </ul>
 <p>The last three sections do not describe the formal modelling but clarify</p>
 <ul>
-<li>how one can add linguistic levels of description by means of external ontologies (section 7)</li>
-<li>how one can use the lexicon model for ontologies to describe lexical nets and other linguistic resources (section 8)</li>
-<li>the relation between the lexicon model for ontologies and the Simple Knowledge Organization System (SKOS), the Lexical Markup Model (LMF), and the Open Annotation Model (section 9)</li>
+<li>how one can add linguistic levels of description by means of external ontologies (section Linguistic Description)</li>
+<li>how one can use the lexicon model for ontologies to describe lexical nets and other linguistic resources (section Lexical Nets)</li>
+<li>the relation between the lexicon model for ontologies and the Simple Knowledge Organization System (SKOS), the Lexical Markup Model (LMF), and the Open Annotation Model (section Relation to Other Models)</li>
 </ul>
 <h1 id="introduction">Introduction</h1>
-<p>Ontologies are an important component of the Semantic Web but current standards such as <a href="http://www.w3.org/TR/owl-features/">OWL</a> only support the addition of a simple label to entities in the ontology. It is not currently possible to add inflected forms, different genders, usage notes or even create a full lexical resource such as Princeton WordNet. The model described in this document aims to overcome this issue by extending OWL to support rich lexical information rendering ontologies suitable for human consumption and supporting meaningful interaction with and manipulation of them by human users.</p>
+<p>Ontologies are an important component of the Semantic Web but current standards such as <a href="http://www.w3.org/TR/owl-features/">OWL</a> only support the addition of a simple label to entities in the ontology. It is not currently possible to add inflected forms, different genders, usage notes or even create a full lexical resource such as Princeton WordNet. The model described in this document aims to close this gap by providing a vocabulary that allows to enrich ontologies with information about how the vocabulary elements described in them are realized linguistically, in particular also in different natural languages, in order to render ontologies suitable for human consumption and supporting meaningful interaction with and manipulation of them by human users.</p>
 <p>OWL and RDF(S) rely on a property <code>rdfs:label</code> to capture the relation between a vocabulary element and its (preferred) lexicalization in a given language. This lexicalization provides a lexical anchor that makes the concept, property, individual etc. understandable to a human user. The use of a simple label for linguistic grounding as available in OWL and RDF(S) is far from being able to capture the necessary linguistic and lexical information that Natural Language Processing (NLP) applications working with a particular ontology need. Such NLP applications are for example:</p>
 <ul>
 <li>Natural language generation systems that produce coherent discourses by verbalizing a set of triples</li>
@@ -165,7 +170,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 </ul>
 <h2 id="purpose-of-the-model">Purpose of the model</h2>
 <p>The purpose of the model is to support linguistic grounding of a given ontology by adding information to the ontology about how the elements in the vocabulary of the ontology (individuals, classes, properties) are lexicalized in a given natural language.</p>
-<p>The model follows the principle of <em>semantics by reference</em> <a href="http://link.springer.com/article/10.1007/s10579-012-9182-3/fulltext.html">1</a> in the sense that the semantics of a <a href="#Lexical_Entry" title="wikilink">lexical entry</a> is expressed by reference to an individual, class or property defined in the ontology. In some cases, the lexicon itself can add named concepts which are not made explicit in the ontology.</p>
+<p>The model follows the principle of <em>semantics by reference</em> [<a href="http://link.springer.com/article/10.1007/s10579-012-9182-3/fulltext.html">1</a>] in the sense that the semantics of a <a href="#Lexical_Entry" title="wikilink">lexical entry</a> is expressed by reference to an individual, class or property defined in the ontology. In some cases, the lexicon itself can add named concepts which are not made explicit in the ontology.</p>
 <p>The model described here is supposed to be open in the sense that it provides a core vocabulary to add information about the linguistic realization of ontology and vocabulary elements. This vocabulary can and should be extended as required by a particular application. In particular, the model abstracts from the specific linguistic theory and category systems used to describe the linguistic properties of lexical entries and their syntactic behavior, encouraging reuse of existing data category systems or linguistic ontologies. The model is thus agnostic with respect to the linguistic theory and category systems adopted for the description of the linguistic properties of lexical entries. We make explicit in this document at which points we refer to an external repository of data categories or introduce novel sub-properties of properties defined in the lexicon model for ontologies.</p>
 <p>The model as presented here is inspired by many other models, in particular the <a href="http://www.lexicalmarkupframework.org">Lexical Markup Framework</a> (LMF), the <a href="http://www.lexinfo.net/">LexInfo</a> model, the <a href="http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/technologies/63-lir">LIR</a> model, the <a href="http://www.ontologydesignpatterns.org/wiki/Ontology:LMM">Linguistic Meta Model</a> (LMM), the <a href="http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl">semiotics.owl</a> ontology design pattern, and the <a href="http://www.sensocomune.it">Senso Comune</a> core model.</p>
 <p>It is important to also mention what is not the purpose of the model:</p>
@@ -196,7 +201,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 @prefix decomp: &lt;http://www.w3.org/ns/lemon/decomp#&gt; .
 @prefix vartrans: &lt;http://www.w3.org/ns/lemon/vartrans#&gt; .
 @prefix lime: &lt;http://www.w3.org/ns/lemon/lime#&gt; .</code></pre>
-<p>As we sometimes also refer to other models, we will also assume the following namespaces to be defined in all examples:</p>
+<p>As we frequently also refer to other models, we will also assume the following namespaces to be defined in all examples:</p>
 <pre><code>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;.
 @prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt;.
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;.
@@ -502,7 +507,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>SubPropertyOf:</strong> lexicalForm</p>
 </div>
 </div>
-<p>For example we may specify non-canonical forms of the verb <em>(to) marry</em> as follows:</p>
+<p>For example, we may specify non-canonical forms of the verb <em>(to) marry</em> as follows:</p>
 <div class='beispiel'>
 <p><a href='Examples/ontolex/example7.png' class='tn'/><img src='Examples/ontolex/example7.png'/></a></p>
 <div>
@@ -568,7 +573,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>PropertyChain:</strong> sense o reference</p>
 </div>
 </div>
-<p>For the lexical entries <em>cat</em> and <em>marry</em>, the meaning could be expressed by pointing to the corresponding DBpedia resources:</p>
+<p>For the lexical entries <em>cat</em> and <em>marriage</em>, the meaning could be expressed by pointing to the corresponding DBpedia resources:</p>
 <div class='beispiel'>
 <p><a href='Examples/ontolex/example9.png' class='tn'/><img src='Examples/ontolex/example9.png'/></a></p>
 <div>
@@ -875,7 +880,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <p><strong>InverseOf</strong>: isConceptOf</p>
 </div>
 </div>
-<p>The combined usage of the properties denotes, sense, evokes, concept and lexicalized sense is demonstrated in the example below for the case of a lexical resource such as Princeton WordNet. Roughly, the synsets in a wordnet correspond to a lexical concept in OntoLex. The modelling would thus look as follows:</p>
+<p>The combined usage of the properties denotes, sense, evokes, concept and lexicalized sense is demonstrated in the example below for the case of a lexical resource such as Princeton WordNet. Roughly, the synsets in a wordnet correspond to a lexical concept in lemon. The modelling would thus look as follows:</p>
 <div class='beispiel'>
 <p><a href='Examples/ontolex/example15.png' class='tn'/><img src='Examples/ontolex/example15.png'/></a></p>
 <div>
@@ -897,7 +902,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
   ontolex:isReferenceOf :cat_sense ;
   ontolex:isDenotedBy :cat_lex .
 
-pwn:102124272-n
+pwn:102124272-n a ontolex:Concept;
   ontolex:isEvokedBy :cat_lex ;
   ontolex:lexicalizedSense :cat_sense ;
   ontolex:isConceptOf &lt;http://dbpedia.org/resource/Cat&gt; .</code></pre>
@@ -1261,7 +1266,7 @@ pwn:102124272-n
 </div>
 </div>
 <h2 id="complex-ontology-mappings-submappings">Complex ontology mappings / submappings</h2>
-<p>In many cases, the meaning of a syntactic frame can not be expressed by exactly one binary predicate as in the examples given above. Take for instance the case of a transitive verb <em>(to) launch</em>, which subcategorizes a subject expressing the company that launched a product, a direct object expressing the launched product, and a prepositional object introduced by the preposition &quot;in&quot; indicating the year of the launch of the product in question. The important thing here is that there are three syntactic arguments (subject, object and prepositional object, represented as <code>arg1</code>, <code>arg2</code> and <code>arg3</code> below, respectively) that realize the arguments of a complex predicate that consist of the sub-predicates <a href="http://dbpedia.org/ontology/product">dbpedia:product</a> and <a href="http://dbpedia.org/ontology/launchDate">dbpedia:launchDate</a>.</p>
+<p>In many cases, the meaning of a syntactic frame can not be expressed by exactly one binary predicate as in the examples given above. Take for instance the case of a transitive verb <em>(to) launch</em>, which subcategorizes a subject expressing the company that launched a product, a direct object expressing the launched product, and a prepositional object introduced by the preposition <em>in</em> indicating the year of the launch of the product in question. The important thing here is that there are three syntactic arguments (subject, object and prepositional object, represented as <code>arg1</code>, <code>arg2</code> and <code>arg3</code> below, respectively) that realize the arguments of a complex predicate that consist of the sub-predicates <a href="http://dbpedia.org/ontology/product">dbpedia:product</a> and <a href="http://dbpedia.org/ontology/launchDate">dbpedia:launchDate</a>.</p>
 <p>Thus, the <code>synsem</code> module introduces the property <a href="#Submap" title="wikilink">submap</a> that relates a (complex) ontological map involving various ontological predicates to a set of less complex ontological maps that bind the arguments of one of the involved predicates to a syntactic argument that realizes it.</p>
 <div class='entity'>
 <h3>
@@ -1291,8 +1296,8 @@ pwn:102124272-n
 :launch_canonical_form ontolex:writtenRep &quot;launch&quot;@en.
 
 :launch_transitive_pp a lexinfo:TransitivePPFrame;
- lexinfo:subject                      :arg1 ;
- lexinfo:directObject              :arg2 ;
+ lexinfo:subject              :arg1 ;
+ lexinfo:directObject         :arg2 ;
  lexinfo:prepositionalAdjunct :arg3.
 
 :arg3 synsem:marker :in ;
@@ -1762,7 +1767,7 @@ lexinfo:hypernym rdfs:subProperty vartrans:senseRel.
 <p><strong>Range:</strong> ontolex:LexicalEntry OR ontolex:LexicalSense</p>
 </div>
 </div>
-<p>Many lexico-semantic relations are asymmetric, it is necessary to distinguish the <a href="#Source" title="wikilink">source</a> from the <a href="#Target" title="wikilink">target</a>:</p>
+<p>As many lexico-semantic relations are asymmetric, it is necessary to distinguish the <a href="#Source" title="wikilink">source</a> from the <a href="#Target" title="wikilink">target</a>:</p>
 <div class='entity'>
 <h3>
 <p>source (Object Property)</p>
@@ -1889,9 +1894,9 @@ lexinfo:hypernym rdfs:subProperty vartrans:senseRel.
 mother_form ontolex:writtenRep &quot;mother&quot;@en .
 
 :senseRelation a vartrans:SenseRelation ;
-      vartrans:source :surrogate_mother ;
-      vartrans:target :mother ; 
-      vartrans:category :hypernym .</code></pre>
+      vartrans:source :surrogate_mother_sense ;
+      vartrans:target :mother_sense ; 
+      vartrans:category lexinfo:hypernym .</code></pre>
 </div>
 </div>
 <p>Further, we consider <a href="#TerminologicalRelation" title="wikilink">terminological relations</a>, which are defined as follows:</p>
@@ -1956,7 +1961,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <li><strong>Translatable as</strong>: In this case, we underspecify the exact involved meanings of the two lexical entries that are said to be translations of each other, essentially specifying that, in some contexts, one lexical entry in a source language can be replaced by an entry in the target language, depending on the senses of these lexical entries in the given context.</li>
 </ul>
 <h3 id="translation-as-shared-reference">Translation as shared reference</h3>
-<p>In order to express that the lexical senses of two lexical entries are ontologically equivalent, we do not need other machinery than the one introduced already above:</p>
+<p>In order to express that the lexical senses of two lexical entries are ontologically equivalent, we do not need other machinery than the one introduced already in the ontolex section above:</p>
 <div class='beispiel'>
 <p><a href='Examples/vartrans/example5.png' class='tn'/><img src='Examples/vartrans/example5.png'/></a></p>
 <div>
@@ -2316,7 +2321,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 </div>
 <div class='description'>
 <p><strong>Domain</strong>: LexicalizationSet or ConceptualizationSet</p>
-<p><strong>Range</strong>: ontolex:Lexicon</p>
+<p><strong>Range</strong>: Lexicon</p>
 </div>
 </div>
 <p>The optionality of the <em>lexicon dataset</em> property is required to support other lexicalization models (e.g. RDFS, SKOS, SKOS-XL) that do not introduce a separate notion of lexicon, since lexical entries only exist implicitly being part of a lexicalization. The property <a href="#Lexicalization_Model" title="wikilink">lexicalization model</a> indicates the specific lexicalization model used.</p>
@@ -2328,7 +2333,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lime#lexicalizationModel" class="uri">http://www.w3.org/nl/lemon/lime#lexicalizationModel</a></p>
 </div>
 <div class='comment'>
-<p>The <strong>lexicalization model</strong> property indicates the model used for representing lexical information. Possible values include (but are not limited to) <a href="http://www.w3.org/2000/01/rdf-schema" class="uri">http://www.w3.org/2000/01/rdf-schema</a># (for the use of rdfs:label), <a href="http://www.w3.org/2004/02/skos/core" class="uri">http://www.w3.org/2004/02/skos/core</a> (for the use of skos:pref/alt/hiddenLabel), <a href="http://www.w3.org/2008/05/skos-xl" class="uri">http://www.w3.org/2008/05/skos-xl</a> (for the use of skosxl:pref/alt/hiddenLabel) and <a href="http://www.w3.org/ns/lemon/all" class="uri">http://www.w3.org/ns/lemon/all</a> for lemon.</p>
+<p>The <strong>lexicalization model</strong> property indicates the model used for representing lexical information. Possible values include (but are not limited to) <a href="http://www.w3.org/2000/01/rdf-schema" class="uri">http://www.w3.org/2000/01/rdf-schema</a># (for the use of rdfs:label), <a href="http://www.w3.org/2004/02/skos/core" class="uri">http://www.w3.org/2004/02/skos/core</a> (for the use of skos:pref/alt/hiddenLabel), <a href="http://www.w3.org/2008/05/skos-xl" class="uri">http://www.w3.org/2008/05/skos-xl</a> (for the use of skosxl:pref/alt/hiddenLabel) and <a href="http://www.w3.org/ns/lemon/all" class="uri">http://www.w3.org/ns/lemon/ontolex</a> for lemon.</p>
 </div>
 <div class='description'>
 <p><strong>Domain</strong>: LexicalizationSet</p>
@@ -2373,7 +2378,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
   voaf:classNumber 60 ;
   voaf:propertyNumber 40 .
 
-&lt;http://www.example.com/lexicon&gt; a ontolex:Lexicon ;
+&lt;http://www.example.com/lexicon&gt; a lime:Lexicon ;
   ontolex:language &quot;ja&quot; ;
   dct:language  &lt;http://id.loc.gov/vocabulary/iso639-1/ja&gt;, &lt;http://lexvo.org/id/iso639-3/jpn&gt; ;
   lime:lexicalEntries 80 .</code></pre>
@@ -2507,7 +2512,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
   lime:references 50 .</code></pre>
 </div>
 </div>
-<p>In addition it is also possible to give RDF(S) or OWL types as the target of the <em>resource type</em> property. This allows us to state the number of classes that are lexicalized by at least one lexical entry:</p>
+<p>In addition, it is also possible to give RDF(S) or OWL types as the target of the <em>resource type</em> property. This allows us to state the number of classes that are lexicalized by at least one lexical entry:</p>
 <div class='beispiel'>
 <p><a href='Examples/lime/example6.png' class='tn'/><img src='Examples/lime/example6.png'/></a></p>
 <div>
@@ -2716,9 +2721,9 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 </ul>
 <p>and ratios:</p>
 <ul>
-<li><em>coverage<sub>A</sub>(R<sub>i</sub>)</em>: ratio between the elements in A that participate in at least one (<em>a</em>,<em>b</em>) pair, and the total number of elements in A = |{<em>a</em> ∈ A | ∃ <em>b</em> ∈ B . (<em>a</em>,<em>b</em>) ∈ R}| / |A|</li>
-<li><em>average<sub>A</sub>(R<sub>i</sub>)</em>: average number of <em>b</em>’s in B related with each <em>a</em> in A = |R| / |A|</li>
-<li><em>average<sub>B</sub>(R<sub>i</sub>)</em>: average number of <em>a</em>’s in A related with each <em>b</em> in B = |R| / |B|</li>
+<li><em>coverage<sub>A</sub>(R<sub>i</sub>)</em>: ratio between the elements in A that participate in at least one (<em>a</em>,<em>b</em>) pair, and the total number of elements in A, that is <em>coverage<sub>A</sub>(R<sub>i</sub>)</em>  = |{<em>a</em> ∈ A | ∃ <em>b</em> ∈ B . (<em>a</em>,<em>b</em>) ∈ R}| / |A|</li>
+<li><em>average<sub>A</sub>(R<sub>i</sub>)</em>: average number of <em>b</em>’s in B related with each <em>a</em> in A, that is  <em>average<sub>A</sub>(R<sub>i</sub>)</em> = |R| / |A|</li>
+<li><em>average<sub>B</sub>(R<sub>i</sub>)</em>: average number of <em>a</em>’s in A related with each <em>b</em> in B, that is <em>average<sub>B</sub>(R<sub>i</sub>)</em> =  |R| / |B|</li>
 </ul>
 <p>The lime model does not introduce all the properties to express all of the above counts for all three relations, but has selected to model the following relations:</p>
 <table>
@@ -2779,7 +2784,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <ol>
 <li><strong>Independent resources:</strong> A reference dataset, a lexicon and a lexicalization set are published as independent data sources. This scenario is very common in case of independently developed resources. A reference dataset and a general-purpose (i.e. not tailored towards that dataset) lexicon exist and are published separately (possibly by different publishers). A third party then decides to link these datasets by a <a href="#Lexicalization_Set" title="wikilink">lexicalization set</a> and publishes it as a third entity and advertises it through proper lime metadata.</li>
 <li><strong>Linking to 3rd party lexicon:</strong> A general-purpose lexicon is published as an independent resource. Then, in developing a reference dataset/ontology, its authors decide to publish it together with a lexicalization set based on the lexical entries from the existing lexicon.</li>
-<li><strong>Linking to 3rd party ontology:</strong> A lexicon tailored to an existing reference dataset is published together with a lexicalization set. This is the opposite scenario to scenario 2 above. In this case the reference dataset or ontology vocabulary is the pre-existing resource developed by some 3rd party, and a lexicon is created ad hoc for it, with the associated lexicalizations.''</li>
+<li><strong>Linking to 3rd party ontology:</strong> A lexicon tailored to an existing reference dataset is published together with a lexicalization set. This is the opposite scenario to scenario 2 above. In this case the reference dataset or ontology vocabulary is the pre-existing resource developed by some 3rd party, and a lexicon is created ad hoc for it, with the associated lexicalizations.</li>
 <li><strong>Integrated:</strong> Reference dataset, dataset-specific lexicon and lexicalization set are combined into a single data source: this scenario corresponds to closed environments where a single party is in control of the ontology, the lexicon and the lexicalizations and publishes the three as one dataset. In this scenario, the reference dataset is created and lexicalized with lexical elements created specifically for it. This scenario is the typical setting of ontology vocabularies/datasets naturally lexicalized by means of <code>rdfs:label</code>, <code>skos</code> or <code>skosxl</code> labeling properties.</li>
 </ol>
 <p>Similarly, there is <em>Concept Set</em> for a collection of lexical concepts and <code>ConceptualizationSet</code> for the triples expressing how lexical concepts relate to lexical entries from a given lexicon. Similar considerations to the ones above apply to these datasets.</p>
@@ -2843,8 +2848,8 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <li><strong>Number</strong>: indicating the grammatical number of a word (e.g. singular, plural, etc.)</li>
 <li><strong>Part of speech</strong>: indicating the syntactic category of the word in question (e.g. noun, verb, adjective, etc.)</li>
 <li><strong>Person</strong>: indicating whether a noun or pronoun refers to the speaker (first person) or listener (second person) or other entity (third person) and agreeing forms of verbs</li>
-<li><strong>Tense</strong>: indicating whether a words makes a temporal reference to the past, present or future</li>
-<li><strong>Voice</strong>: indicating type of sentence (active vs. passive voice)</li>
+<li><strong>Tense</strong>: indicating whether a word makes a temporal reference to the past, present or future</li>
+<li><strong>Voice</strong>: indicating the type of sentence (active vs. passive voice)</li>
 </ul>
 <p>When using these properties, care should be taken to distinguish between linguistic properties of the entry itself and properties of any of the forms. By default, it should be assumed that a property of a lexical entry also holds for all its forms. For example, in many languages gender is an entry property for nouns, but a form property for adjectives, for example:</p>
 <div class='beispiel'>
@@ -2896,7 +2901,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <p>When describing syntactic frames it is important to specify the grammatical role or function played by different syntactic arguments. We might want to specify, for instance, which argument plays the grammatical role of subject and which argument plays the role of a direct object, etc. LexInfo distinguishes the following types of arguments:</p>
 <ul>
 <li><strong>Subject</strong>: indicating the syntactic subject of a sentence. The subject typically expresses the agent of the action denoted by the verb, but this need not to be so in all cases. In a passive construction, the subject actually expresses the patient or beneficiary of the action denoted by the verb.</li>
-<li><strong>Object:</strong> distinguishing between direct, indirect, prepositional (a non-optional object marked with a preposition) and genitive</li>
+<li><strong>Object:</strong> distinguishing between direct, indirect, prepositional (a non-optional object marked with a preposition) and genitive objects</li>
 <li><strong>Adjunct</strong>: adjuncts are optional arguments. Lexinfo distinguishes between <em>prepositional</em>, <em>possessive</em>, <em>comparative</em> and <em>superlative</em> arguments.</li>
 <li><strong>Copulative</strong>: a copulative argument indicates one argument involved in a so called <a href="https://en.wikipedia.org/wiki/Copula_(linguistics)">copula construction</a> involving a copulative verb. Lexinfo distinguishes the copulative subject and the copula predicate.</li>
 <li><strong>Clausal</strong>: certain verbs also subcategorize a whole clause or sentence as an argument (e.g. the verb (to) claim). In this case lexinfo talks about a clausal argument and distinguishes between declarative, gerundive, infinitive, interrogative (infinitive), possessive infinitive, prepositional gerund/interrogative, sentential or subjunctive clausal arguments.</li>
@@ -3025,7 +3030,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
         ontolex:usage [ rdf:value &quot;outdated&quot; ]. </code></pre>
 </div>
 </div>
-<p>In case you are using reified labels as in SKOS-XL, it is possible to have forms or lexical entries in the range of the <code>skosxl:prefLabel</code>, <code>skosxl:altLabel</code> and <code>skosxl:hiddelLabel</code> properties. However, we note that from this it would follows that lexical entries and forms would be inferred to be <code>skosxl:Label</code>s, which does not correspond to the understanding of forms and lexical entries of this community as linguistic objects rather than mere `labels'.</p>
+<p>In case you are using reified labels as in SKOS-XL, it is possible to have forms or lexical entries in the range of the <code>skosxl:prefLabel</code>, <code>skosxl:altLabel</code> and <code>skosxl:hiddelLabel</code> properties. However, we note that from this it would follow that lexical entries and forms would be inferred to be <code>skosxl:Label</code>s, which does not correspond to the understanding of forms and lexical entries of this community as linguistic objects rather than mere `labels'.</p>
 <h2 id="lmf">LMF</h2>
 <p>The Lexical Markup Framework (LMF) (ISO-24613:2008) is a standard for representing machine readable lexicons. The model is not suited, however, to publish lexica on the web as linked data as it only knows a serialization in XML rather than in RDF. Further, LMF does not address the interface between lexica and ontologies as lemon does.</p>
 <p>Nevertheless, the lemon model draws heavy inspiration from the LMF model. lemon has imported many classes/entities from LMF and adopted its core ontology. On the other hand, lemon has added vocabulary to describe the syntax-semantics interface with respect to an ontology and remove a number of classes that create syntactic overhead. A complete description of the relationship between LMF and the original lemon model is provided <a href="http://lemon-model.net/lemon-cookbook/node46.html">here</a>. The main differences are summarized here:</p>
@@ -3033,10 +3038,10 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <li>lemon defines the meaning of a term by reference to an ontology element defined by the OWL model.</li>
 <li>lemon provides a more compact description than LMF to describe the syntax-semantics interface</li>
 <li>lemon relies on external category system and linguistic ontologies to describe linguistic properties of lexical entries instead of proposing an own category system</li>
-<li>ontolex does not include a module for describing inflectional morphology patterns (called intentional morphology in LMF). Further, it does not allow to define global constraints on the lexicon. This can be done using OWL axioms, but not in lemon itself.</li>
+<li> lemon does not include a module for describing inflectional morphology patterns (called intentional morphology in LMF). Further, it does not allow to define global constraints on the lexicon. This can be done using OWL axioms, but not in lemon itself.</li>
 </ul>
 <h2 id="openannotation">OpenAnnotation</h2>
-<p>In many uses cases the need arises to annotate a text corpus with links to entities defined in a lexicon, e.g. lexical entries, forms, lexical senses, lexical concepts etc. lemon does not support this annotation per se, as there are other models that are dedicated exactly to this. This is the case for the <a href="http://openannotation.org/">Open Annotation</a> standard. In both models an element of lexicon may be the target of an annotation. This target may be a form, lexical entry, lexical sense or lexical concept and it is important to give the class to make clear what the target of the annotation is.</p>
+<p>In many uses cases the need arises to annotate a text corpus with links to entities defined in a lexicon, e.g. lexical entries, forms, lexical senses, lexical concepts etc. lemon does not support this annotation per se, as there are other models that are dedicated exactly to this. This is the case for the <a href="http://openannotation.org/">Open Annotation</a> standard. In both models an element of the lexicon may be the target of an annotation. This target may be a form, lexical entry, lexical sense or lexical concept and it is important to give the class to make clear what the target of the annotation is.</p>
 <p>We will now give an example of annotating a word &quot;cat&quot; occurring at character 7 in a file at the URL <a href="http://www.example.com/doc.txt">2</a>, where the <em>lemon</em> element is given as the body of an annotation. For example</p>
 <div class='beispiel'>
 <p><a href='Examples/other/example-oa.png' class='tn'/><img src='Examples/other/example-oa.png'/></a></p>
