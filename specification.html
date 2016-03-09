@@ -2290,7 +2290,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <p>A <strong>lexicalization set</strong> is a dataset that comprises a collection of lexicalizations, that is pairs of lexical entry and corresponding reference in the associated ontology/vocabulary/dataset.</p>
 </div>
 <div class='description'>
-<p><strong>SubClassOf</strong>: void:Dataset, <strong>lexiconDataset</strong> <em>max 1</em> ontolex:Lexicon, <strong>referenceDataset</strong> <em>exactly 1</em> void:Dataset, <strong>partition</strong> <em>only</em> LexicalizationSet, <strong>lexicalizationModel</strong> exactly 1</p>
+<p><strong>SubClassOf</strong>: void:Dataset, <strong>lexiconDataset</strong> <em>max 1</em> lime:Lexicon, <strong>referenceDataset</strong> <em>exactly 1</em> void:Dataset, <strong>partition</strong> <em>only</em> LexicalizationSet, <strong>lexicalizationModel</strong> exactly 1</p>
 </div>
 </div>
 <p>The lexicalization set is linked to the ontology and the lexicon by means of the properties <a href="#Reference_Dataset" title="wikilink">reference dataset</a> and <a href="#Lexicon_Dataset" title="wikilink">lexicon dataset</a>, respectively.</p>
@@ -2695,7 +2695,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 :WnConceptSet a ontolex:ConceptSet ;
   lime:concepts &quot;117659&quot;^^xsd:integer .
 
-:WnLexicon a ontolex:Lexicon ;
+:WnLexicon a lime:Lexicon ;
   lime:lexicalEntries &quot;155287&quot;^^xsd:integer .</code></pre>
 </div>
 </div>
