@@ -21,7 +21,7 @@
   voaf:classNumber 60 ;
   voaf:propertyNumber 40 .
 
-<http://www.example.com/lexicon> a ontolex:Lexicon ;
+<http://www.example.com/lexicon> a lime:Lexicon ;
   ontolex:language "ja" ;
   dct:language  <http://id.loc.gov/vocabulary/iso639-1/ja>, <http://lexvo.org/id/iso639-3/jpn> ;
   lime:lexicalEntries 80 .
