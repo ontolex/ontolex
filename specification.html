@@ -360,7 +360,7 @@ The aim of the lexicon model for ontologies (lemon) is to provide rich linguisti
 <p><a href='Examples/ontolex/example3.png' class='tn'/><img src='Examples/ontolex/example3.png'/></a></p>
 <div>
 <pre><code>:lex_color a ontolex:LexicalEntry;
-     ontolex:form :form_color.
+     ontolex:lexicalForm :form_color.
 
 :form_color a ontolex:Form;
      ontolex:writtenRep &quot;colour&quot;@en-GB, &quot;color&quot;@en-US.</code></pre>
@@ -388,7 +388,7 @@ The aim of the lexicon model for ontologies (lemon) is to provide rich linguisti
 <p><a href='Examples/ontolex/example4.png' class='tn'/><img src='Examples/ontolex/example4.png'/></a></p>
 <div>
 <pre><code>:lex_privacy a ontolex:LexicalEntry;
-     ontolex:form :form_privacy.
+     ontolex:lexicalForm :form_privacy.
 
 :form_privacy a ontolex:Form;
      ontolex:writtenRep &quot;privacy&quot;@en;
@@ -902,7 +902,7 @@ The aim of the lexicon model for ontologies (lemon) is to provide rich linguisti
   ontolex:isReferenceOf :cat_sense ;
   ontolex:isDenotedBy :cat_lex .
 
-pwn:102124272-n a ontolex:Concept;
+pwn:102124272-n a ontolex:LexicalConcept;
   ontolex:isEvokedBy :cat_lex ;
   ontolex:lexicalizedSense :cat_sense ;
   ontolex:isConceptOf &lt;http://dbpedia.org/resource/Cat&gt; .</code></pre>
@@ -979,7 +979,7 @@ pwn:102124272-n a ontolex:Concept;
 <div class='description'>
 </div>
 </div>
-<p>In order to relate a lexical entry to one of its various syntactic behaviors as captured by a syntactic frame, the <code>synsem</code> module defines the <a href="#Syntactic_Behavior" title="wikilink">syntactic behaviour</a> property. Each lexical entry should have its own syntactic frame instance, generic behavior such as 'transitive' should be captured by classes.</p>
+<p>In order to relate a lexical entry to one of its various syntactic behaviors as captured by a syntactic frame, the <code>synsem</code> module defines the <a href="#Syntactic_Behavior" title="wikilink">syntactic behavior</a> property. Each lexical entry should have its own syntactic frame instance, generic behavior such as 'transitive' should be captured by classes.</p>
 <div class='entity'>
 <h3>
 <p>Syntactic Behavior (Object Property)</p>
@@ -1044,7 +1044,7 @@ pwn:102124272-n a ontolex:Concept;
 <p><a href='Examples/synsem/example2.png' class='tn'/><img src='Examples/synsem/example2.png'/></a></p>
 <div>
 <pre><code>:own_lex a ontolex:LexicalEntry ;
-  synsem:canonicalForm :own_form ;
+  ontolex:canonicalForm :own_form ;
   synsem:synBehavior :own_frame_transitive .
 
 :own_form ontolex:writtenRep &quot;own&quot;@en. 
@@ -1184,7 +1184,7 @@ pwn:102124272-n a ontolex:Concept;
 <p><a href='Examples/synsem/example3.png' class='tn'/><img src='Examples/synsem/example3.png'/></a></p>
 <div>
 <pre><code>:own_lex a ontolex:LexicalEntry ;
-  synsem:canonicalForm :own_form ;
+  ontolex:canonicalForm :own_form ;
   synsem:synBehavior :own_frame_transitive ;
   ontolex:denotes &lt;http://dbpedia.org/ontology/owner&gt; .
 
@@ -1206,7 +1206,7 @@ pwn:102124272-n a ontolex:Concept;
 <pre><code>:father_of a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:noun ;
     ontolex:canonicalForm :father_form;
-    synsem:synBehaviour :father_of_nounpp;
+    synsem:synBehavior :father_of_nounpp;
     ontolex:sense :father_sense_ontomap.
 
 :father_form a ontolex:Form;
@@ -1217,10 +1217,10 @@ pwn:102124272-n a ontolex:Concept;
    lexinfo:prepositionalArg :arg2.
 
 :father_sense_ontomap a synsem:OntoMap, ontolex:LexicalSense;
-   ontolex:ontoMapping :father_sense_ontomap;
+   synsem:ontoMapping :father_sense_ontomap;
    ontolex:reference &lt;http://dbpedia.org/ontology/father&gt;;
-   ontolex:subjOfProp :arg2;
-   ontolex:objOfProp :arg1.
+   synsem:subjOfProp :arg2;
+   synsem:objOfProp :arg1.
 
 :arg2 synsem:marker :of .</code></pre>
 </div>
@@ -1253,15 +1253,15 @@ pwn:102124272-n a ontolex:Concept;
 :operate_form a ontolex:Form;
    ontolex:writtenRep &quot;operate&quot;@en.
 
-:operate_intransitivepp a synsem:Frame;
+:operate_intransitivepp a synsem:SyntacticFrame;
    lexinfo:subject :operate_subj ;
    lexinfo:prepositionalArg :operate_pobj.
 
 :operate_sense_ontomap a ontolex:LexicalSense, synsem:OntoMap;
-   ontolex:ontoMapping :operate_sense_ontomap;
+   synsem:ontoMapping :operate_sense_ontomap;
    ontolex:reference &lt;http://dbpedia.org/ontology/regionServed&gt;;
-   ontolex:subjOfProp :operate_subj;
-   ontolex:objOfProp :operate_pobj.
+   synsem:subjOfProp :operate_subj;
+   synsem:objOfProp :operate_pobj.
  
 :operate_pobj synsem:marker :in .</code></pre>
 </div>
@@ -1291,7 +1291,7 @@ pwn:102124272-n a ontolex:Concept;
 <pre><code>:launch a ontolex:LexicalEntry ;
   lexinfo:partOfSpeech lexinfo:verb ;
   ontolex:canonicalForm :launch_canonical_form;
-  synsem:synBehaviour :launch_transitive_pp;
+  synsem:synBehavior :launch_transitive_pp;
   ontolex:sense :launch_sense_ontomap.
 
 :launch_canonical_form ontolex:writtenRep &quot;launch&quot;@en.
@@ -1344,7 +1344,7 @@ pwn:102124272-n a ontolex:Concept;
     lexinfo:partOfSpeech lexinfo:verb ;
     ontolex:canonicalForm :give_form;
     synsem:synBehavior :give_ditransitive;
-    synsem:synBehaviour :give_transitive_pp;
+    synsem:synBehavior :give_transitive_pp;
     ontolex:sense :giving_sense_ontomap.
 
 :give_form a ontolex:Form;
@@ -1393,7 +1393,7 @@ pwn:102124272-n a ontolex:Concept;
 <pre><code>:female a ontolex:LexicalEntry; 
   lexinfo:partOfSpeech lexinfo:adjective;
   ontolex:canonicalForm :female_canonical_form;
-  synsem:synBehaviour :female_syn,:female_syn1;
+  synsem:synBehavior :female_syn,:female_syn1;
   ontolex:sense :female_sense_ontomap.
 
 :female_canonical_form ontolex:writtenRep &quot;female&quot;@en.
@@ -1649,7 +1649,7 @@ pwn:102124272-n a ontolex:Concept;
   olia:hasTag penn:NN .
 
 :Fever_node a decomp:Component ; 
-  decomp:correpondsTo :Fever ;
+  decomp:correspondsTo :Fever ;
   olia:hasTag penn:NN .</code></pre>
 </div>
 </div>
@@ -1661,7 +1661,7 @@ pwn:102124272-n a ontolex:Concept;
 <pre><code>:know a ontolex:Word ;
   synsem:synBehavior :know_frame .
 
-:know_frame a synsem:Frame ;
+:know_frame a synsem:SyntacticFrame ;
   lexinfo:subject :subject ;
   lexinfo:directObjet :directObject .
 
@@ -1870,7 +1870,7 @@ lexinfo:hypernym rdfs:subProperty vartrans:senseRel.
 <p>A <strong>sense relation</strong> is a <strong>lexico-semantic relation</strong> that represents the relation between two lexical senses the meanings of which are related.</p>
 </div>
 <div class='description'>
-<p><strong>subClassOf</strong>: LexicoSemanticRelation, relates exactly 2 ontolex:Sense</p>
+<p><strong>subClassOf</strong>: LexicoSemanticRelation, relates exactly 2 ontolex:LexicalSense</p>
 </div>
 </div>
 <p>Examples of semantic relations are the equivalence relation between two senses, hypernymy and hyponymy relations, synonymy, antonymy, translations, etc.</p>
@@ -2093,36 +2093,6 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 
 :corner vartrans:translatableAs :rincón.
 :corner vartrans:translatableAs :esquina.</code></pre>
-</div>
-</div>
-<p>We can group translations into a set by using the class <a href="#TranslationSet" title="wikilink">translation set</a>:</p>
-<div class='entity'>
-<h3>
-<p>Translation Set (Class)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans#TranslationSet" class="uri">http://www.w3.org/nl/lemon/vartrans#TranslationSet</a></p>
-</div>
-<div class='comment'>
-<p>A <strong>translation set</strong> is a set of translations that have some common source.</p>
-</div>
-<div class='description'>
-</div>
-</div>
-<p>In order to relate a translation set to one of the translations contained in it, the model defines a property <a href="#trans" title="wikilink">trans</a>:</p>
-<div class='entity'>
-<h3>
-<p>trans (Object Property)</p>
-</h3>
-<div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans#trans" class="uri">http://www.w3.org/nl/lemon/vartrans#trans</a></p>
-</div>
-<div class='comment'>
-<p>The <strong>trans</strong> property relates a TranslationSet to one of its translations.</p>
-</div>
-<div class='description'>
-<p><strong>Domain:</strong> TranslationSet</p>
-<p><strong>Range:</strong> Translation</p>
 </div>
 </div>
 <h1 id="metadata-lime">Metadata (lime)</h1>
@@ -2380,7 +2350,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
   voaf:propertyNumber 40 .
 
 &lt;http://www.example.com/lexicon&gt; a lime:Lexicon ;
-  ontolex:language &quot;ja&quot; ;
+  lime:language &quot;ja&quot; ;
   dct:language  &lt;http://id.loc.gov/vocabulary/iso639-1/ja&gt;, &lt;http://lexvo.org/id/iso639-3/jpn&gt; ;
   lime:lexicalEntries 80 .</code></pre>
 </div>
@@ -2777,7 +2747,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <p>In this section, we describe different publication scenarios for lemon models. The lexicon ontology model essentially describes three types of entities:</p>
 <ul>
 <li><strong>lexicons</strong>: represented by a <a href="#Lexicon" title="wikilink">lime:Lexicon</a></li>
-<li><strong>lexicalizations</strong>: relating lexical entries to vocabulary elements; represented by a <a href="#Lexicalization_Set" title="wikilink">ontolex:LexicalizationSet</a></li>
+<li><strong>lexicalizations</strong>: relating lexical entries to vocabulary elements; represented by a <a href="#Lexicalization_Set" title="wikilink">lime:LexicalizationSet</a></li>
 <li><strong>reference dataset or ontology vocabulary</strong>: represented by a <a href="http://rdfs.org/ns/void#Dataset">VoID Dataset</a> or some other subclass such as <a href="http://purl.org/vocommons/voaf#Vocabulary">VOAF Vocabulary</a>.</li>
 </ul>
 <p>Irrespective of their logical dependencies, all of the entities above can be published as physically independent data sources. At the other end of the set of options, the entities can be published together as one data source.</p>
@@ -3000,7 +2970,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 
 :financial_assets_lex a ontolex:LexicalEntry;
                  ontolex:evokes :financial_assets;
-                 ontolex:form :financial_assets_form. 
+                 ontolex:canonicalForm :financial_assets_form. 
 
 :financial_assets_form ontolex:writtenRep &quot;financial assets&quot;.</code></pre>
 </div>
@@ -3019,7 +2989,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
       ontolex:evokes :tuberculosis.
    
 :tuberculosis_sense a ontolex:LexicalSense;
-      ontolex:isContainedIn :tuberculosis; 
+      ontolex:isLexicalizedSenseOf :tuberculosis; 
       ontolex:usage [ rdf:value &quot;preferred&quot; ].
 
 :consumption_lex a ontolex:LexicalEntry;
