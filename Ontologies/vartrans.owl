@@ -95,6 +95,21 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/vartrans#conceptRel -->
+
+    <owl:ObjectProperty rdf:about="&vartrans;conceptRel">
+        <rdfs:label xml:lang="de">Konzeptbeziehung</rdfs:label>
+        <rdfs:label xml:lang="en">concept relation</rdfs:label>
+        <rdfs:label xml:lang="es">relación entre conceptos</rdfs:label>
+        <rdfs:label xml:lang="it">relazione di concetti</rdfs:label>
+        <rdfs:label xml:lang="nl">conceptrelatie</rdfs:label>
+        <rdfs:comment xml:lang="en">A relationship between two concepts</rdfs:comment>
+        <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
+        <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/vartrans#lexicalRel -->
 
     <owl:ObjectProperty rdf:about="&vartrans;lexicalRel">
@@ -255,6 +270,27 @@
     
 
 
+    <!-- http://www.w3.org/ns/lemon/vartrans#ConceptualRelation -->
+
+    <owl:Class rdf:about="&vartrans;ConceptualRelation">
+        <rdfs:label xml:lang="de">Konzeptbeziehung</rdfs:label>
+        <rdfs:label xml:lang="en">conceptual relation</rdfs:label>
+        <rdfs:label xml:lang="es">relación entre conceptos</rdfs:label>
+        <rdfs:label xml:lang="it">relazione di concetti</rdfs:label>
+        <rdfs:label xml:lang="nl">conceptrelatie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&vartrans;LexicoSemanticRelation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&vartrans;relates"/>
+                <owl:onClass rdf:resource="&ontolex;LexicalConcept"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A relationship between two concepts</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/ns/lemon/vartrans#LexicalRelation -->
 
     <owl:Class rdf:about="&vartrans;LexicalRelation">
@@ -298,7 +334,15 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&vartrans;relates"/>
-                <owl:onClass rdf:resource="&ontolex;LexicalEntry"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&ontolex;LexicalConcept"/>
+                            <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
+                            <rdf:Description rdf:about="&ontolex;LexicalSense"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
