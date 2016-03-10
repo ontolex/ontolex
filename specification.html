@@ -234,7 +234,7 @@ The aim of the lexicon model for ontologies (lemon) is to provide rich linguisti
 <p>A <strong>lexical entry</strong> represents a unit of analysis of the lexicon that consists of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses.</p>
 </div>
 <div class='description'>
-<p><strong>SubClassOf:</strong> lexicalForm min 1 Form, canonicalForm max 1 Form, exactly 1 dct:language, semiotics:Expression</p>
+<p><strong>SubClassOf:</strong> lexicalForm min 1 Form, canonicalForm max 1 Form, semiotics:Expression</p>
 </div>
 </div>
 <p>A Lexical Entry thus needs to be associated with at least one <a href="#Form" title="wikilink">form</a>, and has at most one <a href="#Canonical_Form" title="wikilink">canonical form</a> (see below).</p>
@@ -797,7 +797,7 @@ The aim of the lexicon model for ontologies (lemon) is to provide rich linguisti
 <p>A <strong>lexical concept</strong> represents a mental abstraction, concept or unit of thought that can be lexicalized by a given collection of senses.</p>
 </div>
 <div class='description'>
-<p><strong>SubClassOf:</strong> skos:Concept, semiotics:Meaning</p>
+<p><strong>SubClassOf:</strong> skos:Concept</p>
 </div>
 </div>
 <p>The lexical entry is said to <a href="#Evoke" title="wikilink">evoke</a> a particular lexical concept, similar to how a lexical entry <a href="#Denotes" title="wikilink">denotes</a> an ontology reference.</p>
@@ -922,6 +922,7 @@ pwn:102124272-n a ontolex:Concept;
 </div>
 <div class='description'>
 <p><strong>SubClassOf</strong>: skos:ConceptScheme, void:Dataset</p>
+<p><strong>EquivalentClass</strong>: skos:inScheme min 1 LexicalConcept</p>
 </div>
 </div>
 <p>In this way lexicons can be ordered onomasiologically, that is by meanings rather than by lemmas. The concept set is a special type of <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a>. A <a href="#Lexical_Concept" title="wikilink">lexical concept</a> is linked to a ConceptSet using the property <a href="http://www.w3.org/2004/02/skos/core#inScheme">skos:inScheme</a></p>
@@ -1427,7 +1428,7 @@ pwn:102124272-n a ontolex:Concept;
 <div class='description'>
 <p><strong>Domain:</strong> LexicalSense</p>
 <p><strong>Range:</strong> rdfs:Resource</p>
-<p><strong>SubPropertyOf:</strong> context</p>
+<p><strong>SubPropertyOf:</strong> usage</p>
 </div>
 </div>
 <p>Two special types of conditions are defined in the synsem module, which formulate constraints on the type of arguments that can be used at the first or second position of a property when a certain lexical entry is used to express that property. Take for instance the distinction between the English verbs <em>(to) ride</em> and <em>(to) drive</em>. Both express the means of transportation, but have different implications. Ride implies that the means of transportation is a bike. Instead of introducing different ontological predicates and different senses, the modulation can be captured by specifying restrictions on the values that can fill the 1st or 2nd argument of the corresponding ontological predicate. This is illustrated by the example below:</p>
@@ -1577,7 +1578,7 @@ pwn:102124272-n a ontolex:Concept;
 </div>
 <div class='description'>
 <p><strong>Domain:</strong> Component</p>
-<p><strong>Range:</strong> LexicalEntry or Argument</p>
+<p><strong>Range:</strong> LexicalEntry or SyntacticArgument</p>
 </div>
 </div>
 <p>It may be necessary to add inflectional properties to the component to uniquely determine the actual form of the lexical entry. This inflectional information can be attached to the component as shown in the following example for the Spanish term 'comunidad autónoma' (federal state), whose second word is the singular feminine form <em>autónoma</em> instead of the canonical form <em>autónomo</em>.</p>
@@ -1763,8 +1764,8 @@ lexinfo:hypernym rdfs:subProperty vartrans:senseRel.
 <p>The <strong>relates</strong> property links a lexico-semantic relation to the two lexical entries or lexical senses between which it establishes the relation.</p>
 </div>
 <div class='description'>
-<p><strong>Domain:</strong> ontolex:LexicalEntry OR ontolex:LexicalSense</p>
-<p><strong>Range:</strong> ontolex:LexicalEntry OR ontolex:LexicalSense</p>
+<p><strong>Domain:</strong> LexicoSemanticRelation</p>
+<p><strong>Range:</strong> ontolex:LexicalEntry OR ontolex:LexicalSense OR ontolex:LexicalConcept</p>
 </div>
 </div>
 <p>As many lexico-semantic relations are asymmetric, it is necessary to distinguish the <a href="#Source" title="wikilink">source</a> from the <a href="#Target" title="wikilink">target</a>:</p>
@@ -2120,8 +2121,8 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 <p>The <strong>trans</strong> property relates a TranslationSet to one of its translations.</p>
 </div>
 <div class='description'>
-<p><strong>Domain:</strong> vartrans:TranslationSet</p>
-<p><strong>Range:</strong> vartrans:Translation</p>
+<p><strong>Domain:</strong> TranslationSet</p>
+<p><strong>Range:</strong> Translation</p>
 </div>
 </div>
 <h1 id="metadata-lime">Metadata (lime)</h1>
@@ -2201,7 +2202,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 </div>
 <div class='description'>
 <p><strong>Domain:</strong> Lexicon or ontolex:LexicalEntry or ConceptSet or LexicalizationSet</p>
-<p><strong>Range:</strong> rdfs:Literal</p>
+<p><strong>Range:</strong> xsd:language</p>
 </div>
 </div>
 <p>Beyond using the <em>lime:language</em> property, which has a Literal as a range, it is recommended to use the Dublin Core <em>language</em> property with reference to either <a href="http://www.lexvo.org/">Lexvo.org</a> or <a href="http://id.loc.gov/vocabulary/iso639-1.html">The Library of Congress Vocabulary</a></p>
@@ -2238,7 +2239,7 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
 </div>
 <div class='description'>
 <p><strong>Domain</strong>: Lexicon</p>
-<p><strong>SubPropertyOf</strong>: void:vocabulary</p>
+<p><strong>SubPropertyOf</strong>: voaf:Vocabulary</p>
 </div>
 </div>
 <p>As an example we may describe a simple lexicon using the above introduced properties in addition to Dublin Core properties. The part-of-speech of the four lexical entries is indicated using the lexinfo vocabulary, so that the value of <a href="#Linguistic_Catalog" title="wikilink">linguisticCatalog</a> is set to <a href="http://www.lexinfo.net/ontologies/2.0/lexinfo"><a href="http://www.lexinfo.net/ontologies/2.0/lexinfo">http://www.lexinfo.net/ontologies/2.0/lexinfo</a></a>. In the example, there is one (RDF) resource that represents both the lexicon itself and its metadata:</p>
