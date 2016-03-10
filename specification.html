@@ -1749,7 +1749,7 @@ lexinfo:hypernym rdfs:subProperty vartrans:senseRel.
 <p>A <strong>lexico-semantic relation</strong> represents the relation between two lexical entries or lexical senses that are related by some lexical or semantic relationship.</p>
 </div>
 <div class='description'>
-<p><strong>subClassOf</strong>: relates exactly 2 (ontolex:LexicalEntry OR ontolex:LexicalSense)</p>
+<p><strong>subClassOf</strong>: relates exactly 2 (ontolex:LexicalEntry OR ontolex:LexicalSense OR ontolex:LexicalConcept)</p>
 </div>
 </div>
 <p>The object property <a href="#relates" title="wikilink">relates</a> links a <a href="#Lexico-Semantic_Relation" title="wikilink">lexico-semantic relation</a> to the lexical entries or lexical senses between which it establishes the relation:</p>
@@ -1950,6 +1950,39 @@ mother_form ontolex:writtenRep &quot;mother&quot;@en .
       vartrans:category :diachronic.</code></pre>
 </div>
 </div>
+<p>Finally, it is also possible to give relationships between concepts, and this
+is useful for modelling relations between synsets in wordnets and other similar
+resources</p>
+<div class='entity'>
+<h3>
+<p>conceptRel (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans#conceptRel" class="uri">http://www.w3.org/nl/lemon/vartrans#conceptRel</a></p>
+</div>
+<div class='comment'>
+<p>The <strong>conceptRel</strong> property relates two lexical concepts that stand in some sense relation.</p>
+</div>
+<div class='description'>
+<p><strong>Domain:</strong> ontolex:LexicalConcept</p>
+<p><strong>Range:</strong> ontolex:LexicalConcept</p>
+</div>
+</div>
+<div class='entity'>
+<h3>
+<p>Conceptual Relation (Class)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans#ConceptualRelation" class="uri">http://www.w3.org/nl/lemon/vartrans#ConceptualRelation</a></p>
+</div>
+<div class='comment'>
+    <p>A relationship between two lexical concepts</p>
+</div>
+<div class='description'>
+<p><strong>subClassOf</strong>: LexicoSemanticRelation, relates exactly 2 ontolex:LexicalConcept</p>
+</div>
+</div>
+
 <h2 id="translation">Translation</h2>
 <p>Translation relates two lexical entries from different languages the meaning of which is 'equivalent'. This 'equivalence` can be expressed at three different levels:</p>
 <ul>
