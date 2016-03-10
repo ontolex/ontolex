@@ -1,6 +1,7 @@
 @prefix : <> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 :tuberculosis a skos:Concept;
      ontolex:isEvokedBy :tuberculosis_lex;
@@ -11,7 +12,7 @@
       ontolex:evokes :tuberculosis.
    
 :tuberculosis_sense a ontolex:LexicalSense;
-      ontolex:isContainedIn :tuberculosis; 
+      ontolex:isLexicalizedSenseOf :tuberculosis; 
       ontolex:usage [ rdf:value "preferred" ] .
 
 :consumption_lex a ontolex:LexicalEntry;

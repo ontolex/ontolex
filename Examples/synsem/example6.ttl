@@ -10,7 +10,7 @@
 :launch a ontolex:LexicalEntry ;
   lexinfo:partOfSpeech lexinfo:verb ;
   ontolex:canonicalForm :launch_canonical_form;
-  synsem:synBehaviour :launch_transitive_pp;
+  synsem:synBehavior :launch_transitive_pp;
   ontolex:sense :launch_sense_ontomap.
 
 :launch_canonical_form ontolex:writtenRep "launch"@en.

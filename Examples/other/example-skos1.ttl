@@ -7,6 +7,6 @@
 
 :financial_assets_lex a ontolex:LexicalEntry;
                  ontolex:evokes :financial_assets;
-                 ontolex:form :financial_assets_form. 
+                 ontolex:canonicalForm :financial_assets_form. 
 
 :financial_assets_form ontolex:writtenRep "financial assets".

@@ -196,27 +196,6 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/vartrans#trans -->
-
-    <owl:ObjectProperty rdf:about="&vartrans;trans">
-        <rdfs:label xml:lang="af">vertaling</rdfs:label>
-        <rdfs:label xml:lang="de">Übersetzung</rdfs:label>
-        <rdfs:label xml:lang="en">translation</rdfs:label>
-        <rdfs:label xml:lang="es">traducción</rdfs:label>
-        <rdfs:label xml:lang="fr">traduction</rdfs:label>
-        <rdfs:label xml:lang="it">traduzione</rdfs:label>
-        <rdfs:label xml:lang="nl">vertaling</rdfs:label>
-        <rdfs:label xml:lang="pt">tradução</rdfs:label>
-        <rdfs:label xml:lang="ro">traducere</rdfs:label>
-        <rdfs:label xml:lang="sv">versättning</rdfs:label>
-        <rdfs:comment xml:lang="en">The property &apos;trans&apos; relates a TranslationSet to one of its translations.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
-        <rdfs:range rdf:resource="&vartrans;Translation"/>
-        <rdfs:domain rdf:resource="&vartrans;TranslationSet"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.w3.org/ns/lemon/vartrans#translatableAs -->
 
     <owl:ObjectProperty rdf:about="&vartrans;translatableAs">
@@ -398,21 +377,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;translation&apos; is a &apos;sense relation&apos; expressing that two lexical senses corresponding to two lexical entries in different languages can be translated to each other without any major meaning shifts.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/ns/lemon/vartrans#TranslationSet -->
-
-    <owl:Class rdf:about="&vartrans;TranslationSet">
-        <rdfs:label xml:lang="de">Übersetzungsatz</rdfs:label>
-        <rdfs:label xml:lang="en">translation set</rdfs:label>
-        <rdfs:label xml:lang="es">conjunto de traducciones</rdfs:label>
-        <rdfs:label xml:lang="fr">banque de traductions</rdfs:label>
-        <rdfs:label xml:lang="it">bance traduzioni</rdfs:label>
-        <rdfs:label xml:lang="nl">verzameling van vertalingen</rdfs:label>
-        <rdfs:comment xml:lang="en">A &apos;translation set&apos; is a set of translations that have some common source.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
 </rdf:RDF>
