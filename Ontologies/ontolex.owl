@@ -160,6 +160,7 @@
         <rdfs:comment xml:lang="en">The &apos;concept&apos; property relates an ontological entity to a lexical concept that represents the corresponding meaning.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
         <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
+        <owl:inverseOf rdf:resource="&ontolex;isConceptOf"/>
     </owl:ObjectProperty>
     
 
@@ -670,7 +671,7 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <rdfs:comment xml:lang="en">The class concept set represents a collection of lexical concepts.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A concept set represents a collection of lexical concepts.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
     </owl:Class>
     

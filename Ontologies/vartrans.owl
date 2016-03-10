@@ -127,6 +127,7 @@
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontolex;LexicalConcept"/>
                     <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
                     <rdf:Description rdf:about="&ontolex;LexicalSense"/>
                 </owl:unionOf>
@@ -169,7 +170,6 @@
         <rdfs:label xml:lang="sv">källa</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;source&apos; property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a &apos;source&apos;.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
-        <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;relates"/>
     </owl:ObjectProperty>
     
@@ -191,7 +191,6 @@
         <rdfs:label xml:lang="sv">mål</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;target&apos; property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a &apos;target&apos;.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
-        <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;relates"/>
     </owl:ObjectProperty>
     
@@ -320,15 +319,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&vartrans;relates"/>
-                <owl:onClass>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&ontolex;Form"/>
-                            <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
-                            <rdf:Description rdf:about="&ontolex;LexicalSense"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:onClass>
+                <owl:onClass rdf:resource="&ontolex;LexicalEntry"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>

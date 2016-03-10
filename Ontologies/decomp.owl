@@ -106,7 +106,14 @@
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/decomp"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/decomp#Component"/>
-        <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"/>
+        <rdfs:range>
+            <Class>
+                <unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/lemon/synsem#SyntacticArgument"/>
+                </unionOf>
+            </Class>
+        </rdfs:range>
     </ObjectProperty>
     
 
@@ -159,6 +166,12 @@
         <rdfs:comment xml:lang="en">A component is a particular realization of a lexical entry that forms part of a compound lexical entry.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/decomp"/>
     </Class>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/synsem#SyntacticArgument -->
+
+    <Class rdf:about="http://www.w3.org/ns/lemon/synsem#SyntacticArgument"/>
 </rdf:RDF>
 
 
