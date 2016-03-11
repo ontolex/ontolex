@@ -9,7 +9,7 @@
 @prefix : <#> .
 
 :own_lex a ontolex:LexicalEntry ;
-  synsem:canonicalForm :own_form ;
+  ontolex:canonicalForm :own_form ;
   synsem:synBehavior :own_frame_transitive ;
   ontolex:denotes <http://dbpedia.org/ontology/owner> .
 

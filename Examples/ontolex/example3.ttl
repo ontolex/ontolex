@@ -2,8 +2,8 @@
 @prefix : <#> .
 
 :lex_color a ontolex:LexicalEntry;
-     :lexicalForm :form_color .
+     ontolex:lexicalForm :form_color .
 
 :form_color a ontolex:Form;
-     :writtenRep "colour"@en-GB, "color"@en-US .
+     ontolex:writtenRep "colour"@en-GB, "color"@en-US .
 

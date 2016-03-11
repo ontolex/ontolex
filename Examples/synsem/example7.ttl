@@ -13,7 +13,7 @@
     lexinfo:partOfSpeech lexinfo:verb ;
     ontolex:canonicalForm :give_form;
     synsem:synBehavior :give_ditransitive;
-    synsem:synBehaviour :give_transitive_pp;
+    synsem:synBehavior :give_transitive_pp;
     ontolex:sense :giving_sense_ontomap.
 
 :give_form a ontolex:Form;

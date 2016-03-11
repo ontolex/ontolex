@@ -23,5 +23,5 @@
   olia:hasTag penn:NN .
 
 :Fever_node a decomp:Component ; 
-  decomp:correpondsTo :Fever ;
+  decomp:correspondsTo :Fever ;
   olia:hasTag penn:NN .

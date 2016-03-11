@@ -1,0 +1,12 @@
+@prefix : <> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+:financial_assets a skos:Concept;
+                ontolex:isLexicalizedBy :financial_assets_lex.
+
+:financial_assets_lex a ontolex:LexicalEntry;
+                 ontolex:evokes :financial_assets;
+                 ontolex:canonicalForm :financial_assets_form. 
+
+:financial_assets_form ontolex:writtenRep "financial assets".

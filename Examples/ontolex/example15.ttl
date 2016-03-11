@@ -23,7 +23,7 @@
   ontolex:isReferenceOf :cat_sense ;
   ontolex:isDenotedBy :cat_lex .
 
-pwn:102124272-n
+pwn:102124272-n a ontolex:LexicalConcept ;
   ontolex:isEvokedBy :cat_lex ;
   ontolex:lexicalizedSense :cat_sense ;
   ontolex:isConceptOf <http://dbpedia.org/resource/Cat> .

@@ -16,14 +16,14 @@
 :operate_form a ontolex:Form;
    ontolex:writtenRep "operate"@en.
 
-:operate_intransitivepp a synsem:Frame;
+:operate_intransitivepp a synsem:SyntacticFrame;
    lexinfo:subject :operate_subj ;
    lexinfo:prepositionalArg :operate_pobj.
 
 :operate_sense_ontomap a ontolex:LexicalSense, synsem:OntoMap;
-   ontolex:ontoMapping :operate_sense_ontomap;
+   synsem:ontoMapping :operate_sense_ontomap;
    ontolex:reference <http://dbpedia.org/ontology/regionServed>;
-   ontolex:subjOfProp :operate_subj;
-   ontolex:objOfProp :operate_pobj.
+   synsem:subjOfProp :operate_subj;
+   synsem:objOfProp :operate_pobj.
  
 :operate_pobj synsem:marker :in .

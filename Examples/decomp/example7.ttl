@@ -9,7 +9,7 @@
 :know a ontolex:Word ;
   synsem:synBehavior :know_frame .
 
-:know_frame a synsem:Frame ;
+:know_frame a synsem:SyntacticFrame ;
   lexinfo:subject :subject ;
   lexinfo:directObjet :directObject .
 

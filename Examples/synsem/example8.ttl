@@ -8,7 +8,7 @@
 :female a ontolex:LexicalEntry; 
   lexinfo:partOfSpeech lexinfo:adjective;
   ontolex:canonicalForm :female_canonical_form;
-  synsem:synBehaviour :female_syn,:female_syn1;
+  synsem:synBehavior :female_syn,:female_syn1;
   ontolex:sense :female_sense_ontomap.
 
 :female_canonical_form ontolex:writtenRep "female"@en.
