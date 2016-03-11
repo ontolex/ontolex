@@ -18,6 +18,9 @@ def make_name(n):
         i = max(i, s.rindex('/'))
     if i + 1 < len(s) and s[i + 1].isdigit():
         return "Synset " + s[i + 1:]
+    t = s[i + 1:]
+    if t == "":
+        return "_node"
     else:
         return s[i + 1:]
 
@@ -51,7 +54,7 @@ def gen(s):
                       (re.sub("[\W^-]", "", name), o2, make_name(p)))
             elif p != RDF.type:
                 prop_name = make_name(p)
-                args.append("%s=%s" % (prop_name, write_obj(o)))
+                args.append("%s=%.30s" % (prop_name, write_obj(o)))
         if class_of:
             class_of_name = make_name(class_of)
             if args:

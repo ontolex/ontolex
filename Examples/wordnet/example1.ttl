@@ -1,39 +1,119 @@
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ili: <http://ili.globalwordnet.org/ili/> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix wordnet-ontology: <http://wordnet-rdf.princeton.edu/ontology#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix wn: <http://globalwordnet.github.io/schemas/wn#> .
 
-<> a ontolex:LexicalEntry ;
-    wordnet-ontology:part_of_speech wordnet-ontology:noun ;
-    ontolex:canonicalForm <#CanonicalForm> ;
-    ontolex:sense <#1-n> ,
-        <#2-n> ,
-        <#3-n> ,
-        <#4-n> ,
-        <#5-n> ,
-        <#6-n> .
+<#example-en> a lime:Lexicon ;
+  rdfs:label "Example wordnet (English)"@en ;
+  dc:language "en" ;
+  schema:email "john@mccr.ae" ;
+  cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  owl:versionInfo "1.0" ;
+  schema:citation "CILI: the Collaborative Interlingual Index. Francis Bond, Piek Vossen, John P. McCrae and Christiane Fellbaum, Proceedings of the Global WordNet Conference 2016, (2016)." ;
+  schema:url "http://globalwordnet.github.io/schemas/" ;
+  dc:publisher "Global Wordnet Association" ;
+  lime:entry <#w1>, <#w2>, <#w3> .
 
-<#1-n> a ontolex:LexicalSense ;
-    wordnet-ontology:gloss "feline mammal usually having thick soft fur and no ability to roar: domestic cats; wildcats"@eng ;
-    wordnet-ontology:lex_id 0 ;
-    wordnet-ontology:old_sense_key "cat%1:05:00::" ;
-    wordnet-ontology:sense_number 1 ;
-    wordnet-ontology:tag_count 18 ;
-    ontolex:isLexicalizedSenseOf <http://wordnet-rdf.princeton.edu/wn31/102124584-n> ;
-    ontolex:reference <http://dbpedia.org/resource/Cat> ;
-    owl:sameAs <http://lemon-model.net/lexica/uby/wn/WN_Sense_574> ,
-        <http://www.lexvo.org/page/wordnet/30/noun/cat_1_05_00> .
+<#w1> a ontolex:LexicalEntry ;
+  ontolex:canonicalForm [
+    ontolex:writtenRep "grandfather"@en 
+  ] ;
+  wn:partOfSpeech wn:noun ;
+  ontolex:sense <#example-10161911-n-1> .
 
-<http://wordnet-rdf.princeton.edu/wn31/102124584-n> a ontolex:LexicalConcept, wordnet-ontology:Synset ;
-    rdfs:label "cat"@eng,
-        "true cat"@eng ;
-    wordnet-ontology:gloss "feline mammal usually having thick soft fur and no ability to roar: domestic cats; wildcats"@eng ;
-    wordnet-ontology:hypernym <http://wordnet-rdf.princeton.edu/wn31/102123961-n> ;
-    wordnet-ontology:hyponym <http://wordnet-rdf.princeton.edu/wn31/102124772-n> ,
-        <http://wordnet-rdf.princeton.edu/wn31/102127587-n> ;
-    wordnet-ontology:lexical_domain wordnet-ontology:noun.animal ;
-    wordnet-ontology:part_of_speech wordnet-ontology:noun ;
-    wordnet-ontology:synset_member <http://wordnet-rdf.princeton.edu/wn31/cat-n>,
-        <http://wordnet-rdf.princeton.edu/wn31/true+cat-n> ;
-    owl:sameAs <http://www.w3.org/2006/03/wn/wn20/instances/synset-cat-noun-1> ,
-        <http://lemon-model.net/lexica/uby/wn/WN_Synset_11048> .
+<#example-10161911-n-1>  a ontolex:LexicalSense ;
+  ontolex:reference <#example-10161911-n> .
+
+<#w2> a ontolex:LexicalEntry ;
+  ontolex:canonicalForm [
+    ontolex:writtenRep "paternal grandfather"@en 
+  ] ;
+  wn:partOfSpeech wn:noun ;
+  ontolex:sense <#example-1-n-1> .
+
+<#example-1-n-1> a ontolex:LexicalSense ;
+  ontolex:reference <#example-1-n> .
+
+[] a ontolex:Sense ;
+  vartrans:source <#example-1-n-1> ;
+  vartrans:category wn:derivation ;
+  vartrans:target <#example-10161911-n-1> ;
+  dc:creator "John McCrae"@en .
+          
+<#w3> a ontolex:LexicalEntry ;
+  ontolex:canonicalForm [
+    ontolex:writtenRep "pay"@en
+  ] ;
+  wn:partOfSpeech wn:verb ;
+  synsem:synBehavior [
+    rdfs:label "Sam cannot %s Sue"@en
+  ], [
+    rdfs:label "Sam and Sue %s"@en
+  ], [
+    rdfs:label "The banks %s the check"@en
+  ] .
+
+<#example-10161911-n> a ontolex:LexicalConcept ;
+  skos:inScheme <#example-en> ;
+  wn:ili ili:i90287 ;
+  wn:definition [
+    rdf:value "the father of your father or mother"@en
+  ] .
+
+[] 
+  vartrans:source <#example-10161911-n> ;
+  vartrans:category wn:hypernym ; 
+  vartrans:target <#example-10162692-n> .
+          
+<#example-1-n> a ontolex:LexicalConcept ;
+  skos:inScheme <#example-en> ;
+  wn:definition [
+    rdf:value "the father of your father or mother"@en 
+  ] ;
+  wn:iliDefinition [
+    rdf:value "the father of your father or mother"@en ;
+    dc:source "https://en.wiktionary.org/wiki/farfar"
+  ] .
+
+[]
+  vartrans:source <#example-1-n> ;
+  vartrans:category wn:hypernym ;
+  vartrans:target <#example-10162692-n> .
+
+<#example-sv> a lime:Lexicon ;
+  rdfs:label "Example wordnet (Swedish)"@sv ;
+  dc:language "sv" ;
+  schema:email "john@mccr.ae" ;
+  cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  owl:versionInfo "1.0" ;
+  schema:citation "CILI: the Collaborative Interlingual Index. Francis Bond, Piek Vossen, John P. McCrae and Christiane Fellbaum, Proceedings of the Global WordNet Conference 2016, (2016)." ;
+  schema:url "http://globalwordnet.github.io/schemas" ;
+  dc:publisher "Global Wordnet Association" ;
+  lime:entry <#w4> .
+
+<#w4> a ontolex:LexicalEntry ;
+  ontolex:canonicalForm [
+    ontolex:writtenRep "farfar"@sv 
+  ] ;
+  ontolex:otherForm [
+    ontolex:writtenRep "farfäder"@sv ;
+    wn:tag "NNS" 
+  ] ;
+  wn:partOfSpeech wn:noun ;
+  wn:sense <#example-2-n-1> .
+
+<#example-2-n-1> a ontolex:LexicalSense ;
+  ontolex:reference <#example-1-n> ;
+  wn:example [
+    rdf:value "Jag vill berätta för er att min farfar var svensk beredskapssoldat vid norska gränsen under andra världskriget, ett krig som Sverige stod utanför"@sv ;
+    dc:source "Europarl Corpus"
+  ] .
