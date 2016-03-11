@@ -2128,6 +2128,83 @@ resources</p>
 :corner vartrans:translatableAs :esquina.</code></pre>
 </div>
 </div>
+
+<p>We can group translations into a set by using the class <a href="#TranslationSet" title="wikilink">translation set</a>,
+for instance if they come from the same language resource, or belonging to the same organisation, etc.:</p>
+<div class='entity'>
+<h3>
+<p>Translation Set (Class)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans#TranslationSet" class="uri">http://www.w3.org/nl/lemon/vartrans#TranslationSet</a></p>
+</div>
+<div class='comment'>
+<p>A <strong>translation set</strong> is a set of translations that have some common source.</p>
+</div>
+<div class='description'>
+</div>
+</div>
+<p>In order to relate a translation set to one of the translations contained in it, the model defines a property <a href="#trans" title="wikilink">trans</a>:</p>
+<div class='entity'>
+<h3>
+<p>trans (Object Property)</p>
+</h3>
+<div>
+<p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/vartrans#trans" class="uri">http://www.w3.org/nl/lemon/vartrans#trans</a></p>
+</div>
+<div class='comment'>
+<p>The <strong>trans</strong> property relates a TranslationSet to one of its translations.</p>
+</div>
+<div class='description'>
+<p><strong>Domain:</strong> TranslationSet</p>
+<p><strong>Range:</strong> Translation</p>
+</div>
+</div>
+
+<div class='beispiel'>
+<p><a href='Examples/vartrans/example10.png' class='tn'/><img src='Examples/vartrans/example10.png'/></a></p>
+<div>
+<pre><code>:study a ontolex:LexicalEntry ;
+  ontolex:sense :study_sense ;
+  dct:language iso639:en .
+
+:Studium a ontolex:LexicalEntry ;
+  ontolex:sense :Studium_sense ;
+  dct:language iso639:de .
+
+:Untersuchung a ontolex:LexicalEntry ;
+  ontolex:sense :Untersuchung_sense ;
+  dct:language iso639:de .
+
+:staidear a ontolex:LexicalEntry ;
+  ontolex:ense :staidear_sense ;
+  dct:language iso639:ga .
+
+:t1 a vartrans:Translation ;
+  vartrans:source :study_sense ;
+  vartrans:target :Studium_sense .
+
+:t2 a vartrans:Translation ;
+  vartrans:source :study_sense ;
+  vartrans:target :staidear_sense .
+
+:t3 a vartrans:Translation ;
+  vartrans:source :study_sense ;
+  vartrans:target :Untersuching_sense .
+
+:ts1 a vartrans:TranslationSet ;
+  vartrans:trans :t1, :t3 ;
+  dc:source "Automatically translated"@en .
+
+:ts2 a vartrans:TranslationSet ;
+  vartrans:trans :t2 ;
+  dc:source "Wiktionary"@en .</code></pre>
+</div>
+</div>
+
+
+
+
 <h1 id="metadata-lime">Metadata (lime)</h1>
 <div class="figure">
 <img src="Lemon_Lime_Metadata.png" title="Lemon_Lime_Metadata.png" alt="Lemon_Lime_Metadata.png" /><p class="caption">Lemon_Lime_Metadata.png</p>
@@ -2932,9 +3009,62 @@ resources</p>
 <p>Syntactic or subcategorization frames describe which syntactic arguments a certain lexical entry (verb, noun etc.) requires to be complete. A verb that requires a subject and a direct object is called a <em>transitive verb</em>. The corresponding frame that generalizes across particular verbs is called <em>transitive</em> frame or <em>transitive construction</em> (in construction grammar theories).</p>
 <p>In lexinfo, frames can be axiomatized by describing which type of arguments they subcategorize. A transitive frame would be axiomatized as follows in lexinfo:</p>
 <p><code>   TransitiveFrame ≡ VerbFrame ⊓ (=1 subject ⊓ =1 directObject)</code></p>
+
+<h2 id="confidence">Other properties</h2>
+
+<p>In addition, it is possible to define other properties in an external resource,
+that may be difficult to translate across resources. An example of such a property
+is translation confidence as shown below:</p>
+
+<div class='beispiel'>
+<p><a href='Examples/vartrans/example9.png' class='tn'/><img src='Examples/vartrans/example9.png'/></a></p>
+<div>
+<pre><code>:bench a ontolex:LexicalEntry ;
+        ontolex:lexicalForm [ ontolex:writtenRep "bench"@en].
+
+:bench-sense a ontolex:LexicalSense ;
+        ontolex:isSenseOf :bench .
+
+:banco a ontolex:LexicalEntry ;
+        ontolex:lexicalForm [ ontolex:writtenRep "banco"@es].
+
+:banco-sense a ontolex:LexicalSense ;       
+        ontolex:isSenseOf :banco .
+
+
+:tranSetEN-ES a vartrans:TranslationSet ;
+        dc:source <http://hdl.handle.net/10230/17110> ;
+        vartrans:trans :bench_banco-trans .
+
+:bench_banco-trans a vartrans:Translation ;
+        vartrans:source :bench-sense ;
+        vartrans:target :banco-sense .
+
+
+:tranSetEN-ES a prov:Entity .  
+:bench_banco-trans a prov:Entity .
+    
+:humanValidationActivity a prov:Activity .
+:executionOfMyAlgorithm a prov:Activity .
+
+:bench_banco-trans prov:qualifiedGeneration [
+     a prov:Generation ;
+     prov:activity :humanTranslationActivity ;
+     lexinfo:translationConfidence 1.0 ;
+] .
+
+:bench_banco-trans prov:qualifiedGeneration [
+     a prov:Generation ;
+     prov:activity :executionOfMyAlgorithm ;
+     lexinfo:translationConfidence 0.3 ;
+] .</code></pre>
+</div>
+</div>
+
+
 <h1 id="lexical-nets">Lexical Nets</h1>
 <p>Lexical nets, so called wordnets in particular, are an important type of lexical resource used very often in natural language processing applications. Lexical nets organize the senses of words into groups of equivalent meaning, so called <em>synsets</em>. Further, synsets are related to each other using lexico-semantic relationships so that the the resource can be regarded as a &quot;net&quot;. We discuss below how lexical nets can be represented using the lemon vocabulary using Princeton wordnet as an example.</p>
-<h2 id="lexical-nets-in-lemon">Lexical nets in lemon</h2>
+<h2 id="lexical-nets-in-lemon">Lexical nets in OntoLex-lemon</h2>
 <p>As mentioned above, lexical nets indicate the different lexical senses that a word has and groups these senses into sets of equivalent senses (so called synsets). Below we state how the main entities of a lexical net (words, lemmas, senses and synsets) can be represented in lemon:</p>
 <ul>
 <li><strong>Synset</strong>: Lexical Concept</li>
@@ -2943,50 +3073,118 @@ resources</p>
 <li><strong>Lemma</strong>: Canonical Form</li>
 </ul>
 <p>Lexico-semantic relations should be represented between lexical concepts. The WordNet-RDF ontology defines some of these lexico-semantic relations:</p>
-<p><a href="http://wordnet-rdf.princeton.edu/ontology"><code>http://wordnet-rdf.princeton.edu/ontology</code></a></p>
-<p>The following example shows how to model the lexical entry for <em>cat</em>:</p>
+<p><a href="http://globalwordnet.github.io/schemas/wn#"><code>http://globalwordnet.github.io/schemas/wn#</code></a></p>
+<p>An full description of the Global WordNet Association extension of OntoLex-lemon is available <a href="http://globalwordnet.github.io/schemas/#rdf">here</a>,
+and an example of modelling is given here:</p>
 <div class='beispiel'>
 <p><a href='Examples/wordnet/example1.png' class='tn'/><img src='Examples/wordnet/example1.png'/></a></p>
 <div>
-<pre><code>@prefix ontolex: &lt;http://www.w3.org/ns/lemon/ontolex#&gt; .
-@prefix wordnet-ontology: &lt;http://wordnet-rdf.princeton.edu/ontology#&gt; .
-@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
-@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+<pre><code><#example-en> a lime:Lexicon ;
+  rdfs:label "Example wordnet (English)"@en ;
+  dc:language "en" ;
+  schema:email "john@mccr.ae" ;
+  cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  owl:versionInfo "1.0" ;
+  schema:citation "CILI: the Collaborative Interlingual Index. Francis Bond, Piek Vossen, John P. McCrae and Christiane Fellbaum, Proceedings of the Global WordNet Conference 2016, (2016)." ;
+  schema:url "http://globalwordnet.github.io/schemas/" ;
+  dc:publisher "Global Wordnet Association" ;
+  lime:entry <#w1>, <#w2>, <#w3> .
 
-:cat a ontolex:LexicalEntry ;
-    wordnet-ontology:part_of_speech wordnet-ontology:noun ;
-    ontolex:canonicalForm :cat#canonicalForm;
-    ontolex:sense &lt;#1-n&gt;,
-        :cat#2-n,
-        :cat#3-n,
-        :cat#4-n,
-        :cat#5-n,
-        :cat#6-n .
+<#w1> a ontolex:LexicalEntry ;
+  ontolex:canonicalForm [
+    ontolex:writtenRep "grandfather"@en 
+  ] ;
+  wn:partOfSpeech wn:noun ;
+  ontolex:sense <#example-10161911-n-1> .
 
-:cat#1-n a ontolex:LexicalSense ;
-    wordnet-ontology:gloss &quot;feline mammal usually having thick soft fur and no ability to roar: domestic cats; wildcats&quot;@eng ;
-    wordnet-ontology:lex_id 0 ;
-    wordnet-ontology:old_sense_key &quot;cat%1:05:00::&quot; ;
-    wordnet-ontology:sense_number 1 ;
-    wordnet-ontology:tag_count 18 ;
-    ontolex:isLexicalizedSenseOf &lt;http://wordnet-rdf.princeton.edu/wn31/102124584-n&gt; ;
-    ontolex:reference &lt;http://dbpedia.org/resource/Cat&gt; ;
-    owl:sameAs &lt;http://lemon-model.net/lexica/uby/wn/WN_Sense_574&gt;,
-        &lt;http://www.lexvo.org/page/wordnet/30/noun/cat_1_05_00&gt; .
+<#example-10161911-n-1>  a ontolex:LexicalSense ;
+  ontolex:reference <#example-10161911-n> .
 
-&lt;http://wordnet-rdf.princeton.edu/wn31/102124584-n&gt; a ontolex:LexicalConcept, wordnet-ontology:Synset ;
-    rdfs:label &quot;cat&quot;@eng,
-        &quot;true cat&quot;@eng ;
-    wordnet-ontology:gloss &quot;feline mammal usually having thick soft fur and no ability to roar: domestic cats; wildcats&quot;@eng ;
-    wordnet-ontology:hypernym &lt;http://wordnet-rdf.princeton.edu/wn31/102123961-n&gt; ;
-    wordnet-ontology:hyponym &lt;http://wordnet-rdf.princeton.edu/wn31/102124772-n&gt;,
-        &lt;http://wordnet-rdf.princeton.edu/wn31/102127587-n&gt; ;
-    wordnet-ontology:lexical_domain wordnet-ontology:noun.animal ;
-    wordnet-ontology:part_of_speech wordnet-ontology:noun ;
-    wordnet-ontology:synset_member &lt;http://wordnet-rdf.princeton.edu/wn31/cat-n&gt;,
-        &lt;http://wordnet-rdf.princeton.edu/wn31/true+cat-n&gt; ;
-    owl:sameAs &lt;http://www.w3.org/2006/03/wn/wn20/instances/synset-cat-noun-1&gt; ,
-        &lt;http://lemon-model.net/lexica/uby/wn/WN_Synset_11048&gt; .</code></pre>
+<#w2> a ontolex:LexicalEntry ;
+  ontolex:canonicalForm [
+    ontolex:writtenRep "paternal grandfather"@en 
+  ] ;
+  wn:partOfSpeech wn:noun ;
+  ontolex:sense <#example-1-n-1> .
+
+<#example-1-n-1> a ontolex:LexicalSense ;
+  ontolex:reference <#example-1-n> .
+
+[] a ontolex:Sense ;
+  vartrans:source <#example-1-n-1> ;
+  vartrans:category wn:derivation ;
+  vartrans:target <#example-10161911-n-1> ;
+  dc:creator "John McCrae"@en .
+          
+<#w3> a ontolex:LexicalEntry ;
+  ontolex:canonicalForm [
+    ontolex:writtenRep "pay"@en
+  ] ;
+  wn:partOfSpeech wn:verb ;
+  synsem:synBehavior [
+    rdfs:label "Sam cannot %s Sue" @en
+  ], [
+    rdfs:label "Sam and Sue %s"@en
+  ], [
+    rdfs:label "The banks %s the check"@en
+  ] .
+
+<#example-10161911-n> a ontolex:LexicalConcept ;
+  skos:inScheme <#example-en> ;
+  wn:ili ili:i90287 ;
+  wn:definition [
+    rdf:value "the father of your father or mother"@en
+  ] .
+
+[] 
+  vartrans:source <#example-10161911-n> ;
+  vartrans:category wn:hypernym ; 
+  vartrans:target <#example-10162692-n> .
+          
+<#example-1-n> a ontolex:LexicalConcept ;
+  skos:inScheme <#example-en> ;
+  wn:definition [
+    rdf:value "the father of your father or mother"@en 
+  ] ;
+  wn:iliDefinition [
+    rdf:value "the father of your father or mother"@en ;
+    dc:source "https://en.wiktionary.org/wiki/farfar"
+  ] .
+
+[]
+  vartrans:source <#example-1-n> ;
+  vartrans:category wn:hypernym ;
+  vartrans:target <#example-10162692-n> .
+
+<#example-sv> a lime:Lexicon ;
+  rdfs:label "Example wordnet (Swedish)"@sv ;
+  dc:language "sv" ;
+  schema:email "john@mccr.ae" ;
+  cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  owl:versionInfo "1.0" ;
+  schema:citation "CILI: the Collaborative Interlingual Index. Francis Bond, Piek Vossen, John P. McCrae and Christiane Fellbaum, Proceedings of the Global WordNet Conference 2016, (2016)." ;
+  schema:url "http://globalwordnet.github.io/schemas" ;
+  dc:publisher "Global Wordnet Association" ;
+  lime:entry <#w4> .
+
+<#w4> a ontolex:LexicalEntry ;
+  ontolex:canonicalForm [
+    ontolex:writtenRep "farfar"@sv 
+  ] ;
+  ontolex:otherForm [
+    ontolex:writtenRep "farfäder"@sv ;
+    wn:tag "NNS" 
+  ] ;
+  wn:partOfSpeech wn:noun ;
+  wn:sense <#example-2-n-1> .
+
+<#example-2-n-1> a ontolex:LexicalSense ;
+  ontolex:reference <#example-1-n> ;
+  wn:example [
+    rdf:value "Jag vill berätta för er att min farfar var svensk beredskapssoldat vid norska gränsen under andra världskriget, ett krig som Sverige stod utanför"@sv ;
+    dc:source "Europarl Corpus"
+  ] .
+</code></pre>
 </div>
 </div>
 <h1 id="relation-to-other-models">Relation to Other Models</h1>
