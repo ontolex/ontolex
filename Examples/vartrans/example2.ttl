@@ -22,7 +22,7 @@
 :mother_form ontolex:writtenRep "mother"@en .
 
 :senseRelation a vartrans:SenseRelation ;
-      vartrans:source :surrogate_mother_sense ;
-      vartrans:target :mother_sense ; 
-      vartrans:category lexinfo:hypernym .
+      vartrans:source :surrogate_mother ;
+      vartrans:target :mother ; 
+      vartrans:category :hypernym .
 

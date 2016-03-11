@@ -1,0 +1,13 @@
+# This is a dummy ontology to illustrate the use of the lime vocabulary in examples example2.ttl and example3.ttl
+
+@prefix : <http://www.cimiano.de/ontologies/ontology1.ttl> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl> .
+
+:Cat rdf:type owl:Class.
+
+:spouse rdf:type owl:ObjectProperty.
+
+:elevation rdf:type owl:DatatypeProperty.
+
+

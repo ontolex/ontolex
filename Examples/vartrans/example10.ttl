@@ -1,0 +1,45 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix isocat: <http://www.isocat.org/datacat/>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix iso639: <http://lexvo.org/id/iso639-1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix : <#> .
+
+:study a ontolex:LexicalEntry ;
+  ontolex:sense :study_sense ;
+  dct:language iso639:en .
+
+:Studium a ontolex:LexicalEntry ;
+  ontolex:sense :Studium_sense ;
+  dct:language iso639:de .
+
+:Untersuchung a ontolex:LexicalEntry ;
+  ontolex:sense :Untersuchung_sense ;
+  dct:language iso639:de .
+
+:staidear a ontolex:LexicalEntry ;
+  ontolex:ense :staidear_sense ;
+  dct:language iso639:ga .
+
+:t1 a vartrans:Translation ;
+  vartrans:source :study_sense ;
+  vartrans:target :Studium_sense .
+
+:t2 a vartrans:Translation ;
+  vartrans:source :study_sense ;
+  vartrans:target :staidear_sense .
+
+:t3 a vartrans:Translation ;
+  vartrans:source :study_sense ;
+  vartrans:target :Untersuching_sense .
+
+:ts1 a vartrans:TranslationSet ;
+  vartrans:trans :t1, :t3 ;
+  dc:source "Automatically translated"@en .
+
+:ts2 a vartrans:TranslationSet ;
+  vartrans:trans :t2 ;
+  dc:source "Wiktionary"@en .

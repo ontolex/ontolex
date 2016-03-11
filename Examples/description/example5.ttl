@@ -1,0 +1,15 @@
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<father> a lexinfo:Noun ;
+  synsem:synBehavior <father#frame> .
+
+<father#frame> a lexinfo:NounPredicateFrame ;
+  rdfs:label "X is the father of Y" , "X is Y's father" ;
+  lexinfo:copulativeArg <father#arg1> ;
+  lexinfo:possessiveAdjunct <father#arg2> .
+
+<father#arg1> a lexinfo:CopulativeArg .
+
+<father#arg2> a lexinfo:PossessiveAdjunct .

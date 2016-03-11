@@ -1,0 +1,12 @@
+@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcr: <http://www.isocat.org/ns/dcr.rdf#> .
+
+lexinfo:partOfSpeech 
+  rdfs:label "part of speech"@en ;
+  rdfs:comment "A category assigned to a word based on its grammatical and semantic properties."@en ;
+  dcr:datcat <http://www.isocat.org/datcat/DC-1345> ,
+             <http://www.isocat.org/datcat/DC-396> ;
+  rdfs:range lexinfo:PartOfSpeech ;
+  rdfs:subPropertyOf lexinfo:morphosyntacticProperty .
+
