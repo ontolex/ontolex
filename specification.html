@@ -70,8 +70,8 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 <h2>Abstract</h2>
 
 <p>
-Ontologies are an important component of the Saemantic Web but current standards such as OWL only support the addition of a simple label to entities in the ontology. It is not currently possible to add inflected forms, different genders, usage notes or even create a full lexical resource such as Princeton WordNet. The model described in this document aims to close this gap by providing a vocabulary that allows to enrich ontologies with information about how the vocabulary elements described in them are realized linguistically, in particular also in different natural languages.
-OWL and RDF(S) rely on a property rdfs:label to capture the relation between a vocabulary element and its (preferred) lexicalization in a given language. This lexicalization provides a lexical anchor that makes the concept, property, individual etc. understandable to a human user. The use of a simple label for linguistic grounding as available in OWL and RDF(S) is far from being able to capture the necessary linguistic and lexical information that Natural Language Processing (NLP) applications working with a particular ontology need.
+Ontologies are an important component of the Semantic Web but current standards such as OWL only support the addition of a simple label to entities in the ontology. It is not currently possible to add inflected forms, different genders, usage notes or up to the level of a full lexical resource such as Princeton WordNet. The model described in this document aims to close this gap by providing a vocabulary that allows ontologies to be enriched with information about how the vocabulary elements described in them are realized linguistically, in particular in multiple natural languages.
+OWL and RDF(S) rely on the RDFS lable property to capture the relation between a vocabulary element and its (preferred) lexicalization in a given language. This lexicalization provides a lexical anchor that makes the concept, property, individual etc. understandable to a human user. The use of a simple label for linguistic grounding as available in OWL and RDF(S) is far from being able to capture the necessary linguistic and lexical information that Natural Language Processing (NLP) applications working with a particular ontology need.
 The aim of the lexicon model for ontologies (lemon) is to provide rich linguistic grounding for ontologies. Rich linguistic grounding includes the representation of morphological and syntactic properties of lexical entries as well as the syntax-semantics interface, i.e. the meaning of these lexical entries with respect to an ontology or vocabulary.
 
  </p>
@@ -79,9 +79,9 @@ The aim of the lexicon model for ontologies (lemon) is to provide rich linguisti
 
 <h2>Status of This Document</h2>
 
-<p><em>This specification was published by the <a href="http://www.w3.org/community/grouphome/">Group Name</a>. It is not a W3C Standard nor is it on the W3C Standards Track. Please note that under the <a href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a> there is a limited opt-out and other conditions apply. Learn more about <a href="http://www.w3.org/community/">W3C Community and Business Groups</a>.</em></p>
+<p><em>This specification was published by the <a href="http://www.w3.org/community/ontolex/">OntoLex Community Group</a>. It is not a W3C Standard nor is it on the W3C Standards Track. Please note that under the <a href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a> there is a limited opt-out and other conditions apply. Learn more about <a href="http://www.w3.org/community/">W3C Community and Business Groups</a>.</em></p>
 
-<p>This document is the first official report of the ontolex community group. It does not represent the view of single individuals but reflects the consensus and agreement reach as part of the regular group discussions. The report should be regarded as the official specification of the lexicon model for ontologies (lemon).</p>
+<p>This document is the first official report of the OntoLex community group. It does not represent the view of single individuals but reflects the consensus and agreement reach as part of the regular group discussions. The report should be regarded as the official specification of the lexicon model for ontologies (lemon).</p>
 
 <h2 class="introductory">Table of Contents</h2>
 <ul>
@@ -115,6 +115,7 @@ The aim of the lexicon model for ontologies (lemon) is to provide rich linguisti
 <li><a href="#translation-as-shared-reference">Translation as shared reference</a></li>
 <li><a href="#translation-as-a-relation-between-lexical-senses">Translation as a relation between lexical senses</a></li>
 <li><a href="#translatable-as">Translatable As</a></li>
+<li><a href="#translation-set">Translation Set</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#metadata-lime">Metadata (lime)</a><ul>
@@ -159,7 +160,7 @@ The aim of the lexicon model for ontologies (lemon) is to provide rich linguisti
 <li>the relation between the lexicon model for ontologies and the Simple Knowledge Organization System (SKOS), the Lexical Markup Model (LMF), and the Open Annotation Model (section Relation to Other Models)</li>
 </ul>
 <h1 id="introduction">Introduction</h1>
-<p>Ontologies are an important component of the Semantic Web but current standards such as <a href="http://www.w3.org/TR/owl-features/">OWL</a> only support the addition of a simple label to entities in the ontology. It is not currently possible to add inflected forms, different genders, usage notes or even create a full lexical resource such as Princeton WordNet. The model described in this document aims to close this gap by providing a vocabulary that allows to enrich ontologies with information about how the vocabulary elements described in them are realized linguistically, in particular also in different natural languages, in order to render ontologies suitable for human consumption and supporting meaningful interaction with and manipulation of them by human users.</p>
+<p>Ontologies are an important component of the Semantic Web but current standards such as <a href="http://www.w3.org/TR/owl-features/">OWL</a> only support the addition of a simple label to entities in the ontology. It is not currently possible to add inflected forms, different genders, usage notes or create a full lexical resource such as Princeton WordNet. The model described in this document aims to close this gap by providing a vocabulary that allows ontologies to be enriched with information about how the vocabulary elements described in them are realized linguistically, in particular in multiple natural languages, in order to render ontologies suitable for human consumption and supporting meaningful interaction with and manipulation of them by human users.</p>
 <p>OWL and RDF(S) rely on a property <code>rdfs:label</code> to capture the relation between a vocabulary element and its (preferred) lexicalization in a given language. This lexicalization provides a lexical anchor that makes the concept, property, individual etc. understandable to a human user. The use of a simple label for linguistic grounding as available in OWL and RDF(S) is far from being able to capture the necessary linguistic and lexical information that Natural Language Processing (NLP) applications working with a particular ontology need. Such NLP applications are for example:</p>
 <ul>
 <li>Natural language generation systems that produce coherent discourses by verbalizing a set of triples</li>
@@ -747,7 +748,7 @@ The aim of the lexicon model for ontologies (lemon) is to provide rich linguisti
 </div>
 </div>
 <h2 id="usage">Usage</h2>
-<p>The interpretation of a word (lexical entry) with respect to a meaning defined in a given ontology is often modulated by usage conditions or pragmatic implications in particular due to <em>register</em>, <em>connotations</em> or <em>meaning nuances</em> of a word. For example, consider as an example the French words 'rivière' and 'fleuve', which refer to rivers flowing into a sea and flowing into other rivers, respectively. As corresponding ontological classes to capture the specific meanings of these French words might not be available in the ontology, these meaning nuances can be specified using the property <a href="#Usage" title="wikilink">usage</a>, which allows to capture information related to usage conditions and pragmatic implications under which the lexical entry can be used to refer to the ontological meaning in question. These usage conditions are not introduced <em>instead of</em> a formally defined sense but complement the corresponding sense by additional information describing the usage of the lexical entry.</p>
+<p>The interpretation of a word (lexical entry) with respect to a meaning defined in a given ontology is often modulated by usage conditions or pragmatic implications in particular due to <em>register</em>, <em>connotations</em> or <em>meaning nuances</em> of a word. For example, consider as an example the French words 'rivière' and 'fleuve', which refer to rivers flowing into a sea and flowing into other rivers, respectively. As corresponding ontological classes to capture the specific meanings of these French words might not be available in the ontology, these meaning nuances can be specified using the property <a href="#Usage" title="wikilink">usage</a>, which allows information to be captured related to usage conditions and pragmatic implications under which the lexical entry can be used to refer to the ontological meaning in question. These usage conditions are not introduced <em>instead of</em> a formally defined sense but complement the corresponding sense by additional information describing the usage of the lexical entry.</p>
 <p>How exactly constraints on the usage of senses are defined is not defined by this specification. Yet, we give an example below that shows how to model the lexical meaning of 'rivière' and 'fleuve' when used to refer to the DBpedia class <a href="http://dbpedia.org/ontology/River">River</a>:</p>
 <div class='beispiel'>
 <p><a href='Examples/ontolex/example12.png' class='tn'/><img src='Examples/ontolex/example12.png'/></a></p>
@@ -1483,7 +1484,7 @@ pwn:102124272-n a ontolex:LexicalConcept;
 <img src="Lemon_Decomposition.png" title="Lemon_Decomposition.png" alt="Lemon_Decomposition.png" /><p class="caption">Lemon_Decomposition.png</p>
 </div>
 <h2 id="subterms">Subterms</h2>
-<p>Decomposition is the process of indicating which elements constitute a multi-word or compound lexical entry. The simplest way to do this is by means of the <a href="#subterm" title="wikilink">subterm</a> property, which indicates that a <a href="#Lexical_entry" title="wikilink">lexical entry</a> is a part of another entry. This property allows to specify which lexical entries a certain compound lexical entry is composed of.</p>
+<p>Decomposition is the process of indicating which elements constitute a multi-word or compound lexical entry. The simplest way to do this is by means of the <a href="#subterm" title="wikilink">subterm</a> property, which indicates that a <a href="#Lexical_entry" title="wikilink">lexical entry</a> is a part of another entry. This property allows us to specify which lexical entries a certain compound lexical entry is composed of.</p>
 <div class='entity'>
 <h3>
 <p>Subterm (Object Property)</p>
@@ -1693,7 +1694,7 @@ pwn:102124272-n a ontolex:LexicalConcept;
 <img src="Lemon_Variation_and_Translation.png" title="Lemon_Variation_and_Translation.png" alt="Lemon_Variation_and_Translation.png" /><p class="caption">Lemon_Variation_and_Translation.png</p>
 </div>
 <h2 id="lexico-semantic-relations">Lexico-Semantic Relations</h2>
-<p>The model defines a generic class <a href="#Lexico-Semantic_Relation" title="wikilink">lexico-semantic relation</a> that allows to relate two lexical entries or two lexical senses to each other, this is done principally by means of two properties <a href="#lexicalRel" title="wikilink">lexicalRel</a> and <a href="#senseRel" title="wikilink">senseRel</a> that allow to directly link two lexical entries / lexical senses that are related.</p>
+<p>The model defines a generic class <a href="#Lexico-Semantic_Relation" title="wikilink">lexico-semantic relation</a> that allows us to relate two lexical entries or two lexical senses to each other, this is done principally by means of two properties <a href="#lexicalRel" title="wikilink">lexicalRel</a> and <a href="#senseRel" title="wikilink">senseRel</a> that allow to directly link two lexical entries / lexical senses that are related.</p>
 <div class='entity'>
 <h3>
 <p>lexicalRel (Object Property)</p>
@@ -2058,7 +2059,7 @@ resources</p>
 </div>
 </div>
 <p>Thus, in spite of using having different denotations, both <em>Postleitzahl</em> and <em>zip code</em> can be seen as cross-lingual equivalents and thus as translations of each other.</p>
-<p>Besides the class <a href="#Translation" title="wikilink">Translation</a>, which reifies the translation relation between two lexical senses, as a shortcut the model also allows to directly express the relation of translation between lexical senses by a property <a href="#translation" title="wikilink">translation</a> that is regarded as equivalent to the reification:</p>
+<p>Besides the class <a href="#Translation" title="wikilink">Translation</a>, which reifies the translation relation between two lexical senses, as a shortcut the model also allows us to directly express the relation of translation between lexical senses by a property <a href="#translation" title="wikilink">translation</a> that is regarded as equivalent to the reification:</p>
 <div class='entity'>
 <h3>
 <p>translation (Object Property)</p>
@@ -2306,7 +2307,7 @@ for instance if they come from the same language resource, or belonging to the s
 <p><strong>Range</strong>: xsd:integer</p>
 </div>
 </div>
-<p>The model also allows to specify the linguistic (annotation) model used to describe characteristics of lexical entries via the <a href="#Catalog_of_linguistic_Categories" title="wikilink">linguisticCatalog</a> property:</p>
+<p>The model also allows us to specify the linguistic (annotation) model used to describe characteristics of lexical entries via the <a href="#Catalog_of_linguistic_Categories" title="wikilink">linguisticCatalog</a> property:</p>
 <div class='entity'>
 <h3>
 <p>Linguistic Catalog (Object Property)</p>
@@ -2869,7 +2870,7 @@ for instance if they come from the same language resource, or belonging to the s
 <li><strong>Integrated:</strong> Reference dataset, dataset-specific lexicon and lexicalization set are combined into a single data source: this scenario corresponds to closed environments where a single party is in control of the ontology, the lexicon and the lexicalizations and publishes the three as one dataset. In this scenario, the reference dataset is created and lexicalized with lexical elements created specifically for it. This scenario is the typical setting of ontology vocabularies/datasets naturally lexicalized by means of <code>rdfs:label</code>, <code>skos</code> or <code>skosxl</code> labeling properties.</li>
 </ol>
 <p>Similarly, there is <em>Concept Set</em> for a collection of lexical concepts and <code>ConceptualizationSet</code> for the triples expressing how lexical concepts relate to lexical entries from a given lexicon. Similar considerations to the ones above apply to these datasets.</p>
-<p>Identifying a Concept Set as an independent dataset allows reusing the same lexical concepts across different conceptualization sets. For example, this allows to reuse the same lexical concepts from an existing wordnet to conceptualize a lexicon in a different natural language than the one for which the resource was initially conceived. Otherwise, it is possible to define different concept sets, one for each conceptualization set, and then to relate them via a VoID <code>Linkset</code>.</p>
+<p>Identifying a Concept Set as an independent dataset allows reusing the same lexical concepts across different conceptualization sets. For example, this allows us to reuse the same lexical concepts from an existing wordnet to conceptualize a lexicon in a different natural language than the one for which the resource was initially conceived. Otherwise, it is possible to define different concept sets, one for each conceptualization set, and then to relate them via a VoID <code>Linkset</code>.</p>
 <h1 id="linguistic-description">Linguistic Description</h1>
 <p>An important goal of a lexicon is to record linguistic properties of the lexical entries defined in the lexicon such as its part-of-speech, gender, aspect, inflectional pattern, etc. The lemon model does not prescribe any vocabulary for doing so, but leaves it at the discretion of the user of the model to select an appropriate vocabulary that is in line with a given theoretical linguistic framework or grammar. We show below how third party category systems can be reused to describe the properties of lexical entires in a lemon lexicon. We will use the [<a href="http://lexinfo.net/ontology/2.0/lexinfo" class="uri">http://lexinfo.net/ontology/2.0/lexinfo</a># lexinfo] ontology in our examples as such as third party ontology describing relevant linguistic categories and properties.</p>
 <h2 id="morphosyntactic-description">Morphosyntactic Description</h2>
@@ -2905,14 +2906,6 @@ for instance if they come from the same language resource, or belonging to the s
   dcr:datcat &lt;http://www.isocat.org/datcat/DC-1333&gt; .</code></pre>
 </div>
 </div>
-<p>Indeed, we could have written our example above also as follows:</p>
-<div class='beispiel'>
-<p><a href='Examples/description/example3.png' class='tn'/><img src='Examples/description/example3.png'/></a></p>
-<div>
-<pre><code>:cat a ontolex:Word ;
-  lexinfo:partOfSpeech &lt;http://www.isocat.org/datcat/DC-1333&gt; .</code></pre>
-</div>
-</div>
 <p>The following morpho-syntactic properties are defined in the lexinfo ontology:</p>
 <ul>
 <li><strong>Animacy</strong>: indicating whether a word denotes something animate (human or animal)</li>
@@ -2934,7 +2927,7 @@ for instance if they come from the same language resource, or belonging to the s
 </ul>
 <p>When using these properties, care should be taken to distinguish between linguistic properties of the entry itself and properties of any of the forms. By default, it should be assumed that a property of a lexical entry also holds for all its forms. For example, in many languages gender is an entry property for nouns, but a form property for adjectives, for example:</p>
 <div class='beispiel'>
-<p><a href='Examples/description/example4.png' class='tn'/><img src='Examples/description/example4.png'/></a></p>
+<p><a href='Examples/description/example3.png' class='tn'/><img src='Examples/description/example3.png'/></a></p>
 <div>
 <pre><code>:spiaggia a ontolex:Word ;
   ontolex:canonicalForm :spiaggia_lemma ;
@@ -2970,7 +2963,7 @@ for instance if they come from the same language resource, or belonging to the s
 <p><em>Noun</em> ≡ ∃ partOfSpeech.NounPOS</p>
 <p>It is recommended to use both the rdf:type statement as well as the <strong>lexinfo:partOfSpeech</strong> to maximize interoperability in spite of the small redundancy:</p>
 <div class='beispiel'>
-<p><a href='Examples/description/example5.png' class='tn'/><img src='Examples/description/example5.png'/></a></p>
+<p><a href='Examples/description/example4.png' class='tn'/><img src='Examples/description/example4.png'/></a></p>
 <div>
 <pre><code>:geneesmiddel a lexinfo:Noun ;
   lexinfo:partOfSpeech lexinfo:noun .</code></pre>
@@ -3044,7 +3037,7 @@ is translation confidence as shown below:</p>
 :tranSetEN-ES a prov:Entity .  
 :bench_banco-trans a prov:Entity .
     
-:humanValidationActivity a prov:Activity .
+:humanTranslationActivity a prov:Activity .
 :executionOfMyAlgorithm a prov:Activity .
 
 :bench_banco-trans prov:qualifiedGeneration [
@@ -3220,11 +3213,7 @@ and an example of modelling is given here:</p>
       ontolex:evokes :tuberculosis.
    
 :tuberculosis_sense a ontolex:LexicalSense;
-<<<<<<< HEAD
       ontolex:isLexicalizedSenseOf :tuberculosis; 
-=======
-      ontolex:isContainedIn :tuberculosis; 
->>>>>>> master
       ontolex:usage [ rdf:value &quot;preferred&quot; ].
 
 :consumption_lex a ontolex:LexicalEntry;
@@ -3268,6 +3257,8 @@ and an example of modelling is given here:</p>
 &lt;cat&gt; a ontolex:LexicalEntry .</code></pre>
 </div>
 </div>
+<hr>
+<div><a href="#contents">Contents</a></div>
 <script>
 $(document).ready(function() {
         $(".tn").fancybox({'transitionIn':'elastic'});
