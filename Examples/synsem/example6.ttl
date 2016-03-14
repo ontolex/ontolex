@@ -20,7 +20,7 @@
  lexinfo:directObject         :arg2 ;
  lexinfo:prepositionalAdjunct :arg3.
 
-:launch_pAdj synsem:marker :in ;
+:arg3 synsem:marker :in ;
              synsem:optional "true"^^xsd:boolean .
 
 

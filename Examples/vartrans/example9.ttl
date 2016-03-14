@@ -31,7 +31,7 @@
 :tranSetEN-ES a prov:Entity .  
 :bench_banco-trans a prov:Entity .
     
-:humanValidationActivity a prov:Activity .
+:humanTranslationActivity a prov:Activity .
 :executionOfMyAlgorithm a prov:Activity .
 
 :bench_banco-trans prov:qualifiedGeneration [
