@@ -1,0 +1,22 @@
+{
+    "ontolex": "http://www.w3.org/ns/lemon/ontolex#",
+    "synsem": "http://www.w3.org/ns/lemon/synsem#",
+    "vartrans": "http://www.w3.org/ns/lemon/vartrans#",
+    "decomp": "http://www.w3.org/ns/lemon/decomp#",
+    "lime": "http://www.w3.org/ns/lemon/lime#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "Lexicon": "ontolex:Lexicon",
+    "LexicalEntry": "ontolex:LexicalEntry",
+    "lexicalForm": {
+        "@id": "ontolex:lexicalForm",
+        "@type": "@id"
+    },
+    "writtenRep": "ontolex:writtenRep",
+    "phoneticRep": "ontolex:phoneticRep",
+    "Word": "ontolex:Word",
+    "Affix": "ontolex:Affix",
+    "MultiwordExpression": "ontolex:MultiwordExpression",
+    "canonicalForm": "ontolex:canonicalForm",
+    "label": "rdfs:label",
+    "entry": "ontolex:entry"
+}
