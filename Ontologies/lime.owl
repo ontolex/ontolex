@@ -73,14 +73,6 @@
     
 
 
-    <!-- http://www.w3.org/ns/lemon/lime#lexicalizationModel -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/lemon/lime#lexicalizationModel">
-        <rdfs:subPropertyOf rdf:resource="&void;vocabulary"/>
-    </owl:AnnotationProperty>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -330,7 +322,7 @@
         <rdfs:label xml:lang="ro">numărul mediu de lexicalizari</rdfs:label>
         <rdfs:label xml:lang="sv">genomsnittligt antal lexikaliseringar</rdfs:label>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">The &apos;average number of lexicalizations&apos; property indicate the average number of lexicalizations per ontology element. The exact formula for calculating the average is indicated in the specification: https://www.w3.org/community/ontolex/wiki/Final_Model_Specification#Lexicalization_Set</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;average number of lexicalizations&apos; property indicate the average number of lexicalizations per ontology element. The exact formula for calculating the average is indicated in the specification: https://www.w3.org/community/ontolex/wiki/Final_Model_Specification#LexicalizationSet</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;decimal"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
     </owl:DatatypeProperty>
