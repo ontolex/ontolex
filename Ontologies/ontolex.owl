@@ -722,7 +722,7 @@
         <rdfs:label xml:lang="sv">lexikaliskt begrepp</rdfs:label>
         <rdfs:subClassOf rdf:resource="&semiotics;Meaning"/>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:comment xml:lang="en">A lexical concept represents a mental abstraction, concept or unit of thought that can be lexicalized by a given collection of senses.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A lexical concept represents a mental abstraction, concept or unit of thought that embodies the meaning of one or more lexical entries.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
     </owl:Class>
     
