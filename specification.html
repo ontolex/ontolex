@@ -699,14 +699,15 @@ code.cm { color: #000000; font-size: 80%;}
 </section>
 <section>
 <h2 id="lexical-concept">Lexical Concept</h2>
-<p>We have seen above how to capture the fact that a certain lexical entry can be used to denote a certain ontological predicate. We capture this by saying that the lexical entry <a href="#denotes" title="wikilink">denotes</a> the class or ontology element in question. However, sometimes we would like to express the fact that a certain lexical entry <a href="#evokes" title="wikilink">evokes</a> a certain mental concept rather than that it refers to a class with a formal interpretation in some model. Thus, in lemon we introduce the class <a href="#LexicalConcept" title="wikilink">Lexical Concept</a> that represents <em>a mental abstraction, concept or unit of thought that can be lexicalized by a given collection of senses</em>. A <a href="#LexicalConcept" title="wikilink">lexical concept</a> is thus a subclass of <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>.</p>
+<!-- Changes proposed by Armando Stellato -->
+<p>We have seen above how to capture the fact that a certain lexical entry can be used to denote a certain ontological predicate. We capture this by saying that the lexical entry <a href="#denotes" title="wikilink">denotes</a> the class or ontology element in question. However, sometimes we would like to express the fact that a certain lexical entry <a href="#evokes" title="wikilink">evokes</a> a certain mental concept rather than that it refers to a class with a formal interpretation in some model. Thus, in lemon we introduce the class <a href="#LexicalConcept" title="wikilink">Lexical Concept</a> that represents <em>a mental abstraction, concept or unit of thought that embodies the meaning of one or more lexical entries.</em> Lexical Concepts also support the identification of synonyms, as different lexical entries having senses referring to the same Lexical Concept are considered to be synonym. A <a href="#LexicalConcept" title="wikilink">lexical concept</a> is thus a subclass of <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>.</p>
 <div id="LexicalConcept" class='entity'>
 <h3>Lexical Concept (Class)</h3>
 <div>
 <p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/ontolex#LexicalConcept" class="uri">http://www.w3.org/ns/lemon/ontolex#LexicalConcept</a></p>
 </div>
 <div class='comment'>
-<p>A <strong>lexical concept</strong> represents a mental abstraction, concept or unit of thought that can be lexicalized by a given collection of senses.</p>
+<p>A <strong>lexical concept</strong> represents a mental abstraction, concept or unit of thought that embodies the meaning of one of more lexical entries.</p>
 </div>
 <div class='description'>
 <p><strong>SubClassOf:</strong> skos:Concept</p>
