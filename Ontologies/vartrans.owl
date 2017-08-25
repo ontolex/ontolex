@@ -87,7 +87,9 @@
         <rdfs:label xml:lang="pt">categoria</rdfs:label>
         <rdfs:label xml:lang="ro">categorie</rdfs:label>
         <rdfs:label xml:lang="sv">kategori</rdfs:label>
+        <rdfs:label xml:lang="ru">категория</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;category&apos; property indicates the specific type of relation by which two lexical entries or two lexical senses are related.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Свойство &apos;категория&apos; указывает конкретный тип отношения, которым связаны две словарные единицы или два лексических смысла.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
@@ -103,7 +105,9 @@
         <rdfs:label xml:lang="es">relación entre conceptos</rdfs:label>
         <rdfs:label xml:lang="it">relazione di concetti</rdfs:label>
         <rdfs:label xml:lang="nl">conceptrelatie</rdfs:label>
+        <rdfs:label xml:lang="ru">отношение понятий</rdfs:label>
         <rdfs:comment xml:lang="en">A relationship between two concepts</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Отношения между двумя понятиями</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
     </owl:ObjectProperty>
@@ -119,7 +123,9 @@
         <rdfs:label xml:lang="fr">relation lexicale</rdfs:label>
         <rdfs:label xml:lang="it">relazione lessicale</rdfs:label>
         <rdfs:label xml:lang="nl">lexikaal relatie</rdfs:label>
+        <rdfs:label xml:lang="ru">лексическое отношение</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;lexicalRel&apos; property relates two lexical entries that stand in some lexical relation.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Свойство &apos;lexicalRel&apos; связывает две словарных единицы, которые находятся в некотором лексическом отношении.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
@@ -136,7 +142,9 @@
         <rdfs:label xml:lang="fr">relate</rdfs:label>
         <rdfs:label xml:lang="it">rapporta</rdfs:label>
         <rdfs:label xml:lang="nl">relateert</rdfs:label>
+        <rdfs:label xml:lang="ru">связывает</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;relates&apos; property links a lexico-semantic relation to the two lexical entries or lexical senses between which it establishes the relation.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Свойство &apos;связывает&apos; связывает лексико-семантическим отношением две словарные единицы или два лексических смысла, между которыми оно (данное свойство) устанавливает отношение.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:domain rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:range>
@@ -161,7 +169,9 @@
         <rdfs:label xml:lang="fr">relation sémantique</rdfs:label>
         <rdfs:label xml:lang="it">relazione di sensi</rdfs:label>
         <rdfs:label xml:lang="nl">sinnrelatie</rdfs:label>
+        <rdfs:label xml:lang="ru">отношение смыслов</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;senseRel&apos; property relates two lexical senses that stand in some sense relation.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Свойство &apos;отношение смыслов&apos; (senseRel) связывает два лексических смысла, которые находятся в некоторой смысловой связи.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
         <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
@@ -183,7 +193,9 @@
         <rdfs:label xml:lang="pt">origem</rdfs:label>
         <rdfs:label xml:lang="ro">sursă</rdfs:label>
         <rdfs:label xml:lang="sv">källa</rdfs:label>
+        <rdfs:label xml:lang="ru">источник</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;source&apos; property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a &apos;source&apos;.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Свойство &apos;источник&apos; обозначает лексический смысл или словарную единицу, вовлеченную в лексико-семантическое отношение как &apos;источник&apos;.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;relates"/>
     </owl:ObjectProperty>
@@ -204,7 +216,9 @@
         <rdfs:label xml:lang="pt">destino</rdfs:label>
         <rdfs:label xml:lang="ro">ţintă</rdfs:label>
         <rdfs:label xml:lang="sv">mål</rdfs:label>
+        <rdfs:label xml:lang="ru">цель</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;target&apos; property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a &apos;target&apos;.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Свойство &apos;цель&apos; обозначает лексический смысл или словарную единицу, вовлеченную в лексико-семантическое отношение как &apos;цель&apos;.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;relates"/>
     </owl:ObjectProperty>
@@ -220,7 +234,9 @@
         <rdfs:label xml:lang="pt">tradução</rdfs:label>
         <rdfs:label xml:lang="ro">traducere</rdfs:label>
         <rdfs:label xml:lang="sv">versättning</rdfs:label>
+        <rdfs:label xml:lang="ru">перевод</rdfs:label>
         <rdfs:comment xml:lang="en">The property &apos;trans&apos; relates a TranslationSet to one of its translations.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Свойство &apos;перевод&apos; связывает НаборПереводов с одним из его переводов.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:range rdf:resource="&vartrans;Translation"/>
         <rdfs:domain rdf:resource="&vartrans;TranslationSet"/>
@@ -240,7 +256,9 @@
         <rdfs:label xml:lang="pt">traduzivel como</rdfs:label>
         <rdfs:label xml:lang="ro">traductibil ca</rdfs:label>
         <rdfs:label xml:lang="sv">översättbar som</rdfs:label>
+        <rdfs:label xml:lang="ru">переводится как</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;translatableAs&apos; property relates a lexical entry in some language to a lexical entry in another language that it can be translated as depending on the particular context and specific senses of the involved lexical entries.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Свойство &apos;переводится как&apos; связывает словарную единицу на каком-либо языке со словарной единицей на другом языке, на который она может быть переведена соответствующим образом в зависимости от конкретного контекста и специфических смыслов данных словарных единиц.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
         <rdfs:domain rdf:resource="&ontolex;LexicalEntry"/>
@@ -267,7 +285,9 @@
         <rdfs:label xml:lang="pt">tradução</rdfs:label>
         <rdfs:label xml:lang="ro">traducere</rdfs:label>
         <rdfs:label xml:lang="sv">versättning</rdfs:label>
+        <rdfs:label xml:lang="ru">перевод</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;translation&apos; property relates two lexical senses of two lexical entries that stand in a translation relation to one another. </rdfs:comment>
+        <rdfs:comment xml:lang="ru">Свойство &apos;перевод&apos; связывает два лексических смысла двух словарных единиц, которые находятся в отношении перевода друг к другу.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
         <rdfs:subPropertyOf rdf:resource="&vartrans;senseRel"/>
     </owl:ObjectProperty>
@@ -293,6 +313,7 @@
         <rdfs:label xml:lang="es">relación entre conceptos</rdfs:label>
         <rdfs:label xml:lang="it">relazione di concetti</rdfs:label>
         <rdfs:label xml:lang="nl">conceptrelatie</rdfs:label>
+        <rdfs:label xml:lang="ru">отношение понятий</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -302,6 +323,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A relationship between two concepts</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Отношение между двумя понятиями</rdfs:comment>
     </owl:Class>
     
 
@@ -319,6 +341,7 @@
         <rdfs:label xml:lang="pt">relação semantica</rdfs:label>
         <rdfs:label xml:lang="ro">relație lexicală</rdfs:label>
         <rdfs:label xml:lang="sv">lexikalisk relation</rdfs:label>
+        <rdfs:label xml:lang="ru">лексическое отношение</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -328,6 +351,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;lexical relation&apos; is a lexico-semantic relation that represents the relation between two lexical entries the surface forms of which are related grammatically, stylistically or by some operation motivated by linguistic economy.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">&apos;Лексическое отношение&apos; - это лексико-семантическое отношение, которое представляет собой отношение между двумя словарными единицами, поверхностные формы которых связаны грамматически, стилистически или неким процессом, обусловленным лингвистической экономией.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
     
@@ -346,6 +370,7 @@
         <rdfs:label xml:lang="pt">relação lexica semantica</rdfs:label>
         <rdfs:label xml:lang="ro">relație lexico-semantică</rdfs:label>
         <rdfs:label xml:lang="sv">lexikalisk-semantisk relation</rdfs:label>
+        <rdfs:label xml:lang="ru">лексико-семантическое отношение</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&vartrans;relates"/>
@@ -362,6 +387,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;lexico-semantic relation&apos; represents the relation between two lexical entries or lexical senses that are related by some lexical or semantic relationship.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">&apos;Лексико-семантическое отношение&apos; представляет собой связь между двумя словарными единицами или лексическими смыслами, которые связаны некими лексическими или семантическими отношениями.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
     
@@ -380,6 +406,7 @@
         <rdfs:label xml:lang="pt">relação semantica</rdfs:label>
         <rdfs:label xml:lang="ro">relație de sens</rdfs:label>
         <rdfs:label xml:lang="sv">betydelserelation</rdfs:label>
+        <rdfs:label xml:lang="ru">отношение смыслов</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;LexicoSemanticRelation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -389,6 +416,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;sense relation&apos; is a lexico-semantic relation that represents the relation between two lexical senses the meanings of which are related.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">&apos;Отношение смыслов&apos; (SenseRelation) - это лексико-семантическое отношение, которое представляет собой связь между двумя лексическими смыслами, значения которых связаны между собой.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
     
@@ -407,8 +435,10 @@
         <rdfs:label xml:lang="pt">variante terminologica</rdfs:label>
         <rdfs:label xml:lang="ro">variantă terminologică</rdfs:label>
         <rdfs:label xml:lang="sv">terminologivariant</rdfs:label>
+        <rdfs:label xml:lang="ru">терминологическое отношение</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;SenseRelation"/>
         <rdfs:comment xml:lang="en">A &apos;terminological relation&apos; is a sense relation that relates two lexical senses of terms that are semantically related in the sense that they can be exchanged in most contexts, but their surface forms are not directly related. The variants vary along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">&apos;Терминологическое отношение&apos; - это смысловое отношение, которое связывает два лексических смысла терминов, семантически связанных в том смысле, что они могут взаимозаменяться в большинстве контекстов, но их поверхностные (внешние) формы непосредственно не связаны. В форматах, не фиксируемых в данной онтологии и намеренно (прагматически) обусловленных, данные варианты разнятся (отличаются).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
     
@@ -427,6 +457,7 @@
         <rdfs:label xml:lang="pt">tradução</rdfs:label>
         <rdfs:label xml:lang="ro">traducere</rdfs:label>
         <rdfs:label xml:lang="sv">versättning</rdfs:label>
+        <rdfs:label xml:lang="ru">перевод</rdfs:label>
         <rdfs:subClassOf rdf:resource="&vartrans;SenseRelation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -436,6 +467,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A &apos;translation&apos; is a &apos;sense relation&apos; expressing that two lexical senses corresponding to two lexical entries in different languages can be translated to each other without any major meaning shifts.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">&apos;Перевод&apos; представляет собой &apos;отношение смыслов&apos;, показывающее, что два лексических смысла, соответствующие двум словарным единицам в разных языках, могут быть взаимно переведены без каких-либо существенных искажений смысла.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
 
@@ -448,7 +480,9 @@
         <rdfs:label xml:lang="fr">banque de traductions</rdfs:label>
         <rdfs:label xml:lang="it">bance traduzioni</rdfs:label>
         <rdfs:label xml:lang="nl">verzameling van vertalingen</rdfs:label>
+        <rdfs:label xml:lang="ru">набор переводов</rdfs:label>
         <rdfs:comment xml:lang="en">A &apos;translation set&apos; is a set of translations that have some common source.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">&apos;Набор переводов&apos; - это совокупность переводов, которые имеют общий источник.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/vartrans"/>
     </owl:Class>
 </rdf:RDF>
