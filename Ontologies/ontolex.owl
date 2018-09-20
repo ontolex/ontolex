@@ -308,8 +308,8 @@
         <rdfs:comment xml:lang="en">The object property isLexicalizedSenseOf is the inverse property of lexicalized sense.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство объекта &apos;является лексикализованным смыслом&apos; представляет собой свойство, обратное к свойству &apos;лексикализованный смысл&apos;.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
-        <rdfs:domain rdf:resource="&ontolex;LexicalConcept"/>
-        <rdfs:range rdf:resource="&ontolex;LexicalSense"/>
+        <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
+        <rdfs:range rdf:resource="&ontolex;LexicalConcept"/>
         <owl:inverseOf rdf:resource="&ontolex;lexicalizedSense"/>
     </owl:ObjectProperty>
     
