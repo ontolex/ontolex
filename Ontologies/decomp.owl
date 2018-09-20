@@ -77,7 +77,9 @@
         <rdfs:label xml:lang="pt">constituinte</rdfs:label>
         <rdfs:label xml:lang="ro">constituent</rdfs:label>
         <rdfs:label xml:lang="sv">konstituent</rdfs:label>
+        <rdfs:label xml:lang="ru">составной</rdfs:label>
         <rdfs:comment xml:lang="en">The property &apos;constituent&apos; relates a lexical entry or component to a component that it is constituted by.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Свойство &apos;составной&apos; связывает словарную единицу или компонент с компонентом, который он образует.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/decomp"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/decomp#Component"/>
@@ -98,11 +100,13 @@
     <ObjectProperty rdf:about="http://www.w3.org/ns/lemon/decomp#correspondsTo">
         <rdfs:label xml:lang="de">entspricht</rdfs:label>
         <rdfs:label xml:lang="en">corresponds to</rdfs:label>
+        <rdfs:label xml:lang="ru">соответствие</rdfs:label>
         <rdfs:label xml:lang="es">corresponde a</rdfs:label>
         <rdfs:label xml:lang="fr">correspond à</rdfs:label>
         <rdfs:label xml:lang="it">corrisponde a</rdfs:label>
         <rdfs:label xml:lang="nl">komt overeen met</rdfs:label>
         <rdfs:comment xml:lang="en">The property &apos;correspondsTo&apos; links a component to a corresponding lexical entry or argument.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Свойство &apos;соответствие&apos; связывает компонент с соответствующей словарной единицей или аргументом.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/decomp"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/decomp#Component"/>
@@ -130,7 +134,9 @@
         <rdfs:label xml:lang="pt">subtermo</rdfs:label>
         <rdfs:label xml:lang="ro">subtermen</rdfs:label>
         <rdfs:label xml:lang="sv">underterm</rdfs:label>
+        <rdfs:label xml:lang="ru">подчинение</rdfs:label>
         <rdfs:comment xml:lang="en">The property &apos;subterm&apos; relates a compound lexical entry to one of the lexical entries it is composed of.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Свойство &apos;подчинение&apos; связывает составную словарную единицу с одной из словарных единиц, из которых она состоит.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/decomp"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"/>
@@ -163,7 +169,9 @@
         <rdfs:label xml:lang="pt">componente</rdfs:label>
         <rdfs:label xml:lang="ro">component</rdfs:label>
         <rdfs:label xml:lang="sv">komponent</rdfs:label>
+        <rdfs:label xml:lang="ru">компонент</rdfs:label>
         <rdfs:comment xml:lang="en">A component is a particular realization of a lexical entry that forms part of a compound lexical entry.</rdfs:comment>
+        <rdfs:comment xml:lang="ru">Компонент является конкретной реализацией лексического элемента, который образует часть составной лексической записи.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/decomp"/>
     </Class>
     
