@@ -9,11 +9,11 @@
   ontolex:sense :fleuve_sense .
 
 :riviere_sense ontolex:reference <http://dbpedia.org/ontology/River> ;
-  ontolex:context [ 
+  ontolex:usage [ 
     rdf:value "A riviere is a river that flows into another river"@en
   ] .
 
 :fleuve_sense ontolex:reference <http://dbpedia.org/ontology/River>;
-  ontolex:context [
+  ontolex:usage [
     rdf:value "A fleuve is a river that flows into the sea"@en
   ] .
