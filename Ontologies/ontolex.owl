@@ -482,7 +482,7 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
+                    <rdf:Description rdf:about="&ontolex;LexicalSense"/>
                     <rdf:Description rdf:about="http://www.w3.org/ns/lemon/synsem#OntoMap"/>
                 </owl:unionOf>
             </owl:Class>
