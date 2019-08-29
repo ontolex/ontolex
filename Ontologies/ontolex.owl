@@ -264,6 +264,7 @@
         <rdfs:comment xml:lang="ru">Свойство объекта &apos;обозначается&apos; является обратным к свойству объекта &apos;обозначает&apos;.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
         <rdfs:range rdf:resource="&ontolex;LexicalEntry"/>
+        <rdfs:domain rdf:resource="&rdfs;Resource"/>
         <owl:inverseOf rdf:resource="&ontolex;denotes"/>
     </owl:ObjectProperty>
     
@@ -651,14 +652,7 @@
 
     <owl:Class rdf:about="&semiotics;Meaning">
         <rdfs:label xml:lang="en">meaning</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource -->
-
-    <owl:Class rdf:about="&rdf;Resource"/>
-    
+    </owl:Class>   
 
 
     <!-- http://www.w3.org/2004/02/skos/core#Concept -->
