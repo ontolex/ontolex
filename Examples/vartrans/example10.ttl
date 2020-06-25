@@ -34,7 +34,7 @@
 
 :t3 a vartrans:Translation ;
   vartrans:source :study_sense ;
-  vartrans:target :Untersuching_sense .
+  vartrans:target :Untersuchung_sense .
 
 :ts1 a vartrans:TranslationSet ;
   vartrans:trans :t1, :t3 ;
