@@ -11,6 +11,7 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY semiotics "http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#" >
+    <!ENTITY vs "http://www.w3.org/2003/06/sw-vocab-status/ns#" >
 ]>
 
 
@@ -24,8 +25,10 @@
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:semiotics="http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
     <Ontology rdf:about="http://www.w3.org/ns/lemon/decomp">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
         <versionInfo rdf:datatype="&xsd;decimal">1.0</versionInfo>
         <dc:issued rdf:datatype="&xsd;date">2016-01-10</dc:issued>
         <dc:modified rdf:datatype="&xsd;date">2016-01-10</dc:modified>
@@ -62,6 +65,7 @@
      -->
 
     
+    <owl:AnnotationProperty rdf:about="&vs;term_status"/>
 
 
     <!-- http://www.w3.org/ns/lemon/decomp#constituent -->
@@ -82,6 +86,7 @@
         <rdfs:comment xml:lang="ru">Свойство &apos;составной&apos; связывает словарную единицу или компонент с компонентом, который он образует.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/decomp"/>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/decomp#Component"/>
         <rdfs:domain>
             <Class>
@@ -109,6 +114,7 @@
         <rdfs:comment xml:lang="ru">Свойство &apos;соответствие&apos; связывает компонент с соответствующей словарной единицей или аргументом.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/decomp"/>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/decomp#Component"/>
         <rdfs:range>
             <Class>
@@ -139,6 +145,7 @@
         <rdfs:comment xml:lang="en">Свойство &apos;подчинение&apos; связывает составную словарную единицу с одной из словарных единиц, из которых она состоит.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/decomp"/>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"/>
     </ObjectProperty>
@@ -173,6 +180,7 @@
         <rdfs:comment xml:lang="en">A component is a particular realization of a lexical entry that forms part of a compound lexical entry.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Компонент является конкретной реализацией лексического элемента, который образует часть составной лексической записи.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/decomp"/>
+        <vs:term_status>stable</vs:term_status>
     </Class>
     
 
