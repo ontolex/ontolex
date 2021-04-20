@@ -33,7 +33,7 @@
      xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
     <owl:Ontology rdf:about="http://www.w3.org/ns/lemon/synsem">
         <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
-        <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="&xsd;decimal">1.0.1</owl:versionInfo>
         <dc:modified rdf:datatype="&xsd;date">2016-01-10</dc:modified>
         <dc:issued rdf:datatype="&xsd;date">2016-01-10</dc:issued>
         <dc:description xml:lang="en">A model for the representation of lexical information relative to ontologies. Syntax and semantics module.</dc:description>
@@ -55,6 +55,7 @@
         <dc:publisher rdf:resource="http://www.w3.org/community/ontolex"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
         <cc:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
+        <cc:licence rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
         <dc:contributor rdf:resource="https://sites.google.com/site/francescafrontini/"/>
     </owl:Ontology>
     
