@@ -12,6 +12,7 @@
     <!ENTITY ontolex "http://www.w3.org/ns/lemon/ontolex#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY vs "http://www.w3.org/2003/06/sw-vocab-status/ns#" >
 ]>
 
 
@@ -26,10 +27,12 @@
      xmlns:ontolex="http://www.w3.org/ns/lemon/ontolex#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
     <owl:Ontology rdf:about="http://www.w3.org/ns/lemon/lime">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
         <rdfs:label xml:lang="en">Lexicon Model for Ontologies - LIngusitic MEtadata (LIME)</rdfs:label>
-        <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="&xsd;decimal">1.0.1</owl:versionInfo>
         <dc:modified rdf:datatype="&xsd;date">2016-01-10</dc:modified>
         <dc:issued rdf:datatype="&xsd;date">2016-01-10</dc:issued>
         <vann:preferredNamespaceUri rdf:datatype="&xsd;string">http://www.w3.org/ns/lemon/lime#</vann:preferredNamespaceUri>
@@ -51,7 +54,10 @@
         <dc:publisher rdf:resource="http://www.w3.org/community/ontolex"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
         <cc:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
+        <cc:licence rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
         <dc:contributor rdf:resource="https://sites.google.com/site/francescafrontini/"/>
+        <rdfs:comment xml:lang="en">-Version 1.0: depreciation with minor change in metadata for LOV publication
+-Version 1.0.1: creation</rdfs:comment>
     </owl:Ontology>
     
 
@@ -70,6 +76,7 @@
     <!-- http://rdfs.org/ns/void#vocabulary -->
 
     <owl:AnnotationProperty rdf:about="&void;vocabulary"/>
+    <owl:AnnotationProperty rdf:about="&vs;term_status"/>
     
 
 
@@ -106,7 +113,9 @@
         <rdfs:label xml:lang="it">banca concetti</rdfs:label>
         <rdfs:label xml:lang="nl">dataset van begrippen</rdfs:label>
         <rdfs:label xml:lang="ru">концептуальный набор данных</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:comment xml:lang="en">The &apos;conceptual dataset&apos; property relates a lexical link set or a conceptualization set to a corresponding concept set.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;концептуальный набор данных&apos; связывает набор лексической связи или концептуализацию с соответствующим набором понятий.</rdfs:comment>
         <rdfs:range rdf:resource="&ontolex;ConceptSet"/>
@@ -137,6 +146,8 @@
         <rdfs:label xml:lang="sv">ingång</rdfs:label>
         <rdfs:label xml:lang="ru">запись</rdfs:label>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:comment xml:lang="en">The &apos;entry&apos; property relates a lexicon to one of the lexical entries contained in it.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;запись&apos; связывает лексикон с одной из содержащихся в нем словарных единиц.</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#Lexicon"/>
@@ -170,7 +181,9 @@
         <rdfs:label xml:lang="ru">лексический набор данных</rdfs:label>
         <rdfs:comment xml:lang="en">The &apos;lexicon dataset&apos; property indicates the lexicon that contains the entries refered to in a lexicalization set or a conceptualization set.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;лексический набор данных&apos; указывает лексику, которая содержит записи, упомянутые в наборе лексикализации или наборе концептуализации.</rdfs:comment>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:range rdf:resource="http://www.w3.org/ns/lemon/lime#Lexicon"/>
         <rdfs:domain>
             <owl:Class>
@@ -197,6 +210,8 @@
         <rdfs:comment xml:lang="en">The &apos;linguistic catalog&apos; property indicates the catalog of linguistic categories used in a lexicon to define linguistic properties of lexical entries.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;лингвистический каталог&apos; указывает каталог языковых категорий, используемых в лексиконе, для определения лингвистических свойств словарных единиц.</rdfs:comment>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:range rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#Lexicon"/>
     </owl:ObjectProperty>
@@ -217,6 +232,7 @@
         <rdfs:comment xml:lang="ru">Свойство &apos;раздел&apos; связывает набор лексикализации или лексический набор ссылок с логическим подмножеством, который содержит лексикализацию только для данного онтологического типа.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&void;subset"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -255,6 +271,7 @@
         <rdfs:comment xml:lang="ru">Свойство &apos;справочный набор данных&apos; указывает набор данных, который содержит объекты домена или элементы словаря, на которые либо ссылается данный лексикон, обеспечивая базовый словарь для значения словарных единиц или связывая лексическими понятия с понятийными наборами, заданными с помощью набора лексических ссылок.</rdfs:comment>
         <rdfs:range rdf:resource="&void;Dataset"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -279,6 +296,7 @@
         <rdfs:label xml:lang="ru">тип ресурса</rdfs:label>
         <rdfs:label xml:lang="nl">type van ressource</rdfs:label>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:comment xml:lang="en">The &apos;resource type&apos; property indicates the type of ontological entity of a lexicalization set or lexical linkset.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;тип ресурса&apos; указывает тип онтологического объекта набора лексикализации или лексического набора ссылок.</rdfs:comment>
         <rdfs:range rdf:resource="&rdfs;Class"/>
@@ -318,6 +336,7 @@
         <rdfs:comment xml:lang="en">The &apos;average ambiguity&apos; property indicates the average number of lexical concepts evoked by each lemma/canonical form in the lexicon.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;средней неоднозначности&apos; указывает среднее число лексических понятий, вызываемых каждой леммой/канонической формой в лексиконе.</rdfs:comment>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:range rdf:resource="&xsd;decimal"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#ConceptualizationSet"/>
     </owl:DatatypeProperty>
@@ -339,6 +358,7 @@
         <rdfs:label xml:lang="ro">numărul mediu de lexicalizari</rdfs:label>
         <rdfs:label xml:lang="sv">genomsnittligt antal lexikaliseringar</rdfs:label>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:comment xml:lang="en">The &apos;average number of lexicalizations&apos; property indicate the average number of lexicalizations per ontology element. The exact formula for calculating the average is indicated in the specification: https://www.w3.org/community/ontolex/wiki/Final_Model_Specification#LexicalizationSet</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;среднее количество лексикализаций&apos; указывает среднее число лексикализаций на элемент онтологии. Точная формула для вычисления среднего значения указана в спецификации: https://www.w3.org/community/ontolex/wiki/Final_Model_Specification#LexicalizationSet</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;decimal"/>
@@ -358,6 +378,7 @@
         <rdfs:label xml:lang="it">numero medio di link</rdfs:label>
         <rdfs:label xml:lang="nl">gemiddeld aantal van links</rdfs:label>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:comment xml:lang="en">The &apos;average number of links&apos; property indicates the average number of links for each entity in the conceptual dataset.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;среднее количество ссылок&apos; указывает среднее число ссылок для каждого объекта в концептуальном наборе данных.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;decimal"/>
@@ -377,6 +398,7 @@
         <rdfs:label xml:lang="it">sinonimità media</rdfs:label>
         <rdfs:label xml:lang="nl">gemiddelde synonymie</rdfs:label>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:comment xml:lang="en">The &apos;average synonymy&apos; property indicates the average number of lexical entries evoking each lexical concept in the concept set.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;средняя синонимия&apos; указывает среднее число словарных единиц, вызывающих каждое лексическое понятие в наборе понятий.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;decimal"/>
@@ -398,6 +420,7 @@
         <rdfs:comment xml:lang="en">The &apos;concepts&apos; property indicates the number of lexical concepts defined in a concept set or involved in either a LexicalLinkset or ConceptualizationSet.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;понятия&apos; указывает количество лексических понятий, определенных в наборе понятий или участвующих либо в LexicalLinkset, либо в ConceptualizationSet.</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:range rdf:resource="&xsd;integer"/>
         <rdfs:domain>
             <owl:Class>
@@ -423,6 +446,7 @@
         <rdfs:label xml:lang="nl">conceptualisaties</rdfs:label>
         <rdfs:label xml:lang="ru">концептуализации</rdfs:label>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:comment xml:lang="en">The &apos;conceptualizations&apos; property indicates the number of distinct conceptualizations in a conceptualization set.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;концептуализации&apos; указывает на число различных концептуализаций в наборе концептуализаций.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;integer"/>
@@ -448,6 +472,7 @@
         <rdfs:comment xml:lang="en">The  &apos;language&apos; property indicates the language of a lexicon, a lexical entry, a concept set or a lexicalization set.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;язык&apos; указывает язык лексикона, словарной единицы, набора понятий или набора лексикализаций.</rdfs:comment>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:range rdf:resource="&xsd;language"/>
         <rdfs:domain>
             <owl:Class>
@@ -478,10 +503,12 @@
         <rdfs:label xml:lang="sv">lexikoningångar</rdfs:label>
         <rdfs:label xml:lang="ru">словарная единица</rdfs:label>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:comment xml:lang="en">The &apos;lexical entries&apos; property indicates the number of distinct lexical entries contained in a lexicon or lexicalization set.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;словарная единица&apos; указывает количество различных словарных единиц, содержащихся в лексиконе или наборе лексикализаций.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;integer"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -513,6 +540,7 @@
         <rdfs:comment xml:lang="ru">Свойство &apos;лексикализации&apos; указывает общее число лексикализаций в наборе лексикализаций, то есть количество уникальных пар словарных единиц и обозначенного элемента онтологии.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;integer"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
     </owl:DatatypeProperty>
     
@@ -531,6 +559,7 @@
         <rdfs:comment xml:lang="en">The &apos;links&apos; property indicates the number of links between concepts in the concept set and entities in the reference dataset.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;связи&apos; указывает количество связей между понятиями в наборе понятий и объектами в ссылочном наборе данных.</rdfs:comment>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:range rdf:resource="&xsd;integer"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalLinkset"/>
     </owl:DatatypeProperty>
@@ -550,6 +579,7 @@
         <rdfs:comment xml:lang="en">The &apos;percentage&apos; property expresses the percentage of entities in the reference dataset which have at least one lexicalization in a lexicalization set or are linked to a lexical concept in a lexical linkset.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;процент&apos; выражает процент объектов в наборе справочных данных, которые имеют хотя бы одну лексикализацию в наборе лексикализации или связаны с лексической концепцией в лексическом наборе ссылок.</rdfs:comment>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:range rdf:resource="&xsd;decimal"/>
         <rdfs:domain>
             <owl:Class>
@@ -581,6 +611,7 @@
         <rdfs:comment xml:lang="ru">Свойство &apos;ссылки&apos; указывает количество отдельных онтологий или элементов словаря, которые либо связаны с лексическими элементами через набор лексикализации, либо связаны с лексическими понятиями посредством набора лексической связи.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;integer"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -650,6 +681,7 @@
         <rdfs:comment xml:lang="en">A conceptualization set represents a collection of links between lexical entries in a Lexicon and lexical concepts in a Concept Set they evoke.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Набор концепций представляет собой набор связей между словарными единицами в лексиконе и лексическими понятиями в наборе понятий, которые они вызывают.</rdfs:comment>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
     </owl:Class>
     
 
@@ -691,6 +723,7 @@
         <rdfs:comment xml:lang="en">A lexical linkset represents a collection of links between a reference dataset and a set of lexical concepts (e.g. synsets of a wordnet).</rdfs:comment>
         <rdfs:comment xml:lang="ru">Лексический набор связей представляет собой набор связей между набором ссылок и набором лексических понятий (например, synsets of wordnet)</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <vs:term_status>stable</vs:term_status>
     </owl:Class>
     
 
@@ -730,6 +763,7 @@
         <rdfs:comment xml:lang="en">A &apos;lexicalization set&apos; is a dataset that comprises a collection of lexicalizations, that is pairs of lexical entry and corresponding reference in the associated ontology/vocabulary/dataset.</rdfs:comment>
         <rdfs:comment xml:lang="ru">&apos;Набор лексикализации&apos; - это набор данных, который содержит набор лексикализаций, т.е. пары словарной единицы и соответствующей ссылки в связанной онтологии/словаре/наборе данных.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/lime"/>
+        <vs:term_status>stable</vs:term_status>
     </owl:Class>
     
 
@@ -762,6 +796,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
         <rdfs:comment xml:lang="en">A lexicon represents a collection of lexical entries for a particular language or domain.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Лексикон представляет собой набор словарных единиц для определенного языка или домена.</rdfs:comment>
     </owl:Class>
@@ -787,6 +822,7 @@
         <rdfs:comment xml:lang="en">The &apos;lexicalization model&apos; property indicates the model used for representing lexical information. Possible values include (but are not limited to) http://www.w3.org/2000/01/rdf-schema# (for the use of rdfs:label), http://www.w3.org/2004/02/skos/core (for the use of skos:pref/alt/hiddenLabel), http://www.w3.org/2008/05/skos-xl (for the use of skosxl:pref/alt/hiddenLabel) and http://www.w3.org/ns/lemon/all for lemon.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;модель лексикализации&apos; указывает модель, используемую для представления лексической информации. Возможные значения включают (но не ограничиваются) http://www.w3.org/2000/01/rdf-schema# (for the use of rdfs:label), http://www.w3.org/2004/02/skos/core (for the use of skos:pref/alt/hiddenLabel), http://www.w3.org/2008/05/skos-xl (for the use of skosxl:pref/alt/hiddenLabel) and http://www.w3.org/ns/lemon/all for lemon.</rdfs:comment>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
+        <vs:term_status>stable</vs:term_status>
     </rdf:Description>
 </rdf:RDF>
 
