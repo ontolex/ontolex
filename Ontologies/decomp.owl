@@ -29,7 +29,7 @@
      xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
     <Ontology rdf:about="http://www.w3.org/ns/lemon/decomp">
         <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
-        <versionInfo rdf:datatype="&xsd;decimal">1.0.1</versionInfo>
+        <versionInfo rdf:datatype="&xsd;decimal">1.1</versionInfo>
         <dc:issued rdf:datatype="&xsd;date">2016-01-10</dc:issued>
         <dc:modified rdf:datatype="&xsd;date">2016-01-10</dc:modified>
         <dc:rights>CC-Zero</dc:rights>
@@ -54,7 +54,7 @@
         <cc:licence rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
         <dc:contributor rdf:resource="https://sites.google.com/site/francescafrontini/"/>
         <rdfs:comment xml:lang="en">-Version 1.0: depreciation with minor change in metadata for LOV publication
--Version 1.0.1: creation</rdfs:comment>
+-Version 1.1: creation</rdfs:comment>
     </Ontology>
     
 
