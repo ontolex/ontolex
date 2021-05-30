@@ -1,0 +1,82 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://www.w3.org/2002/07/owl#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix semiotics: <http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+vs:term_status
+    a :AnnotationProperty .
+
+<http://www.w3.org/ns/lemon/decomp>
+    cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dc:contributor <http://art.uniroma2.it/fiorelli/>, <http://art.uniroma2.it/stellato/>, <http://jogracia.url.ph/web/>, <http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/teachers/52-emontiel>, <http://www.dfki.de/~declerck/>, <http://www.ilc.cnr.it/en/content/anas-fahad-khan>, <http://www.istc.cnr.it/people/aldo-gangemi>, <http://www.oeg-upm.net/index.php/teachers/53-lupe>, <http://www.paulbuitelaar.net/>, <https://sites.google.com/site/francescafrontini/> ;
+    dc:creator <http://john.mccr.ae/>, <http://www.cimiano.de/> ;
+    dc:description "A model for the representation of lexical information relative to ontologies. Decomposition module."@en ;
+    dc:issued "2016-01-10"^^xsd:date ;
+    dc:modified "2016-01-10"^^xsd:date ;
+    dc:publisher <http://www.w3.org/community/ontolex> ;
+    dc:rights "CC-Zero" ;
+    dc:title "Lexicon Model for Ontologies - Decomp"@en ;
+    vann:preferredNamespacePrefix "decomp" ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/lemon/decomp#" ;
+    a <http://purl.org/vocommons/voaf#Vocabulary>, :Ontology ;
+    rdfs:comment """-Version 1.0: depreciation with minor change in metadata for LOV publication
+-Version 1.1: creation"""@en ;
+    :imports <http://www.w3.org/ns/lemon/ontolex> ;
+    :versionInfo 1.1 .
+
+<http://www.w3.org/ns/lemon/decomp#Component>
+    a :Class ;
+    rdfs:comment "A component is a particular realization of a lexical entry that forms part of a compound lexical entry."@en, "Компонент является конкретной реализацией лексического элемента, который образует часть составной лексической записи."@ru ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/decomp> ;
+    rdfs:label "Komponente"@de, "bestanddeel"@nl, "component"@en, "component"@ro, "componente"@es, "componente"@it, "componente"@pt, "composant"@fr, "komponent"@af, "komponent"@sv, "компонент"@ru ;
+    vs:term_status "stable" .
+
+<http://www.w3.org/ns/lemon/decomp#constituent>
+    a :ObjectProperty ;
+    rdfs:comment "The property 'constituent' relates a lexical entry or component to a component that it is constituted by."@en, "Свойство 'составной' связывает словарную единицу или компонент с компонентом, который он образует."@ru ;
+    rdfs:domain [
+        a :Class ;
+        :unionOf (<http://www.w3.org/ns/lemon/decomp#Component>
+            <http://www.w3.org/ns/lemon/ontolex#LexicalEntry>
+        )
+    ] ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/decomp> ;
+    rdfs:label "Konstituente"@de, "constituent"@en, "constituent"@fr, "constituent"@nl, "constituent"@ro, "constituinte"@pt, "constituyente"@es, "costituente"@it, "konstituent"@af, "konstituent"@sv, "составной"@ru ;
+    rdfs:range <http://www.w3.org/ns/lemon/decomp#Component> ;
+    rdfs:subPropertyOf :topObjectProperty ;
+    vs:term_status "stable" .
+
+<http://www.w3.org/ns/lemon/decomp#correspondsTo>
+    a :ObjectProperty ;
+    rdfs:comment "The property 'correspondsTo' links a component to a corresponding lexical entry or argument."@en, "Свойство 'соответствие' связывает компонент с соответствующей словарной единицей или аргументом."@ru ;
+    rdfs:domain <http://www.w3.org/ns/lemon/decomp#Component> ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/decomp> ;
+    rdfs:label "correspond à"@fr, "corresponde a"@es, "corresponds to"@en, "corrisponde a"@it, "entspricht"@de, "komt overeen met"@nl, "соответствие"@ru ;
+    rdfs:range [
+        a :Class ;
+        :unionOf (<http://www.w3.org/ns/lemon/ontolex#LexicalEntry>
+            <http://www.w3.org/ns/lemon/synsem#SyntacticArgument>
+        )
+    ] ;
+    rdfs:subPropertyOf :topObjectProperty ;
+    vs:term_status "stable" .
+
+<http://www.w3.org/ns/lemon/decomp#subterm>
+    a :ObjectProperty ;
+    rdfs:comment "The property 'subterm' relates a compound lexical entry to one of the lexical entries it is composed of."@en, "Свойство 'подчинение' связывает составную словарную единицу с одной из словарных единиц, из которых она состоит."@en ;
+    rdfs:domain <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/decomp> ;
+    rdfs:label "Teilterm"@de, "sotto-termine"@it, "sous-terme"@fr, "sub-término"@es, "subterm"@af, "subterm"@nl, "subtermen"@ro, "subtermo"@pt, "underterm"@sv, "подчинение"@ru ;
+    rdfs:range <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> ;
+    rdfs:subPropertyOf :topObjectProperty ;
+    vs:term_status "stable" .
+
+<http://www.w3.org/ns/lemon/synsem#SyntacticArgument>
+    a :Class .
+

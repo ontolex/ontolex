@@ -1,0 +1,373 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://www.w3.org/ns/lemon/lime#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+void:Dataset
+    a owl:Class .
+
+void:Linkset
+    a owl:Class .
+
+void:subset
+    a owl:ObjectProperty .
+
+void:vocabulary
+    a owl:AnnotationProperty, owl:ObjectProperty .
+
+rdfs:Class
+    a owl:Class .
+
+vs:term_status
+    a owl:AnnotationProperty .
+
+<http://www.w3.org/ns/lemon/lime>
+    cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dc:contributor <http://art.uniroma2.it/fiorelli/>, <http://art.uniroma2.it/stellato/>, <http://jogracia.url.ph/web/>, <http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/teachers/52-emontiel>, <http://www.dfki.de/~declerck/>, <http://www.ilc.cnr.it/en/content/anas-fahad-khan>, <http://www.istc.cnr.it/people/aldo-gangemi>, <http://www.oeg-upm.net/index.php/teachers/53-lupe>, <http://www.paulbuitelaar.net/>, <https://sites.google.com/site/francescafrontini/> ;
+    dc:creator <http://john.mccr.ae/>, <http://www.cimiano.de/> ;
+    dc:issued "2016-01-10"^^xsd:date ;
+    dc:modified "2016-01-10"^^xsd:date ;
+    dc:publisher <http://www.w3.org/community/ontolex> ;
+    dc:rights "CC-Zero" ;
+    dcterms:description "LIME (LInguistic MEtadata) is a vocabulary for expressing linguistic metadata about linguistic resources and linguistically grounded datasets."@en ;
+    dcterms:title "Vocabulary of Linguistic Metadata"@en ;
+    vann:preferredNamespacePrefix "lime"^^xsd:string ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/lemon/lime#"^^xsd:string ;
+    a <http://purl.org/vocommons/voaf#Vocabulary>, owl:Ontology ;
+    rdfs:comment """-Version 1.0: depreciation with minor change in metadata for LOV publication
+-Version 1.1: creation"""@en ;
+    rdfs:label "Lexicon Model for Ontologies - LIngusitic MEtadata (LIME)"@en ;
+    owl:imports <http://www.w3.org/ns/lemon/ontolex> ;
+    owl:versionInfo 1.1 .
+
+:ConceptualizationSet
+    a owl:Class ;
+    rdfs:comment "A conceptualization set represents a collection of links between lexical entries in a Lexicon and lexical concepts in a Concept Set they evoke."@en, "Набор концепций представляет собой набор связей между словарными единицами в лексиконе и лексическими понятиями в наборе понятий, которые они вызывают."@ru ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Konzeptualisierungsatz"@de, "banca concettualizzazioni"@it, "banque de concepitalisations"@fr, "conceptualization set"@en, "conjuto de conceptualizaciones"@es, "verzameling van conceptialisaties"@nl, "набор концепций"@ru ;
+    rdfs:subClassOf void:Dataset, [
+        a owl:Restriction ;
+        owl:onClass ontolex:ConceptSet ;
+        owl:onProperty :conceptualDataset ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass :Lexicon ;
+        owl:onProperty :lexiconDataset ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    vs:term_status "stable" .
+
+:LexicalLinkset
+    a owl:Class ;
+    rdfs:comment "A lexical linkset represents a collection of links between a reference dataset and a set of lexical concepts (e.g. synsets of a wordnet)."@en, "Лексический набор связей представляет собой набор связей между набором ссылок и набором лексических понятий (например, synsets of wordnet)"@ru ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/lime> ;
+    rdfs:label "Lexikonlinksatz"@de, "banca di link lessicali"@it, "banque de liens lexicals"@fr, "conjunto de enlaces"@es, "leksikale skakelstel"@af, "lexical linkset"@en, "lexikalisk länkmängd"@sv, "linkset lexical"@ro, "verzameling van lexicale links"@nl, "лексический набор ссылок"@ru ;
+    rdfs:subClassOf void:Linkset, [
+        a owl:Restriction ;
+        owl:onClass ontolex:ConceptSet ;
+        owl:onProperty :conceptualDataset ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass void:Dataset ;
+        owl:onProperty :referenceDataset ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom :LexicalLinkset ;
+        owl:onProperty :partition
+    ] ;
+    vs:term_status "stable" .
+
+:LexicalizationSet
+    a owl:Class ;
+    rdfs:comment "'Набор лексикализации' - это набор данных, который содержит набор лексикализаций, т.е. пары словарной единицы и соответствующей ссылки в связанной онтологии/словаре/наборе данных."@ru, "A 'lexicalization set' is a dataset that comprises a collection of lexicalizations, that is pairs of lexical entry and corresponding reference in the associated ontology/vocabulary/dataset."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/lime> ;
+    rdfs:label "lexicalization set"@en, "набор лексикализаций"@ru ;
+    rdfs:subClassOf void:Dataset, [
+        a owl:Restriction ;
+        owl:onClass void:Dataset ;
+        owl:onProperty :referenceDataset ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom :LexicalizationSet ;
+        owl:onProperty :partition
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty :lexicalizationModel
+    ], [
+        a owl:Restriction ;
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass :Lexicon ;
+        owl:onProperty :lexiconDataset
+    ] ;
+    vs:term_status "stable" .
+
+:Lexicon
+    a owl:Class ;
+    rdfs:comment "A lexicon represents a collection of lexical entries for a particular language or domain."@en, "Лексикон представляет собой набор словарных единиц для определенного языка или домена."@ru ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Lessico"@it, "Lexicon"@nl, "Lexikon"@de, "Lexique"@fr, "leksikon"@af, "lexicon"@en, "lexicon"@ro, "lexicón"@es, "lexikon"@sv, "лексикон"@ru ;
+    rdfs:subClassOf void:Dataset, [
+        a owl:Restriction ;
+        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass ontolex:LexicalEntry ;
+        owl:onProperty :entry
+    ], [
+        a owl:Restriction ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty :language
+    ] ;
+    vs:term_status "stable" .
+
+:avgAmbiguity
+    a owl:DatatypeProperty ;
+    rdfs:comment "The 'average ambiguity' property indicates the average number of lexical concepts evoked by each lemma/canonical form in the lexicon."@en, "Свойство 'средней неоднозначности' указывает среднее число лексических понятий, вызываемых каждой леммой/канонической формой в лексиконе."@ru ;
+    rdfs:domain :ConceptualizationSet ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Durchschnittliche Amiguität"@de, "ambiguità media"@it, "ambiguïté moyenne"@fr, "ambigüedad promedia"@es, "average ambiguity"@en, "gemiddelde ambiguïteit"@nl, "средняя неоднозначность"@ru ;
+    rdfs:range xsd:decimal ;
+    vs:term_status "stable" .
+
+:avgNumOfLexicalizations
+    a owl:DatatypeProperty ;
+    rdfs:comment "The 'average number of lexicalizations' property indicate the average number of lexicalizations per ontology element. The exact formula for calculating the average is indicated in the specification: https://www.w3.org/community/ontolex/wiki/Final_Model_Specification#LexicalizationSet"@en, "Свойство 'среднее количество лексикализаций' указывает среднее число лексикализаций на элемент онтологии. Точная формула для вычисления среднего значения указана в спецификации: https://www.w3.org/community/ontolex/wiki/Final_Model_Specification#LexicalizationSet"@ru ;
+    rdfs:domain :LexicalizationSet ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Durchschnittliche Anzahl von Lexikalisierungen"@de, "average number of lexicalizations"@en, "gemiddeld aantal van lexicalisatie"@nl, "gemiddelde aantal leksikaliserings"@af, "genomsnittligt antal lexikaliseringar"@sv, "nombre moyen de lexicalisations"@fr, "numero medio de lexicalizações"@pt, "numero medio di lessicalizzazioni"@it, "numărul mediu de lexicalizari"@ro, "promedio de lexicalizaciones"@es, "среднее количество лексикализаций"@ru ;
+    rdfs:range xsd:decimal ;
+    vs:term_status "stable" .
+
+:avgNumOfLinks
+    a owl:DatatypeProperty ;
+    rdfs:comment "The 'average number of links' property indicates the average number of links for each entity in the conceptual dataset."@en, "Свойство 'среднее количество ссылок' указывает среднее число ссылок для каждого объекта в концептуальном наборе данных."@ru ;
+    rdfs:domain :LexicalLinkset ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Durchschnittliche Anzahl von Links"@de, "average number of links"@en, "gemiddeld aantal van links"@nl, "nombre moyen de liens"@fr, "numero medio di link"@it, "promedio de enlaces"@es, "среднее количество ссылок"@ru ;
+    rdfs:range xsd:decimal ;
+    vs:term_status "stable" .
+
+:avgSynonymy
+    a owl:DatatypeProperty ;
+    rdfs:comment "The 'average synonymy' property indicates the average number of lexical entries evoking each lexical concept in the concept set."@en, "Свойство 'средняя синонимия' указывает среднее число словарных единиц, вызывающих каждое лексическое понятие в наборе понятий."@ru ;
+    rdfs:domain :ConceptualizationSet ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Durchschnittliche Synonymie"@de, "average synonymy"@en, "gemiddelde synonymie"@nl, "sinonimità media"@it, "sinóminedad promedia"@es, "synonymie moyenne"@fr, "средняя синонимия"@ru ;
+    rdfs:range xsd:decimal ;
+    vs:term_status "stable" .
+
+:concepts
+    a owl:DatatypeProperty ;
+    rdfs:comment "The 'concepts' property indicates the number of lexical concepts defined in a concept set or involved in either a LexicalLinkset or ConceptualizationSet."@en, "Свойство 'понятия' указывает количество лексических понятий, определенных в наборе понятий или участвующих либо в LexicalLinkset, либо в ConceptualizationSet."@ru ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (:ConceptualizationSet
+            :LexicalLinkset
+            ontolex:ConceptSet
+        )
+    ] ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime"@en ;
+    rdfs:label "Konzepte"@de, "begrippen"@nl, "conceptos"@es, "concepts"@en, "concepts"@fr, "concetti"@it, "понятия"@ru ;
+    rdfs:range xsd:integer ;
+    vs:term_status "stable" .
+
+:conceptualDataset
+    a owl:ObjectProperty ;
+    rdfs:comment "The 'conceptual dataset' property relates a lexical link set or a conceptualization set to a corresponding concept set."@en, "Свойство 'концептуальный набор данных' связывает набор лексической связи или концептуализацию с соответствующим набором понятий."@ru ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (:ConceptualizationSet
+            :LexicalLinkset
+        )
+    ] ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Konzeptdatensatz"@de, "banca concetti"@it, "banque de concepts"@fr, "conceptual dataset"@en, "conjunto de conceptos"@es, "dataset van begrippen"@nl, "концептуальный набор данных"@ru ;
+    rdfs:range ontolex:ConceptSet ;
+    vs:term_status "stable" .
+
+:conceptualizations
+    a owl:DatatypeProperty ;
+    rdfs:comment "The 'conceptualizations' property indicates the number of distinct conceptualizations in a conceptualization set."@en, "Свойство 'концептуализации' указывает на число различных концептуализаций в наборе концептуализаций."@ru ;
+    rdfs:domain :ConceptualizationSet ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Konzeptualisierungen"@de, "conceptualisaties"@nl, "conceptualisations"@fr, "conceptualizaciones"@es, "conceptualizations"@en, "concettualizzazioni"@it, "концептуализации"@ru ;
+    rdfs:range xsd:integer ;
+    vs:term_status "stable" .
+
+:entry
+    a owl:ObjectProperty ;
+    rdfs:comment "The 'entry' property relates a lexicon to one of the lexical entries contained in it."@en, "Свойство 'запись' связывает лексикон с одной из содержащихся в нем словарных единиц."@ru ;
+    rdfs:domain :Lexicon ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Eintrag"@de, "Item"@nl, "entrada"@es, "entrada"@pt, "entrata"@it, "entry"@en, "entrée"@fr, "ingång"@sv, "inskrywing"@af, "înregistrare"@ro, "запись"@ru ;
+    rdfs:range ontolex:LexicalEntry ;
+    vs:term_status "stable" .
+
+:language
+    a owl:DatatypeProperty ;
+    rdfs:comment "The  'language' property indicates the language of a lexicon, a lexical entry, a concept set or a lexicalization set."@en, "Свойство 'язык' указывает язык лексикона, словарной единицы, набора понятий или набора лексикализаций."@ru ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (:LexicalizationSet
+            :Lexicon
+            ontolex:ConceptSet
+            ontolex:LexicalEntry
+        )
+    ] ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Sprache"@de, "idioma"@pt, "language"@en, "langue"@fr, "lengua"@es, "limbă"@ro, "lingua"@it, "språk"@sv, "taal"@af, "taal"@nl, "язык"@ru ;
+    rdfs:range xsd:language ;
+    vs:term_status "stable" .
+
+:lexicalEntries
+    a owl:DatatypeProperty ;
+    rdfs:comment "The 'lexical entries' property indicates the number of distinct lexical entries contained in a lexicon or lexicalization set."@en, "Свойство 'словарная единица' указывает количество различных словарных единиц, содержащихся в лексиконе или наборе лексикализаций."@ru ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (:ConceptualizationSet
+            :LexicalizationSet
+            :Lexicon
+        )
+    ] ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/lime>, "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Lexikoneinträge"@de, "entradas lexicas"@pt, "entradas léxicas"@es, "entrate lessicali"@it, "leksikale inskrywing"@af, "lexical entries"@en, "lexie"@fr, "lexikaal items"@nl, "lexikoningångar"@sv, "înregistrari lexicale"@ro, "словарная единица"@ru ;
+    rdfs:range xsd:integer ;
+    vs:term_status "stable" .
+
+:lexicalizationModel
+    a owl:ObjectProperty ;
+    rdfs:comment "The 'lexicalization model' property indicates the model used for representing lexical information. Possible values include (but are not limited to) http://www.w3.org/2000/01/rdf-schema# (for the use of rdfs:label), http://www.w3.org/2004/02/skos/core (for the use of skos:pref/alt/hiddenLabel), http://www.w3.org/2008/05/skos-xl (for the use of skosxl:pref/alt/hiddenLabel) and http://www.w3.org/ns/lemon/all for lemon."@en, "Свойство 'модель лексикализации' указывает модель, используемую для представления лексической информации. Возможные значения включают (но не ограничиваются) http://www.w3.org/2000/01/rdf-schema# (for the use of rdfs:label), http://www.w3.org/2004/02/skos/core (for the use of skos:pref/alt/hiddenLabel), http://www.w3.org/2008/05/skos-xl (for the use of skosxl:pref/alt/hiddenLabel) and http://www.w3.org/ns/lemon/all for lemon."@ru ;
+    rdfs:domain :LexicalizationSet ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Lexikalisierungmodell"@de, "lexicalization model"@en, "model van lexicalisatie"@nl, "modello di lessicalizzazione"@it, "modelo de lexicalización"@es, "modèle de lexicalisation"@fr, "модель лексикализации"@ru ;
+    rdfs:subPropertyOf void:vocabulary ;
+    vs:term_status "stable" .
+
+:lexicalizations
+    a owl:DatatypeProperty ;
+    rdfs:comment "The 'lexicalizations' property indicates the total number of lexicalizations in a lexicalization set, that is the number of unique pairs of lexical entry and denoted ontology element."@en, "Свойство 'лексикализации' указывает общее число лексикализаций в наборе лексикализаций, то есть количество уникальных пар словарных единиц и обозначенного элемента онтологии."@ru ;
+    rdfs:domain :LexicalizationSet ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/lime> ;
+    rdfs:label "Lexikalisierungen"@de, "leksikaliserings"@af, "lessicalizzazioni"@it, "lexicalisaties"@nl, "lexicalisations"@fr, "lexicalizaciones"@es, "lexicalizari"@ro, "lexicalizations"@en, "lexicalizações"@pt, "lexikaliseringar"@sv, "лексикализации"@ru ;
+    rdfs:range xsd:integer ;
+    vs:term_status "stable" .
+
+:lexiconDataset
+    a owl:FunctionalProperty, owl:ObjectProperty ;
+    rdfs:comment "The 'lexicon dataset' property indicates the lexicon that contains the entries refered to in a lexicalization set or a conceptualization set."@en, "Свойство 'лексический набор данных' указывает лексику, которая содержит записи, упомянутые в наборе лексикализации или наборе концептуализации."@ru ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (:ConceptualizationSet
+            :LexicalizationSet
+        )
+    ] ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/lime> ;
+    rdfs:label "Lexikondatensatz"@de, "banca dati lessicale"@it, "banque de données lexicales"@fr, "conjunto de datos del lexicón"@es, "leksikale datastel"@af, "lexicale dataset"@nl, "lexicon dataset"@en, "lexikondatamängd"@sv, "set de date de lexicon"@ro, "лексический набор данных"@ru ;
+    rdfs:range :Lexicon ;
+    vs:term_status "stable" .
+
+:linguisticCatalog
+    a owl:ObjectProperty ;
+    rdfs:comment "The 'linguistic catalog' property indicates the catalog of linguistic categories used in a lexicon to define linguistic properties of lexical entries."@en, "Свойство 'лингвистический каталог' указывает каталог языковых категорий, используемых в лексиконе, для определения лингвистических свойств словарных единиц."@ru ;
+    rdfs:domain :Lexicon ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "banca categorie linguistiche"@it, "banque de catégories linguistiques"@fr, "conjunto de categoríes lingüísticas"@es, "linguistische Kategorienmodell"@de, "lingustic catalog"@en, "verzameling van taalkundige categories"@nl, "лингвистический каталог"@ru ;
+    rdfs:range <http://purl.org/vocommons/voaf#Vocabulary> ;
+    vs:term_status "stable" .
+
+:links
+    a owl:DatatypeProperty ;
+    rdfs:comment "The 'links' property indicates the number of links between concepts in the concept set and entities in the reference dataset."@en, "Свойство 'связи' указывает количество связей между понятиями в наборе понятий и объектами в ссылочном наборе данных."@ru ;
+    rdfs:domain :LexicalLinkset ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Links"@de, "enlaces"@es, "liens"@fr, "link"@it, "links"@en, "links"@nl, "связи"@ru ;
+    rdfs:range xsd:integer ;
+    vs:term_status "stable" .
+
+:partition
+    a owl:ObjectProperty ;
+    rdfs:comment "The 'partition' property relates a lexicalization set or lexical linkset to a logical subset that contains lexicalizations for a given ontological type only."@en, "Свойство 'раздел' связывает набор лексикализации или лексический набор ссылок с логическим подмножеством, который содержит лексикализацию только для данного онтологического типа."@ru ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (:LexicalLinkset
+            :LexicalizationSet
+        )
+    ] ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/lime> ;
+    rdfs:label "Teilung"@de, "partición"@es, "partition"@en, "partition"@fr, "partizione"@it, "verdeling"@nl, "раздел"@ru ;
+    rdfs:range [
+        a owl:Class ;
+        owl:unionOf (:LexicalLinkset
+            :LexicalizationSet
+        )
+    ] ;
+    rdfs:subPropertyOf void:subset ;
+    vs:term_status "stable" .
+
+:percentage
+    a owl:DatatypeProperty ;
+    rdfs:comment "The 'percentage' property expresses the percentage of entities in the reference dataset which have at least one lexicalization in a lexicalization set or are linked to a lexical concept in a lexical linkset."@en, "Свойство 'процент' выражает процент объектов в наборе справочных данных, которые имеют хотя бы одну лексикализацию в наборе лексикализации или связаны с лексической концепцией в лексическом наборе ссылок."@ru ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (:LexicalLinkset
+            :LexicalizationSet
+        )
+    ] ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Prozentsatz"@de, "percentage"@en, "percentage"@nl, "percentuale"@it, "porcentaje"@es, "pourcentage"@fr, "процент"@ru ;
+    rdfs:range xsd:decimal ;
+    vs:term_status "stable" .
+
+:referenceDataset
+    a owl:FunctionalProperty, owl:ObjectProperty ;
+    rdfs:comment "The 'reference dataset' property indicates the dataset that contains the domain objects or vocabulary elements that are either referenced by a given lexicon, providing the grounding vocabulary for the meaning of the lexical entries, or linked to lexical concepts in a concept set by means of a lexical link set."@en, "Свойство 'справочный набор данных' указывает набор данных, который содержит объекты домена или элементы словаря, на которые либо ссылается данный лексикон, обеспечивая базовый словарь для значения словарных единиц или связывая лексическими понятия с понятийными наборами, заданными с помощью набора лексических ссылок."@ru ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (:LexicalLinkset
+            :LexicalizationSet
+        )
+    ] ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/lime> ;
+    rdfs:label "Referenzdatensatz"@de, "banca riferimenti"@it, "banque de réfèrences"@fr, "conjunto de datos de referencia"@es, "reference dataset"@en, "referensdatamängd"@sv, "setul de date de referință"@ro, "verwysingsdatastel"@af, "verzameling van referenties"@nl, "справочный набор данных"@ru ;
+    rdfs:range void:Dataset ;
+    vs:term_status "stable" .
+
+:references
+    a owl:DatatypeProperty ;
+    rdfs:comment "The 'references' property indicates the number of distinct ontology or vocabulary elements that are either associated with lexical entries via a lexicalization set or linked to lexical concepts via a lexical link set."@en, "Свойство 'ссылки' указывает количество отдельных онтологий или элементов словаря, которые либо связаны с лексическими элементами через набор лексикализации, либо связаны с лексическими понятиями посредством набора лексической связи."@ru ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (:LexicalLinkset
+            :LexicalizationSet
+        )
+    ] ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/lime> ;
+    rdfs:label "Referenzen"@de, "references"@en, "referencias"@es, "referencias"@pt, "referenser"@sv, "referenties"@nl, "referințe"@ro, "riferimenti"@it, "références"@fr, "verwysings"@af, "ссылки"@ru ;
+    rdfs:range xsd:integer ;
+    vs:term_status "stable" .
+
+:resourceType
+    a owl:FunctionalProperty, owl:ObjectProperty ;
+    rdfs:comment "The 'resource type' property indicates the type of ontological entity of a lexicalization set or lexical linkset."@en, "Свойство 'тип ресурса' указывает тип онтологического объекта набора лексикализации или лексического набора ссылок."@ru ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (:LexicalLinkset
+            :LexicalizationSet
+        )
+    ] ;
+    rdfs:isDefinedBy "http://www.w3.org/ns/lemon/lime" ;
+    rdfs:label "Ressourcentyp"@de, "resource type"@en, "tipo de recurso"@es, "tipo di risorsa"@it, "type de ressource"@fr, "type van ressource"@nl, "тип ресурса"@ru ;
+    rdfs:range rdfs:Class ;
+    vs:term_status "stable" .
+
