@@ -1,0 +1,217 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+owl:topObjectProperty
+    a owl:ObjectProperty .
+
+vs:term_status
+    a owl:AnnotationProperty .
+
+<http://www.w3.org/ns/lemon/vartrans>
+    cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dc:contributor <http://art.uniroma2.it/fiorelli/>, <http://art.uniroma2.it/stellato/>, <http://jogracia.url.ph/web/>, <http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/teachers/52-emontiel>, <http://www.dfki.de/~declerck/>, <http://www.ilc.cnr.it/en/content/anas-fahad-khan>, <http://www.istc.cnr.it/people/aldo-gangemi>, <http://www.oeg-upm.net/index.php/teachers/53-lupe>, <http://www.paulbuitelaar.net/>, <https://sites.google.com/site/francescafrontini/> ;
+    dc:creator <http://john.mccr.ae/>, <http://www.cimiano.de/> ;
+    dc:description "A model for the representation of lexical information relative to ontologies. Variation and translation module."@en ;
+    dc:issued "2016-01-10"^^xsd:date ;
+    dc:modified "2016-01-10"^^xsd:date ;
+    dc:publisher <http://www.w3.org/community/ontolex> ;
+    dc:rights "CC-Zero" ;
+    dc:title "Lexicon Model for Ontologies - Vartrans"@en ;
+    vann:preferredNamespacePrefix "vartrans" ;
+    vann:preferredNamespaceUri "http://www.w3.org/ns/lemon/vartrans#" ;
+    a <http://purl.org/vocommons/voaf#Vocabulary>, owl:Ontology ;
+    rdfs:comment """-Version 1.0: depreciation with minor change in metadata for LOV publication
+-Version 1.1: creation"""@en ;
+    owl:imports <http://www.w3.org/ns/lemon/ontolex> ;
+    :imports <http://www.w3.org/ns/lemon/ontolex> ;
+    :versionInfo 1.1 .
+
+:ConceptualRelation
+    a owl:Class ;
+    rdfs:comment "A relationship between two concepts"@en, "Отношение между двумя понятиями"@ru ;
+    rdfs:label "Konzeptbeziehung"@de, "conceptrelatie"@nl, "conceptual relation"@en, "relación entre conceptos"@es, "relazione di concetti"@it, "отношение понятий"@ru ;
+    rdfs:subClassOf :LexicoSemanticRelation, [
+        a owl:Restriction ;
+        owl:onClass ontolex:LexicalConcept ;
+        owl:onProperty :relates ;
+        owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger
+    ] .
+
+:LexicalRelation
+    a owl:Class ;
+    rdfs:comment "'Лексическое отношение' - это лексико-семантическое отношение, которое представляет собой отношение между двумя словарными единицами, поверхностные формы которых связаны грамматически, стилистически или неким процессом, обусловленным лингвистической экономией."@ru, "A 'lexical relation' is a lexico-semantic relation that represents the relation between two lexical entries the surface forms of which are related grammatically, stylistically or by some operation motivated by linguistic economy."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "leksikale relasie"@af, "lexical relation"@en, "lexikaal relatie"@nl, "lexikalische Beziehung"@de, "lexikalisk relation"@sv, "relación léxica"@es, "relation lexicale"@fr, "relazione lessicale"@it, "relação semantica"@pt, "relație lexicală"@ro, "лексическое отношение"@ru ;
+    rdfs:subClassOf :LexicoSemanticRelation, [
+        a owl:Restriction ;
+        owl:onClass ontolex:LexicalEntry ;
+        owl:onProperty :relates ;
+        owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger
+    ] ;
+    vs:term_status "stable" .
+
+:LexicoSemanticRelation
+    a owl:Class ;
+    rdfs:comment "'Лексико-семантическое отношение' представляет собой связь между двумя словарными единицами или лексическими смыслами, которые связаны некими лексическими или семантическими отношениями."@ru, "A 'lexico-semantic relation' represents the relation between two lexical entries or lexical senses that are related by some lexical or semantic relationship."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "leksikosemantiese relasie"@af, "lexico-semantic relation"@en, "lexikalisk-semantisk relation"@sv, "lexikosemantische Beziehung"@de, "lexikosemantische relatie"@nl, "relación léxico semántica"@es, "relation lexico-sémantique"@fr, "relazione lessico-semantica"@it, "relação lexica semantica"@pt, "relație lexico-semantică"@ro, "лексико-семантическое отношение"@ru ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onClass [
+            a owl:Class ;
+            owl:unionOf (ontolex:LexicalConcept
+                ontolex:LexicalEntry
+                ontolex:LexicalSense
+            )
+        ] ;
+        owl:onProperty :relates ;
+        owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger
+    ] ;
+    vs:term_status "stable" .
+
+:SenseRelation
+    a owl:Class ;
+    rdfs:comment "'Отношение смыслов' (SenseRelation) - это лексико-семантическое отношение, которое представляет собой связь между двумя лексическими смыслами, значения которых связаны между собой."@ru, "A 'sense relation' is a lexico-semantic relation that represents the relation between two lexical senses the meanings of which are related."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "Sinnbeziehung"@de, "betydelserelation"@sv, "relación entre acepciones"@es, "relation sémantique"@fr, "relazione di sensi"@it, "relação semantica"@pt, "relație de sens"@ro, "sense relation"@en, "sinnrelatie"@nl, "sinsrelasie"@af, "отношение смыслов"@ru ;
+    rdfs:subClassOf :LexicoSemanticRelation, [
+        a owl:Restriction ;
+        owl:onClass ontolex:LexicalSense ;
+        owl:onProperty :relates ;
+        owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger
+    ] ;
+    vs:term_status "stable" .
+
+:TerminologicalRelation
+    a owl:Class ;
+    rdfs:comment "'Терминологическое отношение' - это смысловое отношение, которое связывает два лексических смысла терминов, семантически связанных в том смысле, что они могут взаимозаменяться в большинстве контекстов, но их поверхностные (внешние) формы непосредственно не связаны. В форматах, не фиксируемых в данной онтологии и намеренно (прагматически) обусловленных, данные варианты разнятся (отличаются)."@ru, "A 'terminological relation' is a sense relation that relates two lexical senses of terms that are semantically related in the sense that they can be exchanged in most contexts, but their surface forms are not directly related. The variants vary along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "terminological relation"@en, "terminologiese variant"@af, "terminologische Variante"@de, "terminologische variant"@nl, "terminologivariant"@sv, "variante terminologica"@it, "variante terminologica"@pt, "variante terminologique"@fr, "variante terminológica"@es, "variantă terminologică"@ro, "терминологическое отношение"@ru ;
+    rdfs:subClassOf :SenseRelation ;
+    vs:term_status "stable" .
+
+:Translation
+    a owl:Class ;
+    rdfs:comment "'Перевод' представляет собой 'отношение смыслов', показывающее, что два лексических смысла, соответствующие двум словарным единицам в разных языках, могут быть взаимно переведены без каких-либо существенных искажений смысла."@ru, "A 'translation' is a 'sense relation' expressing that two lexical senses corresponding to two lexical entries in different languages can be translated to each other without any major meaning shifts."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "traducción"@es, "traducere"@ro, "traduction"@fr, "traduzione"@it, "tradução"@pt, "translation"@en, "versättning"@sv, "vertaling"@af, "vertaling"@nl, "Übersetzung"@de, "перевод"@ru ;
+    rdfs:subClassOf :SenseRelation, [
+        a owl:Restriction ;
+        owl:onClass ontolex:LexicalSense ;
+        owl:onProperty :target ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    vs:term_status "stable" .
+
+:TranslationSet
+    a owl:Class ;
+    rdfs:comment "'Набор переводов' - это совокупность переводов, которые имеют общий источник."@ru, "A 'translation set' is a set of translations that have some common source."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "bance traduzioni"@it, "banque de traductions"@fr, "conjunto de traducciones"@es, "translation set"@en, "verzameling van vertalingen"@nl, "Übersetzungsatz"@de, "набор переводов"@ru ;
+    vs:term_status "stable" .
+
+:category
+    a owl:FunctionalProperty, owl:ObjectProperty ;
+    rdfs:comment "The 'category' property indicates the specific type of relation by which two lexical entries or two lexical senses are related."@en, "Свойство 'категория' указывает конкретный тип отношения, которым связаны две словарные единицы или два лексических смысла."@ru ;
+    rdfs:domain :LexicoSemanticRelation ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "Kategorie"@de, "categoria"@it, "categoria"@pt, "categorie"@nl, "categorie"@ro, "category"@en, "categoría"@es, "contexte"@fr, "kategori"@sv, "kategorie"@af, "категория"@ru ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    vs:term_status "stable" .
+
+:conceptRel
+    a owl:ObjectProperty ;
+    rdfs:comment "A relationship between two concepts"@en, "Отношения между двумя понятиями"@ru ;
+    rdfs:domain ontolex:LexicalConcept ;
+    rdfs:label "Konzeptbeziehung"@de, "concept relation"@en, "conceptrelatie"@nl, "relación entre conceptos"@es, "relazione di concetti"@it, "отношение понятий"@ru ;
+    rdfs:range ontolex:LexicalConcept .
+
+:lexicalRel
+    a owl:ObjectProperty ;
+    rdfs:comment "The 'lexicalRel' property relates two lexical entries that stand in some lexical relation."@en, "Свойство 'lexicalRel' связывает две словарных единицы, которые находятся в некотором лексическом отношении."@ru ;
+    rdfs:domain ontolex:LexicalEntry ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "lexical relation"@en, "lexikaal relatie"@nl, "lexikalische Beziehung"@de, "relación léxica"@es, "relation lexicale"@fr, "relazione lessicale"@it, "лексическое отношение"@ru ;
+    rdfs:range ontolex:LexicalEntry ;
+    vs:term_status "stable" .
+
+:relates
+    a owl:ObjectProperty ;
+    rdfs:comment "The 'relates' property links a lexico-semantic relation to the two lexical entries or lexical senses between which it establishes the relation."@en, "Свойство 'связывает' связывает лексико-семантическим отношением две словарные единицы или два лексических смысла, между которыми оно (данное свойство) устанавливает отношение."@ru ;
+    rdfs:domain :LexicoSemanticRelation ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "bezieht"@de, "rapporta"@it, "relaciona"@es, "relate"@fr, "relateert"@nl, "relates"@en, "связывает"@ru ;
+    rdfs:range [
+        a owl:Class ;
+        owl:unionOf (ontolex:LexicalConcept
+            ontolex:LexicalEntry
+            ontolex:LexicalSense
+        )
+    ] ;
+    vs:term_status "stable" .
+
+:senseRel
+    a owl:ObjectProperty ;
+    rdfs:comment "The 'senseRel' property relates two lexical senses that stand in some sense relation."@en, "Свойство 'отношение смыслов' (senseRel) связывает два лексических смысла, которые находятся в некоторой смысловой связи."@ru ;
+    rdfs:domain ontolex:LexicalSense ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "Sinnbeziehung"@de, "relación entre acepciones"@es, "relation sémantique"@fr, "relazione di sensi"@it, "sense relation"@en, "sinnrelatie"@nl, "отношение смыслов"@ru ;
+    rdfs:range ontolex:LexicalSense ;
+    vs:term_status "stable" .
+
+:source
+    a owl:FunctionalProperty, owl:ObjectProperty ;
+    rdfs:comment "The 'source' property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a 'source'."@en, "Свойство 'источник' обозначает лексический смысл или словарную единицу, вовлеченную в лексико-семантическое отношение как 'источник'."@ru ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "Quelle"@de, "bron"@af, "bron"@nl, "källa"@sv, "origem"@pt, "origen"@es, "origine"@it, "source"@en, "source"@fr, "sursă"@ro, "источник"@ru ;
+    rdfs:subPropertyOf :relates ;
+    vs:term_status "stable" .
+
+:target
+    a owl:FunctionalProperty, owl:ObjectProperty ;
+    rdfs:comment "The 'target' property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a 'target'."@en, "Свойство 'цель' обозначает лексический смысл или словарную единицу, вовлеченную в лексико-семантическое отношение как 'цель'."@ru ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "Ziel"@de, "destination"@fr, "destinazione"@it, "destino"@es, "destino"@pt, "doel"@af, "doel"@nl, "mål"@sv, "target"@en, "ţintă"@ro, "цель"@ru ;
+    rdfs:subPropertyOf :relates ;
+    vs:term_status "stable" .
+
+:trans
+    a owl:ObjectProperty ;
+    rdfs:comment "The property 'trans' relates a TranslationSet to one of its translations."@en, "Свойство 'перевод' связывает НаборПереводов с одним из его переводов."@ru ;
+    rdfs:domain :TranslationSet ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "traducción"@es, "traducere"@ro, "traduction"@fr, "traduzione"@it, "tradução"@pt, "translation"@en, "versättning"@sv, "vertaling"@af, "vertaling"@nl, "Übersetzung"@de, "перевод"@ru ;
+    rdfs:range :Translation ;
+    vs:term_status "stable" .
+
+:translatableAs
+    a owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:comment "The 'translatableAs' property relates a lexical entry in some language to a lexical entry in another language that it can be translated as depending on the particular context and specific senses of the involved lexical entries."@en, "Свойство 'переводится как' связывает словарную единицу на каком-либо языке со словарной единицей на другом языке, на который она может быть переведена соответствующим образом в зависимости от конкретного контекста и специфических смыслов данных словарных единиц."@ru ;
+    rdfs:domain ontolex:LexicalEntry ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "traducibile come"@it, "traducibile como"@es, "traductibil ca"@ro, "traduisible par"@fr, "traduzivel como"@pt, "translatable as"@en, "vertaalbaar As"@af, "vertaalbar als"@nl, "översättbar som"@sv, "übersetzbar als"@de, "переводится как"@ru ;
+    rdfs:range ontolex:LexicalEntry ;
+    rdfs:subPropertyOf :lexicalRel ;
+    owl:propertyChainAxiom (ontolex:isSenseOf
+        :translation
+        ontolex:sense
+    ) ;
+    vs:term_status "stable" .
+
+:translation
+    a owl:ObjectProperty ;
+    rdfs:comment "The 'translation' property relates two lexical senses of two lexical entries that stand in a translation relation to one another. "@en, "Свойство 'перевод' связывает два лексических смысла двух словарных единиц, которые находятся в отношении перевода друг к другу."@ru ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/lemon/vartrans> ;
+    rdfs:label "traducción"@es, "traducere"@ro, "traduction"@fr, "traduzione"@it, "tradução"@pt, "translation"@en, "versättning"@sv, "vertaling"@af, "vertaling"@nl, "Übersetzung"@de, "перевод"@ru ;
+    rdfs:subPropertyOf :senseRel ;
+    vs:term_status "stable" .
+
