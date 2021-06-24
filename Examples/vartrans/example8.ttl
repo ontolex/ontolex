@@ -7,10 +7,10 @@
       dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> .
  
 :rincón a ontolex:LexicalEntry;
-       dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> .
+       dct:language <http://id.loc.gov/vocabulary/iso639-2/spa>, <http://lexvo.org/id/iso639-1/es> .
 
 :esquina a ontolex:LexicalEntry;
-       dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> .
+       dct:language <http://id.loc.gov/vocabulary/iso639-2/spa>, <http://lexvo.org/id/iso639-1/es> .
 
 :corner vartrans:translatableAs :rincón.
 :corner vartrans:translatableAs :esquina.
