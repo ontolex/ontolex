@@ -10,7 +10,7 @@
 :zip_code_sense ontolex:reference <http://dbpedia.org/ontology/zipCode>.
 
 :postleitzahl a ontolex:LexicalEntry;
-      dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :postleitzahl_sense.
 
 :postleitzahl_sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.

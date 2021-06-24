@@ -11,13 +11,13 @@
 :surrogate_mother_sense ontolex:isLexicalizedSenseOf ontology:SurrogateMother .
 
 :madre_de_alquiler a ontolex:LexicalEntry;
-      dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> ;
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/spa>, <http://lexvo.org/id/iso639-1/es> ;
       ontolex:sense :madre_de_alquiler_sense.
 
 :madre_de_alquiler_sense ontolex:isLexicalizedSenseOf ontology:SurrogateMother .
 
 :leihmutter a ontolex:LexicalEntry;
-      dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :leihmutter_sense.
 
 :leihmutter_sense ontolex:isLexicalizedSenseOf ontology:SurrogateMother .
