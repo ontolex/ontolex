@@ -325,7 +325,7 @@
     <!-- http://www.w3.org/ns/lemon/lime#avgAmbiguity -->
 
     <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/lemon/lime#avgAmbiguity">
-        <rdfs:label xml:lang="de">Durchschnittliche Amiguität</rdfs:label>
+        <rdfs:label xml:lang="de">Durchschnittliche Ambiguität</rdfs:label>
         <rdfs:label xml:lang="en">average ambiguity</rdfs:label>
         <rdfs:label xml:lang="es">ambigüedad promedia</rdfs:label>
         <rdfs:label xml:lang="fr">ambiguïté moyenne</rdfs:label>
