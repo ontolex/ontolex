@@ -3,7 +3,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 :financial_assets a skos:Concept;
-                ontolex:isLexicalizedBy :financial_assets_lex.
+                ontolex:isEvokedBy :financial_assets_lex.
 
 :financial_assets_lex a ontolex:LexicalEntry;
                  ontolex:evokes :financial_assets;
