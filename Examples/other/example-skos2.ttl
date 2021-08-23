@@ -20,5 +20,5 @@
        ontolex:evokes :tuberculosis.
 
 :consumption_sense a ontolex:LexicalSense;
-        ontolex:isContainedIn :tuberculosis;
+        ontolex:isLexicalizedSenseOf :tuberculosis;
         ontolex:usage [ rdf:value "outdated" ] . 
