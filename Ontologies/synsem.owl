@@ -402,14 +402,6 @@
     
 
 
-    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
-
-    <owl:DatatypeProperty rdf:about="&owl;topDataProperty">
-        <rdfs:range rdf:resource="&xsd;boolean"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://www.w3.org/ns/lemon/synsem#optional -->
 
     <owl:DatatypeProperty rdf:about="&synsem;optional">
@@ -431,6 +423,7 @@
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/synsem"/>
         <vs:term_status>stable</vs:term_status>
         <rdfs:domain rdf:resource="&synsem;SyntacticArgument"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
 
