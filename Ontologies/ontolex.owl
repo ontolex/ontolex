@@ -731,7 +731,11 @@
         <rdfs:label xml:lang="ru">набор понятий</rdfs:label>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+                    </rdf:Description>
+                </owl:onProperty>
                 <owl:onClass rdf:resource="&ontolex;LexicalConcept"/>
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
             </owl:Restriction>
