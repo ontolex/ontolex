@@ -358,7 +358,7 @@
         <rdfs:label xml:lang="sv">genomsnittligt antal lexikaliseringar</rdfs:label>
         <rdfs:isDefinedBy>http://www.w3.org/ns/lemon/lime</rdfs:isDefinedBy>
         <vs:term_status>stable</vs:term_status>
-        <rdfs:comment xml:lang="en">The &apos;average number of lexicalizations&apos; property indicate the average number of lexicalizations per ontology element. The exact formula for calculating the average is indicated in the specification: https://www.w3.org/community/ontolex/wiki/Final_Model_Specification#LexicalizationSet</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;average number of lexicalizations&apos; property indicates the average number of lexicalizations per ontology element. The exact formula for calculating the average is indicated in the specification: https://www.w3.org/community/ontolex/wiki/Final_Model_Specification#LexicalizationSet</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;среднее количество лексикализаций&apos; указывает среднее число лексикализаций на элемент онтологии. Точная формула для вычисления среднего значения указана в спецификации: https://www.w3.org/community/ontolex/wiki/Final_Model_Specification#LexicalizationSet</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;decimal"/>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/lemon/lime#LexicalizationSet"/>
