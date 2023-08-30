@@ -186,7 +186,7 @@
         <rdfs:label xml:lang="es">denota</rdfs:label>
         <rdfs:label xml:lang="fr">dénote</rdfs:label>
         <rdfs:label xml:lang="it">denota</rdfs:label>
-        <rdfs:label xml:lang="nl">duidet aan</rdfs:label>
+        <rdfs:label xml:lang="nl">duidt aan</rdfs:label>
         <rdfs:label xml:lang="pt">denota</rdfs:label>
         <rdfs:label xml:lang="ro">denotă</rdfs:label>
         <rdfs:label xml:lang="sv">betecknar</rdfs:label>
@@ -215,7 +215,7 @@
         <rdfs:label xml:lang="es">evoca</rdfs:label>
         <rdfs:label xml:lang="fr">évoque</rdfs:label>
         <rdfs:label xml:lang="it">evoca</rdfs:label>
-        <rdfs:label xml:lang="nl">lokt uit</rdfs:label>
+        <rdfs:label xml:lang="nl">roept op</rdfs:label>
         <rdfs:label xml:lang="pt">evoca</rdfs:label>
         <rdfs:label xml:lang="ro">evocă</rdfs:label>
         <rdfs:label xml:lang="sv">framkallar</rdfs:label>
@@ -243,7 +243,7 @@
         <rdfs:label xml:lang="es">es concepto de</rdfs:label>
         <rdfs:label xml:lang="fr">est un concept pour </rdfs:label>
         <rdfs:label xml:lang="it">è concetto di </rdfs:label>
-        <rdfs:label xml:lang="nl">is concept van</rdfs:label>
+        <rdfs:label xml:lang="nl">is begrip van</rdfs:label>
         <rdfs:label xml:lang="pt">é conceito de</rdfs:label>
         <rdfs:label xml:lang="ro">este concept a(l)</rdfs:label>
         <rdfs:label xml:lang="sv">är begrepp för</rdfs:label>
@@ -266,7 +266,7 @@
         <rdfs:label xml:lang="es">es denotado por</rdfs:label>
         <rdfs:label xml:lang="fr">est dénoté par</rdfs:label>
         <rdfs:label xml:lang="it">è denotato da</rdfs:label>
-        <rdfs:label xml:lang="nl">wordt aangeduidet door</rdfs:label>
+        <rdfs:label xml:lang="nl">wordt aangeduid door</rdfs:label>
         <rdfs:label xml:lang="pt">é denotado por</rdfs:label>
         <rdfs:label xml:lang="ro">este denotat cu</rdfs:label>
         <rdfs:label xml:lang="sv">betecknas av</rdfs:label>
@@ -291,7 +291,7 @@
         <rdfs:label xml:lang="es">es evocado por</rdfs:label>
         <rdfs:label xml:lang="fr">est évoqué par</rdfs:label>
         <rdfs:label xml:lang="it">è evocato da</rdfs:label>
-        <rdfs:label xml:lang="nl">wordt uitgelokt door</rdfs:label>
+        <rdfs:label xml:lang="nl">wordt opgeroepen door</rdfs:label>
         <rdfs:label xml:lang="ro">este evocat de</rdfs:label>
         <rdfs:label xml:lang="sv">framkallas av </rdfs:label>
         <rdfs:label xml:lang="ru">порождается</rdfs:label>
@@ -315,7 +315,7 @@
         <rdfs:label xml:lang="es">es l&apos;acepción lexicalizado de</rdfs:label>
         <rdfs:label xml:lang="fr">est le sens lexicalisé de</rdfs:label>
         <rdfs:label xml:lang="it">è il senso lessicalizzato di</rdfs:label>
-        <rdfs:label xml:lang="nl">is lexikaal zin van</rdfs:label>
+        <rdfs:label xml:lang="nl">is lexikale betekenis van</rdfs:label>
         <rdfs:label xml:lang="ro">este sens lexicalizat de</rdfs:label>
         <rdfs:label xml:lang="sv">är lexikaliserad betydelse för</rdfs:label>
         <rdfs:label xml:lang="ru">является лексикализованным смыслом</rdfs:label>
@@ -373,7 +373,7 @@
         <rdfs:label xml:lang="es">es acepción de</rdfs:label>
         <rdfs:label xml:lang="fr">est signification de</rdfs:label>
         <rdfs:label xml:lang="it">è il senso di</rdfs:label>
-        <rdfs:label xml:lang="nl">is zin van</rdfs:label>
+        <rdfs:label xml:lang="nl">is betekenis van</rdfs:label>
         <rdfs:label xml:lang="pt">é sentido de</rdfs:label>
         <rdfs:label xml:lang="ro">este sens a(l)</rdfs:label>
         <rdfs:label xml:lang="sv">är betydelse för</rdfs:label>
@@ -397,7 +397,7 @@
         <rdfs:label xml:lang="es">forma léxica</rdfs:label>
         <rdfs:label xml:lang="fr">forme lexicale</rdfs:label>
         <rdfs:label xml:lang="it">forma lessicale</rdfs:label>
-        <rdfs:label xml:lang="nl">lexikaal vorm</rdfs:label>
+        <rdfs:label xml:lang="nl">lexikale vorm</rdfs:label>
         <rdfs:label xml:lang="ro">formă lexicală</rdfs:label>
         <rdfs:label xml:lang="sv">lexikonform</rdfs:label>
         <rdfs:label xml:lang="ru">лексическая форма</rdfs:label>
@@ -420,7 +420,7 @@
         <rdfs:label xml:lang="es">acepción lexicalizada</rdfs:label>
         <rdfs:label xml:lang="fr">signification lexicalisé</rdfs:label>
         <rdfs:label xml:lang="it">senso lessicalizzato</rdfs:label>
-        <rdfs:label xml:lang="nl">lexikaal zin</rdfs:label>
+        <rdfs:label xml:lang="nl">lexikale betekenis</rdfs:label>
         <rdfs:label xml:lang="ro">sens lexicalizat</rdfs:label>
         <rdfs:label xml:lang="sv">lexikaliserad betydelse</rdfs:label>
         <rdfs:label xml:lang="ru">лексикализованный смысл</rdfs:label>
@@ -491,7 +491,7 @@
         <rdfs:label xml:lang="es">referencia</rdfs:label>
         <rdfs:label xml:lang="fr">référence</rdfs:label>
         <rdfs:label xml:lang="it">riferimento</rdfs:label>
-        <rdfs:label xml:lang="nl">referntie</rdfs:label>
+        <rdfs:label xml:lang="nl">referentie</rdfs:label>
         <rdfs:label xml:lang="pt">referência</rdfs:label>
         <rdfs:label xml:lang="ro">referință</rdfs:label>
         <rdfs:label xml:lang="sv">referens</rdfs:label>
@@ -523,7 +523,7 @@
         <rdfs:label xml:lang="es">acepción</rdfs:label>
         <rdfs:label xml:lang="fr">signification</rdfs:label>
         <rdfs:label xml:lang="it">senso</rdfs:label>
-        <rdfs:label xml:lang="nl">zin</rdfs:label>
+        <rdfs:label xml:lang="nl">betekenis</rdfs:label>
         <rdfs:label xml:lang="pt">sentido</rdfs:label>
         <rdfs:label xml:lang="ro">sens</rdfs:label>
         <rdfs:label xml:lang="sv">betydelse</rdfs:label>
@@ -585,7 +585,7 @@
         <rdfs:label xml:lang="es">representación fonética</rdfs:label>
         <rdfs:label xml:lang="fr">représentation phonétique</rdfs:label>
         <rdfs:label xml:lang="it">rappresentazione fonetica</rdfs:label>
-        <rdfs:label xml:lang="nl">fonetische voorstelling</rdfs:label>
+        <rdfs:label xml:lang="nl">fonetische representatie</rdfs:label>
         <rdfs:label xml:lang="ro">reprezentare fonetică</rdfs:label>
         <rdfs:label xml:lang="sv">fonetisk representation </rdfs:label>
         <rdfs:label xml:lang="ru">фонетическое представление</rdfs:label>
@@ -609,7 +609,7 @@
         <rdfs:label xml:lang="es">representación</rdfs:label>
         <rdfs:label xml:lang="fr">représentation</rdfs:label>
         <rdfs:label xml:lang="it">rappresentazione</rdfs:label>
-        <rdfs:label xml:lang="nl">voorstelling</rdfs:label>
+        <rdfs:label xml:lang="nl">representatie</rdfs:label>
         <rdfs:label xml:lang="pt">representação</rdfs:label>
         <rdfs:label xml:lang="ro">reprezentare</rdfs:label>
         <rdfs:label xml:lang="sv">representation</rdfs:label>
@@ -633,7 +633,7 @@
         <rdfs:label xml:lang="es">representación escrita</rdfs:label>
         <rdfs:label xml:lang="fr">représentation écrite</rdfs:label>
         <rdfs:label xml:lang="it">rappresentazione scritta</rdfs:label>
-        <rdfs:label xml:lang="nl">schriftlijke voorstelling</rdfs:label>
+        <rdfs:label xml:lang="nl">schriftelijke representatie</rdfs:label>
         <rdfs:label xml:lang="pt">representação escrita</rdfs:label>
         <rdfs:label xml:lang="ro">reprezentare scrisă</rdfs:label>
         <rdfs:label xml:lang="sv">skriven form </rdfs:label>
@@ -788,7 +788,7 @@
         <rdfs:label xml:lang="es">concepto lexicalizado</rdfs:label>
         <rdfs:label xml:lang="fr">concept lexical</rdfs:label>
         <rdfs:label xml:lang="it">concetto lessicale</rdfs:label>
-        <rdfs:label xml:lang="nl">lexikaal concept</rdfs:label>
+        <rdfs:label xml:lang="nl">lexikaal begrip</rdfs:label>
         <rdfs:label xml:lang="pt">conceito léxico</rdfs:label>
         <rdfs:label xml:lang="ro">concept lexical</rdfs:label>
         <rdfs:label xml:lang="sv">lexikaliskt begrepp</rdfs:label>
@@ -812,7 +812,7 @@
         <rdfs:label xml:lang="es">entrada léxica</rdfs:label>
         <rdfs:label xml:lang="fr">entrée lexicale</rdfs:label>
         <rdfs:label xml:lang="it">entrata lessicale</rdfs:label>
-        <rdfs:label xml:lang="nl">lexikaal item</rdfs:label>
+        <rdfs:label xml:lang="nl">lexikale eenheid</rdfs:label>
         <rdfs:label xml:lang="ro">înregistrare lexicală</rdfs:label>
         <rdfs:label xml:lang="sv">lexikoningång</rdfs:label>
         <rdfs:label xml:lang="ru">словарная единица</rdfs:label>
@@ -849,7 +849,7 @@
         <rdfs:label xml:lang="es">acepción léxica</rdfs:label>
         <rdfs:label xml:lang="fr">signification lexicale</rdfs:label>
         <rdfs:label xml:lang="it">senso lessicale</rdfs:label>
-        <rdfs:label xml:lang="nl">lexikaal zin</rdfs:label>
+        <rdfs:label xml:lang="nl">lexikale betekenis</rdfs:label>
         <rdfs:label xml:lang="ro">sens lexical</rdfs:label>
         <rdfs:label xml:lang="sv">lexikonbetydelse</rdfs:label>
         <rdfs:label xml:lang="ru">лексический смысл</rdfs:label>
@@ -884,7 +884,7 @@
         <rdfs:label xml:lang="es">expresión multipalabra</rdfs:label>
         <rdfs:label xml:lang="fr">expression à mots multiples</rdfs:label>
         <rdfs:label xml:lang="it">espressione di gruppi di parole</rdfs:label>
-        <rdfs:label xml:lang="nl">mutliwoorduitdrukking</rdfs:label>
+        <rdfs:label xml:lang="nl">meerwoordsuitdrukking</rdfs:label>
         <rdfs:label xml:lang="ro">expresie din mai multe cuvinte</rdfs:label>
         <rdfs:label xml:lang="sv">flerordsuttryck</rdfs:label>
         <rdfs:label xml:lang="ru">словосочетание</rdfs:label>
