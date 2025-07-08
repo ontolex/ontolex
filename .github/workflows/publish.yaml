@@ -41,7 +41,8 @@ jobs:
       # Step 3: Convert index.md to index.html
       - name: Convert Markdown to HTML with Pandoc
         run: pandoc --template respec.template -f markdown-auto_identifiers --wrap=none index.md -o index.html
-
+      - name: Expand tags
+        run: python expand_tags.py index.html index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -306,13 +306,7 @@ follows:
 <div property="rdfs:comment">A <dfn>lexical entry</dfn> represents a unit of analysis of the lexicon that consists of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**SubClassOf:**
-<span typeof="owl:Restriction">
-<span rel="owl:onProperty" resource="ontolex:lexicalForm">[=lexical form=]</span> min <span property="owl:minCardinality" datatype="xsd:integer">1</span> <span rel="owl:allValuesFrom" resource="ontolex:Form">[=Form=]</span></span>,
-<span typeof="owl:Restriction">
-<span rel="owl:onProperty" resource="ontolex:canonicalForm">[=canonical form=]</span> max <span rel="owl:maxCardinality" datatype="xsd:integer">1</span> <span rel="owl:allValuesFrom" resource="ontolex:Form">[=Form=]</span></span>, 
-<a href="http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Expression">semiotics:Expression</a>
-</div>
+<subclass>[=lexical form=] min 1 [=Form=], [=canonical form=] max 1 [=Form=], semiotics:Expression</subclass>
 </div>
 </div>
 
@@ -329,7 +323,7 @@ and [=multiword expressions=].
 <div property="rdfs:comment"> A <dfn>word</dfn> is a lexical entry that consists of a single token. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**SubClassOf:** <span resource="ontolex:LexicalEntry">[=Lexical Entry=]</span></div>
+<subclass>[=Lexical Entry=]</subclass>
 </div>
 </div>
 
@@ -339,7 +333,7 @@ and [=multiword expressions=].
 <div property="rdfs:comment"> A <dfn>multiword expression</dfn> is a lexical entry that consists of two or more words. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**SubClassOf:** <span resource="ontolex:LexicalEntry">[=Lexical Entry=]</span></div>
+<subclass>[=Lexical Entry=]</subclass>
 </div>
 </div>
 
@@ -349,7 +343,7 @@ and [=multiword expressions=].
 <div property="rdfs:comment"> An <dfn>affix</dfn> is a lexical entry that represents a morpheme (suffix, prefix, infix, circumfix) that is attached to a word stem to form a new word. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**SubClassOf:** <span resource="ontolex:LexicalEntry">[=Lexical Entry=]</span></div>
+<subclass>[=Lexical Entry=]</subclass>
 </div>
 </div>
 
@@ -387,7 +381,7 @@ the lexical entry. A [=form=] is defined as follows:
 <div property="rdfs:comment"> A <dfn>form</dfn> represents one grammatical realization of a lexical entry. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**SubClassOf:** <span typeof="owl:Restriction"><span rel="owl:onProperty" resource="ontolex:writtenRep">[=written representation=]</span> min <span property="owl:minCardinality" datatype="xsd:integer">1</span> <a rel="owl:allValuesFrom" resource="rdf:langString" href="http://www.w3.org/2000/01/rdf-schema#langString">rdf:langString</a></span></div>
+<subclass>[=written representation=] min 1 rdf:langString</subclass>
 </div>
 </div>
 
@@ -403,8 +397,8 @@ form) defined below.
 </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalEntry">**Domain:** [=Lexical Entry=]</div>
-<div rel="rdfs:range" resource="ontolex:Form">**Range:** [=Form=]</div>
+<domain>[=Lexical Entry=]</domain>
+<range>[=Form=]</range>
 </div>
 </div>
 
@@ -416,9 +410,9 @@ Each form can thus have one or more [=written representations=], defined as foll
 <div property="rdfs:comment"> The <dfn>written representation</dfn> property indicates the written representation of a form. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:Form">**Domain:** [=Form=]</div>
-<div rel="rdfs:range">**Range:** <a href="http://www.w3.org/2000/01/rdf-schema#langString" resource="rdf:langString">rdf:langString</a></div>
-<div rel="rdfs:subPropertyOf" resource="ontolex:representation">**SubPropertyOf:** [=representation=]</div>
+<domain>[=Form=]</domain>
+<range>rdf:langString</range>
+<subproperty>[=representation=]</subproperty>
 </div>
 </div>
 
@@ -465,6 +459,19 @@ desc](Examples/ontolex/example3.png)](Examples/ontolex/example3.png){.tn}
 ```
 </aside>
 
+The general property [=representation=] is used to assign strings to forms
+
+<div class="entity" about="ontolex:representation" typeof="owl:DatatypeProperty">
+<datatypeProperty property="rdfs:label" lang="en">Representation</datatypeProperty>
+
+<div property="rdfs:comment"> The <dfn>representation</dfn> property indicates a string by which the form is represented according to some scheme. </div>
+
+<div class="description">
+<domain>[=Form=]</domain>
+<range>rdf:langString</range>
+</div>
+</div>
+
 A form may also have a [=phonetic representation=], indicating the
 pronunciation of the word.
 
@@ -474,9 +481,9 @@ pronunciation of the word.
 <div property="rdfs:comment"> The <dfn>phonetic representation</dfn> property indicates one phonetic representation of the pronunciation of the form using a scheme such as the International Phonetic Alphabet (IPA). </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:Form">**Domain:** [=Form=]</div>
-<div rel="rdfs:range">**Range:** <a href="http://www.w3.org/2000/01/rdf-schema#langString" resource="rdf:langString">rdf:langString</a></div>
-<div rel="rdfs:subPropertyOf" resource="ontolex:representation">**SubPropertyOf:** [=representation=]</div>
+<domain>[=Form=]</domain>
+<range>rdf:langString</range>
+<subproperty>[=representation=]</subproperty>
 </div>
 </div>
 
@@ -510,8 +517,8 @@ extra sub-properties as required.
 <div property="rdfs:comment"> The **representation** property indicates a string by which the form is represented according to some scheme. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:Form">**Domain:** [=Form=]</div>
-<div rel="rdfs:range">**Range:** <a href="http://www.w3.org/2000/01/rdf-schema#langString" resource="rdf:langString">rdf:langString</a></div>
+<domain>[=Form=]</domain>
+<range>rdf:langString</range>
 </div>
 </div>
 
@@ -540,9 +547,9 @@ functional:
 <div property="rdfs:comment"> The <dfn>canonical form</dfn> property relates a lexical entry to its canonical or dictionary form. This usually indicates the \"lemma\" form of a lexical entry. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalEntry">**Domain:** [=Lexical Entry=]</div>
-<div rel="rdfs:range" resource="ontolex:Form">**Range:** [=Form=]</div>
-<div rel="rdfs:subPropertyOf" resource="ontolex:lexicalForm">**SubPropertyOf:** [=lexical form=]</div>
+<domain>[=Lexical Entry=]</domain>
+<range>[=Form=]</range>
+<subproperty>[=lexical form=]</subproperty>
 </div>
 </div>
 
@@ -639,9 +646,9 @@ which we call [=other forms=]:
 <div property="rdfs:comment"> The <dfn>other form</dfn> property relates a lexical entry to a non-preferred (\"non-lemma\") form that realizes the given lexical entry. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalEntry">**Domain:** [=Lexical Entry=]</div>
-<div rel="rdfs:range" resource="ontolex:Form">**Range:** [=Form=]</div>
-<div rel="rdfs:subPropertyOf" resource="ontolex:lexicalForm">**SubPropertyOf:** [=lexical form=]</div>
+<domain>[=Lexical Entry=]</domain>
+<range>[=Form=]</range>
+<subproperty>[=lexical form=]</subproperty>
 </div>
 </div>
 
@@ -678,7 +685,7 @@ suitable vocabulary such as [LIAM](http://lemon-model.net/liam)).
 <div property="rdfs:comment"> The <dfn>morphological pattern</dfn> property indicates the morphological class of a word. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalEntry">**Domain:** [=Lexical Entry=]</div>
+<domain>[=Lexical Entry=]</domain>
 </div>
 </div>
 
@@ -722,10 +729,9 @@ The property [=denotes=] is defined as follows:
 <div property="rdfs:comment"> The <dfn>denotes</dfn> property relates a lexical entry to a predicate in a given ontology that represents its meaning and has some denotational or model-theoretic semantics. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalEntry">**Domain:** [=Lexical Entry=]</div>
-<div rel="rdfs:range" resource="rdfs:Resource">**Range:** rdfs:Resource</div>
-<div rel="rdfs:subPropertyOf">**SubPropertyOf:** <a href="http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#denotes" resource="semiotics:denotes">semiotics:denotes</a></div>
-<div rel="owl:inverseOf" resource="ontolex:isDenotedBy">**InverseOf:** [=is denoted by=]</div>
+<domain>[=Lexical Entry=]</domain>
+<range>rdfs:Resource</range>
+<subproperty>semiotics:denotes</subproperty>
 </div>
 </div>
 
@@ -887,9 +893,7 @@ above.
 <div property="rdfs:comment"> A <dfn>lexical sense</dfn> represents the lexical meaning of a lexical entry when interpreted as referring to the corresponding ontology element. A lexical sense thus represents a reification of a pair of a uniquely determined lexical entry and a uniquely determined ontology entity it refers to. A link between a lexical entry and an ontology entity via a Lexical Sense object implies that the lexical entry can be used to refer to the ontology entity in question. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**SubClassOf:** <span typeof="owl:Restriction"><span rel="owl:onProperty" resource="ontolex:sense">[=sense=]</span> min <span property="owl:minCardinality" datatype="xsd:integer">1</span> <span rel="owl:allValuesFrom" resource="ontolex:LexicalEntry">[=Lexical Entry=]</span></span>,
-<span typeof="owl:Restriction"><span rel="owl:onProperty" resource="ontolex:reference">[=reference=]</span> min <span property="owl:minCardinality" datatype="xsd:integer">1</span> <span rel="owl:allValuesFrom" resource="rdfs:Resource">rdfs:Resource</span></span>, ontolex:isSenseOf exactly 1 <span resource="ontolex:LexicalEntry">[=Lexical Entry=]</span>, 
-<a href="http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Meaning" resource="semiotics:Meaning">semiotics:Meaning</a></div>
+<subclass>[=sense=] min 1 [=Lexical Entry=], [=reference=] exactly 1 rdfs:Resource, [=is sense of=] exactly 1 [=Lexical Entry=], semiotics:Meaning</subclass>
 </div>
 </div>
 
@@ -950,10 +954,10 @@ respectively.
 </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalEntry">**Domain:** [=Lexical Entry=]</div>
-<div rel="rdfs:range" resource="ontolex:LexicalSense">**Range:** [=Lexical Sense=]</div>
-<div rel="owl:inverseOf" resource="ontolex:isSenseOf">**InverseOf:** [=is sense of=]</div>
-<div rel="rdf:type" resource="owl:InverseFunctionalProperty">**Characteristics:** Inverse Functional</div>
+<domain>[=Lexical Entry=]</domain>
+<range>[=Lexical Sense=]</range>
+<inverse>[=is sense of=]</inverse>
+<inverse-functional/>
 </div>
 </div>
 
@@ -966,10 +970,10 @@ The inverse of the [=sense=] property is <dfn>is sense of</dfn>, which relates a
 <div property="rdfs:comment"> The <dfn>reference</dfn> property relates a lexical sense to an ontological predicate that represents the denotation of the corresponding lexical entry. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalSense">[=Lexical Sense=]</span> or <span rel="rdf:rest"><span typof="rdf:List"><span rel="rdf:first" resource="synsem:OntoMap">[=Onto Map=]</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></span></span></div>
-<div rel="rdfs:range" resource="rdfs:Resource">**Range:** [=Resource=]</div>
-<div rel="owl:inverseOf" resource="ontolex:isReferenceOf">**InverseOf:** [=is reference of=]</div>
-<div rel="rdf:type" resource="owl:FunctionalProperty">**Characteristics:** Functional</div>
+<domain>[=Lexical Sense=] OR [=Onto Map=]</domain>
+<range>rdfs:Resource</range>
+<inverse>[=is reference of=]</inverse>
+<functional/>
 </div>
 </div>
 
@@ -1032,8 +1036,8 @@ desc](Examples/ontolex/example12.png)](Examples/ontolex/example12.png){.tn}
 <div property="rdfs:comment"> The <dfn>usage</dfn> property indicates usage conditions or pragmatic implications when using the lexical entry to refer to the given ontological meaning. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalSense">**Domain:** [=Lexical Sense=]</div>
-<div rel="rdfs:range" resource="rdfs:Resource">**Range:** rdfs:Resource</div>
+<domain>[=Lexical Sense=]</domain>
+<range>rdfs:Resource</range>
 </div>
 </div>
 
@@ -1064,7 +1068,7 @@ referring to the same Lexical Concept are considered to be synonym. A
 <div property="rdfs:comment"> A <dfn>lexical concept</dfn> represents a mental abstraction, concept or unit of thought that embodies the meaning of one of more lexical entries. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**SubClassOf:** <a href="http://www.w3.org/2004/02/skos/core#Concept" resource="skos:Concept">skos:Concept</a></div>
+<subclass>skos:Concept</subclass>
 </div>
 </div>
 
@@ -1078,10 +1082,10 @@ lexical concept, similar to how a lexical entry
 <div property="rdfs:comment"> The <dfn>evokes</dfn> property relates a lexical entry to one of the lexical concepts it evokes, i.e. the mental concept that speakers of a language might associate when hearing the lexical entry. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalEntry">**Domain:** [=Lexical Entry=]</div>
-<div rel="rdfs:range" resource="ontolex:LexicalConcept">**Range:** [=Lexical Concept=]</div>
-<div rel="owl:inverseOf" resource="ontolex:isEvokedBy">**InverseOf:** [=is evoked by=]</div>
-<div rel="rdf:type" resource="owl:InverseFunctionalProperty">**Characteristics:** Inverse Functional</div>
+<domain>[=Lexical Entry=]</domain>
+<range>[=Lexical Concept=]</range>
+<inverse>[=is evoked by=]</inverse>
+<inverse-functional/>
 </div>
 </div>
 
@@ -1123,9 +1127,9 @@ sense=]:
 <div property="rdfs:comment"> The <dfn>lexicalized sense</dfn> property relates a lexical concept to a corresponding lexical sense that lexicalizes the concept. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalConcept">**Domain:** [=Lexical Concept=]</div>
-<div rel="rdfs:range" resource="ontolex:LexicalSense">**Range:** [=Lexical Sense=]</div>
-<div rel="owl:inverseOf" resource="ontolex:isLexicalizedSenseOf">**InverseOf:** [=is lexicalized sense of=]</div>
+<domain>[=Lexical Concept=]</domain>
+<range>[=Lexical Sense=]</range>
+<inverse>[=is lexicalized sense of=]</inverse>
 </div>
 </div>
 
@@ -1167,9 +1171,9 @@ by means of the [=concept=] property:
 <div property="rdfs:comment"> The <dfn>concept</dfn> property relates an ontological entity to a lexical concept that represents the corresponding meaning. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="rdfs:Resource">**Domain:** rdfs:Resource</div>
-<div rel="rdfs:range" resource="ontolex:LexicalConcept">**Range:** [=Lexical Concept=]</div>
-<div rel="owl:inverseOf" resource="ontolex:isConceptOf">**InverseOf:** [=is concept of=]</div>
+<domain>rdfs:Resource</domain>
+<range>[=Lexical Concept=]</range>
+<inverse>[=is concept of=]</inverse>
 </div>
 </div>
 
@@ -1228,8 +1232,8 @@ set=] class, defined as follows:
 <div property="rdfs:comment"> A <dfn>concept set</dfn> represents a collection of lexical concepts. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**SubClassOf:** <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme" resource="skos:ConceptScheme">skos:ConceptScheme</a>, <a href="http://rdfs.org/ns/void#Dataset" resource="void:Dataset">void:Dataset</a></div>
-<div rel="owl:equivalentClass">**EquivalentClass:** <span typeof="owl:Restriction"><span rel="owl:onProperty" resource="skos:inScheme">skos:inScheme</span> min <span property="owl:minCardinality" datatype="xsd:integer">1</span> <span rel="owl:allValuesFrom" resource="ontolex:LexicalConcept">[=Lexical Concept=]</span></span></div>
+<subclass>skos:ConceptScheme, void:Dataset</sub>
+<equivalentClass>skos:inScheme min 1 [=Lexical Concept=]</equivalentClass>
 </div>
 </div>
 
@@ -1320,9 +1324,9 @@ behavior such as \'transitive\' should be captured by classes.
 <div property="rdfs:comment"> The <dfn>syntactic behavior</dfn> property relates a lexical entry to one of its syntactic behaviors as captured by a syntactic frame. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalEntry">**Domain:** [=Lexical Entry=]</div>
-<div rel="rdfs:range" resource="synsem:SyntacticFrame">**Range:** [=Syntactic Frame=]</div>
-<div rel="owl:inverseOf" resource="synsem:isSyntacticBehaviorOf">**InverseOf:** [=is syntactic behavior of=]</div>
+<domain>[=Lexical Entry=]</domain>
+<range>[=Syntactic Frame=]</range>
+<inverse>[=is syntactic behavior of=]</inverse>
 </div>
 </div>
 
@@ -1375,8 +1379,8 @@ The object property [=synArg=] is used to relate a
 <div property="rdfs:comment"> The <dfn>synArg</dfn> property relates a syntactic frame to one of its syntactic arguments. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="synsem:SyntacticFrame">**Domain:** [=Syntactic Frame=]</div>
-<div rel="rdfs:range" resource="synsem:SyntacticArgument">**Range:** [=Syntactic Argument=]</div>
+<domain>[=Syntactic Frame=]</domain>
+<range>[=Syntactic Argument=]</range>
 </div>
 </div>
 
@@ -1447,9 +1451,10 @@ and they have very similar functions.
 <div property="rdfs:comment"> The <dfn>ontoMapping</dfn> property relates an ontology mapping to its corresponding lexical sense. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="synsem:OntoMap">**Domain:** [=Ontology Map=]</div>
-<div rel="rdfs:range" resource="ontolex:LexicalSense">**Range:** [=Lexical Sense=]</div>
-<div rel="rdf:type">**Characteristics:** <span resource="owl:FunctionalProperty">Functional</span>, <span resource="owl:InverseFunctionalProperty">Inverse Functional</span></div>
+<domain>[=Ontology Map=]</domain>
+<range>[=Lexical Sense=]</range>
+<functional/>
+<inverse-functional/>
 </div>
 </div>
 
@@ -1465,8 +1470,8 @@ syntactic frame:
 <div property="rdfs:comment"> The <dfn>ontoCorrespondence</dfn> property binds an argument of a predicate defined in the ontology to a syntactic argument that realizes this predicate argument syntactically. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="synsem:OntoMap">[=Ontology Map=]</span> or <span rel="rdf:rest"><span typof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalSense">[=Lexical Sense=]</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></span></span></div>
-<div rel="rdfs:range" resource="synsem:SyntacticArgument">**Range:** [=Syntactic Argument=]</div>
+<domain>[=Ontology Map=] OR [=Lexical Sense=]</domain>
+<range>[=Syntactic Argument=]</range>
 </div>
 </div>
 
@@ -1498,7 +1503,7 @@ predicate in the ontology:
 
 
 <div class="description">
-<div rel="rdfs:subPropertyOf" resource="synsem:ontoCorrespondence">**SubPropertyOf:** [=ontoCorrespondence=]</div>
+<subproperty>[=ontoCorrespondence=]</subproperty>
 </div>
 </div>
 
@@ -1514,7 +1519,7 @@ a property its **subject** and the second argument the **object**. The
 <div property="rdfs:comment"> The <dfn>subjOfProp</dfn> property represents the 1st argument or subject of a binary predicate (property) in the ontology. </div>
 
 <div class="description">
-<div rel="rdfs:subPropertyOf" resource="synsem:ontoCorrespondence">**SubPropertyOf:** [=ontoCorrespondence=]</div>
+<subproperty>[=ontoCorrespondence=]</subproperty>
 </div>
 </div>
 
@@ -1524,7 +1529,7 @@ a property its **subject** and the second argument the **object**. The
 <div property="rdfs:comment">The <dfn>objOfProp</dfn> property represents the 2nd argument or object of a binary predicate (property) in the ontology. </div>
 
 <div class="description">
-<div rel="rdfs:subPropertyOf" resource="synsem:ontoCorrespondence">**SubPropertyOf:** [=ontoCorrespondence=]</div>
+<subproperty>[=ontoCorrespondence=]</subproperty>
 </div>
 </div>
 
@@ -1604,8 +1609,8 @@ desc](Examples/synsem/example4.png)](Examples/synsem/example4.png){.tn}
 <div property="rdfs:comment"> The <dfn>marker</dfn> property indicates the marker of a syntactic argument, which can be a case marker or some other lexical entry such as a preposition or particle. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="synsem:SyntacticArgument">**Domain:** [=Syntactic Argument=]</div>
-<div rel="rdfs:range" resource="rdfs:Resource">**Range:** rdfs:Resource</div>
+<domain>[=Syntactic Argument=]</domain>
+<range>rdfs:Resource</range>
 </div>
 </div>
 
@@ -1679,8 +1684,8 @@ predicates to a syntactic argument that realizes it.
 <div property="rdfs:comment"> The <dfn>submap</dfn> property relates a (complex) ontological mapping to a set of bindings that together bind the arguments of the involved predicates to a set of syntactic arguments that realize them syntactically. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="synsem:OntoMap">**Domain:** [=Ontology Map=]</div>
-<div rel="rdfs:range" resource="synsem:OntoMap">**Range:** [=Ontology Map=]</div>
+<domain>[=Ontology Map=]</domain>
+<range>[=Ontology Map=]</range>
 </div>
 </div>
 
@@ -1745,8 +1750,8 @@ such as *X launched Y* by existentially quantifying over the year.
 <div property="rdfs:comment"> The <dfn>optional</dfn> property indicates whether a syntactic argument is optional, that is, it can be syntactically omitted. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="synsem:SyntacticArgument">**Domain:** [=Syntactic Argument=]</div>
-<div rel="rdfs:range" resource="xsd:boolean">**Range:** xsd:boolean</div>
+<domain>[=Syntactic Argument=]</domain>
+<range>xsd:boolean</range>
 </div>
 </div>
 
@@ -1863,9 +1868,9 @@ ontological predicate it can be used to express.
 <div property="rdfs:comment"> The <dfn>condition</dfn> property defines an evaluable constraint that derives from using a certain lexical entry to express a given ontological predicate. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalSense">**Domain:** [=Lexical Sense=]</div>
-<div rel="rdfs:range" resource="rdfs:Resource">**Range:** rdfs:Resource</div>
-<div rel="rdfs:subPropertyOf" resource="ontolex:usage">**SubPropertyOf:** [=usage=]</div>
+<domain>[=Lexical Sense=]</domain>
+<range>rdfs:Resource</range>
+<subproperty>[=usage=]</subproperty>
 </div>
 </div>
 
@@ -1914,8 +1919,8 @@ the use of a certain lexical entry to express the property in question.
 <div property="rdfs:comment"> The <dfn>property domain</dfn> property specifies a constraint on the type of arguments that can be used at the first position of the property that is referenced by the given sense. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalSense">**Domain:** [=Lexical Sense=]</div>
-<div rel="rdfs:range" resource="rdfs:Resource">**Range:** rdfs:Resource</div>
+<domain>[=Lexical Sense=]</domain>
+<range>rdfs:Resource</range>
 </div>
 </div>
 
@@ -1925,8 +1930,8 @@ the use of a certain lexical entry to express the property in question.
 <div property="rdfs:comment"> The <dfn>property range</dfn> property specifies a constraint on the type of arguments that can be used at the first position of the property that is referenced by the given sense. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalSense">**Domain:** [=Lexical Sense=]</div>
-<div rel="rdfs:range" resource="rdfs:Resource">**Range:** rdfs:Resource</div>
+<domain>[=Lexical Sense=]</domain>
+<range>rdfs:Resource</range> 
 </div>
 </div>
 
@@ -1954,8 +1959,8 @@ certain compound lexical entry is composed of.
 <div property="rdfs:comment"> The <dfn>subterm</dfn> property relates a compound lexical entry to one of the lexical entries it is composed of. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalEntry">**Domain:** [=Lexical Entry=]</div>
-<div rel="rdfs:range" resource="ontolex:LexicalEntry">**Range:** [=Lexical Entry=]</div>
+<domain>[=Lexical Entry=]</domain>
+<range>[=Lexical Entry=]</range>
 </div>
 </div>
 
@@ -2026,8 +2031,8 @@ a lexical entry:
 <div property="rdfs:comment"> The <dfn>constituent</dfn> property relates a lexical entry or component to a component that it is constituted by. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalEntry">[=Lexical Entry=]</span> or <span rel="rdf:rest"><span typof="rdf:List"><span rel="rdf:first" resource="decomp:Component">[=Component=]</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></span></span></div>
-<div rel="rdfs:range" resource="decomp:Component">**Range:** [=Component=]</div>
+<domain>[=Lexical Entry=] OR [=Component=]</domain>
+<range>[=Component=]</range>
 </div>
 </div>
 
@@ -2063,8 +2068,8 @@ This is done by the property [=corresponds to=]:
 <div property="rdfs:comment"> The <dfn>corresponds to</dfn> property links a component to a corresponding lexical entry or argument. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="decomp:Component">**Domain:** [=Component=]</div>
-<div rel="rdfs:range">**Range:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalEntry">[=Lexical Entry=]</span> or <span rel="rdf:rest"><span typof="rdf:List"><span rel="rdf:first" resource="synsem:SyntacticArgument">[=Syntactic Argument=]</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></span></span></div>
+<domain>[=Component=]</domain>
+<range>[=Lexical Entry=] OR [=Syntactic Argument=]</range>
 </div>
 </div>
 
@@ -2249,8 +2254,8 @@ entries / lexical senses that are related.
 <div property="rdfs:comment"> The <dfn>lexicalRel</dfn> property relates two lexical entries that stand in some lexical relation. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalEntry">**Domain:** [=Lexical Entry=]</div>
-<div rel="rdfs:range" resource="ontolex:LexicalEntry">**Range:** [=Lexical Entry=]</div>
+<domain>[=Lexical Entry=]</domain>
+<range>[=Lexical Entry=]</range>
 </div>
 </div>
 
@@ -2260,8 +2265,8 @@ entries / lexical senses that are related.
 <div property="rdfs:comment"> The <dfn>senseRel</dfn> property relates two lexical senses that stand in some sense relation. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalSense">**Domain:** [=Lexical Sense=]</div>
-<div rel="rdfs:range" resource="ontolex:LexicalSense">**Range:** [=Lexical Sense=]</div>
+<domain>[=Lexical Sense=]</domain>
+<range>[=Lexical Sense=]</range>
 </div>
 </div>
 
@@ -2294,7 +2299,7 @@ relationship.
 <div property="rdfs:comment"> A <dfn>lexico-semantic relation</dfn> represents the relation between two lexical entries or lexical senses that are related by some lexical or semantic relationship. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**Subclass Of**: <span typeof="owl:Restriction"><span rel="owl:onProperty" resource="vartrans:relates"><span property="rdfs:label">relates</span></span> exactly <span property="owl:cardinality" datatype="xsd:integer">2</span> <span rel="owl:allValuesFrom"><span rel="own:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalEntry">LexicalEntry</span> OR <span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalSense">LexicalSense</span> OR <span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalConcept">LexicalConcept</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></span></span></span></span></span></span></div>
+<subclass>[=relates=] exactly 2 [=Lexical Entry=] OR [=Lexical Sense=] OR [=Lexical Concept=]</subclass>
 </div>
 </div>
 
@@ -2309,8 +2314,8 @@ relation:
 <div property="rdfs:comment"> The <dfn>relates</dfn> property links a lexico-semantic relation to the two lexical entries or lexical senses between which it establishes the relation. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="vartrans:LexicoSemanticRelation">**Domain:** [=Lexico-Semantic Relation=]</div>
-<div rel="rdfs:range">**Range:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalEntry">[=Lexical Entry=]</span> OR <span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalSense">[=Lexical Sense=]</span> OR <span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalConcept">[=Lexical Concept=]</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></span></span></span></div>
+<domain>[=Lexico-Semantic Relation=]</domain>
+<range>[=Lexical Entry=] OR [=Lexical Sense=] OR [=Lexical Concept=]</range>
 </div>
 </div>
 
@@ -2325,7 +2330,7 @@ distinguish the [=source=] from the
 <div property="rdfs:comment"> The <dfn>source</dfn> property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a \'source\'. </div>
 
 <div class="description">
-<div rel="rdfs:subPropertyOf" resource="vartrans:relates">**SubPropertyOf:** relates</div>
+<subproperty>[=relates=]</subproperty>
 </div>
 </div>
 
@@ -2335,7 +2340,7 @@ distinguish the [=source=] from the
 <div property="rdfs:comment"> The <dfn>target</dfn> property indicates the lexical sense or lexical entry involved in a lexico-semantic relation as a \'target\'. </div>
 
 <div class="description">
-<div rel="rdfs:subPropertyOf" resource="vartrans:relates">**SubPropertyOf:** relates</div>
+<subproperty>[=relates=]</subproperty>
 </div>
 </div>
 
@@ -2349,8 +2354,7 @@ or two lexical senses, respectively:
 <div property="rdfs:comment"> A <dfn>lexical relation</dfn> is a lexico-semantic relation that represents the relation between two lexical entries the surface forms of which are related grammatically, stylistically or by some operation motivated by linguistic economy. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**Subclass Of**: <span resource="vartrans:LexicoSemanticRelation">[=Lexico-Semantic Relation=]</span>, 
-<span typeof="owl:Restriction"><span rel="owl:onProperty" resource="vartrans:relates">relates</span>exactly <span property="owl:cardinality" datatype="xsd:integer">2</span> <span rel="owl:allValuesFrom" resource="ontolex:LexicalEntry">[=Lexical Entry=]</span></span></div>
+<subclass>[=Lexico-Semantic Relation=], [=relates=] exactly 2 [=Lexical Entry=]</subclass>
 </div>
 </div>
 
@@ -2376,8 +2380,8 @@ follows:
 <div property="rdfs:comment"> The <dfn>category</dfn> property indicates the specific type of relation by which two lexical entries or two lexical senses are related. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="vartrans:LexicoSemanticRelation">**Domain:** [=Lexico-Semantic Relation=]</div>
-<div rel="rdf:type" resource="owl:FunctionalProperty">**Characteristics:** Functional</div>
+<domain>[=Lexico-Semantic Relation=]</domain>
+<functional/>
 </div>
 </div>
 
@@ -2419,8 +2423,7 @@ desc](Examples/vartrans/example1.png)](Examples/vartrans/example1.png){.tn}
 <div property="rdfs:comment"> A <dfn>sense relation</dfn> is a lexico-semantic relation that represents the relation between two lexical senses the meanings of which are related. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**Subclass Of**: <span resource="vartrans:LexicoSemanticRelation">[=Lexico-Semantic Relation=]</span>,
-<span typeof="owl:Restriction"><span rel="owl:onProperty" resource="vartrans:relates">relates</span> exactly <span property="owl:cardinality" datatype="xsd:integer">2</span> <span rel="owl:allValuesFrom" resource="ontolex:LexicalSense">[=Lexical Sense=]</span></span></div>
+<subclass>[=Lexico-Semantic Relation=], [=relates=] exactly 2 [=Lexical Sense=]</sub>
 </div>
 </div>
 
@@ -2469,7 +2472,7 @@ follows:
 <div property="rdfs:comment"> A <dfn>terminological relation</dfn> is a sense relation that relates two lexical senses of terms that are semantically related in the sense that they can be exchanged in most contexts, but their surface forms are not directly related. The variants vary along dimensions that are not captured by the given ontology and are intentionally (pragmatically) caused. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**Subclass Of:** <span resource="vartrans:SenseRelation">[=Sense Relation=]</span></div>
+<subclass>[=Sense Relation=]</subclass>
 </div>
 </div>
 
@@ -2532,8 +2535,8 @@ other similar resources
 <div property="rdfs:comment"> The <dfn>conceptRel</dfn> property relates two lexical concepts that stand in some sense relation. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalConcept">**Domain:** [=Lexical Concept=]</div>
-<div rel="rdfs:range" resource="ontolex:LexicalConcept">**Range:** [=Lexical Concept=]</div>
+<domain>[=Lexical Concept=]</domain>
+<range>[=Lexical Concept=]</range>
 </div>
 </div>
 
@@ -2543,8 +2546,7 @@ other similar resources
 <div property="rdfs:comment"> A <dfn>conceptual relation</dfn> is a relationship between two lexical concepts</div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**Subclass Of:** <span resource="vartrans:LexicoSemanticRelation">[=Lexico-Semantic Relation=]</span>,
-<span typeof="owl:Restriction"><span rel="owl:onProperty" resource="vartrans:relates">relates</span> exactly <span property="owl:cardinality" datatype="xsd:integer">2</span> <span rel="owl:allValuesFrom" resource="ontolex:LexicalConcept">[=Lexical Concept=]</span></span></div>
+<subclass>[=Lexico-Semantic Relation=], [=relates=] exactly 2 [=Lexical Concept=]</sub>
 </div>
 </div>
 
@@ -2633,7 +2635,7 @@ other.
 <div property="rdfs:comment"> A <dfn>translation</dfn> is a sense relation expressing that two lexical senses corresponding to two lexical entries in different languages can be translated to each other without any major meaning shifts. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**Subclass Of:** <span resource="vartrans:SenseRelation">[=Sense Relation=]</span></div>,
+<subclass>[=Sense Relation=]</subclass>
 </div>
 </div>
 
@@ -2680,7 +2682,7 @@ the reification:
 <div property="rdfs:comment"> The <dfn>translation property</dfn> relates two lexical senses of two lexical entries that stand in a translation relation to one another. </div>
 
 <div class="description">
-<div rel="rdfs:subPropertyOf" resource="vartrans:senseRel">**SubPropertyOf:** senseRel</div>
+<subproperty>[=Sense Relation=]</sub>
 </div>
 </div>
 
@@ -2725,10 +2727,10 @@ this, the model introduces the property
 <div property="rdfs:comment"> The <dfn>translatableAs</dfn> property relates a lexical entry in some language to a lexical entry in another language that it can be translated as depending on the particular context and specific senses of the involved lexical entries. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="ontolex:LexicalEntry">**Domain:** [=Lexical Entry=]</div>
-<div rel="rdfs:range" resource="ontolex:LexicalEntry">**Range:** [=Lexical Entry=]</div>
-<div rel="rdf:type" resource="owl:SymmetricProperty">**Characteristics:** Symmetric</div>
-<div rel="rdfs:subPropertyOf">**Subproperty of:** <span type="owl:ObjectProperty"><span rel="owl:propertyChainAxiom"><span typeof="rdf:List"><span rel="rdf:first" resource="vartrans:isSenseOf">isSenseOf</span> o <span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="vartrans:translation">translation</span> o <span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="vartrans:sense">sense</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></span></span></span></span></div>
+<domain>[=Lexical Entry=]</domain>
+<range>[=Lexical Entry=]</range>
+<symmetric/>
+<subproperty>[=is sense of=] o [=translation=] o [=sense=]</subproperty>
 </div>
 </div>
 
@@ -2787,8 +2789,8 @@ contained in it, the model defines a property
 translations.</div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="vartrans:TranslationSet">**Domain:** TranslationSet</div>
-<div rel="rdfs:range" resource="vartrans:Translation">**Range:** Translation</div>
+<domain>[=Translation Set=]</domain>
+<range>[=Translation=]</range>
 </div>
 </div>
 
@@ -2920,7 +2922,7 @@ void:Dataset:
 <div property="rdfs:comment"> A <dfn>lexicon</dfn> is a collection of lexical entries for a particular language or domain. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**SubClass Of:** <span typeof="owl:Restriction"><span rel="owl:onProperty" resource="lime:entry">entry</span> min <span property="owl:minCardinality" datatype="xsd:integer">1</span></span>, <span typeof="owl:Restriction"><span rel="owl:onProperty" resource="lime:language">language</span> exactly <span property="owl:cardinality" datatype="xsd:integer">1</span></span>, <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" resource="void:Dataset">void:Dataset</a></div>
+<subclass>[=entry=] min 1, [=language=] exactly 1, void:Dataset</subclass>
 </div>
 </div>
 
@@ -2932,8 +2934,8 @@ The property linking a lexicon to a lexical entry is the property entry:
 <div property="rdfs:comment"> The <dfn>entry</dfn> property relates a lexicon to one of the lexical entries contained in it. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="lime:Lexicon">**Domain:** [=Lexicon=]</div>
-<div rel="rdfs:range" resource="ontolex:LexicalEntry">**Range:** [=Lexical Entry=]</div>
+<domain>[=Lexicon=]</domain>
+<range>[=Lexical Entry=]</range>
 </div>
 </div>
 
@@ -2949,8 +2951,8 @@ should be a literal representing the language.
 <div property="rdfs:comment"> The <dfn>language</dfn> property indicates the language of a lexicon, a lexical entry, a concept set or a lexicalization set. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="lime:Lexicon">Lexicon</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalEntry">LexicalEntry</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:ConceptSet">ConceptSet</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalizationSet">LexicalizationSet</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></span></span></span></div></span></div>
-<div rel="rdfs:range" resource="xsd:language">**Range:** xsd:language</div>
+<domain>[=Lexicon=] OR [=Lexical Entry=] OR [=Concept Set=] OR [=Lexicalization Set=]</domain>
+<range>xsd:language</range>
 </div>
 </div>
 
@@ -2977,8 +2979,8 @@ case the number of lexical entries involved in these sets.
 <div property="rdfs:comment"> The <dfn>lexical entries</dfn> property indicates the number of distinct lexical entries contained in a lexicon, lexicalization set or conceptualization set. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="lime:Lexicon">Lexicon</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalizationSet">LexicalizationSet</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:ConceptualizationSet">ConceptualizationSet</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></span></div>
-<div rel="rdfs:range" resource="xsd:integer">**Range:** xsd:integer</div>
+<domain>[=Lexicon=] OR [=Lexicalization Set=] OR [=Conceptualization Set=]</domain>
+<range>xsd:integer</range>
 </div>
 </div>
 
@@ -2992,8 +2994,8 @@ used to describe characteristics of lexical entries via the
 <div property="rdfs:comment"> The <dfn>linguistic catalog</dfn> property indicates the catalog of linguistic categories used in a lexicon to define linguistic properties of lexical entries. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="lime:Lexicon">**Domain:** [=Lexicon=]</div>
-<div rel="rdfs:range" resource="voaf:Vocabulary">**Range:** voaf:Vocabulary</div>
+<domain>[=Lexicon=]</domain>
+<range>voaf:Vocabulary</range>
 </div>
 </div>
 
@@ -3060,11 +3062,7 @@ of a lexical entry and an associated reference in the ontology.
 <div property="rdfs:comment"> A <dfn>lexicalization set</dfn> is a dataset that comprises a collection of lexicalizations, that is pairs of lexical entry and corresponding reference in the associated ontology/vocabulary/dataset. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**SubClass Of:** <a href="http://rdfs.org/ns/void#Dataset" resource="void:Dataset">void:Dataset</a>,
-<span typeof="owl:Restriction"><span rel="owl:onProperty" resource="lime:lexiconDataset">lexiconDataset</span> max <span property="owl:maxCardinality" datatype="xsd:integer">1</span><span rel="owl:allValuesFrom" resource="lime:Lexicon">Lexicon</span></span>, 
-<span typeof="owl:Restriction"><span rel="owl:onProperty" resource="lime:referenceDataset">referenceDataset</span> exactly <span property="owl:cardinality" datatype="xsd:integer">1</span> <span rel="owl:allValuesFrom" resource="void:Dataset">Dataset</span></span>,
-<span typeof="owl:Restriction"><span rel="owl:onProperty" resource="ontolex:partition">partition</span> only <span rel="owl:allValuesFrom" resource="ontolex:LexicalizationSet">LexicalizationSet</span></span>,
-<span typeof="owl:Restriction"><span rel="owl:onProperty" resource="lime:lexicalizationModel">lexicalizationModel</span> exactly <span property="owl:cardinality" datatype="xsd:integer">1</span></span></span></div>
+<subclass>void:Dataset, [=lexicon dataset=] max 1 [=Lexicon=], [=reference dataset=] exactly 1 void:Dataset, [=partition=] only [=Lexicalization Set=], [=lexicalization model=] exactly 1</subclass>
 </div>
 </div>
 
@@ -3077,8 +3075,8 @@ means of the properties [=reference dataset=] and [=lexicon dataset=], respectiv
 <div property="rdfs:comment"> The <dfn>reference dataset</dfn> property indicates the dataset that contains the domain objects or vocabulary elements that are either referenced by a given lexicon, providing the grounding vocabulary for the meaning of the lexical entries, or linked to lexical concepts in a concept set by means of a lexical link set. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="lime:LexicalizationSet">LexicalizationSet</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalLinkset">LexicalLinkset</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></div></span></div>
-<div rel="rdfs:range" resource="void:Dataset">**Range:** void:Dataset</div>
+<domain>[=Lexicalization Set=] OR [=Lexical Linkset=]</domain>
+<range>void:Dataset</range>
 </div>
 </div>
 
@@ -3088,8 +3086,8 @@ means of the properties [=reference dataset=] and [=lexicon dataset=], respectiv
 <div property="rdfs:comment"> The <dfn>lexicon dataset</dfn> property indicates the lexicon that contains the entries referred to in a lexicalization set or a conceptualization set. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="lime:LexicalizationSet">LexicalizationSet</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:ConceptualizationSet">ConceptualizationSet</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></div></span></div>
-<div rel="rdfs:range" resource="lime:Lexicon">**Range:** Lexicon</div>
+<domain>[=Lexicalization Set=] OR [=Conceptualization Set=]</domain>
+<range>[=Lexicon=]</range>
 </div>
 </div>
 
@@ -3106,9 +3104,9 @@ lexicalization model used.
 <div property="rdfs:comment"> The <dfn>lexicalization model</dfn> property indicates the model used for representing lexical information. Possible values include (but are not limited to) <http://www.w3.org/2000/01/rdf-schema>\# (for the use of rdfs:label), <http://www.w3.org/2004/02/skos/core> (for the use of skos:pref/alt/hiddenLabel), <http://www.w3.org/2008/05/skos-xl> (for the use of skosxl:pref/alt/hiddenLabel) and [http://www.w3.org/ns/lemon/ontolex](http://www.w3.org/ns/lemon/all){.uri} for lemon.</div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="lime:LexicalizationSet">**Domain:** [=Lexicalization Set=]</div>
-<div rel="rdfs:range" resource="rdfs:Resource">**Range:** rdfs:Resource</div>
-<div rel="rdfs:subPropertyOf" resource="void:vocabulary">**SubProperty Of:** void:vocabulary</div>
+<domain>[=Lexicalization Set=]</domain>
+<range>rdfs:Resource</range>
+<subpropertyOf>void:vocabulary</subpropertyOf>
 </div>
 </div>
 
@@ -3126,8 +3124,8 @@ respectively.
 <div property="rdfs:comment"> The <dfn>references</dfn> property indicates the number of distinct ontology or vocabulary elements that are either associated with lexical entries via a lexicalization set or linked to lexical concepts via a lexical link set. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="lime:LexicalizationSet">LexicalizationSet</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalLinkset">LexicalLinkset</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></div></span></div>
-<div rel="rdfs:range" resource="xsd:integer">**Range:** xsd:integer</div>
+<domain>[=Lexicalization Set=] OR [=Lexical Linkset=]</domain>
+<range>xsd:integer</range>
 </div>
 </div>
 
@@ -3227,8 +3225,8 @@ given by the absolute number of lexicalizations:
 <div property="rdfs:comment"> The <dfn>lexicalizations</dfn> property indicates the total number of lexicalizations in a lexicalization set, that is the number of unique pairs of lexical entry and denoted ontology element. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="lime:LexicalizationSet">**Domain:** [=Lexicalization Set=]</div>
-<div rel="rdfs:range" resource="xsd:integer">**Range:** xsd:integer</div>
+<domain>[=Lexicalization Set=]</domain>
+<range>xsd:integer</range>
 </div>
 </div>
 
@@ -3242,8 +3240,8 @@ lexicalizations per ontology element:
 <div property="rdfs:comment"> The <dfn data-lt="avgNumOfLexicalizations">average number of lexicalizations</dfn> property indicates the average number of lexicalizations per ontology element in a lexicalization set. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="lime:LexicalizationSet">**Domain:** [=Lexicalization Set=]</div>
-<div rel="rdfs:range" resource="xsd:decimal">**Range:** xsd:decimal</div>
+<domain>[=Lexicalization Set=]</domain>
+<range>xsd:decimal</range>
 </div>
 </div>
 
@@ -3288,8 +3286,8 @@ of entities in an ontology which are lexicalized, formally:
 <div property="rdfs:comment"> The <dfn>percentage</dfn> property expresses the percentage of entities in the reference dataset which have at least one lexicalization in a lexicalization set or are linked to a lexical concept in a lexical linkset. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="lime:LexicalizationSet">LexicalizationSet</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalLinkset">LexicalLinkset</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></div></span></div>
-<div rel="rdfs:range" resource="xsd:decimal">**Range:** xsd:decimal</div>
+<domain>[=Lexicalization Set=] OR [=Lexical Linkset=]</domain>
+<range>xsd:decimal</range>
 </div>
 </div>
 
@@ -3310,9 +3308,9 @@ introduces the property [=partition=]:
 <div property="rdfs:comment"> The <dfn>partition</dfn> property relates a lexicalization set or lexical linkset to a logical subset that contains lexicalizations for a given ontological type only. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="lime:LexicalizationSet">LexicalizationSet</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalLinkset">LexicalLinkset</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></div></span></div>
-<div rel="rdfs:range">**Range:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="lime:LexicalizationSet">LexicalizationSet</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalLinkset">LexicalLinkset</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></div>
-<div rel="rdfs:subPropertyOf" resource="void:subset">**SubProperty Of:** void:subset</div>
+<domain>[=Lexicalization Set=] OR [=Lexical Linkset=]</domain>
+<range>[=Lexicalization Set=] OR [=Lexical Linkset=]</range>
+<subproperty>void:subset</subproperty>
 </div>
 </div>
 
@@ -3322,9 +3320,9 @@ introduces the property [=partition=]:
 <div property="rdfs:comment"> The <dfn>resource type</dfn> property indicates the type of ontological entity of a lexicalization set or lexical linkset.</div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="lime:LexicalizationSet">LexicalizationSet</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalLinkset">LexicalLinkset</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></div></span></div>
-<div rel="rdfs:range" resource="rdfs:Class">**Range:** rdfs:Class</div>
-<div rel="rdf:type" resource="owl:FunctionalProperty">**Characteristics:** Functional</div>
+<domain>[=Lexicalization Set=] OR [=Lexical Linkset=]</domain>
+<range>rdfs:Class</range>
+<functional/>
 </div>
 </div>
 
@@ -3384,7 +3382,7 @@ to an ontology.
 <div property="rdfs:comment"> A <dfn>lexical linkset</dfn> is a dataset that comprises a collection of links between lexical concepts in a concept set and entities in a reference dataset. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**SubClass Of:** <a href="http://rdfs.org/ns/void#Dataset" resource="void:Dataset">void:Dataset</a>, <span typeof="owl:Restriction"><span rel="owl:onProperty" resource="lime:conceptualDataset">[=conceptual dataset=]</span> exactly <span property="owl:cardinality" datatype="xsd:integer">1</span> ontolex:ConceptSet</span>, <span typeof="owl:Restriction"><span rel="owl:onProperty" resource="lime:referenceDataset">referenceDataset</span> exactly <span property="owl:cardinality" datatype="xsd:integer">1</span> void:Dataset</span>, <span typeof="owl:Restriction"><span rel="owl:onProperty" resource="ontolex:partition">partition</span> only <span rel="owl:allValuesFrom" resource="ontolex:LexicalLinkset">[=Lexical Linkset=]</span></span></div>
+<subclass>void:Dataset, [=conceptual dataset=] exactly 1 [=Concept Set=], [=reference dataset=] exactly 1 void:Dataset, [=partition=] only [=Lexical Linkset=]</subclass>
 </div>
 </div>
 
@@ -3398,8 +3396,8 @@ property:
 <div property="rdfs:comment"> The <dfn>conceptual dataset</dfn> property indicates the concept set that contains the lexical concepts referred to in a lexical linkset or a conceptualization set. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="lime:LexicalLinkset">LexicalLinkset</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:ConceptualizationSet">ConceptualizationSet</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></div></span></div>
-<div rel="rdfs:range" resource="ontolex:ConceptSet">**Range:** ontolex:ConceptSet</div>
+<domain>[=Lexical Linkset=] OR [=Conceptualization Set=]</domain>
+<range>[=Concept Set=]</range>
 </div>
 </div>
 
@@ -3414,8 +3412,8 @@ concept set:
 <div property="rdfs:comment"> The <dfn>concepts</dfn> property indicates the number of lexical concepts defined in a concept set or involved in either a lexical linkset or conceptualization set. </div>
 
 <div class="description">
-<div rel="rdfs:domain">**Domain:** <span rel="owl:unionOf"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:ConceptSet">ConceptSet</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:LexicalLinkset">LexicalLinkset</span><span rel="rdf:rest"><span typeof="rdf:List"><span rel="rdf:first" resource="ontolex:ConceptualizationSet">ConceptualizationSet</span><span rel="rdf:rest" resource="rdf:nil"/></span></span></span></div></span></div>
-<div rel="rdfs:range" resource="xsd:integer">**Range:** xsd:integer</div>
+<domain>[=Concept Set=] OR [=Lexical Linkset=] OR [=Conceptualization Set=]</domain>
+<range>xsd:integer</range>
 </div>
 </div>
 
@@ -3430,8 +3428,8 @@ the properties [=lexicalizations=] and
 <div property="rdfs:comment"> The <dfn>links</dfn> property indicates the number of links between concepts in the concept set and entities in the reference dataset. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="lime:LexicalLinkset">**Domain:** [=Lexical Linkset=]</div>
-<div rel="rdfs:range" resource="xsd:integer">**Range:** xsd:integer</div>
+<domain>[=Lexical Linkset=]</domain>
+<range>xsd:integer</range>
 </div>
 </div>
 
@@ -3441,8 +3439,8 @@ the properties [=lexicalizations=] and
 <div property="rdfs:comment"> The <dfn data-lt="avgNumOfLinks">average number of links</dfn> property indicates the average number of links to lexical concepts for each ontology element in the reference dataset. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="lime:LexicalLinkset">**Domain:** [=Lexical Linkset=]</div>
-<div rel="rdfs:range" resource="xsd:decimal">**Range:** xsd:decimal</div>
+<domain>[=Lexical Linkset=]</domain>
+<range>xsd:decimal</range>
 </div>
 </div>
 
@@ -3469,7 +3467,7 @@ lexical concept.
 <div property="rdfs:comment"> A <dfn>conceptualization set</dfn> is a dataset that comprises a collection of links between lexical entries in a lexicon and lexical concepts in a concept set they evoke. </div>
 
 <div class="description">
-<div rel="rdfs:subClassOf">**Subclass of**: <a href="http://rdfs.org/ns/void#Dataset" resource="void:Dataset">void:Dataset</a>, <span typeof="owl:Restriction"><span rel="owl:onProperty" resource="lime:lexiconDataset">lexiconDataset</span> exactly <span property="owl:cardinality" datatype="xsd:integer">1</span> <span rel="owl:allValuesFrom" resource="lime:Lexicon">Lexicon</span></span>, <span typeof="owl:Restriction"><span rel="owl:onProperty" resource="lime:conceptualDataset">conceptualDataset</span> exactly <span property="owl:cardinality" datatype="xsd:integer">1</span> ontolex:ConceptSet</span></div>
+<subclass>void:Dataset, [=lexicon dataset=] exactly 1 [=Lexicon=], [=conceptual dataset=] exactly 1 [=concept set=]</subclass>
 </div>
 </div>
 
@@ -3490,8 +3488,8 @@ given set of conceptualizations:
 <div property="rdfs:comment"> The <dfn>conceptualizations</dfn> property indicates the number of distinct conceptualizations in a conceptualization set. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="lime:ConceptualizationSet">**Domain:** [=Conceptualization Set=]</div>
-<div rel="rdfs:range" resource="xsd:integer">**Range:** xsd:integer</div>
+<domain>[=Conceptualization Set=]</domain>
+<range>xsd:integer</range>
 </div>
 </div>
 
@@ -3501,8 +3499,8 @@ given set of conceptualizations:
 <div property="rdfs:comment"> The <dfn>average ambiguity</dfn> property indicates the average number of lexical concepts evoked by each lemma/canonical form in the lexicon. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="lime:ConceptualizationSet">**Domain:** [=Conceptualization Set=]</div>
-<div rel="rdfs:range" resource="xsd:decimal">**Range:** xsd:decimal</div>
+<domain>[=Conceptualization Set=]</domain>
+<range>xsd:decimal</range>
 </div>
 </div>
 
@@ -3512,8 +3510,8 @@ given set of conceptualizations:
 <div property="rdfs:comment"> The <dfn>average synonymy</dfn> property indicates the average number of lexical entries evoking each lexical concept in the concept set. </div>
 
 <div class="description">
-<div rel="rdfs:domain" resource="lime:ConceptualizationSet">**Domain:** [=Conceptualization Set=]</div>
-<div rel="rdfs:range" resource="xsd:decimal">**Range:** xsd:decimal</div>
+<domain>[=Conceptualization Set=]</domain>
+<range>xsd:decimal</range>
 </div>
 </div>
 
