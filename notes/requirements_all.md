@@ -29,55 +29,30 @@ This type of information is still present in authoritative resources.
 Such usage recommendations can be expressed as string of text and links to related resources, meaning that there are different pieces of information that need to be represented. 
 - **RT4**. The need to have a **class for sources**. Like definitions, sources play a very important role in this modelling approach. Especially when terminologies are generated from multiple resources, it is crucial to maintain the traceability of the different terminological data (may they be definitions, term notes, term contexts, etc.). With the automation of the terminology creation process, we may distinguish between two types of sources: Intermediate Sources: not direct sources but information providers, such as existing linguistic resources from which information is retrieved (IATE, for instance) or applications (a Definition Extractor) and Original Sources: direct sources, meaning corpora (i.e. European Legislation), organisations (i.e. European Commission) or individuals (i.e. John Doe, European terminologist).
 
-      Checked FraC (https://github.com/ontolex/frequency-attestation-corpus-information/blob/master/index.md#citations): properties such as "citation" and "observedIn" have domain "Observation" while we need to declare sources for various types of classes, including notes and definitions.
+  Checked FraC (https://github.com/ontolex/frequency-attestation-corpus-information/blob/master/index.md#citations): properties such as "citation" and "observedIn" have domain "Observation" while we need to declare sources for various types of classes, including notes and definitions.
 
-      Checked Prov (https://www.w3.org/TR/prov-o/): property "qualifiedPrimarySource" has domain Entity.
-
-<img width="776" alt="image" src="https://github.com/user-attachments/assets/a61186e1-928c-4232-81eb-c635caca41f6" />
+  Checked Prov (https://www.w3.org/TR/prov-o/): property "qualifiedPrimarySource" has domain Entity.
 
 - **RT5**. The need to have a (standardised) **class for the reliability** of a term. Previous work on the representation of terminologies as Linked Data (Cimiano, et al. 2015) proposed an ontology based on the TBX specification which used the property tbx:reliabilityCode to represent this kind confidence rating that terminologists assign to terms. However, the domain is ontolex:LexicalEntry, and the property admits any type of rating. Following the guidelines of IATE, we propose a class ReliabilityCode with a fixed set of values 1-4, to standardise this rating.
 Resources with other scales for the reliability/acceptability of a term: **Termium** <https://www.btb.termiumplus.gc.ca/tpv2alpha/alpha-eng.html?lang=eng>, or **Wikiwords** <https://wikiwords.org/wikiwords>.
 
-- **RT6**. The need represent **record status**. Some resources include an indicator that reflects the finalization of a term entry. Some entries may be fully validated and contain all necessary information, while others might still be under review or incomplete. A dedicated class or property for record status would help users distinguish between finalized, provisional, or work-in-progress entries
+- **RT6**. The need to represent **record status**. Some resources include an indicator that reflects the finalization of a term entry. Some entries may be fully validated and contain all necessary information, while others might still be under review or incomplete. A dedicated class or property for record status would help users distinguish between finalized, provisional, or work-in-progress entries
 In some resources, such as TERMDAT, this indicator is stricly correlated to the realiability code. https://www.termdat.bk.admin.ch/search
 
 ## DMLex requirements
 
-### Alignemnt with DMLex core
-
-- RD1. `partOfSpeech`: OntoLex does not have a core part-of-speech property unlike DMLex. This may be useful also for defining lexical entries in our model
-- RD2. `inflectedForm`: OntoLex has `otherForm` that is similar but seems slightly broader in interpretation
-- RD3. `example`: We probably need a property to give examples by entry and sense as well
-
-### Alignment with DMLex Crosslingual Module
-
-- RD4. Need to represent bilingual and multilingual dictionaries
-
-`headwordTranslation`, `headwordExplanation`: These give lemmas and glosses for an entry in another language. This differs from OntoLex modelling which would instead link entries/forms in two different lexicons.
-`exampleTranslation`: If examples are introduced, we may want to give translations (especially for historical languages)
-
-### Alignment with DMLex Controlled Vocabulary Module
-
-This allows the DMLex standard to extend with new terms such as part-of-speech. This is already well-captured by our RDF/OWL modelling so there is no need to import anything.
-
-### Alignment with DMLex Linking Module
-
-This is well captured by the _vartrans_ module and no changes are necessary
-
-### Alignment with DMLex Annotation Module
-
-- RD5. This allows inline markup of entries in order to mark placeholders, headwords and collocates.
+- **RD1**. The need to have `partOfSpeech`: OntoLex does not have a **core part-of-speech property** unlike DMLex. This may be useful also for defining lexical entries in our model
+- **RD2**. Need oto have an **inflected form** `inflectedForm`: OntoLex has `otherForm` that is similar but seems slightly broader in interpretation
+- **RD3**. The need to have **example**: We probably need a property to give examples by entry and sense as well
+- **RD4**. Need to represent **bilingual and multilingual dictionaries**. `headwordTranslation`, `headwordExplanation`: These give lemmas and glosses for an entry in another language. This differs from OntoLex modelling which would instead link entries/forms in two different lexicons. `exampleTranslation`: If examples are introduced, we may want to give translations (especially for historical languages)
+- **RD5**. Need to align with DMLex Annotation Module. This module allows inline markup of entries in order to mark placeholders, headwords and collocates. This would be quite tricky to support in RDF, as there is no easy way to do inline markup. Perhaps, this use case could be consider in the context of the _FrAC_ module?. An example:
 
 ```xml
 <text>The coroner <collocateMarker lemma="perform">performed</collocateMarker> an
       <headwordMarker>autopsy</headwordMarker>.</text>
 ```
 
-This would be quite tricky to support in RDF, as there is no easy way to do inline markup. Perhaps, this use case could be consider in the context of the _FrAC_ module? 
 
-### Alignment with DMLex Etymology Module
-
-OntoLex has no support for etymology and this work will be done in a new module, so this will not affect the core.
 
 
  -----------
