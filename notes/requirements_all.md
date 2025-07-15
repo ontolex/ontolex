@@ -2,12 +2,154 @@
 Last update: 15/05/2025
 
 ## Introduction
-This is a unified relation of requirements for OntoLex core model v2, grouped in three different topics, as thery were detected/reported by the community: 
-* Lexicography
-* Terminology
-* DMLex
+This is a unified/simplified relation of requirements for OntoLex core model v2, grouped in three different topics, as thery were detected/reported by the community. Please refer to the source document for extra details: 
+* Lexicography (see https://github.com/ontolex/ontolex/blob/master/notes/Lexicographic_Requirements.md)
+* Terminology (see https://github.com/ontolex/ontolex/blob/master/notes/terminology-requirements.md)
+* DMLex (see https://github.com/ontolex/ontolex/blob/master/notes/dmlex-requirements.md)
 
-### Lexicography requirements 
+## Lexicography requirements 
 - RL1. Need to associate a lexical sense to a particular form of a lexical entry, e.g., game, games [^2] (not limited to lexicographic resources but is common in them) 
 - RL2. Need to have entry elements with different parts of speech (frequent in dictionaries, creation of different entries in this case creates disparity with original source in case of retrodigitization)
 - RL3. Need to include usage examples (common in dictionaries) 
+- RL4. Need to associate diachronic/diatopic information, e.g., _fanny_ in UK v. US English [^3] (common in dictionaries)
+- RL5. Need to organise senses, both by ordering as well as nesting them 
+- RL6. Need to represent order of lexical entries, since not all languages use alphabetical order [^4] (as well as other layout information, e.g., which page is an entry on in an original source dictionary)
+- RL7. Need to describe senses that may not have corresponding ontological references associated with them, or where it may not make sense [^5]. Semantics by reference isn’t always suitable for dictionary senses, see cases with nested senses above and also dictionaries where what is listed as one sense listing includes different concepts (a dictionary such as the Clark Hall Concise Anglo-Saxon dictionary is full of these, e.g.,  _ealh_ is defined as ‘sheltering place, city, palace, temple’ [^6]); I shouldn’t necessarily have to work out (make a work of interpretation) what the separate sense/concepts in each definition are to encode a dictionary: because of the assumption each sense refers to one single concept in an ontology  [retro]
+- RL8. Need to distinguish when to use lexicog Entry vs. Lexical Entry (this will be resolved with the Entry superclass solution which is being tentatively proposed)
+- RL9. Need to include definitions of dictionary senses (using SKOS:Concept as previously recommended, assumes every dictionary sense is a SKOS:Concept, which may not be appropriate, see R7) [retro]
+- RL10. Need to include see also entries which only point to other entries as well as entries which give a single form (in the case of e.g., suppletive forms, common in a language with strong verbs such as Old English, e.g., _writan_ vs _wrat_) or spelling variations [retro]
+- RL11. Need to include exact wording or representation of Part of Speech or grammatical information [retro]    
+
+## Terminology requirements
+
+- RT1. The need to have a class for definitions
+
+A single triple does not suffice to capture all the key information of terminological definitions, since definition may contain additional elements such as definition references or notes about the definition.
+Considering that the specification of skos:definition does not restrict the object to be a literal, we recommend definitions to be given as resources with further attributed properties.
+The current spec of Ontolex-lemon (“A definition can be added to a lexical concept as a gloss by using the skos:definition property”) was somewhat nonspecific, and we believe the specification should make explicit that implementors of Ontolex-lemon should expect the text definitions to be given either as literals or as the rdf:value attributed to the definition object.
+See example below. Source:https://iate.europa.eu/entry/result/1443648/.
+<img width="459" alt="image" src="https://github.com/user-attachments/assets/f48714fd-74aa-4b3f-ab8b-601c92fab8f3" />
+
+- RT2: The need to have a class for notes
+Notes are key elements of traditional term records, providing additional information, such as usage recommendations, domain data and references; they are considered valuable pieces of knowledge for language professionals. 
+This type of information is still present in authoritative resources. See example below. Source https://iate.europa.eu/entry/result/1620578/.
+
+<img width="521" alt="image" src="https://github.com/user-attachments/assets/ef6eb23c-e92a-4be3-af8c-72a0963117f8" />
+
+- RT3. The need to have a class for usage information
+
+This need is derived from the observation of language level notes on different IATE entries, that contain usage recommendations of the different terms that denote the concept. 
+Such usage recommendations can be expressed as string of text and links to related resources, meaning that there are different pieces of information that need to be represented. 
+See example below. Source: https://iate.europa.eu/entry/result/1443648/.
+
+<img width="437" alt="image" src="https://github.com/user-attachments/assets/73860e88-149b-4180-bd11-26e72544f367" />
+
+- RT4. The need to have a class for sources
+
+Like definitions, sources play a very important role in this modelling approach. Especially when terminologies are generated from multiple resources, it is crucial to maintain the traceability of the different terminological data (may they be definitions, term notes, term contexts, etc.). With the automation of the terminology creation process, we may distinguish between two types of sources: Intermediate Sources: not direct sources but information providers, such as existing linguistic resources from which information is retrieved (IATE, for instance) or applications (a Definition Extractor) and Original Sources: direct sources, meaning corpora (i.e. European Legislation), organisations (i.e. European Commission) or individuals (i.e. John Doe, European terminologist).
+
+Checked FraC (https://github.com/ontolex/frequency-attestation-corpus-information/blob/master/index.md#citations): properties such as "citation" and "observedIn" have domain "Observation" while we need to declare sources for various types of classes, including notes and definitions.
+
+Checked Prov (https://www.w3.org/TR/prov-o/): property "qualifiedPrimarySource" has domain Entity.
+
+<img width="776" alt="image" src="https://github.com/user-attachments/assets/a61186e1-928c-4232-81eb-c635caca41f6" />
+
+- RT5. The need to have a (standardised) class for the reliability of a term
+
+Previous work on the representation of terminologies as Linked Data (Cimiano, et al. 2015) proposed an ontology based on the TBX specification which used the property tbx:reliabilityCode to represent this kind confidence rating that terminologists assign to terms. However, the domain is ontolex:LexicalEntry, and the property admits any type of rating. Following the guidelines of IATE, we propose a class ReliabilityCode with a fixed set of values 1-4, to standardise this rating.
+
+Resources with a 1 to 4 or 1 to 5  scale for reliability code:
+
+![image (21)](https://github.com/user-attachments/assets/08addf9a-d605-4b39-a5c3-ba8bf7197118)
+
+Resources with other scales for the reliability/acceptability of a term:
+
+   - Termium
+https://www.btb.termiumplus.gc.ca/tpv2alpha/alpha-eng.html?lang=eng
+
+![image (22)](https://github.com/user-attachments/assets/e2213bcc-d7e5-44ed-b04b-924395a5e377)
+
+   - Wikiwords 
+https://wikiwords.org/wikiwords
+
+Wikiwords is a collaborative project to create a dictionary of all terms in all languages with definitions and example sentences. 
+It is maintained by the professional translators of ProZ.com.
+As a collaborative resources, any ProZ user can validate the content:
+
+![image (23)](https://github.com/user-attachments/assets/0fd9f7e4-434c-4ef0-bf39-6c8e90935301)
+
+- RT6. The need represent record status
+Some resources include an indicator that reflects the finalization of a term entry. Some entries may be fully validated and contain all necessary information, while others might still be under review or incomplete. A dedicated class or property for record status would help users distinguish between finalized, provisional, or work-in-progress entries
+In some resources, such as TERMDAT, this indicator is stricly correlated to the realiability code.
+
+   - TERMDAT
+https://www.termdat.bk.admin.ch/search
+
+Entry status: Validated (codes 3-4-5)
+Entry status: In progress (codes 1-2)
+![image (26)](https://github.com/user-attachments/assets/80a9c7e0-0419-452b-9ebe-edac6b39dafc)
+
+![image (27)](https://github.com/user-attachments/assets/3963922d-9b18-4951-add6-dd8123fc1624)
+
+   - UNTERM
+https://unterm.un.org/unterm2/en/
+
+Green dot--> the record is public
+
+Star--> the record is complete
+
+Triangle-->the record has been superseded
+
+![image (25)](https://github.com/user-attachments/assets/1de34726-64cc-45e7-a409-d31e7d426b2e)
+
+   - FAO
+https://www.fao.org/faoterm/en/
+![image (28)](https://github.com/user-attachments/assets/f6363e37-bab7-48e2-ba2b-749caae7a3e5)
+![image (29)](https://github.com/user-attachments/assets/99d7aade-5d32-4d77-8987-e3471b97c62b)
+
+## DMLex requirements
+
+### Alignemnt with DMLex core
+
+- RD1. `partOfSpeech`: OntoLex does not have a core part-of-speech property unlike DMLex. This may be useful also for defining lexical entries in our model
+- RD2. `inflectedForm`: OntoLex has `otherForm` that is similar but seems slightly broader in interpretation
+- RD3. `example`: We probably need a property to give examples by entry and sense as well
+
+### Alignment with DMLex Crosslingual Module
+
+- RD4. Need to represent bilingual and multilingual dictionaries
+
+`headwordTranslation`, `headwordExplanation`: These give lemmas and glosses for an entry in another language. This differs from OntoLex modelling which would instead link entries/forms in two different lexicons.
+`exampleTranslation`: If examples are introduced, we may want to give translations (especially for historical languages)
+
+### Alignment with DMLex Controlled Vocabulary Module
+
+This allows the DMLex standard to extend with new terms such as part-of-speech. This is already well-captured by our RDF/OWL modelling so there is no need to import anything.
+
+### Alignment with DMLex Linking Module
+
+This is well captured by the _vartrans_ module and no changes are necessary
+
+### Alignment with DMLex Annotation Module
+
+- RD5. This allows inline markup of entries in order to mark placeholders, headwords and collocates.
+
+```xml
+<text>The coroner <collocateMarker lemma="perform">performed</collocateMarker> an
+      <headwordMarker>autopsy</headwordMarker>.</text>
+```
+
+This would be quite tricky to support in RDF, as there is no easy way to do inline markup. Perhaps, this use case could be consider in the context of the _FrAC_ module? 
+
+### Alignment with DMLex Etymology Module
+
+OntoLex has no support for etymology and this work will be done in a new module, so this will not affect the core.
+
+
+ -----------
+[^1]:<https://www.w3.org/community/ontolex/wiki/Lexicography>
+[^2]:<https://en.wiktionary.org/wiki/game>
+[^3]:<https://en.wiktionary.org/wiki/fanny>
+[^4]:Of course not all languages use alphabets.
+[^5]:Pardoning the pun. 
+[^6]:See  also https://en.wiktionary.org/wiki/regretter
