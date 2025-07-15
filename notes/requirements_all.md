@@ -64,12 +64,12 @@ Resources with a 1 to 4 or 1 to 5  scale for reliability code:
 
 Resources with other scales for the reliability/acceptability of a term:
 
-   - Termium
+**Termium**
 https://www.btb.termiumplus.gc.ca/tpv2alpha/alpha-eng.html?lang=eng
 
 ![image (22)](https://github.com/user-attachments/assets/e2213bcc-d7e5-44ed-b04b-924395a5e377)
 
-   - Wikiwords 
+**Wikiwords** 
 https://wikiwords.org/wikiwords
 
 Wikiwords is a collaborative project to create a dictionary of all terms in all languages with definitions and example sentences. 
@@ -82,7 +82,7 @@ As a collaborative resources, any ProZ user can validate the content:
 Some resources include an indicator that reflects the finalization of a term entry. Some entries may be fully validated and contain all necessary information, while others might still be under review or incomplete. A dedicated class or property for record status would help users distinguish between finalized, provisional, or work-in-progress entries
 In some resources, such as TERMDAT, this indicator is stricly correlated to the realiability code.
 
-   - TERMDAT
+**TERMDAT**
 https://www.termdat.bk.admin.ch/search
 
 Entry status: Validated (codes 3-4-5)
@@ -91,7 +91,7 @@ Entry status: In progress (codes 1-2)
 
 ![image (27)](https://github.com/user-attachments/assets/3963922d-9b18-4951-add6-dd8123fc1624)
 
-   - UNTERM
+**UNTERM**
 https://unterm.un.org/unterm2/en/
 
 Green dot--> the record is public
@@ -102,7 +102,7 @@ Triangle-->the record has been superseded
 
 ![image (25)](https://github.com/user-attachments/assets/1de34726-64cc-45e7-a409-d31e7d426b2e)
 
-   - FAO
+**FAO**
 https://www.fao.org/faoterm/en/
 ![image (28)](https://github.com/user-attachments/assets/f6363e37-bab7-48e2-ba2b-749caae7a3e5)
 ![image (29)](https://github.com/user-attachments/assets/99d7aade-5d32-4d77-8987-e3471b97c62b)
