@@ -2,7 +2,7 @@
 Last update: 15/05/2025
 
 ## Introduction
-This is a unified relation of the requirements for OntoLex core model v2, grouped in three different topics, as thery were identified and reported by the community. The list is complete but the different requirements are not described in full in detail. For this, please refer to the source documents: 
+This is a unified relation of the requirements for OntoLex core model v2, grouped in three different topics, as thery were identified and reported by the community. The list is complete but the different requirements are not described in detail. For this, please refer to the source documents: 
 * Lexicography (see https://github.com/ontolex/ontolex/blob/master/notes/Lexicographic_Requirements.md)
 * Terminology (see https://github.com/ontolex/ontolex/blob/master/notes/terminology-requirements.md)
 * Alignment with DMLex model (see https://github.com/ontolex/ontolex/blob/master/notes/dmlex-requirements.md)
