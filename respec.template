@@ -9,7 +9,7 @@
     synsem: http://www.w3.org/ns/lemon/synsem#
     decomp: http://www.w3.org/ns/lemon/decomp#
     vartrans: http://www.w3.org/ns/lemon/vartrans#
-    lime: http://www.w3.org/ns/lemon/lime#"
+    lime: http://www.w3.org/ns/lemon/lime#">
   <head>
     <meta charset="utf-8" />
     <title>$title$</title>

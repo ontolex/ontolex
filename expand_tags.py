@@ -202,4 +202,9 @@ if __name__ == "__main__":
     expand_tags(soup)
 
     with open(args.output_file, 'w', encoding='utf-8') as file:
-        file.write(str(soup.prettify()))
+        result = str(soup)
+
+        # Remove new lines after `<div property="rdfs:comment">` and the next </div>
+        result = result.replace('<div property="rdfs:comment">\n  ', '<div property="rdfs:comment">')
+        result = result.replace('\n  </div>', '</div>')
+        file.write(result)
