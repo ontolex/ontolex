@@ -290,7 +290,7 @@ In arrows labeled \'X/Y\' (e.g. *sense/isSenseOf*), X (*sense*) is the
 name of the object property and Y (*isSenseOf*) the name of the inverse
 property.
 
-![](Lemon_OntoLex_Core.png "Lemon_OntoLex_Core.png")
+![](Diagrams/Lemon_OntoLex_Core.png "Lemon_OntoLex_Core.png")
 
 <section id="lexical-entries">
 
@@ -1288,7 +1288,7 @@ desc](Examples/ontolex/example17.png)](Examples/ontolex/example17.png){.tn}
 <section id="synsem">
 ## Syntax and Semantics (synsem)
 
-![](Lemon_Syntax_and_Semantics.png "Lemon_Syntax_and_Semantics.png")
+![](Diagrams/Lemon_Syntax_and_Semantics.png "Lemon_Syntax_and_Semantics.png")
 
 <section id="syntactic-frames">
 ## Syntactic Frames
@@ -1941,7 +1941,7 @@ the use of a certain lexical entry to express the property in question.
 <section id="decomp">
 ## Decomposition (decomp)
 
-![](Lemon_Decomposition.png "Lemon_Decomposition.png")
+![](Diagrams/Lemon_Decomposition.png "Lemon_Decomposition.png")
 
 <section id="subterms">
 ## Subterms
@@ -2235,7 +2235,7 @@ represent relations between lexical entries and lexical senses that are
 variants of each other. The following diagram provides an overview of
 the vocabulary introduced by the module:
 
-![](Lemon_Variation_and_Translation.png "Lemon_Variation_and_Translation.png")
+![](Diagrams/Lemon_Variation_and_Translation.png "Lemon_Variation_and_Translation.png")
 
 <section id="lexico-semantic-relations">
 ## Lexico-Semantic Relations
@@ -2843,7 +2843,7 @@ desc](Examples/vartrans/example10.png)](Examples/vartrans/example10.png){.tn}
 <section id="lime">
 ## Metadata (lime)
 
-![](Lemon_Lime_Metadata.png "Lemon_Lime_Metadata.png")
+![](Diagrams/Lemon_Lime_Metadata.png "Lemon_Lime_Metadata.png")
 
 The LInguistic MEtadata (*lime*) module allows for describing metadata
 at the level of the lexicon-ontology interface. This module is intended
