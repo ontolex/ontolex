@@ -43,12 +43,21 @@ def build_or(parts, contents, soup, dfn_about, sep=" OR "):
         first_tag = soup.new_tag('span', rel="rdf:first", **first_attrs)
         first_tag.append(first_contents)
         new_contents.append(first_tag)
-        new_contents.append(" OR ")
+        new_contents.append(sep)
         rest_contents, rest_attrs = build_or(parts[1:], contents, soup, dfn_about)
         rest_tag = soup.new_tag('span', rel="rdf:rest", **rest_attrs)
         if rest_contents:
             rest_tag.append(rest_contents)
         new_contents.append(rest_tag)
+        return new_contents, {}
+    elif len(parts) == 1:
+        new_contents = soup.new_tag('span', typeof="rdf:List")
+        part_contents, part_attrs = transform_contents(soup, parts[0], dfn_about)
+        part_tag = soup.new_tag('span', rel="rdf:first", **part_attrs)
+        part_tag.append(part_contents)
+        res_tag = soup.new_tag('span', rel="rdf:rest", resource="rdf:nil")
+        new_contents.append(part_tag)
+        new_contents.append(res_tag)
         return new_contents, {}
     else:
         return None, {"resource": "rdf:nil"}
@@ -57,7 +66,11 @@ def transform_contents(soup, contents, dfn_about):
     if "," in contents:
         # Commas seperate multiple values, return each as a span
         new_contents = soup.new_tag('span')
+        first = True
         for part in contents.split(","):
+            if not first:
+                new_contents.append(", ")
+            first = False
             part = part.strip()
             part_contents, part_attrs = transform_contents(soup, part, dfn_about)
             part_tag = soup.new_tag('span', **part_attrs)
@@ -88,7 +101,7 @@ def transform_contents(soup, contents, dfn_about):
             restriction.append(" exactly ")
             card_tag = soup.new_tag('span', rel="owl:cardinality", datatype="xsd:integer")
         parts2 = parts[1].split(" ")
-        card_tag.string = parts2[0]
+        card_tag.string = parts2[0] + " "
         restriction.append(card_tag)
         if len(parts2) > 1:
             range_contents, range_attrs = transform_contents(soup, " ".join(parts2[1:]), dfn_about)
@@ -154,7 +167,7 @@ def expand_tags(soup):
             new_attrs = {**new_attrs, **tags_to_expand[t]}
             new_tag = soup.new_tag('div', **new_attrs)
             strong_tag = soup.new_tag('strong')
-            strong_tag.string = tags_text[t]
+            strong_tag.string = tags_text[t] + " "
             new_tag.append(strong_tag)
             new_tag.append(new_contents)
             tag.replace_with(new_tag)
@@ -184,6 +197,7 @@ def build_dfn_about_map(soup):
     dfn_about_map["is lexicalized sense of"] = "ontolex:isLexicalizedSenseOf"
     dfn_about_map["is concept of"] = "ontolex:isConceptOf"
     dfn_about_map["is syntactic behavior of"] = "ontolex:isSyntacticBehaviorOf"
+    dfn_about_map["onto map"] = "synsem:OntoMap"
 
 
     return dfn_about_map

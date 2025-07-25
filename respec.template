@@ -69,45 +69,15 @@ $endfor$
      page-break-inside: avoid;
      line-height: 1.2;        /* Keep wrapped headings compact */
      hyphens: manual;         /* Hyphenated headings look weird */
- }
- .description {
+}
+.description {
      border-top: 1px dashed #808080;
      margin-top: 5px;
      padding-bottom: 5px;
- }
-
- class::after {
-     content: " (Class)";
- }
- 
- objectProperty::after {
-     content: " (Object Property)";
- }
-
- datatypeProperty::after {
-     content: " (Data Property)";
- }
-
- subclass::before {
-     content: "Subclass of: ";
-     font-weight: bold;
- }
-
- domain::before {
-     content: "Domain: ";
-     font-weight: bold;
- }
-
- range::before {
-     content: "Range: ";
-     font-weight: bold;
- }
-
- subproperty::before {
-     content: "Subproperty of: ";
-     font-weight: bold;
- }
-
+}
+.example img {
+    max-width: 100%;
+}
 
  </style>
   </head>

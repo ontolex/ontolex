@@ -3278,7 +3278,7 @@ desc](Examples/lime/example4.png)](Examples/lime/example4.png){.tn}
 Finally, the percentage property may be used to express the percentage
 of entities in an ontology which are lexicalized, formally:
 
-![](percentage.png "percentage.png"){style="max-width:50%;"}
+![](Diagrams/percentage.png "percentage.png"){style="max-width:50%;"}
 
 <div class="entity" about="lime:percentage" typeof="owl:DatatypeProperty">
 <datatypeProperty property="rdfs:label" lang="en">Percentage</datatypeProperty>
