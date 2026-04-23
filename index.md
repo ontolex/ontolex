@@ -893,7 +893,7 @@ above.
 <div property="rdfs:comment"> A <dfn>lexical sense</dfn> represents the lexical meaning of a lexical entry when interpreted as referring to the corresponding ontology element. A lexical sense thus represents a reification of a pair of a uniquely determined lexical entry and a uniquely determined ontology entity it refers to. A link between a lexical entry and an ontology entity via a Lexical Sense object implies that the lexical entry can be used to refer to the ontology entity in question. </div>
 
 <div class="description">
-<subclass>[=sense=] min 1 [=Lexical Entry=], [=reference=] exactly 1 rdfs:Resource, [=is sense of=] exactly 1 [=Lexical Entry=], semiotics:Meaning</subclass>
+<subclass>[=sense=] min 1 [=Lexical Entry=], [=is sense of=] exactly 1 [=Lexical Entry=], semiotics:Meaning</subclass>
 </div>
 </div>
 
