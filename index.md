@@ -1283,6 +1283,59 @@ desc](Examples/ontolex/example17.png)](Examples/ontolex/example17.png){.tn}
 </aside>
 
 </section>
+
+<section id="definition">
+
+## Definitions
+
+The preferred property for representing definitions is the SKOS definition property 
+[skos:definition](http://www.w3.org/2004/02/skos/core#definition), however, for 
+some cases, such as providing source information, a separate class for definitions
+is provided. The class [=concept definition=] represents a definition of a lexical concept or a lexical sense. It is defined as follows:
+
+<div class="entity" about="ontolex:ConceptDefinition" typeof="owl:Class">
+<class property="rdfs:label" lang="en">Concept Definition</class>
+
+<div property="rdfs:comment"> A <dfn>concept definition</dfn> represents a description of the meaning of a lexical entry or a lexical sense. </div>
+
+<div class="description">
+<subclass>rdf:value min 1 rdf:langString</subclass>
+</div>
+</div>
+
+The property [=definition=] relates a lexical entry or a lexical sense to a concept definition.
+
+<div class="entity" about="ontolex:definition" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Definition</objectProperty>
+<div property="rdfs:comment"> The <dfn>definition</dfn> property relates a lexical entry or a lexical sense to a concept definition. </div>
+<div class="description">
+<domain>[=Lexical Concept=] OR [=Lexical Sense=]</domain>
+<range>[=Concept Definition=]</range>
+<inverse>[=is definition of=]</inverse>
+</div>
+</div>
+
+The inverse property of [=definition=] is <dfn>is definition of</dfn>, which relates a concept definition to the lexical concept or lexical sense it defines. The value of a concept definition is given by the [RDF value](https://www.w3.org/1999/02/22-rdf-syntax-ns#value) property and is a string with a language tag.
+
+An example of the definition of a lexical concept is given below:
+
+<aside class="example">
+[![no 
+desc](Examples/ontolex/example20.png)](Examples/ontolex/example20.png){.tn}
+
+```turtle
+:cat_concept a ontolex:LexicalConcept ;
+  rdfs:label "cat"@en ;
+  ontolex:definition [
+    a ontolex:ConceptDefinition ;
+    dc:source <https://en.wikipedia.org/wiki/Cat> ;
+    rdf:value "The cat (Felis catus), also called domestic cat and house cat, is a small carnivorous mammal."@en
+  ] .
+```
+</aside>
+
+</section>
+
 </section>
 
 <section id="synsem">
