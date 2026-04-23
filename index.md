@@ -755,6 +755,7 @@ vocabulary for the part of speech. In this case, the part of speech can be given
 <div class="description">
 <domain>[=Lexical Entry=]</domain>
 <range>rdf:langString</range>
+<subproperty>[=part of speech=] o rdfs:label</subproperty>
 </div>
 </div>
 
