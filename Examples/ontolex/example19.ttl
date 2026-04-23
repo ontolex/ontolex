@@ -1,0 +1,17 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix : <#> .
+
+:monastery_n_en a ontolex:LexicalEntry ;
+   ontolex:sense :monastery_n_en_sense .
+
+:monastery_n_en_sense a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :monastery_n_en_sense_concept ;
+   ontolex:example [
+     rdf:value "We visited a Buddhist monastery deep in a jungle."@en
+   ] .
+
+:monastery_n_en_sense_concept a ontolex:LexicalConcept ;
+  skos:definition "monk's residence"@en .
+
