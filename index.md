@@ -4324,6 +4324,61 @@ desc](Examples/other/example-oa.png)](Examples/other/example-oa.png){.tn}
 
 </aside>
 </section>
+<section id="prov-o">
+## PROV-O
+
+The Provenance Ontology (PROV-O) can be used in conjunction with the OntoLex-lemon model to provide detailed metadata regarding the origins and history of terminological data. This is particularly relevant for maintaining traceability when terminologies are generated from multiple resources or through automated processes.
+
+Notes are key elements of traditional term records, providing additional information such as usage recommendations, domain data, and references. These are considered valuable pieces of knowledge for language professionals and remain present in authoritative resources like IATE. Such information often includes usage recommendations expressed as text strings or links to related resources.
+
+When terminological data is modeled, sources play a critical role in ensuring traceability for definitions, term notes, and contexts. We distinguish between two types of sources:
+* **Intermediate Sources**: Information providers such as existing linguistic resources (e.g., IATE) or applications (e.g., a Definition Extractor).
+* **Original Sources**: Direct sources including corpora (e.g., European Legislation), organizations (e.g., European Commission), or individuals (e.g., a specific terminologist).
+
+By typing elements like [=concept definition=] or [=usage=] notes as a [Entity](https://www.w3.org/TR/prov-o/#Entity) in PROV-O, one can link them to their sources using properties like [hadPrimarySource](https://www.w3.org/TR/prov-o/#hadPrimarySource). This allows for detailed provenance information to be attached to terminological data, enhancing the reliability and traceability of the information provided.
+
+The following example illustrates how a [=concept definition=] can be linked to its primary source using PROV-O:
+
+<div class="example">
+[![no
+desc](Examples/other/example-prov1.png)](Examples/other/example-prov1.png){.tn}
+
+```turtle
+:bias a ontolex:LexicalEntry ;
+  ontolex:evokes :bias_concept .
+
+:bias_concept ontolex:definition :bias_conceptdef .
+
+:bias_conceptdef a ontolex:ConceptDefinition ;
+                 a prov:Entity ;  
+   rdf:value "a bias of an estimator is the difference between its mathematical expectation and the true value it estimates [...]"@en ;
+   prov:hadPrimarySource :GST .
+
+:GST a prov:Entity ;
+   rdfs:label "Glossary of Statistical Terms, Organisation for Economic Cooperation and Development"@en .
+```
+</div>
+
+Provenance can also be applied to [=usage=] notes to track the authority behind specific linguistic recommendations:
+
+<div class="example">
+[![no
+desc](Examples/other/example-prov2.png)](Examples/other/example-prov2.png){.tn}
+```turtle
+:surcoFerroviario a ontolex:LexicalEntry ;
+    ontolex:evokes :surcoFerroviario_concept .
+
+:surcoFerroviario_concept ontolex:usage :surcoFerroviario_concept_usage .
+
+:surcoFerroviario_concept_usage a prov:Entity ;
+    rdf:value "Atención: aunque en documentos como las Directivas 95/19/CE y 2001/14/CE y la propia Ley 39/2003, de 17 de noviembre, del Sector Ferroviario se usan los términos franja y ruta, el término acordado tras consultar con el Ministerio de Fomento español es el aquí indicado."@es ;
+    prov:hadPrimarySource [ a prov:Entity ;
+                             rdfs:label "DGT-ES-TERM" ] .
+```
+</div>
+
+</section>
+
 </section>
 
 <section id="acknowledgements">
