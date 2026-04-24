@@ -1,0 +1,19 @@
+@prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix lexicog: <http://www.w3.org/ns/lemon/lexicog#> .
+
+# The main entry grouping different parts of speech
+:bank_entry a lexicog:Entry ;
+    lexicog:describes :bank_noun, :bank_verb .
+
+# Lexical Entry for the noun
+:bank_noun a ontolex:LexicalEntry ;
+    lexicog:describes :bank_sense_financial .
+
+# Lexical Entry for the verb
+:bank_verb a ontolex:LexicalEntry ;
+    lexicog:describes :bank_sense_action .
+
+# Ordering of senses
+:bank_sense_financial lexicog:nextSense :bank_sense_river .
+
