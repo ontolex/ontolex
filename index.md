@@ -1036,7 +1036,7 @@ desc](Examples/ontolex/example12.png)](Examples/ontolex/example12.png){.tn}
 <div property="rdfs:comment"> The <dfn>usage</dfn> property indicates usage conditions or pragmatic implications when using the lexical entry to refer to the given ontological meaning. </div>
 
 <div class="description">
-<domain>[=Lexical Sense=]</domain>
+<domain>[=Lexical Sense=] or [=Lexical Entry=]</domain>
 <range>rdfs:Resource</range>
 </div>
 </div>
