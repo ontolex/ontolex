@@ -1043,6 +1043,56 @@ desc](Examples/ontolex/example12.png)](Examples/ontolex/example12.png){.tn}
 
 </section>
 
+<section id="usage-example">
+## Usage Examples
+
+There are occasions in which lexicographic records also include an example of use of an entry in each of its senses. While these examples can be captured as examples of a [=lexical concept=], sometimes there is more information about the example beyond the text itself. The class [=usage example=] represents a textual example of the usage of a sense.
+
+<div class="entity" about="lexicog:UsageExample" typeof="owl:Class">
+<class property="rdfs:label" lang="en">Usage Example</class>
+
+<div property="rdfs:comment"> The <dfn>usage example</dfn> represents a textual example of the usage of a sense in a given lexicographic record.</div>
+
+<div class="description">
+<subclass>rdf:value min 1 xsd:string</subclass>
+</div>
+</div>
+
+The property [=example=] relates an [=lexical sense=] with a [=usage example=].
+
+<div class="entity" about="ontolex:example" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Example</objectProperty>
+
+<div property="rdfs:comment"> The <dfn>example</dfn> property relates a lexical sense to a usage example. </div>
+
+<div class="description">
+<domain>[=Lexical Sense=]</domain>
+<range>[=Usage Example=]</range>
+</div>
+</div>
+
+For instance, a dictionary may give the following information about the word *monastery*:
+
+<div class="example">
+![no desc](Examples/ontolex/example19.png){.tn}
+
+```turtle
+:monastery_n_en a ontolex:LexicalEntry ;
+   ontolex:sense :monastery_n_en_sense .
+
+:monastery_n_en_sense a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :monastery_n_en_sense_concept ;
+   ontolex:example [
+     rdf:value "We visited a Buddhist monastery deep in a jungle."@en
+   ] .
+
+:monastery_n_en_sense_concept a ontolex:LexicalConcept ;
+  skos:definition "monk's residence"@en .
+```
+</div>
+
+</section>
+
 <section id="lexical-concept">
 ## Lexical Concept
 
