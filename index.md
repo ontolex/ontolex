@@ -2939,6 +2939,30 @@ The property linking a lexicon to a lexical entry is the property entry:
 </div>
 </div>
 
+Not all dictionaries order their entries alphabetically — ordering may
+follow frequency, thematic grouping, or other conventions depending on
+the language or tradition. To represent a global ordering of lexical
+entries within a lexicon, the standard RDF container membership
+properties (`rdf:_1`, `rdf:_2`, …) can be used alongside
+`lime:entry`. This treats the `lime:Lexicon` as an implicit `rdf:Seq`,
+assigning each entry a numeric position while retaining the unordered
+`lime:entry` assertions for compatibility:
+
+<aside class="example">
+
+```turtle
+:dictionary a lime:Lexicon ;
+   lime:language "en" ;
+   lime:entry :lex_aardvark ;
+   rdf:_1 :lex_aardvark ;
+   lime:entry :lex_bee ;
+   rdf:_2 :lex_bee ;
+   lime:entry :lex_zebra ;
+   rdf:_3 :lex_zebra .
+```
+
+</aside>
+
 The language property can be stated on either a lexicon or a lexical
 entry (note that all entries in the same lexicon should be in the same
 language and that the language of the lexicon and entry should be
