@@ -1283,6 +1283,93 @@ desc](Examples/ontolex/example17.png)](Examples/ontolex/example17.png){.tn}
 </aside>
 
 </section>
+
+<section id="entry">
+
+## Entry Groups
+
+In certain lexicographic and terminological scenarios, there is a requirement to group multiple [=lexical entries=] or [=lexical senses=] under a single headword or organizational unit. This is particularly frequent in the retrodigitization of traditional dictionaries, where a single printed entry might contain information spanning different parts of speech, or where senses need to be organized into specific hierarchies and sequences.
+
+To address these needs, the [=Entry=] class can act a container that allows for:
+* **Grouping by Part of Speech**: Managing cases where a single headword relates to multiple [=lexical entries=] (e.g., a word that acts as both a noun and a verb), ensuring consistency with original sources.
+* **Sense Organization**: Providing a mechanism to order and nest [=lexical senses=] to reflect the structure of authoritative resources.
+
+<div class="entity" about="ontolex:Entry" typeof="owl:Class">
+<class property="rdfs:label" lang="en">Entry</class>
+
+<div property="rdfs:comment"> An <dfn>Entry</dfn> represents a grouping of one or more [=lexical entries=] and/or [=lexical senses=] under a common organizational unit, such as a headword in a dictionary. </div>
+
+<div class="description">
+</div>
+</div>
+
+[=Entries=] are linked to the [=lexical entries=] and [=lexical senses=] they group by means of the
+[=describes=] property, which indicates that the [=Entry=] describes the corresponding [=lexical entry=] or [=lexical sense=]. 
+
+<div class="entity" about="ontolex:describes" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Describes</objectProperty>
+
+<div property="rdfs:comment"> The <dfn>describes</dfn> property relates an Entry to the lexical entry or lexical sense it describes. </div>
+
+<div class="description">
+<domain>[=Entry=]</domain>
+<range>[=Lexical Entry=] OR [=Lexical Sense=]</range>
+</div>
+</div>
+
+The ordering of entries and senses can be established by means of the property [=next entry=].
+
+<div class="entity" about="ontolex:nextEntry" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Next Entry</objectProperty>
+
+<div property="rdfs:comment"> The <dfn>next entry</dfn> property is used to establish a specific sequence between lexical entries. </div>
+
+<div class="description">
+<domain>[=Lexical Entry=]</domain>
+<range>[=Lexical Entry=]</range>
+</div>
+</div>
+
+Similarly, the order of [=lexical senses=] can be defined by means of the property [=next sense=].
+
+<div class="entity" about="ontolex:nextSense" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Next Sense</objectProperty>
+
+<div property="rdfs:comment"> The <dfn>next sense</dfn> property is used to define the linear ordering of lexical senses within an entry. </div>
+
+<div class="description">
+<domain>[=Lexical Sense=]</domain>
+<range>[=Lexical Sense=]</range>
+</div>
+</div>
+
+The following example shows how an [=entry=] can group different [=lexical entries=], representing different parts of speech, and provide an ordering for their [=lexical senses=].
+
+<aside class="example">
+[![no
+desc](Examples/ontolex/example22.png)](Examples/ontolex/example22.png){.tn}
+```turtle
+# The main entry grouping different parts of speech
+:bank_entry a lexicog:Entry ;
+    lexicog:describes :bank_noun, :bank_verb .
+
+# Lexical Entry for the noun
+:bank_noun a ontolex:LexicalEntry ;
+    lexicog:describes :bank_sense_financial .
+
+# Lexical Entry for the verb
+:bank_verb a ontolex:LexicalEntry ;
+    lexicog:describes :bank_sense_action .
+
+# Ordering of senses
+:bank_sense_financial lexicog:nextSense :bank_sense_river .
+```
+</aside>
+
+By using the [=entry=] class, terminologists and lexicographers can maintain the structural integrity of their source data while still leveraging the semantic power of the OntoLex-lemon model.
+
+</section>
+
 </section>
 
 <section id="synsem">
