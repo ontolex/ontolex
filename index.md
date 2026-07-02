@@ -306,7 +306,7 @@ follows:
 <div property="rdfs:comment">A <dfn>lexical entry</dfn> represents a unit of analysis of the lexicon that consists of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses. </div>
 
 <div class="description">
-<subclass>[=lexical form=] min 1 [=Form=], [=canonical form=] max 1 [=Form=], semiotics:Expression</subclass>
+<subclass>[=lexical form=] min 1 [=Form=], [=canonical form=] max 1 [=Form=], semiotics:Expression, [=part of speech=] exactly 1 rdfs:Resource</subclass>
 </div>
 </div>
 
@@ -708,6 +708,56 @@ desc](Examples/ontolex/example8.png)](Examples/ontolex/example8.png){.tn}
 :videre_form ontolex:writtenRep "videre"@la
 ```
 </aside>
+
+</section>
+
+<section id="part-of-speech">
+
+## Part of Speech
+
+The part of speech of a lexical entry can be specified by using the
+[=part of speech=] property, which is defined as follows:
+
+<div class="entity" about="ontolex:partOfSpeech" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Part of Speech</objectProperty>
+<div property="rdfs:comment"> The <dfn>part of speech</dfn> property indicates the part of speech of a lexical entry. </div>
+
+<div class="description">
+<domain>[=Lexical Entry=]</domain>
+<range>rdfs:Resource</range>
+</div>
+</div>
+
+The values for part of speech are not specified by this model, but should be taken from an appropriate
+external vocabulary such as [LexInfo](http://www.lexinfo.net/). For example, 
+the part of speech for the lexical entries *cat*, *marry* and *high* could be specified as follows:
+
+<aside class="example">
+[![no
+desc](Examples/ontolex/example21.png)](Examples/ontolex/example21.png){.tn}
+
+```turtle
+:lex_cat ontolex:partOfSpeech lexinfo:noun .
+:lex_marry ontolex:partOfSpeech lexinfo:verb .
+:lex_high ontolex:partOfSpeech lexinfo:adjective .
+```
+
+In some cases it may be useful to give a string describing the part-of-speech,
+for example when converting from lexicographic resources that use specific 
+vocabulary for the part of speech. In this case, the part of speech can be given as a string using the
+[=part of speech label=] property:
+
+<div class="entity" about="ontolex:partOfSpeechLabel" typeof="owl:DatatypeProperty">
+<datatypeProperty property="rdfs:label" lang="en">Part of Speech Label</datatypeProperty>
+
+<div property="rdfs:comment"> The <dfn>part of speech label</dfn> property indicates a string describing the part of speech of a lexical entry. </div>
+
+<div class="description">
+<domain>[=Lexical Entry=]</domain>
+<range>rdf:langString</range>
+<subproperty>[=part of speech=] o rdfs:label</subproperty>
+</div>
+</div>
 
 </section>
 
