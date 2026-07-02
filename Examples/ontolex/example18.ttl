@@ -1,0 +1,35 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix : <#> .
+
+
+:air_n a ontolex:LexicalEntry ;
+   ontolex:sense :air_n_sense_2, :air_n_sense_2_1 ;
+   ontolex:canonicalForm :air_n_form ;
+   ontolex:otherForm :airs_n_form .
+
+:air_n_form a ontolex:Form ;
+   ontolex:writtenRep "air"@en ;
+   lexinfo:number lexinfo:singular .
+
+:airs_n_form a ontolex:Form ;
+   ontolex:writtenRep "airs"@en ;
+   lexinfo:number lexinfo:plural .
+
+:air_n_sense_2 a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :air_n_sense_2_lc .
+
+:air_n_sense_2_1 a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :air_n_sense_2_1_lc ;
+   ontolex:restrictedTo :air_n_formRes .
+
+:air_n_formRes a ontolex:FormRestriction ;
+   lexinfo:number lexinfo:plural .
+
+:air_n_sense_2_lc a ontolex:LexicalConcept ;
+   skos:definition "An impression of a quality or manner given by someone or something"@en .
+
+:air_n_sense_2_1_lc a ontolex:LexicalConcept ;
+   skos:definition "An annoyingly affected and condescending manner"@en .
+

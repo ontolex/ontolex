@@ -672,6 +672,71 @@ desc](Examples/ontolex/example7.png)](Examples/ontolex/example7.png){.tn}
 ```
 </aside>
 
+There are numerous cases in which a lexicographic record specifies the grammatical features the lemma shows when used in some of its senses. For example, in English, the lemmas good, manner, air or wood have senses which are usually (or only) attested when the word is used in plural, often indicated with the lemma in plural form.
+
+The [=form restriction=] class is intended to provide a way to specify the set of grammatical features of a lexical entry when used in a specific [=lexical sense=] in cases in which it does not allow for all of those reflected in the lexical forms provided. 
+
+<div class="entity" about="ontolex:FormRestriction" typeof="owl:Class">
+<class property="rdfs:label" lang="en">Form Restriction</class>
+
+<div property="rdfs:comment"> A <dfn>form restriction</dfn> represents a set of grammatical features of the forms in which a lexical sense occurs.</div>
+
+<div class="description">
+</div>
+</div>
+
+There are cases in which a specific [=lexical Sense=] does not allow for all the available [=forms=] of the [=lexical entry=]. In those cases, the [=form restriction=] represents (a set of) grammatical features of the [=forms=] in which that sense occurs. The sense does not occur in forms whose features do not match with those of such a set.
+
+[=Lexical senses=] are related to [=form restrictions=] by means of the property [=restricted to=], which is defined as follows:
+
+<div class="entity" about="ontolex:restrictedTo" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Restricted To</objectProperty>
+
+<div property="rdfs:comment"> The <dfn>restricted to</dfn> property relates a lexical sense to a form restriction when a lexicographic resource provides information about the specific morphological features of the form in that sense. </div>
+
+<div class="description">
+<domain>[=Lexical Sense=]</domain>
+<range>[=Form Restriction=]</range>
+</div>
+</div>
+
+The following example is the RDF representation of the above mentioned sense of "air". 
+
+<aside class="example">
+![no desc](Examples/ontolex/example18.png){.tn}
+
+```turtle
+:air_n a ontolex:LexicalEntry ;
+   ontolex:sense :air_n_sense_2, :air_n_sense_2_1 ;
+   ontolex:canonicalForm :air_n_form ;
+   ontolex:otherForm :airs_n_form .
+
+:air_n_form a ontolex:Form ;
+   ontolex:writtenRep "air"@en ;
+   lexinfo:number lexinfo:singular .
+
+:airs_n_form a ontolex:Form ;
+   ontolex:writtenRep "airs"@en ;
+   lexinfo:number lexinfo:plural .
+
+:air_n_sense_2 a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :air_n_sense_2_lc .
+
+:air_n_sense_2_1 a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :air_n_sense_2_1_lc ;
+   ontolex:restrictedTo :air_n_formRes .
+
+:air_n_formRes a ontolex:FormRestriction ;
+   lexinfo:number lexinfo:plural .
+
+:air_n_sense_2_lc a ontolex:LexicalConcept ;
+   skos:definition "An impression of a quality or manner given by someone or something"@en .
+
+:air_n_sense_2_1_lc a ontolex:LexicalConcept ;
+   skos:definition "An annoyingly affected and condescending manner"@en .
+```
+</div> 
+
 The morphological class (i.e., declension, conjugation or similar) may
 be specified with the [=morphological
 pattern=] property to avoid having to
