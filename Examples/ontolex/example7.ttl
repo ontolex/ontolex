@@ -4,7 +4,7 @@
 
 :lex_marry a ontolex:LexicalEntry ;
   ontolex:canonicalForm :form_marry ;
-  ontolex:otherForm :form_marries .
+  ontolex:inflectedForm :form_marries .
 
 :form_marry a ontolex:Form;
      ontolex:writtenRep "marry"@en .
