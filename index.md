@@ -1066,7 +1066,7 @@ The property [=example=] relates an [=lexical sense=] with a [=usage example=].
 <div property="rdfs:comment"> The <dfn>example</dfn> property relates a lexical sense to a usage example. </div>
 
 <div class="description">
-<domain>[=Lexical Sense=]</domain>
+<domain>[=Lexical Sense=] OR [=Lexical Entry=] OR [=Form=]</domain>
 <range>[=Usage Example=]</range>
 </div>
 </div>
