@@ -51,7 +51,7 @@ def gen(s):
             if p != RDF.type and isinstance(o, URIRef) or isinstance(o, BNode):
                 o2 = gen(o)
                 print("%s -> %s [ label=\"%s\" ] " %
-                      (re.sub("[\W^-]", "", name), o2, make_name(p)))
+                      (re.sub(r"[\W^-]", "", name), o2, make_name(p)))
             elif p != RDF.type:
                 prop_name = make_name(p)
                 args.append("%s=%.30s" % (prop_name, write_obj(o)))
@@ -59,19 +59,19 @@ def gen(s):
             class_of_name = make_name(class_of)
             if args:
                 print("%s [ label=\"{%s : %s|%s}\" ]" %
-                      (re.sub("[\W^-]", "", name), name,
+                      (re.sub(r"[\W^-]", "", name), name,
                        class_of_name, "\\l".join(args)))
             else:
                 print("%s [ label=\"{%s : %s}\" ]" %
-                      (re.sub("[\W^-]", "", name), name, class_of_name))
+                      (re.sub(r"[\W^-]", "", name), name, class_of_name))
         else:
             if args:
                 print("%s [ label=\"{%s|%s}\" ]" %
-                      (re.sub("[\W^-]", "", name), name, "\\l".join(args)))
+                      (re.sub(r"[\W^-]", "", name), name, "\\l".join(args)))
             else:
                 print("%s [ label=\"{%s}\" ]" %
-                      (re.sub("[\W^-]", "", name), name))
-    return re.sub("[\W^-]", "", name)
+                      (re.sub(r"[\W^-]", "", name), name))
+    return re.sub(r"[\W^-]", "", name)
 
 
 print("digraph G {")
