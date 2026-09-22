@@ -4,7 +4,9 @@
 
 # The main entry grouping different parts of speech
 :bank_entry a lexicog:Entry ;
-    lexicog:describes :bank_noun, :bank_verb .
+    lexicog:describes :bank_noun, :bank_verb ;
+    rdf:_1 :bank_noun ;
+    rdf:_2 :bank_verb .
 
 # Lexical Entry for the noun
 :bank_noun a ontolex:LexicalEntry ;
@@ -13,7 +15,3 @@
 # Lexical Entry for the verb
 :bank_verb a ontolex:LexicalEntry ;
     lexicog:describes :bank_sense_action .
-
-# Ordering of senses
-:bank_sense_financial lexicog:nextSense :bank_sense_river .
-

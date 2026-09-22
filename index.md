@@ -1314,36 +1314,14 @@ To address these needs, the [=Entry=] class can act a container that allows for:
 <div class="description">
 <domain>[=Entry=]</domain>
 <range>[=Lexical Entry=] OR [=Lexical Sense=]</range>
+<subproperty>rdfs:ContainerMembershipProperty</subproperty>
 </div>
 </div>
 
-The ordering of entries and senses can be established by means of the property [=next entry=].
+The [=describes=] property is a container membership property and the order
+of elements within an [=entry=] can be given using `rdf:_n` membership properties.
 
-<div class="entity" about="ontolex:nextEntry" typeof="owl:ObjectProperty">
-<objectProperty property="rdfs:label" lang="en">Next Entry</objectProperty>
-
-<div property="rdfs:comment"> The <dfn>next entry</dfn> property is used to establish a specific sequence between lexical entries. </div>
-
-<div class="description">
-<domain>[=Lexical Entry=]</domain>
-<range>[=Lexical Entry=]</range>
-</div>
-</div>
-
-Similarly, the order of [=lexical senses=] can be defined by means of the property [=next sense=].
-
-<div class="entity" about="ontolex:nextSense" typeof="owl:ObjectProperty">
-<objectProperty property="rdfs:label" lang="en">Next Sense</objectProperty>
-
-<div property="rdfs:comment"> The <dfn>next sense</dfn> property is used to define the linear ordering of lexical senses within an entry. </div>
-
-<div class="description">
-<domain>[=Lexical Sense=]</domain>
-<range>[=Lexical Sense=]</range>
-</div>
-</div>
-
-The following example shows how an [=entry=] can group different [=lexical entries=], representing different parts of speech, and provide an ordering for their [=lexical senses=].
+The following example shows how an [=entry=] can group different [=lexical entries=], representing different parts of speech, and provide an ordering.
 
 <aside class="example">
 [![no
@@ -1351,7 +1329,9 @@ desc](Examples/ontolex/example22.png)](Examples/ontolex/example22.png){.tn}
 ```turtle
 # The main entry grouping different parts of speech
 :bank_entry a lexicog:Entry ;
-    lexicog:describes :bank_noun, :bank_verb .
+    lexicog:describes :bank_noun, :bank_verb ;
+    rdf:_1 :bank_noun ;
+    rdf:_2 :bank_verb .
 
 # Lexical Entry for the noun
 :bank_noun a ontolex:LexicalEntry ;
@@ -1360,9 +1340,6 @@ desc](Examples/ontolex/example22.png)](Examples/ontolex/example22.png){.tn}
 # Lexical Entry for the verb
 :bank_verb a ontolex:LexicalEntry ;
     lexicog:describes :bank_sense_action .
-
-# Ordering of senses
-:bank_sense_financial lexicog:nextSense :bank_sense_river .
 ```
 </aside>
 
