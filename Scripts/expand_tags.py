@@ -18,7 +18,7 @@ tags_to_expand = {
         "subclass": {"rel": "rdfs:subClassOf"},
         "subproperty": {"rel": "rdfs:subPropertyOf"},
         "inverse": {"rel": "owl:inverseOf"},
-        "equivalentClass": {"rel": "owl:equivalentClass"},
+        "equivalentclass": {"rel": "owl:equivalentClass"},
         }
 
 tags_text = {
@@ -27,7 +27,7 @@ tags_text = {
         "subclass": "Subclass:",
         "subproperty": "Subproperty:",
         "inverse": "Inverse Property:",
-        "equivalentClass": "Equivalent Class:",
+        "equivalentclass": "Equivalent Class:",
         }
 
 characteristics = {

@@ -24,15 +24,15 @@
   ontolex:ense :staidear_sense ;
   dct:language iso639:ga .
 
-:t1 a vartrans:Translation ;
+:t1 a vartrans:SenseTranslation ;
   vartrans:source :study_sense ;
   vartrans:target :Studium_sense .
 
-:t2 a vartrans:Translation ;
+:t2 a vartrans:SenseTranslation ;
   vartrans:source :study_sense ;
   vartrans:target :staidear_sense .
 
-:t3 a vartrans:Translation ;
+:t3 a vartrans:SenseTranslation ;
   vartrans:source :study_sense ;
   vartrans:target :Untersuchung_sense .
 
