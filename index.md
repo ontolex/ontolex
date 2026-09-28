@@ -742,15 +742,17 @@ desc](Examples/ontolex/example21.png)](Examples/ontolex/example21.png){.tn}
 :lex_high ontolex:partOfSpeech lexinfo:adjective .
 ```
 
-In some cases it may be useful to give a string describing the part-of-speech,
+In some cases it may be useful to additionally give a string describing the part-of-speech,
 for example when converting from lexicographic resources that use specific 
-vocabulary for the part of speech. In this case, the part of speech can be given as a string using the
+vocabulary for the part of speech. This string is intended as a secondary, documentary
+value only, to be used alongside, and not in place of, the [=part of speech=] property.
+In this case, the part of speech label can be given as a string using the
 [=part of speech label=] property:
 
 <div class="entity" about="ontolex:partOfSpeechLabel" typeof="owl:DatatypeProperty">
 <datatypeProperty property="rdfs:label" lang="en">Part of Speech Label</datatypeProperty>
 
-<div property="rdfs:comment"> The <dfn>part of speech label</dfn> property indicates a string describing the part of speech of a lexical entry. </div>
+<div property="rdfs:comment"> The <dfn>part of speech label</dfn> property indicates a secondary, documentary string describing the part of speech of a lexical entry, for reference alongside the [=part of speech=] property rather than as a replacement for it. </div>
 
 <div class="description">
 <domain>[=Lexical Entry=]</domain>
