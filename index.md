@@ -1050,13 +1050,15 @@ The property [=confidence=] can be used to indicate the confidence in the lexica
 <div class="entity" about="ontolex:confidence" typeof="owl:DatatypeProperty">
 <datatypeProperty property="rdfs:label" lang="en">Confidence</datatypeProperty>
 
-<div property="rdfs:comment"> The <dfn>confidence</dfn> property indicates the confidence in the lexical entry, for example in terms of a reliability score or record status. </div>
+<div property="rdfs:comment"> The <dfn>confidence</dfn> property indicates the confidence in an element of the lexicon, for example in terms of a reliability score or record status. </div>
 
 <div class="description">
-<domain>[=Lexical Entry=] or [=Lexical Sense=]</domain>
 </div>
 </div>
 
+The confidences may also be assigned to [=forms=], [=lexical senses=],
+[=lexical concepts=] or elements within modules, so no domain is specified for 
+this property. 
 There is no specification of the range of values for the confidence property, as this is expected to be defined by the user according to the particular use case. For example, in the case of a reliability score, the range could be a decimal value between 0 and 1, while in the case of record status it could be a string with values such as \"candidate\", \"confirmed\" or \"deprecated\", or a reference to a controlled vocabulary of record status values.
 
 </section>
