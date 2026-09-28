@@ -1,0 +1,16 @@
+@prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:surcoFerroviario a ontolex:LexicalEntry ;
+    ontolex:evokes :surcoFerroviario_concept .
+
+:surcoFerroviario_concept ontolex:usage :surcoFerroviario_concept_usage .
+
+:surcoFerroviario_concept_usage a prov:Entity ;
+    rdf:value "Atención: aunque en documentos como las Directivas 95/19/CE y 2001/14/CE y la propia Ley 39/2003, de 17 de noviembre, del Sector Ferroviario se usan los términos franja y ruta, el término acordado tras consultar con el Ministerio de Fomento español es el aquí indicado."@es ;
+    prov:hadPrimarySource [ a prov:Entity ;
+                             rdfs:label "DGT-ES-TERM" ] .
+
