@@ -652,7 +652,22 @@ which we call [=other forms=]:
 </div>
 </div>
 
-For example, we may specify non-canonical forms of the verb *(to) marry*
+A specific subproperty of [=other form=] is the property [=inflected form=], which indicates that the
+form is an inflected form of the lexical entry. This property is a subproperty of [=other form=] and should be used to indicate inflected forms of a lexical entry.
+
+<div class="entity" about="ontolex:inflectedForm" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Inflected Form</objectProperty>
+
+<div property="rdfs:comment"> The <dfn>inflected form</dfn> property relates a lexical entry to an inflected form that realizes the given lexical entry. </div>
+
+<div class="description">
+<domain>[=Lexical Entry=]</domain>
+<range>[=Form=]</range>
+<subproperty>[=other form=]</subproperty>
+</div>
+</div>
+
+For example, we may specify inflected forms of the verb *(to) marry*
 as follows:
 
 <aside class="example">
@@ -662,7 +677,7 @@ desc](Examples/ontolex/example7.png)](Examples/ontolex/example7.png){.tn}
 ```turtle
 :lex_marry a ontolex:LexicalEntry ;
   ontolex:canonicalForm :form_marry ;
-  ontolex:otherForm :form_marries .
+  ontolex:inflectedForm :form_marries .
 
 :form_marry a ontolex:Form;
      ontolex:writtenRep "marry"@en .
