@@ -1,0 +1,7 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix : <#> .
+
+:lex_cat ontolex:partOfSpeech lexinfo:noun .
+:lex_marry ontolex:partOfSpeech lexinfo:verb .
+:lex_high ontolex:partOfSpeech lexinfo:adjective .

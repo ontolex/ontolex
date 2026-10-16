@@ -1,0 +1,13 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <#> .
+
+:cat_concept a ontolex:LexicalConcept ;
+  rdfs:label "cat"@en ;
+  ontolex:definition [
+    a ontolex:ConceptDefinition ;
+    dc:source <https://en.wikipedia.org/wiki/Cat> ;
+    rdf:value "The cat (Felis catus), also called domestic cat and house cat, is a small carnivorous mammal."@en
+  ] .
