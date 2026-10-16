@@ -23,7 +23,7 @@
         dc:source <http://hdl.handle.net/10230/17110> ;
         vartrans:trans :bench_banco-trans .
 
-:bench_banco-trans a vartrans:Translation ;
+:bench_banco-trans a vartrans:SenseTranslation ;
         vartrans:source :bench-sense ;
         vartrans:target :banco-sense .
 

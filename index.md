@@ -2845,17 +2845,27 @@ in that they denote the same class in the ontology.
 ## Translation as a relation between lexical senses
 
 The second alternative mentioned above can be realized through the class
-[=translation=], which relates two senses that
+[=sense translation=], which relates two senses that
 can be regarded as equivalent in that they can be exchanged for each
 other.
+
+<div class="entity" about="vartrans:SenseTranslation" typeof="owl:Class">
+<class property="rdfs:label" lang="en">Sense Translation</class>
+
+<div property="rdfs:comment"> A <dfn>sense translation</dfn> is a sense relation expressing that two lexical senses corresponding to two lexical entries in different languages can be translated to each other without any major meaning shifts. </div>
+
+<div class="description">
+<subclass>[=Sense Relation=]</subclass>
+</div>
+</div>
 
 <div class="entity" about="vartrans:Translation" typeof="owl:Class">
 <class property="rdfs:label" lang="en">Translation</class>
 
-<div property="rdfs:comment"> A <dfn>translation</dfn> is a sense relation expressing that two lexical senses corresponding to two lexical entries in different languages can be translated to each other without any major meaning shifts. </div>
+<div property="rdfs:comment"> This class has been renamed to Sense Translation, as its identifier could not be reliably distinguished from the translation property under case-insensitive matching (see issue 66). It is retained here, equivalent to Sense Translation, for backwards compatibility. </div>
 
 <div class="description">
-<subclass>[=Sense Relation=]</subclass>
+<equivalentClass>[=Sense Translation=]</equivalentClass>
 </div>
 </div>
 
@@ -2877,7 +2887,7 @@ desc](Examples/vartrans/example6.png)](Examples/vartrans/example6.png){.tn}
 :postleitzahl_sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
 
 
-:trans a vartrans:Translation;
+:trans a vartrans:SenseTranslation;
        vartrans:source :zip_code_sense;
        vartrans:target :postleitzahl_sense;
        vartrans:category <http://purl.org/net/translation-categories#directEquivalent>.
@@ -2889,17 +2899,17 @@ Thus, in spite of using having different denotations, both
 *Postleitzahl* and *zip code* can be seen as cross-lingual equivalents
 and thus as translations of each other.
 
-Besides the class [=Translation=], which reifies
+Besides the class [=Sense Translation=], which reifies
 the translation relation between two lexical senses, as a shortcut the
 model also allows us to directly express the relation of translation
-between lexical senses by the 
-[=translation property=] that is regarded as equivalent to
+between lexical senses by the property
+[=translation=] that is regarded as equivalent to
 the reification:
 
 <div class="entity" about="vartrans:translation" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Translation</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>translation property</dfn> relates two lexical senses of two lexical entries that stand in a translation relation to one another. </div>
+<div property="rdfs:comment"> The <dfn>translation</dfn> property relates two lexical senses of two lexical entries that stand in a translation relation to one another. </div>
 
 <div class="description">
 <subproperty>[=Sense Relation=]</sub>
@@ -3010,7 +3020,7 @@ translations.</div>
 
 <div class="description">
 <domain>[=Translation Set=]</domain>
-<range>[=Translation=]</range>
+<range>[=Sense Translation=]</range>
 </div>
 </div>
 
@@ -3035,15 +3045,15 @@ desc](Examples/vartrans/example10.png)](Examples/vartrans/example10.png){.tn}
   ontolex:ense :staidear_sense ;
   dct:language iso639:ga .
 
-:t1 a vartrans:Translation ;
+:t1 a vartrans:SenseTranslation ;
   vartrans:source :study_sense ;
   vartrans:target :Studium_sense .
 
-:t2 a vartrans:Translation ;
+:t2 a vartrans:SenseTranslation ;
   vartrans:source :study_sense ;
   vartrans:target :staidear_sense .
 
-:t3 a vartrans:Translation ;
+:t3 a vartrans:SenseTranslation ;
   vartrans:source :study_sense ;
   vartrans:target :Untersuchung_sense .
 
@@ -4221,7 +4231,7 @@ desc](Examples/vartrans/example9.png)](Examples/vartrans/example9.png){.tn}
         dc:source <http://hdl.handle.net/10230/17110> ;
         vartrans:trans :bench_banco-trans .
 
-:bench_banco-trans a vartrans:Translation ;
+:bench_banco-trans a vartrans:SenseTranslation ;
         vartrans:source :bench-sense ;
         vartrans:target :banco-sense .
 
