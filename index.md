@@ -652,8 +652,7 @@ which we call [=other forms=]:
 </div>
 </div>
 
-A specific subproperty of [=other form=] is the property [=inflected form=], which indicates that the
-form is an inflected form of the lexical entry. This property is a subproperty of [=other form=] and should be used to indicate inflected forms of a lexical entry.
+The property [=inflected form=] indicates that a form is an inflected form of the lexical entry. It is a direct subproperty of [=lexical form=] (and not of [=other form=]) so that an inflected form is not required to be a non-canonical form.
 
 <div class="entity" about="ontolex:inflectedForm" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Inflected Form</objectProperty>
@@ -663,7 +662,7 @@ form is an inflected form of the lexical entry. This property is a subproperty o
 <div class="description">
 <domain>[=Lexical Entry=]</domain>
 <range>[=Form=]</range>
-<subproperty>[=other form=]</subproperty>
+<subproperty>[=lexical form=]</subproperty>
 </div>
 </div>
 
