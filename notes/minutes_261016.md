@@ -18,7 +18,7 @@ Name:
 Christian: Suggests just using LexicographicComponent
 Jorge: LC is not an "entry" in a dictionary
 
-Decisions: Use `LexicographicEntry` with modelling as in PR
+Decisions: Use `LexicographicEntry` with modelling as in PR (#77)
 
 [AP: John] implement and merge
 
@@ -56,9 +56,9 @@ Alik: Can an inflected form not be a canonical form?
 
 Christian: Use case for this? Max: Old English
 
-## #77:
+## #63:
 
-Range of `describes`
+Range of `describes` (see also PR #77)
 - Option 1: Lexical Entry or Lexical Sense
 - Option 2: Lexical Entry or Lexical Sense or Lexical Concept or Form
 - Option 3: No range
