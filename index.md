@@ -1105,7 +1105,7 @@ in addition to the [=sense=] property. This treats the [=lexical entry=] as an
 implicit `rdf:Seq` of its senses, assigning each sense a numeric position while
 retaining the unordered [=sense=] assertions for compatibility. The numbering
 applies within a single lexical entry, and a sense that is not given a
-membership property is simply unordered..
+membership property is simply unordered.
 
 <aside class="example">
 [![no
