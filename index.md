@@ -306,7 +306,7 @@ follows:
 <div property="rdfs:comment">A <dfn>lexical entry</dfn> represents a unit of analysis of the lexicon that consists of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses. </div>
 
 <div class="description">
-<subclass>[=lexical form=] min 1 [=Form=], [=canonical form=] max 1 [=Form=], semiotics:Expression</subclass>
+<subclass>[=lexical form=] min 1 [=Form=], [=canonical form=] max 1 [=Form=], semiotics:Expression, [=part of speech=] exactly 1 rdfs:Resource</subclass>
 </div>
 </div>
 
@@ -672,6 +672,71 @@ desc](Examples/ontolex/example7.png)](Examples/ontolex/example7.png){.tn}
 ```
 </aside>
 
+There are numerous cases in which a lexicographic record specifies the grammatical features the lemma shows when used in some of its senses. For example, in English, the lemmas good, manner, air or wood have senses which are usually (or only) attested when the word is used in plural, often indicated with the lemma in plural form.
+
+The [=form restriction=] class is intended to provide a way to specify the set of grammatical features of a lexical entry when used in a specific [=lexical sense=] in cases in which it does not allow for all of those reflected in the lexical forms provided. 
+
+<div class="entity" about="ontolex:FormRestriction" typeof="owl:Class">
+<class property="rdfs:label" lang="en">Form Restriction</class>
+
+<div property="rdfs:comment"> A <dfn>form restriction</dfn> represents a set of grammatical features of the forms in which a lexical sense occurs.</div>
+
+<div class="description">
+</div>
+</div>
+
+There are cases in which a specific [=lexical Sense=] does not allow for all the available [=forms=] of the [=lexical entry=]. In those cases, the [=form restriction=] represents (a set of) grammatical features of the [=forms=] in which that sense occurs. The sense does not occur in forms whose features do not match with those of such a set.
+
+[=Lexical senses=] are related to [=form restrictions=] by means of the property [=restricted to=], which is defined as follows:
+
+<div class="entity" about="ontolex:restrictedTo" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Restricted To</objectProperty>
+
+<div property="rdfs:comment"> The <dfn>restricted to</dfn> property relates a lexical sense to a form restriction when a lexicographic resource provides information about the specific morphological features of the form in that sense. </div>
+
+<div class="description">
+<domain>[=Lexical Sense=]</domain>
+<range>[=Form Restriction=]</range>
+</div>
+</div>
+
+The following example is the RDF representation of the above mentioned sense of "air". 
+
+<aside class="example">
+![no desc](Examples/ontolex/example18.png){.tn}
+
+```turtle
+:air_n a ontolex:LexicalEntry ;
+   ontolex:sense :air_n_sense_2, :air_n_sense_2_1 ;
+   ontolex:canonicalForm :air_n_form ;
+   ontolex:otherForm :airs_n_form .
+
+:air_n_form a ontolex:Form ;
+   ontolex:writtenRep "air"@en ;
+   lexinfo:number lexinfo:singular .
+
+:airs_n_form a ontolex:Form ;
+   ontolex:writtenRep "airs"@en ;
+   lexinfo:number lexinfo:plural .
+
+:air_n_sense_2 a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :air_n_sense_2_lc .
+
+:air_n_sense_2_1 a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :air_n_sense_2_1_lc ;
+   ontolex:restrictedTo :air_n_formRes .
+
+:air_n_formRes a ontolex:FormRestriction ;
+   lexinfo:number lexinfo:plural .
+
+:air_n_sense_2_lc a ontolex:LexicalConcept ;
+   skos:definition "An impression of a quality or manner given by someone or something"@en .
+
+:air_n_sense_2_1_lc a ontolex:LexicalConcept ;
+   skos:definition "An annoyingly affected and condescending manner"@en .
+```
+</div> 
+
 The morphological class (i.e., declension, conjugation or similar) may
 be specified with the [=morphological
 pattern=] property to avoid having to
@@ -708,6 +773,58 @@ desc](Examples/ontolex/example8.png)](Examples/ontolex/example8.png){.tn}
 :videre_form ontolex:writtenRep "videre"@la
 ```
 </aside>
+
+</section>
+
+<section id="part-of-speech">
+
+## Part of Speech
+
+The part of speech of a lexical entry can be specified by using the
+[=part of speech=] property, which is defined as follows:
+
+<div class="entity" about="ontolex:partOfSpeech" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Part of Speech</objectProperty>
+<div property="rdfs:comment"> The <dfn>part of speech</dfn> property indicates the part of speech of a lexical entry. </div>
+
+<div class="description">
+<domain>[=Lexical Entry=]</domain>
+<range>rdfs:Resource</range>
+</div>
+</div>
+
+The values for part of speech are not specified by this model, but should be taken from an appropriate
+external vocabulary such as [LexInfo](http://www.lexinfo.net/). For example, 
+the part of speech for the lexical entries *cat*, *marry* and *high* could be specified as follows:
+
+<aside class="example">
+[![no
+desc](Examples/ontolex/example21.png)](Examples/ontolex/example21.png){.tn}
+
+```turtle
+:lex_cat ontolex:partOfSpeech lexinfo:noun .
+:lex_marry ontolex:partOfSpeech lexinfo:verb .
+:lex_high ontolex:partOfSpeech lexinfo:adjective .
+```
+
+In some cases it may be useful to additionally give a string describing the part-of-speech,
+for example when converting from lexicographic resources that use specific 
+vocabulary for the part of speech. This string is intended as a secondary, documentary
+value only, to be used alongside, and not in place of, the [=part of speech=] property.
+In this case, the part of speech label can be given as a string using the
+[=part of speech label=] property:
+
+<div class="entity" about="ontolex:partOfSpeechLabel" typeof="owl:DatatypeProperty">
+<datatypeProperty property="rdfs:label" lang="en">Part of Speech Label</datatypeProperty>
+
+<div property="rdfs:comment"> The <dfn>part of speech label</dfn> property indicates a secondary, documentary string describing the part of speech of a lexical entry, for reference alongside the [=part of speech=] property rather than as a replacement for it. </div>
+
+<div class="description">
+<domain>[=Lexical Entry=]</domain>
+<range>rdf:langString</range>
+<subproperty>[=part of speech=] o rdfs:label</subproperty>
+</div>
+</div>
 
 </section>
 
@@ -893,7 +1010,7 @@ above.
 <div property="rdfs:comment"> A <dfn>lexical sense</dfn> represents the lexical meaning of a lexical entry when interpreted as referring to the corresponding ontology element. A lexical sense thus represents a reification of a pair of a uniquely determined lexical entry and a uniquely determined ontology entity it refers to. A link between a lexical entry and an ontology entity via a Lexical Sense object implies that the lexical entry can be used to refer to the ontology entity in question. </div>
 
 <div class="description">
-<subclass>[=sense=] min 1 [=Lexical Entry=], [=reference=] exactly 1 rdfs:Resource, [=is sense of=] exactly 1 [=Lexical Entry=], semiotics:Meaning</subclass>
+<subclass>[=sense=] min 1 [=Lexical Entry=], [=reference=] max 1 rdfs:Resource, [=is sense of=] exactly 1 [=Lexical Entry=], semiotics:Meaning</subclass>
 </div>
 </div>
 
@@ -1039,6 +1156,56 @@ desc](Examples/ontolex/example12.png)](Examples/ontolex/example12.png){.tn}
 <domain>[=Lexical Sense=]</domain>
 <range>rdfs:Resource</range>
 </div>
+</div>
+
+</section>
+
+<section id="usage-example">
+## Usage Examples
+
+There are occasions in which lexicographic records also include an example of use of an entry in each of its senses. While these examples can be captured as examples of a [=lexical concept=], sometimes there is more information about the example beyond the text itself. The class [=usage example=] represents a textual example of the usage of a sense.
+
+<div class="entity" about="lexicog:UsageExample" typeof="owl:Class">
+<class property="rdfs:label" lang="en">Usage Example</class>
+
+<div property="rdfs:comment"> The <dfn>usage example</dfn> represents a textual example of the usage of a sense in a given lexicographic record.</div>
+
+<div class="description">
+<subclass>rdf:value min 1 xsd:string</subclass>
+</div>
+</div>
+
+The property [=example=] relates an [=lexical sense=] with a [=usage example=].
+
+<div class="entity" about="ontolex:example" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Example</objectProperty>
+
+<div property="rdfs:comment"> The <dfn>example</dfn> property relates a lexical sense to a usage example. </div>
+
+<div class="description">
+<domain>[=Lexical Sense=] OR [=Lexical Entry=] OR [=Form=]</domain>
+<range>[=Usage Example=]</range>
+</div>
+</div>
+
+For instance, a dictionary may give the following information about the word *monastery*:
+
+<div class="example">
+![no desc](Examples/ontolex/example19.png){.tn}
+
+```turtle
+:monastery_n_en a ontolex:LexicalEntry ;
+   ontolex:sense :monastery_n_en_sense .
+
+:monastery_n_en_sense a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :monastery_n_en_sense_concept ;
+   ontolex:example [
+     rdf:value "We visited a Buddhist monastery deep in a jungle."@en
+   ] .
+
+:monastery_n_en_sense_concept a ontolex:LexicalConcept ;
+  skos:definition "monk's residence"@en .
+```
 </div>
 
 </section>
@@ -1284,66 +1451,118 @@ desc](Examples/ontolex/example17.png)](Examples/ontolex/example17.png){.tn}
 
 </section>
 
-<section id="entry">
+<section id="lexicographic-entry">
 
-## Entry Groups
+## Lexicographic Entries
 
 In certain lexicographic and terminological scenarios, there is a requirement to group multiple [=lexical entries=] or [=lexical senses=] under a single headword or organizational unit. This is particularly frequent in the retrodigitization of traditional dictionaries, where a single printed entry might contain information spanning different parts of speech, or where senses need to be organized into specific hierarchies and sequences.
 
-To address these needs, the [=Entry=] class can act a container that allows for:
+To address these needs, the [=Lexicographic Entry=] class, which corresponds to the `Entry` class of the lexicog module, can act as a container that allows for:
 * **Grouping by Part of Speech**: Managing cases where a single headword relates to multiple [=lexical entries=] (e.g., a word that acts as both a noun and a verb), ensuring consistency with original sources.
-* **Sense Organization**: Providing a mechanism to order and nest [=lexical senses=] to reflect the structure of authoritative resources.
+* **Sense Organization**: Providing a mechanism to order [=lexical senses=] to reflect the structure of authoritative resources.
 
-<div class="entity" about="ontolex:Entry" typeof="owl:Class">
-<class property="rdfs:label" lang="en">Entry</class>
+<div class="entity" about="ontolex:LexicographicEntry" typeof="owl:Class">
+<class property="rdfs:label" lang="en">Lexicographic Entry</class>
 
-<div property="rdfs:comment"> An <dfn>Entry</dfn> represents a grouping of one or more [=lexical entries=] and/or [=lexical senses=] under a common organizational unit, such as a headword in a dictionary. </div>
+<div property="rdfs:comment"> A <dfn>Lexicographic Entry</dfn> represents a grouping of one or more [=lexical entries=] and/or [=lexical senses=] under a common organizational unit, such as a headword in a dictionary. </div>
 
 <div class="description">
 </div>
 </div>
 
-[=Entries=] are linked to the [=lexical entries=] and [=lexical senses=] they group by means of the
-[=describes=] property, which indicates that the [=Entry=] describes the corresponding [=lexical entry=] or [=lexical sense=]. 
+[=Lexicographic Entries=] are linked to the [=lexical entries=] and [=lexical senses=] they group by means of the
+[=describes=] property, which indicates that the [=Lexicographic Entry=] describes the corresponding [=lexical entry=] or [=lexical sense=]. Forms may not be linked to a [=Lexicographic Entry=] directly.
 
 <div class="entity" about="ontolex:describes" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Describes</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>describes</dfn> property relates an Entry to the lexical entry or lexical sense it describes. </div>
+<div property="rdfs:comment"> The <dfn>describes</dfn> property relates a lexicographic entry to the lexical entry or lexical sense it describes. </div>
 
 <div class="description">
-<domain>[=Entry=]</domain>
+<domain>[=Lexicographic Entry=]</domain>
 <range>[=Lexical Entry=] OR [=Lexical Sense=]</range>
 <subproperty>rdfs:ContainerMembershipProperty</subproperty>
 </div>
 </div>
 
 The [=describes=] property is a container membership property and the order
-of elements within an [=entry=] can be given using `rdf:_n` membership properties.
+of elements within a [=lexicographic entry=] can be given using `rdf:_n` membership properties.
 
-The following example shows how an [=entry=] can group different [=lexical entries=], representing different parts of speech, and provide an ordering.
+The following example shows how a [=lexicographic entry=] can group different [=lexical entries=], representing different parts of speech, and provide an ordering. Senses of a lexical entry can be grouped and ordered in the same way, by using a [=lexicographic entry=] that describes the [=lexical senses=].
 
 <aside class="example">
 [![no
 desc](Examples/ontolex/example22.png)](Examples/ontolex/example22.png){.tn}
 ```turtle
 # The main entry grouping different parts of speech
-:bank_entry a lexicog:Entry ;
-    lexicog:describes :bank_noun, :bank_verb ;
+:bank_entry a ontolex:LexicographicEntry ;
+    ontolex:describes :bank_noun, :bank_verb ;
     rdf:_1 :bank_noun ;
     rdf:_2 :bank_verb .
 
 # Lexical Entry for the noun
 :bank_noun a ontolex:LexicalEntry ;
-    lexicog:describes :bank_sense_financial .
+    ontolex:sense :bank_sense_financial .
 
 # Lexical Entry for the verb
 :bank_verb a ontolex:LexicalEntry ;
-    lexicog:describes :bank_sense_action .
+    ontolex:sense :bank_sense_action .
 ```
 </aside>
 
-By using the [=entry=] class, terminologists and lexicographers can maintain the structural integrity of their source data while still leveraging the semantic power of the OntoLex-lemon model.
+By using the [=lexicographic entry=] class, terminologists and lexicographers can maintain the structural integrity of their source data while still leveraging the semantic power of the OntoLex-lemon model.
+
+</section>
+
+<section id="definition">
+
+## Definitions
+
+The preferred property for representing definitions is the SKOS definition property 
+[skos:definition](http://www.w3.org/2004/02/skos/core#definition), however, for 
+some cases, such as providing source information, a separate class for definitions
+is provided. The class [=concept definition=] represents a definition of a lexical concept or a lexical sense. It is defined as follows:
+
+<div class="entity" about="ontolex:ConceptDefinition" typeof="owl:Class">
+<class property="rdfs:label" lang="en">Concept Definition</class>
+
+<div property="rdfs:comment"> A <dfn>concept definition</dfn> represents a description of the meaning of a lexical entry or a lexical sense. </div>
+
+<div class="description">
+<subclass>rdf:value min 1 rdf:langString</subclass>
+</div>
+</div>
+
+The property [=definition=] relates a lexical entry or a lexical sense to a concept definition.
+
+<div class="entity" about="ontolex:definition" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Definition</objectProperty>
+<div property="rdfs:comment"> The <dfn>definition</dfn> property relates a lexical entry or a lexical sense to a concept definition. </div>
+<div class="description">
+<domain>[=Lexical Concept=] OR [=Lexical Sense=]</domain>
+<range>[=Concept Definition=]</range>
+<inverse>[=is definition of=]</inverse>
+</div>
+</div>
+
+The inverse property of [=definition=] is <dfn>is definition of</dfn>, which relates a concept definition to the lexical concept or lexical sense it defines. The value of a concept definition is given by the [RDF value](https://www.w3.org/1999/02/22-rdf-syntax-ns#value) property and is a string with a language tag.
+
+An example of the definition of a lexical concept is given below:
+
+<aside class="example">
+[![no 
+desc](Examples/ontolex/example20.png)](Examples/ontolex/example20.png){.tn}
+
+```turtle
+:cat_concept a ontolex:LexicalConcept ;
+  rdfs:label "cat"@en ;
+  ontolex:definition [
+    a ontolex:ConceptDefinition ;
+    dc:source <https://en.wikipedia.org/wiki/Cat> ;
+    rdf:value "The cat (Felis catus), also called domestic cat and house cat, is a small carnivorous mammal."@en
+  ] .
+```
+</aside>
 
 </section>
 
@@ -3003,6 +3222,30 @@ The property linking a lexicon to a lexical entry is the property entry:
 </div>
 </div>
 
+Not all dictionaries order their entries alphabetically — ordering may
+follow frequency, thematic grouping, or other conventions depending on
+the language or tradition. To represent a global ordering of lexical
+entries within a lexicon, the standard RDF container membership
+properties (`rdf:_1`, `rdf:_2`, …) can be used alongside
+`lime:entry`. This treats the `lime:Lexicon` as an implicit `rdf:Seq`,
+assigning each entry a numeric position while retaining the unordered
+`lime:entry` assertions for compatibility:
+
+<aside class="example">
+
+```turtle
+:dictionary a lime:Lexicon ;
+   lime:language "en" ;
+   lime:entry :lex_aardvark ;
+   rdf:_1 :lex_aardvark ;
+   lime:entry :lex_bee ;
+   rdf:_2 :lex_bee ;
+   lime:entry :lex_zebra ;
+   rdf:_3 :lex_zebra .
+```
+
+</aside>
+
 The language property can be stated on either a lexicon or a lexical
 entry (note that all entries in the same lexicon should be in the same
 language and that the language of the lexicon and entry should be
@@ -4388,6 +4631,61 @@ desc](Examples/other/example-oa.png)](Examples/other/example-oa.png){.tn}
 
 </aside>
 </section>
+<section id="prov-o">
+## PROV-O
+
+The Provenance Ontology (PROV-O) can be used in conjunction with the OntoLex-lemon model to provide detailed metadata regarding the origins and history of terminological data. This is particularly relevant for maintaining traceability when terminologies are generated from multiple resources or through automated processes.
+
+Notes are key elements of traditional term records, providing additional information such as usage recommendations, domain data, and references. These are considered valuable pieces of knowledge for language professionals and remain present in authoritative resources like IATE. Such information often includes usage recommendations expressed as text strings or links to related resources.
+
+When terminological data is modeled, sources play a critical role in ensuring traceability for definitions, term notes, and contexts. We distinguish between two types of sources:
+* **Intermediate Sources**: Information providers such as existing linguistic resources (e.g., IATE) or applications (e.g., a Definition Extractor).
+* **Original Sources**: Direct sources including corpora (e.g., European Legislation), organizations (e.g., European Commission), or individuals (e.g., a specific terminologist).
+
+By typing elements like [=concept definition=] or [=usage=] notes as a [Entity](https://www.w3.org/TR/prov-o/#Entity) in PROV-O, one can link them to their sources using properties like [hadPrimarySource](https://www.w3.org/TR/prov-o/#hadPrimarySource). This allows for detailed provenance information to be attached to terminological data, enhancing the reliability and traceability of the information provided.
+
+The following example illustrates how a [=concept definition=] can be linked to its primary source using PROV-O:
+
+<div class="example">
+[![no
+desc](Examples/other/example-prov1.png)](Examples/other/example-prov1.png){.tn}
+
+```turtle
+:bias a ontolex:LexicalEntry ;
+  ontolex:evokes :bias_concept .
+
+:bias_concept ontolex:definition :bias_conceptdef .
+
+:bias_conceptdef a ontolex:ConceptDefinition ;
+                 a prov:Entity ;  
+   rdf:value "a bias of an estimator is the difference between its mathematical expectation and the true value it estimates [...]"@en ;
+   prov:hadPrimarySource :GST .
+
+:GST a prov:Entity ;
+   rdfs:label "Glossary of Statistical Terms, Organisation for Economic Cooperation and Development"@en .
+```
+</div>
+
+Provenance can also be applied to [=usage=] notes to track the authority behind specific linguistic recommendations:
+
+<div class="example">
+[![no
+desc](Examples/other/example-prov2.png)](Examples/other/example-prov2.png){.tn}
+```turtle
+:surcoFerroviario a ontolex:LexicalEntry ;
+    ontolex:evokes :surcoFerroviario_concept .
+
+:surcoFerroviario_concept ontolex:usage :surcoFerroviario_concept_usage .
+
+:surcoFerroviario_concept_usage a prov:Entity ;
+    rdf:value "Atención: aunque en documentos como las Directivas 95/19/CE y 2001/14/CE y la propia Ley 39/2003, de 17 de noviembre, del Sector Ferroviario se usan los términos franja y ruta, el término acordado tras consultar con el Ministerio de Fomento español es el aquí indicado."@es ;
+    prov:hadPrimarySource [ a prov:Entity ;
+                             rdfs:label "DGT-ES-TERM" ] .
+```
+</div>
+
+</section>
+
 </section>
 
 <section id="acknowledgements">

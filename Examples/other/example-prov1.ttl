@@ -1,0 +1,19 @@
+@prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:bias a ontolex:LexicalEntry ;
+  ontolex:evokes :bias_concept .
+
+:bias_concept ontolex:definition :bias_conceptdef .
+
+:bias_conceptdef a ontolex:ConceptDefinition ;
+                 a prov:Entity ;  
+   rdf:value "a bias of an estimator is the difference between its mathematical expectation and the true value it estimates [...]"@en ;
+   prov:hadPrimarySource :GST .
+
+:GST a prov:Entity ;
+   rdfs:label "Glossary of Statistical Terms, Organisation for Economic Cooperation and Development"@en .
+
