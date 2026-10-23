@@ -1471,6 +1471,69 @@ desc](Examples/ontolex/example17.png)](Examples/ontolex/example17.png){.tn}
 
 </section>
 
+<section id="lexicographic-entry">
+
+## Lexicographic Entries
+
+In certain lexicographic and terminological scenarios, there is a requirement to group multiple [=lexical entries=] or [=lexical senses=] under a single headword or organizational unit. This is particularly frequent in the retrodigitization of traditional dictionaries, where a single printed entry might contain information spanning different parts of speech, or where senses need to be organized into specific hierarchies and sequences.
+
+To address these needs, the [=Lexicographic Entry=] class, which corresponds to the `Entry` class of the lexicog module, can act as a container that allows for:
+* **Grouping by Part of Speech**: Managing cases where a single headword relates to multiple [=lexical entries=] (e.g., a word that acts as both a noun and a verb), ensuring consistency with original sources.
+* **Sense Organization**: Providing a mechanism to order [=lexical senses=] to reflect the structure of authoritative resources.
+
+<div class="entity" about="ontolex:LexicographicEntry" typeof="owl:Class">
+<class property="rdfs:label" lang="en">Lexicographic Entry</class>
+
+<div property="rdfs:comment"> A <dfn>Lexicographic Entry</dfn> represents a grouping of one or more [=lexical entries=] and/or [=lexical senses=] under a common organizational unit, such as a headword in a dictionary. </div>
+
+<div class="description">
+</div>
+</div>
+
+[=Lexicographic Entries=] are linked to the [=lexical entries=] and [=lexical senses=] they group by means of the
+[=describes=] property, which indicates that the [=Lexicographic Entry=] describes the corresponding [=lexical entry=] or [=lexical sense=]. Forms may not be linked to a [=Lexicographic Entry=] directly.
+
+<div class="entity" about="ontolex:describes" typeof="owl:ObjectProperty">
+<objectProperty property="rdfs:label" lang="en">Describes</objectProperty>
+
+<div property="rdfs:comment"> The <dfn>describes</dfn> property relates a lexicographic entry to the lexical entry or lexical sense it describes. </div>
+
+<div class="description">
+<domain>[=Lexicographic Entry=]</domain>
+<range>[=Lexical Entry=] OR [=Lexical Sense=]</range>
+<subproperty>rdfs:ContainerMembershipProperty</subproperty>
+</div>
+</div>
+
+The [=describes=] property is a container membership property and the order
+of elements within a [=lexicographic entry=] can be given using `rdf:_n` membership properties.
+
+The following example shows how a [=lexicographic entry=] can group different [=lexical entries=], representing different parts of speech, and provide an ordering. Senses of a lexical entry can be grouped and ordered in the same way, by using a [=lexicographic entry=] that describes the [=lexical senses=].
+
+<aside class="example">
+[![no
+desc](Examples/ontolex/example22.png)](Examples/ontolex/example22.png){.tn}
+```turtle
+# The main entry grouping different parts of speech
+:bank_entry a ontolex:LexicographicEntry ;
+    ontolex:describes :bank_noun, :bank_verb ;
+    rdf:_1 :bank_noun ;
+    rdf:_2 :bank_verb .
+
+# Lexical Entry for the noun
+:bank_noun a ontolex:LexicalEntry ;
+    ontolex:sense :bank_sense_financial .
+
+# Lexical Entry for the verb
+:bank_verb a ontolex:LexicalEntry ;
+    ontolex:sense :bank_sense_action .
+```
+</aside>
+
+By using the [=lexicographic entry=] class, terminologists and lexicographers can maintain the structural integrity of their source data while still leveraging the semantic power of the OntoLex-lemon model.
+
+</section>
+
 <section id="definition">
 
 ## Definitions
