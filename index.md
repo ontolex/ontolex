@@ -1097,6 +1097,39 @@ The inverse of the [=sense=] property is <dfn>is sense of</dfn>, which relates a
 The inverse of [=reference=] is <dfn>is reference of</dfn>, which relates an
 ontology element to the [=lexical sense=] that refers to it.
 
+The [=sense=] property does not by itself impose an order on the senses of a
+lexical entry. As many dictionaries present senses in a meaningful order (for
+example, by frequency or by historical development), the order of senses can be
+given using the RDF container membership properties `rdf:_1`, `rdf:_2`, etc.,
+in addition to the [=sense=] property. This treats the [=lexical entry=] as an
+implicit `rdf:Seq` of its senses, assigning each sense a numeric position while
+retaining the unordered [=sense=] assertions for compatibility. The numbering
+applies within a single lexical entry, and a sense that is not given a
+membership property is simply unordered..
+
+<aside class="example">
+[![no
+desc](Examples/ontolex/example23.png)](Examples/ontolex/example23.png){.tn}
+```turtle
+:bank_noun a ontolex:LexicalEntry ;
+    ontolex:sense :bank_sense_1 ;
+    rdf:_1 :bank_sense_1 ;
+    ontolex:sense :bank_sense_2 ;
+    rdf:_2 :bank_sense_2 ;
+    ontolex:sense :bank_sense_3 ;
+    rdf:_3 :bank_sense_3 .
+
+:bank_sense_1 a ontolex:LexicalSense ;
+    skos:definition "An institution that accepts deposits and makes loans"@en .
+
+:bank_sense_2 a ontolex:LexicalSense ;
+    skos:definition "The land alongside a river"@en .
+
+:bank_sense_3 a ontolex:LexicalSense ;
+    skos:definition "A set of similar things arranged in a row"@en .
+```
+</aside>
+
 </section>
 
 <section id="usage">
