@@ -1,0 +1,17 @@
+@prefix : <#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+
+# The main entry grouping different parts of speech
+:bank_entry a ontolex:LexicographicEntry ;
+    ontolex:describes :bank_noun, :bank_verb ;
+    rdf:_1 :bank_noun ;
+    rdf:_2 :bank_verb .
+
+# Lexical Entry for the noun
+:bank_noun a ontolex:LexicalEntry ;
+    ontolex:sense :bank_sense_financial .
+
+# Lexical Entry for the verb
+:bank_verb a ontolex:LexicalEntry ;
+    ontolex:sense :bank_sense_action .
