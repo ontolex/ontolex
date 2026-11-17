@@ -1,0 +1,21 @@
+@prefix : <#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+:bank_noun a ontolex:LexicalEntry ;
+    ontolex:sense :bank_sense_1 ;
+    rdf:_1 :bank_sense_1 ;
+    ontolex:sense :bank_sense_2 ;
+    rdf:_2 :bank_sense_2 ;
+    ontolex:sense :bank_sense_3 ;
+    rdf:_3 :bank_sense_3 .
+
+:bank_sense_1 a ontolex:LexicalSense ;
+    skos:definition "An institution that accepts deposits and makes loans"@en .
+
+:bank_sense_2 a ontolex:LexicalSense ;
+    skos:definition "The land alongside a river"@en .
+
+:bank_sense_3 a ontolex:LexicalSense ;
+    skos:definition "A set of similar things arranged in a row"@en .
