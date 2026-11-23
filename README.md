@@ -20,17 +20,23 @@ If you want to build it locally, you will need to install [PanDoc](https://pando
 
 ```bash
 pandoc --template respec.template -f markdown-auto_identifiers --wrap=none index.md -o index.html
-python expand_tags.py index.html index.html
+python Scripts/expand_tags.py index.html index.html
 ```
 
 ## Extracting the Ontology
 
-The ontology is encoded in RDFa within the HTML specification. To extract the ontology, you can use a tool such as `rapper`
-
+The ontology is encoded in RDFa within the HTML specification. To extract it you need
+[`rapper`](https://librdf.org/raptor/rapper.html) (from `raptor2-utils`) and the Python packages
+`beautifulsoup4` and `rdflib`. Run the following after building `index.html` as above:
 
 ```bash
-rapper -i rdfa -o turtle index.html > ontolex.ttl
+python Scripts/expand_tags.py index.html index.html
+rapper -i rdfa -o turtle index.html | python Scripts/build_ontology.py -o ontolex.ttl
 ```
+
+The `expand_tags.py` step is required: it expands the shorthand tags (`<domain>`, `<range>`, etc.) into RDFa and
+makes the page well-formed enough for `rapper`. `build_ontology.py` removes the ReSpec markup (such as `[=lexical entry=]`)
+from the definitions, normalizes whitespace and binds the standard prefixes.
 
 ## Building Examples
 
