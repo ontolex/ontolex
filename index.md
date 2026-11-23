@@ -1531,23 +1531,23 @@ To address these needs, the [=Lexicographic Entry=] class, which corresponds to 
 <div class="entity" about="ontolex:LexicographicEntry" typeof="owl:Class">
 <class property="rdfs:label" lang="en">Lexicographic Entry</class>
 
-<div property="rdfs:comment"> A <dfn>Lexicographic Entry</dfn> represents a grouping of one or more [=lexical entries=] and/or [=lexical senses=] under a common organizational unit, such as a headword in a dictionary. </div>
+<div property="rdfs:comment"> A <dfn>Lexicographic Entry</dfn> represents a grouping of one or more [=lexical entries=], [=forms=], [=lexical senses=] and/or [=lexical concepts=] under a common organizational unit, such as a headword in a dictionary. </div>
 
 <div class="description">
 </div>
 </div>
 
-[=Lexicographic Entries=] are linked to the [=lexical entries=] and [=lexical senses=] they group by means of the
-[=describes=] property, which indicates that the [=Lexicographic Entry=] describes the corresponding [=lexical entry=] or [=lexical sense=]. Forms may not be linked to a [=Lexicographic Entry=] directly.
+[=Lexicographic Entries=] are linked to the [=lexical entries=], [=forms=], [=lexical senses=] and [=lexical concepts=] they group by means of the
+[=describes=] property, which indicates that the [=Lexicographic Entry=] describes the corresponding [=lexical entry=], [=form=], [=lexical sense=] or [=lexical concept=]. Including lexical concepts allows resources to be organized by conceptual criteria, for example dictionaries organized by radical.
 
 <div class="entity" about="ontolex:describes" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Describes</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>describes</dfn> property relates a lexicographic entry to the lexical entry or lexical sense it describes. </div>
+<div property="rdfs:comment"> The <dfn>describes</dfn> property relates a lexicographic entry to the lexical entry, form, lexical sense or lexical concept it describes. </div>
 
 <div class="description">
 <domain>[=Lexicographic Entry=]</domain>
-<range>[=Lexical Entry=] OR [=Lexical Sense=]</range>
+<range>[=Lexical Entry=] OR [=Form=] OR [=Lexical Sense=] OR [=Lexical Concept=]</range>
 <subproperty>rdfs:ContainerMembershipProperty</subproperty>
 </div>
 </div>
