@@ -29,8 +29,7 @@ vs:term_status
     rdfs:comment """-Version 1.0: depreciation with minor change in metadata for LOV publication
 -Version 1.1: creation"""@en ;
     owl:imports <http://www.w3.org/ns/lemon/ontolex> ;
-    :imports <http://www.w3.org/ns/lemon/ontolex> ;
-    :versionInfo 1.1 .
+    owl:versionInfo 1.1 .
 
 :ConceptualRelation
     a owl:Class ;
