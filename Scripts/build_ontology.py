@@ -16,6 +16,10 @@ extracted with `rapper`. This script post-processes the extracted Turtle:
   matter of the specification (`--metadata index.md`);
 * optionally splits the result into one file per module (`--split DIR`),
   written as both Turtle and RDF/XML;
+* optionally adds the triples of `<module>.ttl` in an addendum directory to
+  each module (`--addendum DIR`), for statements that are not in the
+  specification, such as `vs:term_status`;
+* adds `rdfs:isDefinedBy` to every class and property of a module;
 * optionally checks the result for known problems (`--check`).
 
 Usage (from the repository root):
@@ -242,6 +246,16 @@ def split_graph(graph, modules):
     return graphs, unassigned
 
 
+def add_defined_by(graph, module):
+    """Add `rdfs:isDefinedBy <module>` to the classes and properties of a module."""
+    ontology = URIRef(LEMON + module)
+    kinds = (OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty)
+    for kind in kinds:
+        for s in list(graph.subjects(RDF.type, kind)):
+            if str(s).startswith(LEMON + module + "#") and (s, RDFS.isDefinedBy, None) not in graph:
+                graph.add((s, RDFS.isDefinedBy, ontology))
+
+
 def check(graphs):
     """Return a list of problems found in the per-module graphs."""
     problems = []
@@ -272,6 +286,8 @@ def main():
                         help="directory with translation CSV files")
     parser.add_argument("--metadata", metavar="INDEX_MD",
                         help="specification whose YAML front matter defines the ontology headers")
+    parser.add_argument("--addendum", metavar="DIR",
+                        help="directory with a <module>.ttl of extra triples for each module")
     parser.add_argument("--split", metavar="DIR",
                         help="write one Turtle and RDF/XML file per module to this directory")
     parser.add_argument("--check", action="store_true",
@@ -302,6 +318,9 @@ def main():
         graphs, unassigned = split_graph(graph, modules)
         for m in modules:
             graphs[m] += module_graph_metadata(m, meta)
+            add_defined_by(graphs[m], m)
+            if args.addendum and os.path.exists(os.path.join(args.addendum, m + ".ttl")):
+                graphs[m].parse(os.path.join(args.addendum, m + ".ttl"), format="turtle")
         if unassigned:
             sys.stderr.write("Warning: terms not in any module were not written: "
                              + ", ".join(sorted(str(s) for s in unassigned)) + "\n")

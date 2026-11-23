@@ -1,0 +1,17 @@
+# Triples that are added to the decomp ontology when it is generated from the
+# specification, but are not stated in it (see README.md, "Extracting the Ontology").
+
+@prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+vs:term_status a owl:AnnotationProperty .
+
+decomp:Component vs:term_status "stable" .
+
+decomp:constituent vs:term_status "stable" .
+
+decomp:correspondsTo vs:term_status "stable" .
+
+decomp:subterm vs:term_status "stable" .
+

@@ -1,0 +1,41 @@
+# Triples that are added to the synsem ontology when it is generated from the
+# specification, but are not stated in it (see README.md, "Extracting the Ontology").
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+vs:term_status a owl:AnnotationProperty .
+
+synsem:OntoMap vs:term_status "stable" .
+
+synsem:SyntacticArgument vs:term_status "stable" .
+
+synsem:SyntacticFrame vs:term_status "stable" .
+
+synsem:condition vs:term_status "stable" .
+
+synsem:isA vs:term_status "stable" .
+
+synsem:marker vs:term_status "stable" .
+
+synsem:objOfProp vs:term_status "stable" .
+
+synsem:ontoCorrespondence vs:term_status "stable" .
+
+synsem:ontoMapping vs:term_status "stable" .
+
+synsem:optional vs:term_status "stable" .
+
+synsem:propertyDomain vs:term_status "stable" .
+
+synsem:propertyRange vs:term_status "stable" .
+
+synsem:subjOfProp vs:term_status "stable" .
+
+synsem:submap vs:term_status "stable" .
+
+synsem:synArg vs:term_status "stable" .
+
+synsem:synBehavior vs:term_status "stable" .
+
