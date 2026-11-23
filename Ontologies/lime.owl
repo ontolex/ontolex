@@ -72,9 +72,6 @@
     
 
 
-    <!-- http://rdfs.org/ns/void#vocabulary -->
-
-    <owl:AnnotationProperty rdf:about="&void;vocabulary"/>
     <owl:AnnotationProperty rdf:about="&vs;term_status"/>
     
 
@@ -90,16 +87,6 @@
     
 
 
-    <!-- http://rdfs.org/ns/void#subset -->
-
-    <owl:ObjectProperty rdf:about="&void;subset"/>
-    
-
-
-    <!-- http://rdfs.org/ns/void#vocabulary -->
-
-    <owl:ObjectProperty rdf:about="&void;vocabulary"/>
-    
 
 
     <!-- http://www.w3.org/ns/lemon/lime#conceptualDataset -->
@@ -634,22 +621,10 @@
     
 
 
-    <!-- http://rdfs.org/ns/void#Dataset -->
-
-    <owl:Class rdf:about="&void;Dataset"/>
-    
 
 
-    <!-- http://rdfs.org/ns/void#Linkset -->
-
-    <owl:Class rdf:about="&void;Linkset"/>
-    
 
 
-    <!-- http://www.w3.org/2000/01/rdf-schema#Class -->
-
-    <owl:Class rdf:about="&rdfs;Class"/>
-    
 
 
     <!-- http://www.w3.org/ns/lemon/lime#ConceptualizationSet -->

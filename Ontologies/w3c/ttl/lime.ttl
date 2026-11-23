@@ -11,21 +11,6 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 
-void:Dataset
-    a owl:Class .
-
-void:Linkset
-    a owl:Class .
-
-void:subset
-    a owl:ObjectProperty .
-
-void:vocabulary
-    a owl:AnnotationProperty, owl:ObjectProperty .
-
-rdfs:Class
-    a owl:Class .
-
 vs:term_status
     a owl:AnnotationProperty .
 
