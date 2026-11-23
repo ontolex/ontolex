@@ -6,6 +6,9 @@ extracted with `rapper`. This script post-processes the extracted Turtle:
 * removes ReSpec markup, such as `[=lexical entries=]`, which is turned into
   links when the page is rendered but is passed through unchanged by `rapper`,
   and normalizes whitespace in literals;
+* declares the inverse properties that the specification only names, e.g.
+  `ontolex:isSenseOf`, the inverse of `ontolex:sense`, from `owl:inverseOf`
+  (domain, range and characteristics are derived from the property they invert);
 * optionally adds translated labels and comments from CSV files
   (`--translations DIR`, one `<module>.csv` per module with the columns
   `term,property,lang,text`);
@@ -94,6 +97,59 @@ def expand_curie(term):
     if prefix in NAMESPACES and not local.startswith("//"):
         return URIRef(NAMESPACES[prefix] + local)
     return URIRef(term)
+
+
+def _words(local):
+    """`isSenseOf` -> `is sense of`."""
+    return re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", local).lower()
+
+
+def _copy_node(graph, node):
+    """Return `node`, or a copy of it with fresh blank nodes if it is one."""
+    if not isinstance(node, BNode):
+        return node
+    copy = BNode()
+    for p, o in graph.predicate_objects(node):
+        graph.add((copy, p, _copy_node(graph, o)))
+    return copy
+
+
+def add_inverses(graph):
+    """Declare the properties that are only the target of an `owl:inverseOf`.
+
+    The specification defines inverse properties in prose (`isSenseOf` is the
+    inverse of `sense`) and states them with `<inverse>` on the original
+    property. For each such property in the OntoLex namespaces this adds the
+    declaration, label and comment, `owl:inverseOf` in both directions, the
+    domain and range swapped, and the inverse characteristic (the inverse of a
+    functional property is inverse functional and vice versa).
+
+    Returns the list of the properties that were declared.
+    """
+    declared = set(graph.subjects(RDF.type, None))
+    added = []
+    for a, b in list(graph.subject_objects(OWL.inverseOf)):
+        for new, original in ((b, a), (a, b)):
+            if (isinstance(new, BNode) or isinstance(original, BNode)
+                    or not str(new).startswith(LEMON) or new in declared):
+                continue
+            graph.add((new, RDF.type, OWL.ObjectProperty))
+            graph.add((new, OWL.inverseOf, original))
+            graph.add((original, OWL.inverseOf, new))
+            label = _words(str(new).rsplit("#", 1)[1])
+            graph.add((new, RDFS.label, Literal(label, lang="en")))
+            graph.add((new, RDFS.comment, Literal(
+                f"The inverse property of {str(original).rsplit('#', 1)[1]}.", lang="en")))
+            for src, dst in ((RDFS.domain, RDFS.range), (RDFS.range, RDFS.domain)):
+                for o in list(graph.objects(original, src)):
+                    graph.add((new, dst, _copy_node(graph, o)))
+            for src, dst in ((OWL.FunctionalProperty, OWL.InverseFunctionalProperty),
+                             (OWL.InverseFunctionalProperty, OWL.FunctionalProperty)):
+                if (original, RDF.type, src) in graph:
+                    graph.add((new, RDF.type, dst))
+            declared.add(new)
+            added.append(new)
+    return added
 
 
 def add_translations(graph, directory):
@@ -226,6 +282,9 @@ def main():
     graph = Graph()
     graph.parse(data=data, format="turtle")
     graph = clean_graph(graph)
+
+    for term in add_inverses(graph):
+        sys.stderr.write(f"Declared the inverse property {term}\n")
 
     if args.translations:
         orphans = add_translations(graph, args.translations)
