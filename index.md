@@ -1004,7 +1004,7 @@ the lexical entry.
 The property [=usage=] can be used on a [=lexical sense=], as in this
 section, but also directly on a [=lexical entry=] or a [=form=], for
 example to record a usage recommendation or a restriction that applies
-to a particular spelling. Usage information is not itself modelled by
+to a particular inflected form. Usage information is not itself modelled by
 *lemon*: it may be a literal, an `rdf:value` node as below, or any other
 resource, such as a PROV-O entity that records the source of the usage
 note. Usage information cannot be attached to a [=lexical concept=].
@@ -1038,8 +1038,8 @@ desc](Examples/ontolex/example12.png)](Examples/ontolex/example12.png){.tn}
 
 </aside>
 
-The following example shows usage information given directly on a
-lexical entry, with its source recorded using PROV-O, and on a form:
+The following example shows usage information on a lexical sense, with
+its source recorded using PROV-O, and on a form:
 
 <aside class="example">
 
@@ -1048,19 +1048,23 @@ lexical entry, with its source recorded using PROV-O, and on a form:
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
 :surcoFerroviario a ontolex:LexicalEntry ;
-  ontolex:usage :surcoFerroviario_usage .
+  ontolex:canonicalForm :surcoFerroviario_form ;
+  ontolex:otherForm :surcosFerroviarios_form ;
+  ontolex:sense :surcoFerroviario_sense .
+
+:surcoFerroviario_sense ontolex:usage :surcoFerroviario_usage .
 
 :surcoFerroviario_usage a prov:Entity ;
   rdf:value "Término acordado tras consultar con el Ministerio de Fomento; en algunos documentos legales se usan también «franja» y «ruta»."@es ;
   prov:hadPrimarySource [ a prov:Entity ;
                           rdfs:label "DGT-ES-TERM" ] .
 
-:colour a ontolex:LexicalEntry ;
-  ontolex:otherForm :colour_us .
+:surcoFerroviario_form a ontolex:Form ;
+  ontolex:writtenRep "surco ferroviario"@es .
 
-:colour_us a ontolex:Form ;
-  ontolex:writtenRep "color"@en-US ;
-  ontolex:usage [ rdf:value "Preferred spelling in American English"@en ] .
+:surcosFerroviarios_form a ontolex:Form ;
+  ontolex:writtenRep "surcos ferroviarios"@es ;
+  ontolex:usage [ rdf:value "Plural form, rarely used in legal texts"@en ] .
 ```
 
 </aside>
@@ -1071,7 +1075,7 @@ lexical entry, with its source recorded using PROV-O, and on a form:
 <div property="rdfs:comment"> The <dfn>usage</dfn> property indicates usage conditions or pragmatic implications of a lexical entry, form or lexical sense, for example when using the lexical entry to refer to the given ontological meaning. </div>
 
 <div class="description">
-<domain>[=Lexical Sense=], [=Lexical Entry=] or [=Form=]</domain>
+<domain>[=Lexical Sense=] OR [=Lexical Entry=] OR [=Form=]</domain>
 <range>rdfs:Resource</range>
 </div>
 </div>
