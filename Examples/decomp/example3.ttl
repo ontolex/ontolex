@@ -4,7 +4,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix : <#> .
 
-:AfricanSwineFever a ontolex:MultiwordExpression ;
+:AfricanSwineFever a ontolex:MultiWordExpression ;
   decomp:constituent :African_comp , :Swine_comp , :Fever_comp ;
   decomp:subterm :SwineFever .
 
@@ -14,5 +14,5 @@
 
 :Fever_comp a decomp:Component .
 
-:SwineFever a ontolex:MultiwordExpression ;
+:SwineFever a ontolex:MultiWordExpression ;
   decomp:constituent :Swine_comp , :Fever_comp .

@@ -327,7 +327,7 @@ and [=multiword expressions=].
 </div>
 </div>
 
-<div class="entity" about="ontolex:MultiwordExpression" typeof="owl:Class">
+<div class="entity" about="ontolex:MultiWordExpression" typeof="owl:Class">
 <class property="rdfs:label" lang="en">Multiword Expression</class>
 
 <div property="rdfs:comment"> A <dfn>multiword expression</dfn> is a lexical entry that consists of two or more words. </div>
@@ -358,7 +358,7 @@ desc](Examples/ontolex/example1.png)](Examples/ontolex/example1.png)
 ```turtle
 :cat a ontolex:Word
 
-:minimum_finance_lease_payments a ontolex:MultiwordExpression
+:minimum_finance_lease_payments a ontolex:MultiWordExpression
 
 :anti- a ontolex:Affix
 ```
@@ -598,7 +598,7 @@ lexical entry \"intangible assets\" shows:
 desc](Examples/ontolex/example6.png)](Examples/ontolex/example6.png){.tn}
 
 ```turtle
-:lex_intangible_assets a ontolex:LexicalEntry, ontolex:MultiwordExpression;
+:lex_intangible_assets a ontolex:LexicalEntry, ontolex:MultiWordExpression;
      ontolex:canonicalForm :form_intangible_assets;
      rdfs:label "intangible assets"@en .
 
@@ -627,7 +627,7 @@ desc](Examples/ontolex/example6a.png)](Examples/ontolex/example6a.png){.tn}
 :form_nasa a ontolex:Form ;
   ontolex:writtenRep "NASA"@en .
 
-:national_aeronautics_and_space_administration a ontolex:LexicalEntry, ontolex:MultiwordExpression ;
+:national_aeronautics_and_space_administration a ontolex:LexicalEntry, ontolex:MultiWordExpression ;
   ontolex:canonicalForm :form_national_aeronautics_and_space_administration ;
   lexinfo:abbreviationFor :nasa ;
   rdfs:label "National Aeronautics and Space Administration"@en .
@@ -2391,7 +2391,7 @@ a lexical entry:
 desc](Examples/decomp/example3.png)](Examples/decomp/example3.png){.tn}
 
 ```turtle
-:AfricanSwineFever a ontolex:MultiwordExpression ;
+:AfricanSwineFever a ontolex:MultiWordExpression ;
   decomp:constituent :African_comp , :Swine_comp , :Fever_comp ;
   decomp:subterm :SwineFever .
 
@@ -2401,7 +2401,7 @@ desc](Examples/decomp/example3.png)](Examples/decomp/example3.png){.tn}
 
 :Fever_comp a decomp:Component .
 
-:SwineFever a ontolex:MultiwordExpression ;
+:SwineFever a ontolex:MultiWordExpression ;
   decomp:constituent :Swine_comp , :Fever_comp .
 ```
 

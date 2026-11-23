@@ -11,7 +11,7 @@
 :form_nasa a ontolex:Form ;
   ontolex:writtenRep "NASA"@en .
 
-:national_aeronautics_and_space_administration a ontolex:LexicalEntry, ontolex:MultiwordExpression ;
+:national_aeronautics_and_space_administration a ontolex:LexicalEntry, ontolex:MultiWordExpression ;
   ontolex:canonicalForm :form_national_aeronautics_and_space_administration ;
   rdfs:label "National Aeronautics and Space Administration"@en .
 
