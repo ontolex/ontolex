@@ -1,0 +1,162 @@
+term,property,lang,text
+vartrans:ConceptualRelation,rdfs:comment,ru,Отношение между двумя понятиями
+vartrans:ConceptualRelation,rdfs:label,de,Konzeptbeziehung
+vartrans:ConceptualRelation,rdfs:label,es,relación entre conceptos
+vartrans:ConceptualRelation,rdfs:label,it,relazione di concetti
+vartrans:ConceptualRelation,rdfs:label,nl,conceptrelatie
+vartrans:ConceptualRelation,rdfs:label,ru,отношение понятий
+vartrans:LexicalRelation,rdfs:comment,ru,"'Лексическое отношение' - это лексико-семантическое отношение, которое представляет собой отношение между двумя словарными единицами, поверхностные формы которых связаны грамматически, стилистически или неким процессом, обусловленным лингвистической экономией."
+vartrans:LexicalRelation,rdfs:label,af,leksikale relasie
+vartrans:LexicalRelation,rdfs:label,de,lexikalische Beziehung
+vartrans:LexicalRelation,rdfs:label,es,relación léxica
+vartrans:LexicalRelation,rdfs:label,fr,relation lexicale
+vartrans:LexicalRelation,rdfs:label,it,relazione lessicale
+vartrans:LexicalRelation,rdfs:label,nl,lexikaal relatie
+vartrans:LexicalRelation,rdfs:label,pt,relação semantica
+vartrans:LexicalRelation,rdfs:label,ro,relație lexicală
+vartrans:LexicalRelation,rdfs:label,ru,лексическое отношение
+vartrans:LexicalRelation,rdfs:label,sv,lexikalisk relation
+vartrans:LexicoSemanticRelation,rdfs:comment,ru,"'Лексико-семантическое отношение' представляет собой связь между двумя словарными единицами или лексическими смыслами, которые связаны некими лексическими или семантическими отношениями."
+vartrans:LexicoSemanticRelation,rdfs:label,af,leksikosemantiese relasie
+vartrans:LexicoSemanticRelation,rdfs:label,de,lexikosemantische Beziehung
+vartrans:LexicoSemanticRelation,rdfs:label,es,relación léxico semántica
+vartrans:LexicoSemanticRelation,rdfs:label,fr,relation lexico-sémantique
+vartrans:LexicoSemanticRelation,rdfs:label,it,relazione lessico-semantica
+vartrans:LexicoSemanticRelation,rdfs:label,nl,lexikosemantische relatie
+vartrans:LexicoSemanticRelation,rdfs:label,pt,relação lexica semantica
+vartrans:LexicoSemanticRelation,rdfs:label,ro,relație lexico-semantică
+vartrans:LexicoSemanticRelation,rdfs:label,ru,лексико-семантическое отношение
+vartrans:LexicoSemanticRelation,rdfs:label,sv,lexikalisk-semantisk relation
+vartrans:SenseRelation,rdfs:comment,ru,"'Отношение смыслов' (SenseRelation) - это лексико-семантическое отношение, которое представляет собой связь между двумя лексическими смыслами, значения которых связаны между собой."
+vartrans:SenseRelation,rdfs:label,af,sinsrelasie
+vartrans:SenseRelation,rdfs:label,de,Sinnbeziehung
+vartrans:SenseRelation,rdfs:label,es,relación entre acepciones
+vartrans:SenseRelation,rdfs:label,fr,relation sémantique
+vartrans:SenseRelation,rdfs:label,it,relazione di sensi
+vartrans:SenseRelation,rdfs:label,nl,sinnrelatie
+vartrans:SenseRelation,rdfs:label,pt,relação semantica
+vartrans:SenseRelation,rdfs:label,ro,relație de sens
+vartrans:SenseRelation,rdfs:label,ru,отношение смыслов
+vartrans:SenseRelation,rdfs:label,sv,betydelserelation
+vartrans:TerminologicalRelation,rdfs:comment,ru,"'Терминологическое отношение' - это смысловое отношение, которое связывает два лексических смысла терминов, семантически связанных в том смысле, что они могут взаимозаменяться в большинстве контекстов, но их поверхностные (внешние) формы непосредственно не связаны. В форматах, не фиксируемых в данной онтологии и намеренно (прагматически) обусловленных, данные варианты разнятся (отличаются)."
+vartrans:TerminologicalRelation,rdfs:label,af,terminologiese variant
+vartrans:TerminologicalRelation,rdfs:label,de,terminologische Variante
+vartrans:TerminologicalRelation,rdfs:label,es,variante terminológica
+vartrans:TerminologicalRelation,rdfs:label,fr,variante terminologique
+vartrans:TerminologicalRelation,rdfs:label,it,variante terminologica
+vartrans:TerminologicalRelation,rdfs:label,nl,terminologische variant
+vartrans:TerminologicalRelation,rdfs:label,pt,variante terminologica
+vartrans:TerminologicalRelation,rdfs:label,ro,variantă terminologică
+vartrans:TerminologicalRelation,rdfs:label,ru,терминологическое отношение
+vartrans:TerminologicalRelation,rdfs:label,sv,terminologivariant
+vartrans:Translation,rdfs:comment,ru,"'Перевод' представляет собой 'отношение смыслов', показывающее, что два лексических смысла, соответствующие двум словарным единицам в разных языках, могут быть взаимно переведены без каких-либо существенных искажений смысла."
+vartrans:Translation,rdfs:label,af,vertaling
+vartrans:Translation,rdfs:label,de,Übersetzung
+vartrans:Translation,rdfs:label,es,traducción
+vartrans:Translation,rdfs:label,fr,traduction
+vartrans:Translation,rdfs:label,it,traduzione
+vartrans:Translation,rdfs:label,nl,vertaling
+vartrans:Translation,rdfs:label,pt,tradução
+vartrans:Translation,rdfs:label,ro,traducere
+vartrans:Translation,rdfs:label,ru,перевод
+vartrans:Translation,rdfs:label,sv,versättning
+vartrans:TranslationSet,rdfs:comment,ru,"'Набор переводов' - это совокупность переводов, которые имеют общий источник."
+vartrans:TranslationSet,rdfs:label,de,Übersetzungsatz
+vartrans:TranslationSet,rdfs:label,es,conjunto de traducciones
+vartrans:TranslationSet,rdfs:label,fr,banque de traductions
+vartrans:TranslationSet,rdfs:label,it,bance traduzioni
+vartrans:TranslationSet,rdfs:label,nl,verzameling van vertalingen
+vartrans:TranslationSet,rdfs:label,ru,набор переводов
+vartrans:category,rdfs:comment,ru,"Свойство 'категория' указывает конкретный тип отношения, которым связаны две словарные единицы или два лексических смысла."
+vartrans:category,rdfs:label,af,kategorie
+vartrans:category,rdfs:label,de,Kategorie
+vartrans:category,rdfs:label,es,categoría
+vartrans:category,rdfs:label,fr,contexte
+vartrans:category,rdfs:label,it,categoria
+vartrans:category,rdfs:label,nl,categorie
+vartrans:category,rdfs:label,pt,categoria
+vartrans:category,rdfs:label,ro,categorie
+vartrans:category,rdfs:label,ru,категория
+vartrans:category,rdfs:label,sv,kategori
+vartrans:conceptRel,rdfs:comment,ru,Отношения между двумя понятиями
+vartrans:conceptRel,rdfs:label,de,Konzeptbeziehung
+vartrans:conceptRel,rdfs:label,es,relación entre conceptos
+vartrans:conceptRel,rdfs:label,it,relazione di concetti
+vartrans:conceptRel,rdfs:label,nl,conceptrelatie
+vartrans:conceptRel,rdfs:label,ru,отношение понятий
+vartrans:lexicalRel,rdfs:comment,ru,"Свойство 'lexicalRel' связывает две словарных единицы, которые находятся в некотором лексическом отношении."
+vartrans:lexicalRel,rdfs:label,de,lexikalische Beziehung
+vartrans:lexicalRel,rdfs:label,es,relación léxica
+vartrans:lexicalRel,rdfs:label,fr,relation lexicale
+vartrans:lexicalRel,rdfs:label,it,relazione lessicale
+vartrans:lexicalRel,rdfs:label,nl,lexikaal relatie
+vartrans:lexicalRel,rdfs:label,ru,лексическое отношение
+vartrans:relates,rdfs:comment,ru,"Свойство 'связывает' связывает лексико-семантическим отношением две словарные единицы или два лексических смысла, между которыми оно (данное свойство) устанавливает отношение."
+vartrans:relates,rdfs:label,de,bezieht
+vartrans:relates,rdfs:label,es,relaciona
+vartrans:relates,rdfs:label,fr,relate
+vartrans:relates,rdfs:label,it,rapporta
+vartrans:relates,rdfs:label,nl,relateert
+vartrans:relates,rdfs:label,ru,связывает
+vartrans:senseRel,rdfs:comment,ru,"Свойство 'отношение смыслов' (senseRel) связывает два лексических смысла, которые находятся в некоторой смысловой связи."
+vartrans:senseRel,rdfs:label,de,Sinnbeziehung
+vartrans:senseRel,rdfs:label,es,relación entre acepciones
+vartrans:senseRel,rdfs:label,fr,relation sémantique
+vartrans:senseRel,rdfs:label,it,relazione di sensi
+vartrans:senseRel,rdfs:label,nl,sinnrelatie
+vartrans:senseRel,rdfs:label,ru,отношение смыслов
+vartrans:source,rdfs:comment,ru,"Свойство 'источник' обозначает лексический смысл или словарную единицу, вовлеченную в лексико-семантическое отношение как 'источник'."
+vartrans:source,rdfs:label,af,bron
+vartrans:source,rdfs:label,de,Quelle
+vartrans:source,rdfs:label,es,origen
+vartrans:source,rdfs:label,fr,source
+vartrans:source,rdfs:label,it,origine
+vartrans:source,rdfs:label,nl,bron
+vartrans:source,rdfs:label,pt,origem
+vartrans:source,rdfs:label,ro,sursă
+vartrans:source,rdfs:label,ru,источник
+vartrans:source,rdfs:label,sv,källa
+vartrans:target,rdfs:comment,ru,"Свойство 'цель' обозначает лексический смысл или словарную единицу, вовлеченную в лексико-семантическое отношение как 'цель'."
+vartrans:target,rdfs:label,af,doel
+vartrans:target,rdfs:label,de,Ziel
+vartrans:target,rdfs:label,es,destino
+vartrans:target,rdfs:label,fr,destination
+vartrans:target,rdfs:label,it,destinazione
+vartrans:target,rdfs:label,nl,doel
+vartrans:target,rdfs:label,pt,destino
+vartrans:target,rdfs:label,ro,ţintă
+vartrans:target,rdfs:label,ru,цель
+vartrans:target,rdfs:label,sv,mål
+vartrans:trans,rdfs:comment,ru,Свойство 'перевод' связывает НаборПереводов с одним из его переводов.
+vartrans:trans,rdfs:label,af,vertaling
+vartrans:trans,rdfs:label,de,Übersetzung
+vartrans:trans,rdfs:label,es,traducción
+vartrans:trans,rdfs:label,fr,traduction
+vartrans:trans,rdfs:label,it,traduzione
+vartrans:trans,rdfs:label,nl,vertaling
+vartrans:trans,rdfs:label,pt,tradução
+vartrans:trans,rdfs:label,ro,traducere
+vartrans:trans,rdfs:label,ru,перевод
+vartrans:trans,rdfs:label,sv,versättning
+vartrans:translatableAs,rdfs:comment,ru,"Свойство 'переводится как' связывает словарную единицу на каком-либо языке со словарной единицей на другом языке, на который она может быть переведена соответствующим образом в зависимости от конкретного контекста и специфических смыслов данных словарных единиц."
+vartrans:translatableAs,rdfs:label,af,vertaalbaar As
+vartrans:translatableAs,rdfs:label,de,übersetzbar als
+vartrans:translatableAs,rdfs:label,es,traducibile como
+vartrans:translatableAs,rdfs:label,fr,traduisible par
+vartrans:translatableAs,rdfs:label,it,traducibile come
+vartrans:translatableAs,rdfs:label,nl,vertaalbar als
+vartrans:translatableAs,rdfs:label,pt,traduzivel como
+vartrans:translatableAs,rdfs:label,ro,traductibil ca
+vartrans:translatableAs,rdfs:label,ru,переводится как
+vartrans:translatableAs,rdfs:label,sv,översättbar som
+vartrans:translation,rdfs:comment,ru,"Свойство 'перевод' связывает два лексических смысла двух словарных единиц, которые находятся в отношении перевода друг к другу."
+vartrans:translation,rdfs:label,af,vertaling
+vartrans:translation,rdfs:label,de,Übersetzung
+vartrans:translation,rdfs:label,es,traducción
+vartrans:translation,rdfs:label,fr,traduction
+vartrans:translation,rdfs:label,it,traduzione
+vartrans:translation,rdfs:label,nl,vertaling
+vartrans:translation,rdfs:label,pt,tradução
+vartrans:translation,rdfs:label,ro,traducere
+vartrans:translation,rdfs:label,ru,перевод
+vartrans:translation,rdfs:label,sv,versättning

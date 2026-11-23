@@ -1,0 +1,40 @@
+term,property,lang,text
+decomp:Component,rdfs:comment,ru,"Компонент является конкретной реализацией лексического элемента, который образует часть составной лексической записи."
+decomp:Component,rdfs:label,af,komponent
+decomp:Component,rdfs:label,de,Komponente
+decomp:Component,rdfs:label,es,componente
+decomp:Component,rdfs:label,fr,composant
+decomp:Component,rdfs:label,it,componente
+decomp:Component,rdfs:label,nl,bestanddeel
+decomp:Component,rdfs:label,pt,componente
+decomp:Component,rdfs:label,ro,component
+decomp:Component,rdfs:label,ru,компонент
+decomp:Component,rdfs:label,sv,komponent
+decomp:constituent,rdfs:comment,ru,"Свойство 'составной' связывает словарную единицу или компонент с компонентом, который он образует."
+decomp:constituent,rdfs:label,af,konstituent
+decomp:constituent,rdfs:label,de,Konstituente
+decomp:constituent,rdfs:label,es,constituyente
+decomp:constituent,rdfs:label,fr,constituent
+decomp:constituent,rdfs:label,it,costituente
+decomp:constituent,rdfs:label,nl,constituent
+decomp:constituent,rdfs:label,pt,constituinte
+decomp:constituent,rdfs:label,ro,constituent
+decomp:constituent,rdfs:label,ru,составной
+decomp:constituent,rdfs:label,sv,konstituent
+decomp:correspondsTo,rdfs:comment,ru,Свойство 'соответствие' связывает компонент с соответствующей словарной единицей или аргументом.
+decomp:correspondsTo,rdfs:label,de,entspricht
+decomp:correspondsTo,rdfs:label,es,corresponde a
+decomp:correspondsTo,rdfs:label,fr,correspond à
+decomp:correspondsTo,rdfs:label,it,corrisponde a
+decomp:correspondsTo,rdfs:label,nl,komt overeen met
+decomp:correspondsTo,rdfs:label,ru,соответствие
+decomp:subterm,rdfs:label,af,subterm
+decomp:subterm,rdfs:label,de,Teilterm
+decomp:subterm,rdfs:label,es,sub-término
+decomp:subterm,rdfs:label,fr,sous-terme
+decomp:subterm,rdfs:label,it,sotto-termine
+decomp:subterm,rdfs:label,nl,subterm
+decomp:subterm,rdfs:label,pt,subtermo
+decomp:subterm,rdfs:label,ro,subtermen
+decomp:subterm,rdfs:label,ru,подчинение
+decomp:subterm,rdfs:label,sv,underterm

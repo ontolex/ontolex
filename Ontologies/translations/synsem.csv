@@ -1,0 +1,156 @@
+term,property,lang,text
+synsem:OntoMap,rdfs:comment,ru,"'Отображение онтологии' (OntoMap для краткости) определяет, как синтаксический фрейм и его синтаксические аргументы сопоставляются с набором понятий и свойств в онтологии, которые вместе определяют значение синтаксического фрейма."
+synsem:OntoMap,rdfs:label,de,Ontologieabbildung
+synsem:OntoMap,rdfs:label,es,applicación de l'ontología
+synsem:OntoMap,rdfs:label,fr,application de l'ontologie
+synsem:OntoMap,rdfs:label,it,mappa de l'ontologia
+synsem:OntoMap,rdfs:label,nl,ontologieafbeelding
+synsem:OntoMap,rdfs:label,ru,отображение онтологии
+synsem:SyntacticArgument,rdfs:comment,ru,"'Синтаксический аргумент' представляет собой слот, который необходимо заполнить для получения определенного синтаксического фрейма. Синтаксические аргументы обычно реализуют определенную грамматическую функцию (например, субъект, прямой объект, косвенный объект, предпозиционный объект и т.д.)."
+synsem:SyntacticArgument,rdfs:label,af,sintaktiese argument
+synsem:SyntacticArgument,rdfs:label,de,syntaktisches Argument
+synsem:SyntacticArgument,rdfs:label,es,argumento sintáctico
+synsem:SyntacticArgument,rdfs:label,fr,actant syntaxique
+synsem:SyntacticArgument,rdfs:label,it,argomento sintattico
+synsem:SyntacticArgument,rdfs:label,nl,syntactisch argument
+synsem:SyntacticArgument,rdfs:label,pt,argumento sintatico
+synsem:SyntacticArgument,rdfs:label,ro,argument sintactic
+synsem:SyntacticArgument,rdfs:label,ru,синтаксический аргумент
+synsem:SyntacticArgument,rdfs:label,sv,syntaktiskt argument
+synsem:SyntacticFrame,rdfs:comment,ru,"'Синтаксический фрейм' представляет синтаксическое поведение открытого слова класса в терминах (синтаксических) аргументов, которые ему необходимы. Он по существу описывает так называемую структуру подкатегоризации рассматриваемого слова, в частности синтаксические аргументы, которые он требует."
+synsem:SyntacticFrame,rdfs:label,af,raam
+synsem:SyntacticFrame,rdfs:label,de,syntaktisches Frame
+synsem:SyntacticFrame,rdfs:label,es,marco sintáctico
+synsem:SyntacticFrame,rdfs:label,fr,cadre syntaxique
+synsem:SyntacticFrame,rdfs:label,it,frame
+synsem:SyntacticFrame,rdfs:label,nl,raam
+synsem:SyntacticFrame,rdfs:label,ro,cadru
+synsem:SyntacticFrame,rdfs:label,ru,синтаксический фрейм
+synsem:SyntacticFrame,rdfs:label,sv,ram
+synsem:condition,rdfs:comment,ru,"Свойство 'состояние' определяет оценочное ограничение, которое получается из использования определенной словарной единицы для выражения заданного онтологического предиката."
+synsem:condition,rdfs:label,af,voorwaarde
+synsem:condition,rdfs:label,de,Bedingung
+synsem:condition,rdfs:label,es,condición
+synsem:condition,rdfs:label,fr,condition
+synsem:condition,rdfs:label,it,condizione
+synsem:condition,rdfs:label,nl,voorwaarde
+synsem:condition,rdfs:label,pt,condição
+synsem:condition,rdfs:label,ro,condiție
+synsem:condition,rdfs:label,ru,состояние
+synsem:condition,rdfs:label,sv,villkor
+synsem:isA,rdfs:comment,ru,Свойство 'экземпляр' представляет одиночный аргумент класса или унарный предикат.
+synsem:isA,rdfs:label,af,instansie van
+synsem:isA,rdfs:label,de,instanz von
+synsem:isA,rdfs:label,es,Instancia de
+synsem:isA,rdfs:label,fr,Instance de
+synsem:isA,rdfs:label,it,istanza di
+synsem:isA,rdfs:label,nl,instantie van
+synsem:isA,rdfs:label,pt,é um
+synsem:isA,rdfs:label,ro,instanță a
+synsem:isA,rdfs:label,ru,экземпляр
+synsem:isA,rdfs:label,sv,är en
+synsem:marker,rdfs:comment,ru,"Свойство 'маркер' указывает маркер синтаксического аргумента; Это может быть маркер падежа или какая-то другая словарная единица, такая как предлог или частица."
+synsem:marker,rdfs:label,af,merker
+synsem:marker,rdfs:label,de,Marker
+synsem:marker,rdfs:label,es,marcador
+synsem:marker,rdfs:label,fr,marqueur
+synsem:marker,rdfs:label,it,marcatore
+synsem:marker,rdfs:label,nl,merker
+synsem:marker,rdfs:label,pt,marcado
+synsem:marker,rdfs:label,ro,marcator
+synsem:marker,rdfs:label,ru,маркер
+synsem:marker,rdfs:label,sv,markör
+synsem:objOfProp,rdfs:comment,ru,'Объект свойства' представляет 2-й аргумент или объект бинарного предиката (свойства) в онтологии.
+synsem:objOfProp,rdfs:label,af,voorwerp van predikaat
+synsem:objOfProp,rdfs:label,de,objekt des Prädikats
+synsem:objOfProp,rdfs:label,es,complemento de la propiedad
+synsem:objOfProp,rdfs:label,fr,complément de la propriété
+synsem:objOfProp,rdfs:label,it,oggetto della proprietà
+synsem:objOfProp,rdfs:label,nl,object van predikaat
+synsem:objOfProp,rdfs:label,ro,obiect al proprietății
+synsem:objOfProp,rdfs:label,ru,объект свойства
+synsem:objOfProp,rdfs:label,sv,objekt av predikat
+synsem:ontoCorrespondence,rdfs:comment,ru,"Свойство 'онтологическая переписка' связывает аргумент предиката, определенного в онтологии, с синтаксическим аргументом, который синтаксически реализует этот предикат."
+synsem:ontoCorrespondence,rdfs:label,de,ontologische Korrespondenz
+synsem:ontoCorrespondence,rdfs:label,es,correspondencia ontológica
+synsem:ontoCorrespondence,rdfs:label,fr,correspondance ontologique
+synsem:ontoCorrespondence,rdfs:label,it,corrispondenza ontologica
+synsem:ontoCorrespondence,rdfs:label,nl,ontologische correspondentie
+synsem:ontoCorrespondence,rdfs:label,ru,онтологическая переписка
+synsem:ontoMapping,rdfs:comment,ru,Свойство 'onMapping' связывает отображение онтологии с соответствующим ему лексическим смыслом.
+synsem:ontoMapping,rdfs:label,de,Ontologieabbildung
+synsem:ontoMapping,rdfs:label,es,applicación de l'ontología
+synsem:ontoMapping,rdfs:label,fr,application de l'ontologie
+synsem:ontoMapping,rdfs:label,it,mappa de l'ontologia
+synsem:ontoMapping,rdfs:label,nl,ontologieafbeelding
+synsem:ontoMapping,rdfs:label,ru,отображение онтологии
+synsem:optional,rdfs:comment,ru,"Свойство 'опциональный' указывает, является ли синтаксический аргумент необязательным, то есть его можно синтаксически исключить."
+synsem:optional,rdfs:label,af,opsioneel
+synsem:optional,rdfs:label,de,optional
+synsem:optional,rdfs:label,es,opcional
+synsem:optional,rdfs:label,fr,optionnel
+synsem:optional,rdfs:label,it,opzionale
+synsem:optional,rdfs:label,nl,optioneel
+synsem:optional,rdfs:label,pt,opcional
+synsem:optional,rdfs:label,ro,facultativ
+synsem:optional,rdfs:label,ru,опциональный
+synsem:optional,rdfs:label,sv,optionell
+synsem:propertyDomain,rdfs:comment,ru,"'Свойство домена' обеспечивает прагматическое ограничение на область свойства, на которое ссылается этот смысл."
+synsem:propertyDomain,rdfs:label,af,predikaatdefinisiegebied
+synsem:propertyDomain,rdfs:label,de,Definitionsbereich des Prädikats
+synsem:propertyDomain,rdfs:label,es,dominio de la propiedad
+synsem:propertyDomain,rdfs:label,fr,ensemble de la propriété
+synsem:propertyDomain,rdfs:label,it,dominio di proprietà
+synsem:propertyDomain,rdfs:label,nl,domein van predikaat
+synsem:propertyDomain,rdfs:label,ro,domeniul proprietății
+synsem:propertyDomain,rdfs:label,ru,свойство домена
+synsem:propertyDomain,rdfs:label,sv,relationsdomän
+synsem:propertyRange,rdfs:comment,ru,"'Диапазон свойства' обеспечивает прагматическое ограничение на область диапазона,на которое ссылается этот смысл."
+synsem:propertyRange,rdfs:label,af,predikaatwaardegebied
+synsem:propertyRange,rdfs:label,de,Wertemenge des Prädikats
+synsem:propertyRange,rdfs:label,es,rango de la propiedad
+synsem:propertyRange,rdfs:label,fr,image de la propriété
+synsem:propertyRange,rdfs:label,it,codominio di proprietà
+synsem:propertyRange,rdfs:label,nl,bereik van predikaat
+synsem:propertyRange,rdfs:label,ro,gama proprietății
+synsem:propertyRange,rdfs:label,ru,диапазон свойства
+synsem:propertyRange,rdfs:label,sv,relationsräckvidd
+synsem:subjOfProp,rdfs:comment,ru,Свойство 'subjOfProp' представляет 1-й аргумент или субъект бинарного предиката (свойства) в онтологии.
+synsem:subjOfProp,rdfs:label,af,onderwerp van predikaat
+synsem:subjOfProp,rdfs:label,de,Subjekt des Prädikats
+synsem:subjOfProp,rdfs:label,es,sujeto de la propiedad
+synsem:subjOfProp,rdfs:label,fr,sujet de la propriété
+synsem:subjOfProp,rdfs:label,it,soggetto della proprietà
+synsem:subjOfProp,rdfs:label,nl,onderwerp van predikaat
+synsem:subjOfProp,rdfs:label,ro,subiectul proprietații
+synsem:subjOfProp,rdfs:label,ru,субъект свойства
+synsem:subjOfProp,rdfs:label,sv,subjekt av predikat
+synsem:submap,rdfs:comment,ru,"Свойство 'submap' связывает (сложное) онтологическое отображение с набором привязок, которые вместе связывают аргументы задействованных предикатов с набором синтаксических аргументов, которые реализуют их синтаксически."
+synsem:submap,rdfs:label,de,Subframe
+synsem:submap,rdfs:label,es,parte del marco
+synsem:submap,rdfs:label,fr,cadre composante
+synsem:submap,rdfs:label,it,subframe
+synsem:submap,rdfs:label,nl,deelraam
+synsem:submap,rdfs:label,sv,underbetydelse
+synsem:synArg,rdfs:comment,ru,Свойство объекта 'synArg' связывает синтаксический фрейм с одним из его синтаксических аргументов.
+synsem:synArg,rdfs:label,af,sintaktiese argument
+synsem:synArg,rdfs:label,de,syntaktisches Argument
+synsem:synArg,rdfs:label,es,argumento sintáctico
+synsem:synArg,rdfs:label,fr,actant syntaxique
+synsem:synArg,rdfs:label,it,argomento sintattico
+synsem:synArg,rdfs:label,nl,syntactisch argument
+synsem:synArg,rdfs:label,pt,argumento sintatico
+synsem:synArg,rdfs:label,ro,argument sintactic
+synsem:synArg,rdfs:label,ru,синтаксический аргумент
+synsem:synArg,rdfs:label,sv,syntaktiskt argument
+synsem:synBehavior,rdfs:comment,ru,"Свойство 'синтаксическое поведение' связывает лексическую запись с одним из ее синтаксических типов поведения, захваченных синтаксическим фреймом."
+synsem:synBehavior,rdfs:label,af,sintaktiese dedrag
+synsem:synBehavior,rdfs:label,de,syntaktisches Verhalten
+synsem:synBehavior,rdfs:label,es,funcionamiento sintáctico
+synsem:synBehavior,rdfs:label,fr,conduite syntaxique
+synsem:synBehavior,rdfs:label,it,comportamento sintattico
+synsem:synBehavior,rdfs:label,nl,syntactisch optreden
+synsem:synBehavior,rdfs:label,pt,comportamento sintatico
+synsem:synBehavior,rdfs:label,ro,comportament sintactic
+synsem:synBehavior,rdfs:label,ru,синтаксическое поведение
+synsem:synBehavior,rdfs:label,sv,syntaktiskt beteende
