@@ -1232,7 +1232,7 @@ There is no specification of the range of values for the confidence property, as
 
 There are occasions in which lexicographic records also include an example of use of an entry in each of its senses. While these examples can be captured as examples of a [=lexical concept=], sometimes there is more information about the example beyond the text itself. The class [=usage example=] represents a textual example of the usage of a sense.
 
-<div class="entity" about="lexicog:UsageExample" typeof="owl:Class">
+<div class="entity" about="ontolex:UsageExample" typeof="owl:Class">
 <class property="rdfs:label" lang="en">Usage Example</class>
 
 <div property="rdfs:comment"> The <dfn>usage example</dfn> represents a textual example of the usage of a sense in a given lexicographic record.</div>
