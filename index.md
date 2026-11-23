@@ -2277,7 +2277,7 @@ the use of a certain lexical entry to express the property in question.
 <div class="entity" about="synsem:propertyRange" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Property Range</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>property range</dfn> property specifies a constraint on the type of arguments that can be used at the first position of the property that is referenced by the given sense. </div>
+<div property="rdfs:comment"> The <dfn>property range</dfn> property specifies a constraint on the type of arguments that can be used at the second position of the property that is referenced by the given sense. </div>
 
 <div class="description">
 <domain>[=Lexical Sense=]</domain>
