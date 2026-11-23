@@ -14,7 +14,7 @@ namespaces = {
 
 tags_to_expand = {
         "range": {"rel": "rdfs:range"},
-        "domain": {"rel": "domain"},
+        "domain": {"rel": "rdfs:domain"},
         "subclass": {"rel": "rdfs:subClassOf"},
         "subproperty": {"rel": "rdfs:subPropertyOf"},
         "inverse": {"rel": "owl:inverseOf"},
