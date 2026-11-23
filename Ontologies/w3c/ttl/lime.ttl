@@ -20,9 +20,6 @@ void:Linkset
 void:subset
     a owl:ObjectProperty .
 
-void:vocabulary
-    a owl:ObjectProperty .
-
 rdfs:Class
     a owl:Class .
 

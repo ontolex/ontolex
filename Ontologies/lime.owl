@@ -93,12 +93,6 @@
     
 
 
-    <!-- http://rdfs.org/ns/void#vocabulary -->
-
-    <owl:ObjectProperty rdf:about="&void;vocabulary"/>
-    
-
-
     <!-- http://www.w3.org/ns/lemon/lime#conceptualDataset -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#conceptualDataset">
