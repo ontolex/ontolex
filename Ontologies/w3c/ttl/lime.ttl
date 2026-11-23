@@ -44,7 +44,7 @@ vs:term_status
     a <http://purl.org/vocommons/voaf#Vocabulary>, owl:Ontology ;
     rdfs:comment """-Version 1.0: depreciation with minor change in metadata for LOV publication
 -Version 1.1: creation"""@en ;
-    rdfs:label "Lexicon Model for Ontologies - LIngusitic MEtadata (LIME)"@en ;
+    rdfs:label "Lexicon Model for Ontologies - LInguistic MEtadata (LIME)"@en ;
     owl:imports <http://www.w3.org/ns/lemon/ontolex> ;
     owl:versionInfo 1.1 .
 
