@@ -72,9 +72,6 @@
     
 
 
-    <!-- http://www.w3.org/2000/01/rdf-schema#isDefinedBy -->
-
-    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
     <owl:AnnotationProperty rdf:about="&vs;term_status"/>
     
 
@@ -90,10 +87,6 @@
     
 
 
-    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#langString -->
-
-    <rdfs:Datatype rdf:about="&rdf;langString"/>
-    
 
 
     <!-- 
@@ -107,24 +100,10 @@
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#denotes -->
-
-    <owl:ObjectProperty rdf:about="&semiotics;denotes"/>
-    
 
 
-    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
-
-    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
-    
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
-        <rdfs:label xml:lang="en">in scheme</rdfs:label>
-    </owl:ObjectProperty>
-    
 
 
     <!-- http://www.w3.org/ns/lemon/ontolex#canonicalForm -->
@@ -570,10 +549,6 @@
     
 
 
-    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
-
-    <owl:DatatypeProperty rdf:about="&owl;topDataProperty"/>
-    
 
 
     <!-- http://www.w3.org/ns/lemon/ontolex#phoneticRep -->
@@ -660,41 +635,13 @@
     
 
 
-    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
-
-    <owl:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
-    
 
 
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Expression -->
-
-    <owl:Class rdf:about="&semiotics;Expression">
-        <rdfs:label xml:lang="en">expression</rdfs:label>
-    </owl:Class>
-    
 
 
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Meaning -->
-
-    <owl:Class rdf:about="&semiotics;Meaning">
-        <rdfs:label xml:lang="en">meaning</rdfs:label>
-    </owl:Class>   
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
-        <rdfs:label xml:lang="en">concept</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
-
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
-        <rdfs:label xml:lang="en">concept scheme</rdfs:label>
-    </owl:Class>
-    
 
 
     <!-- http://www.w3.org/ns/lemon/ontolex#Affix -->
@@ -925,15 +872,8 @@
     
 
 
-    <!-- http://xmlns.com/foaf/0.1/Organization -->
-
-    <owl:Class rdf:about="&foaf;Organization"/>
-    
 
 
-    <!-- http://xmlns.com/foaf/0.1/Person -->
-
-    <owl:Class rdf:about="&foaf;Person"/>
 </rdf:RDF>
 
 

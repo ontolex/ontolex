@@ -73,10 +73,6 @@
     
 
 
-    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
-
-    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
-    
 
 
     <!-- http://www.w3.org/ns/lemon/vartrans#category -->

@@ -10,9 +10,6 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 
-owl:topObjectProperty
-    a owl:ObjectProperty .
-
 vs:term_status
     a owl:AnnotationProperty .
 
