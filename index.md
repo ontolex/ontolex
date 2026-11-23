@@ -167,8 +167,8 @@ It is important to also mention what is not the purpose of the model:
     classification schemes. This is covered by the
     [SKOS](http://www.w3.org/2004/02/skos/) model.
 -   It is not a vocabulary for annotation of texts. If you need to add
-    annotations to textual data, then please consider using the [Open
-    Annotation](http://www.openannotation.org/spec/core/), [NLP
+    annotations to textual data, then please consider using the [Web
+    Annotation Data Model](https://www.w3.org/TR/annotation-model/), [NLP
     Interchange Format
     (NIF)](http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/nif-core.html)
     or the [Extremely Annotational RDF Markup
@@ -4546,7 +4546,7 @@ desc](Examples/wordnet/example1.png)](Examples/wordnet/example1.png){.tn}
 ## Relation to Other Models
 
 In this section, we informally clarify the relation to other models, in
-particular SKOS, the Lexical Markup Model (LMF), and the Open Annotation
+particular SKOS, the Lexical Markup Model (LMF), and the Web Annotation
 standard.
 
 <section id="relation-to-skos">
@@ -4667,16 +4667,19 @@ differences are summarized here:
     can be done using OWL axioms, but not in lemon itself.
 </section>
 
-<section id="relation-to-open-annotation">
-## OpenAnnotation
+<section id="relation-to-web-annotation">
+## Web Annotation
 
 In many uses cases the need arises to annotate a text corpus with links
 to entities defined in a lexicon, e.g. lexical entries, forms, lexical
 senses, lexical concepts etc. lemon does not support this annotation per
 se, as there are other models that are dedicated exactly to this. This
-is the case for the [Open Annotation](http://openannotation.org/)
-standard. In both models an element of the lexicon may be the target of
-an annotation. This target may be a form, lexical entry, lexical sense
+is the case for the [Web Annotation Data
+Model](https://www.w3.org/TR/annotation-model/) and
+[Vocabulary](https://www.w3.org/TR/annotation-vocab/), a W3C
+Recommendation that developed from the earlier Open Annotation model.
+In both models an element of the lexicon may be the target of an
+annotation. This target may be a form, lexical entry, lexical sense
 or lexical concept and it is important to give the class to make clear
 what the target of the annotation is.
 
