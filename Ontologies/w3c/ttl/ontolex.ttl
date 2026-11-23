@@ -350,8 +350,14 @@ vs:term_status
 
 :usage
     a owl:ObjectProperty ;
-    rdfs:comment "The 'usage' property indicates usage conditions or pragmatic implications when using the lexical entry to refer to the given ontological meaning."@en, "Свойство 'употребление' обозначает условия использования или прагматическое значение при употреблении словарной единицы для соотнесения с определенным значением в онтологии."@ru ;
-    rdfs:domain :LexicalSense ;
+    rdfs:comment "The 'usage' property indicates usage conditions or pragmatic implications of a lexical entry, form or lexical sense, for example when using the lexical entry to refer to the given ontological meaning."@en, "Свойство 'употребление' обозначает условия использования или прагматическое значение при употреблении словарной единицы для соотнесения с определенным значением в онтологии."@ru ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (:Form
+            :LexicalEntry
+            :LexicalSense
+        )
+    ] ;
     rdfs:isDefinedBy <http://www.w3.org/ns/lemon/ontolex> ;
     rdfs:label "Gebrauch"@de, "gebruik"@nl, "usage"@en, "usage"@fr, "uso"@es, "uso"@it, "употребление"@ru ;
     rdfs:range rdfs:Resource ;

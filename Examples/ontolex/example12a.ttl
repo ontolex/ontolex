@@ -1,0 +1,22 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <#> .
+
+# Usage information on a lexical entry, with provenance
+:surcoFerroviario a ontolex:LexicalEntry ;
+  ontolex:usage :surcoFerroviario_usage .
+
+:surcoFerroviario_usage a prov:Entity ;
+  rdf:value "Término acordado tras consultar con el Ministerio de Fomento; en algunos documentos legales se usan también «franja» y «ruta»."@es ;
+  prov:hadPrimarySource [ a prov:Entity ;
+                          rdfs:label "DGT-ES-TERM" ] .
+
+# Usage information on a form
+:colour a ontolex:LexicalEntry ;
+  ontolex:otherForm :colour_us .
+
+:colour_us a ontolex:Form ;
+  ontolex:writtenRep "color"@en-US ;
+  ontolex:usage [ rdf:value "Preferred spelling in American English"@en ] .
