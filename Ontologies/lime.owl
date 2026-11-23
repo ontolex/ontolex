@@ -72,9 +72,6 @@
     
 
 
-    <!-- http://rdfs.org/ns/void#vocabulary -->
-
-    <owl:AnnotationProperty rdf:about="&void;vocabulary"/>
     <owl:AnnotationProperty rdf:about="&vs;term_status"/>
     
 

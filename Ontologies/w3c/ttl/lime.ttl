@@ -21,7 +21,7 @@ void:subset
     a owl:ObjectProperty .
 
 void:vocabulary
-    a owl:AnnotationProperty, owl:ObjectProperty .
+    a owl:ObjectProperty .
 
 rdfs:Class
     a owl:Class .
