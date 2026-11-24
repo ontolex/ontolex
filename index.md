@@ -550,6 +550,7 @@ functional:
 <domain>[=Lexical Entry=]</domain>
 <range>[=Form=]</range>
 <subproperty>[=lexical form=]</subproperty>
+<functional/>
 </div>
 </div>
 
@@ -1319,7 +1320,6 @@ lexical concept, similar to how a lexical entry
 <domain>[=Lexical Entry=]</domain>
 <range>[=Lexical Concept=]</range>
 <inverse>[=is evoked by=]</inverse>
-<inverse-functional/>
 </div>
 </div>
 
@@ -1677,6 +1677,7 @@ behavior such as \'transitive\' should be captured by classes.
 <domain>[=Lexical Entry=]</domain>
 <range>[=Syntactic Frame=]</range>
 <inverse>[=is syntactic behavior of=]</inverse>
+<inverse-functional/>
 </div>
 </div>
 
@@ -2681,6 +2682,7 @@ distinguish the [=source=] from the
 
 <div class="description">
 <subproperty>[=relates=]</subproperty>
+<functional/>
 </div>
 </div>
 
@@ -2691,6 +2693,7 @@ distinguish the [=source=] from the
 
 <div class="description">
 <subproperty>[=relates=]</subproperty>
+<functional/>
 </div>
 </div>
 
@@ -3461,6 +3464,7 @@ means of the properties [=reference dataset=] and [=lexicon dataset=], respectiv
 <div class="description">
 <domain>[=Lexicalization Set=] OR [=Lexical Linkset=]</domain>
 <range>void:Dataset</range>
+<functional/>
 </div>
 </div>
 
@@ -3472,6 +3476,7 @@ means of the properties [=reference dataset=] and [=lexicon dataset=], respectiv
 <div class="description">
 <domain>[=Lexicalization Set=] OR [=Conceptualization Set=]</domain>
 <range>[=Lexicon=]</range>
+<functional/>
 </div>
 </div>
 
