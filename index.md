@@ -964,25 +964,25 @@ following words with lemma \'bank\' are all considered distinct:
 
 ```turtle
 :bank1_en a ontolex:LexicalEntry ;
-  dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
+  lime:language "en" ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:etymologicalRoot :banque_frm ;
   ontolex:denotes <http://dbpedia.org/resource/Bank> .
 
 :bank2_en a ontolex:LexicalEntry ;
-  dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
+  lime:language "en" ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:etymologicalRoot :hobanca_ang ;
   ontolex:denotes <http://dbpedia.org/resource/Bank_(geographic)> .
 
 :bank3_en a ontolex:LexicalEntry ;
-  dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
+  lime:language "en" ;
   lexinfo:partOfSpeech lexinfo:verb ;
   lexinfo:etymologicalRoot :hobanca_ang ;
   ontolex:denotes <http://dbpedia.org/resource/Banked_turn> .
 
 :bank1_de a ontolex:LexicalEntry ;
-  dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+  lime:language "de" ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:gender lexinfo:feminine ;
   ontolex:denotes <http://dbpedia.org/resource/Bank> ;
@@ -992,7 +992,7 @@ following words with lemma \'bank\' are all considered distinct:
   lexinfo:number lexinfo:plural .
 
 :bank2_de a ontolex:LexicalEntry ;
-  odct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+  lime:language "de" ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:gender lexinfo:feminine ;
   ontolex:denotes <http://dbpedia.org/resource/Bench_(furniture)> ;
@@ -1039,8 +1039,7 @@ $∃gender.\{female\}$:
 :female_sense ontolex:reference [
     a owl:Restriction;
     owl:onProperty <http://dbpedia.org/ontology/gender> ;
-    owl:hasValue <http://dbpedia.org/resource/Female> ] ;
-  synsem:isA :female_arg .
+    owl:hasValue <http://dbpedia.org/resource/Female> ] .
 ```
 </aside>
 
@@ -2256,12 +2255,19 @@ illustrated by the example below:
 
 ```turtle
 :ride a ontolex:LexicalEntry ;
+  synsem:synBehavior :ride_frame ;
   ontolex:sense :ride_sense1 .
 
-:ride_sense1 a ontolex:LexicalSense ;
+:ride_frame a lexinfo:TransitiveFrame ;
+  lexinfo:subject :ride_subj ;
+  lexinfo:directObject :ride_obj .
+
+:ride_sense1 a ontolex:LexicalSense, synsem:OntoMap ;
   ontolex:reference :methodOfTransportation ;
-  synsem:propertyRange :Bicycle ;
-  synsem:semArg :subj, :obj .
+  synsem:ontoMapping :ride_sense1 ;
+  synsem:subjOfProp :ride_subj ;
+  synsem:objOfProp :ride_obj ;
+  synsem:propertyRange :Bicycle .
 
 :methodOfTransportation a rdf:Property ;
   rdfs:range :Vehicle .
@@ -2858,10 +2864,10 @@ example of a diachronic variant:
 
 :phthisis_form ontolex:writtenRep "phthisis"@en .
 
-:phtisis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>;
+:phthisis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>;
                dct:subject <http://dbpedia.org/resource/Medicine> .
 
-:phtisis_diachronic_relation a vartrans:TerminologicalRelation ;
+:phthisis_diachronic_relation a vartrans:TerminologicalRelation ;
       vartrans:source :phthisis_sense ;
       vartrans:target :tuberculosis_sense ; 
       vartrans:category :diachronic.
@@ -2945,13 +2951,13 @@ introduced already in the ontolex section above:
 :surrogate_mother_sense ontolex:reference ontology:SurrogateMother.
 
 :madre_de_alquiler a ontolex:LexicalEntry;
-      dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> ;
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/spa>, <http://lexvo.org/id/iso639-1/es> ;
       ontolex:sense :madre_de_alquiler_sense.
 
 :madre_de_alquiler_sense ontolex:reference ontology:SurrogateMother.
 
 :leihmutter a ontolex:LexicalEntry;
-      dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :leihmutter_sense.
 
 :leihmutter_sense ontolex:reference ontology:SurrogateMother.
@@ -3002,7 +3008,7 @@ other.
 :zip_code_sense ontolex:reference <http://dbpedia.org/ontology/zipCode>.
 
 :postleitzahl a ontolex:LexicalEntry;
-      dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :postleitzahl_sense.
 
 :postleitzahl_sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
@@ -3049,7 +3055,7 @@ With the translation property, the above example can be replaced with:
 :zip_code_sense ontolex:reference <http://dbpedia.org/ontology/zipCode>.
 
 :postleitzahl a ontolex:LexicalEntry;
-      dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :postleitzahl_sense.
 
 :postleitzahl_sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
@@ -3096,10 +3102,10 @@ the Spanish *rincón* (intersection of two inside walls) or *esquina*
       dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> .
  
 :rincón a ontolex:LexicalEntry;
-       dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> .
+       dct:language <http://id.loc.gov/vocabulary/iso639-2/spa>, <http://lexvo.org/id/iso639-1/es> .
 
 :esquina a ontolex:LexicalEntry;
-       dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> .
+       dct:language <http://id.loc.gov/vocabulary/iso639-2/spa>, <http://lexvo.org/id/iso639-1/es> .
 
 :corner vartrans:translatableAs :rincón.
 :corner vartrans:translatableAs :esquina.
@@ -3295,7 +3301,7 @@ assigning each entry a numeric position while retaining the unordered
 
 ```turtle
 :dictionary a lime:Lexicon ;
-   lime:language "en" ;
+   dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
    lime:entry :lex_aardvark ;
    rdf:_1 :lex_aardvark ;
    lime:entry :lex_bee ;
@@ -3371,7 +3377,7 @@ introduced properties in addition to Dublin Core properties. The
 part-of-speech of the four lexical entries is indicated using the
 lexinfo vocabulary, so that the value of
 [=linguistic catalog=] is set to
-`http://www.lexinfo.net/ontologies/2.0/lexinfo`. In the example, there
+`http://www.lexinfo.net/ontology/3.0/lexinfo`. In the example, there
 is one (RDF) resource that represents both the lexicon itself and its
 metadata:
 
@@ -3382,7 +3388,7 @@ metadata:
    lime:language "en";
    dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
    lime:lexicalEntries "4"^^xsd:integer;                                               
-   lime:linguisticCatalog <http://www.lexinfo.net/ontologies/2.0/lexinfo> ;
+   lime:linguisticCatalog <http://www.lexinfo.net/ontology/3.0/lexinfo> ;
    dct:description "This is an example lexicon"@en;                              
    dct:description "Questo è un lessico di esempio"@it;                          
    dct:creator <http://john.mccr.ae/>;                                           
@@ -4536,7 +4542,7 @@ detailed linguistic information.
 
 ```turtle
 :financial_assets a skos:Concept;
-                ontolex:lexicalizedSense :financial_assets_lex.
+                ontolex:isEvokedBy :financial_assets_lex.
 
 :financial_assets_lex a ontolex:LexicalEntry;
                  ontolex:evokes :financial_assets;
@@ -4646,20 +4652,24 @@ example
 <aside class="example" src="Examples/other/example-oa.ttl">
 
 ```turtle
-@prefix dctypes: <http://purl.org/dc/dcmitype/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix : <#> .
 
-:annotation a oa:Annotation ;
+:anno a oa:Annotation ;
   oa:hasBody :cat ;
-  oa:hasTarget <anno#target> .
+  oa:hasTarget [
+    oa:hasSource <http://www.example.com/doc.txt> ;
+    oa:hasSelector [
+      a oa:FragmentSelector ;
+      dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+      rdf:value "char=7,10"
+    ]
+  ] .
 
-:annotation#target a dctypes:Text ;
-  oa:hasSelector <http://www.example.com/doc.txt#char=7,10> .
-
-<http://www.example.com/doc.txt#char=7,10> a oa:FragmentSelector .
-
-<cat> a ontolex:LexicalEntry .
+:cat a ontolex:LexicalEntry .
 ```
 
 </aside>

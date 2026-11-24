@@ -13,6 +13,7 @@
 
 :national_aeronautics_and_space_administration a ontolex:LexicalEntry, ontolex:MultiWordExpression ;
   ontolex:canonicalForm :form_national_aeronautics_and_space_administration ;
+  lexinfo:abbreviationFor :nasa ;
   rdfs:label "National Aeronautics and Space Administration"@en .
 
 :form_national_aeronautics_and_space_administration a ontolex:Form ;

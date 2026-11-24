@@ -1,27 +1,28 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
 @prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
 @prefix : <#>.
 
 :bank1_en a ontolex:LexicalEntry ;
-  ontolex:language "en" ;
+  lime:language "en" ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:etymologicalRoot :banque_frm ;
   ontolex:denotes <http://dbpedia.org/resource/Bank> .
 
 :bank2_en a ontolex:LexicalEntry ;
-  ontolex:language "en" ;
+  lime:language "en" ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:etymologicalRoot :hobanca_ang ;
   ontolex:denotes <http://dbpedia.org/resource/Bank_(geographic)> .
 
 :bank3_en a ontolex:LexicalEntry ;
-  ontolex:language "en" ;
+  lime:language "en" ;
   lexinfo:partOfSpeech lexinfo:verb ;
   lexinfo:etymologicalRoot :hobanca_ang ;
   ontolex:denotes <http://dbpedia.org/resource/Banked_turn> .
 
 :bank1_de a ontolex:LexicalEntry ;
-  ontolex:language "de" ;
+  lime:language "de" ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:gender lexinfo:feminine ;
   ontolex:denotes <http://dbpedia.org/resource/Bank> ;
@@ -31,7 +32,7 @@
   lexinfo:number lexinfo:plural .
 
 :bank2_de a ontolex:LexicalEntry ;
-  ontolex:language "de" ;
+  lime:language "de" ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:gender lexinfo:feminine ;
   ontolex:denotes <http://dbpedia.org/resource/Bench_(furniture)> ;
