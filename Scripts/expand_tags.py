@@ -200,12 +200,14 @@ def expand_asides(soup, base_dir):
     file that supplies the aside's inline Turtle listing), and insert it
     as a `<pre class="mermaid">` before that listing.
     """
-    for aside in soup.find_all("aside", src=True):
+    for aside in soup.find_all(["aside", "div"], src=True):
         src = aside["src"]
         ttl_path = os.path.join(base_dir, src)
         with open(ttl_path) as f:
             text = f.read()
-        mermaid_text = turtle_to_mermaid(text)
+        # a .LR file next to the Turtle file asks for a left-to-right layout
+        direction = "LR" if os.path.exists(os.path.splitext(ttl_path)[0] + ".LR") else None
+        mermaid_text = turtle_to_mermaid(text, direction)
 
         pre = soup.new_tag("pre", **{"class": "mermaid"})
         pre.string = mermaid_text

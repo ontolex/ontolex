@@ -55,7 +55,8 @@ def make_id(name):
     return id
 
 
-def turtle_to_mermaid(ttl_text):
+def turtle_to_mermaid(ttl_text, direction=None):
+    """`direction` ("LR" or "TD") overrides the layout chosen from the size."""
     g = Graph()
     g.parse(data=ttl_text, format="turtle")
 
@@ -127,6 +128,7 @@ def turtle_to_mermaid(ttl_text):
     # https://github.com/ontolex/morph/issues/78); lay those out left to
     # right instead, which spreads siblings vertically.
     n_nodes = sum(1 for l in lines_out if l.endswith('"]'))
-    lines_out[0] = "flowchart %s" % ("LR" if n_nodes >= WIDE_DIAGRAM_NODES else "TD")
+    direction = direction or ("LR" if n_nodes >= WIDE_DIAGRAM_NODES else "TD")
+    lines_out[0] = "flowchart %s" % direction
 
     return "\n".join(lines_out) + "\n"
