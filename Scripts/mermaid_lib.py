@@ -95,16 +95,21 @@ def turtle_to_mermaid(ttl_text):
                     prop_name = make_name(p)
                     args.append("%s=%.30s" % (prop_name, write_obj(o)))
             if isinstance(s, BNode):
-                node_lines = args
+                header = None
             elif class_of:
-                node_lines = ["%s : %s" % (make_name(s), make_name(class_of))] + args
+                header = "%s : %s" % (make_name(s), make_name(class_of))
             else:
-                node_lines = [make_name(s)] + args
+                header = make_name(s)
             # An empty quoted label is a Mermaid syntax error; a single
             # space renders as a blank box, which is what a label-less
             # blank node (https://github.com/ontolex/morph/issues/43)
             # should look like.
-            label = "<br/>".join(escape_label(line) for line in node_lines) or " "
+            # As in the GraphViz diagrams, a rule separates the name and type
+            # of a node from its properties.
+            label = "<br/>".join(escape_label(line) for line in args)
+            if header is not None:
+                label = escape_label(header) + ("<hr/>" + label if label else "")
+            label = label or " "
             lines_out.append("    %s[\"%s\"]" % (id, label))
         return id
 
