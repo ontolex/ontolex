@@ -34,12 +34,12 @@ ontology:
   - http://art.uniroma2.it/fiorelli/
   - http://art.uniroma2.it/stellato/
   - http://jogracia.url.ph/web/
-  - http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/teachers/52-emontiel
+  - https://oeg.fi.upm.es/index.php/en/teachers/52-emontiel/index.html
   - http://www.dfki.de/~declerck/
   - http://www.ilc.cnr.it/en/content/anas-fahad-khan
   - http://www.istc.cnr.it/people/aldo-gangemi
-  - http://www.oeg-upm.net/index.php/teachers/53-lupe
-  - http://www.paulbuitelaar.net/
+  - https://scholar.google.com/citations?user=eEeqVvwAAAAJ&hl=en
+  - https://research.universityofgalway.ie/en/persons/peter-paul-buitelaar/
   - https://sites.google.com/site/francescafrontini/
   history: '-Version 1.0: depreciation with minor change in metadata for LOV publication
 
@@ -220,12 +220,12 @@ The model as presented here is inspired by many other models, in
 particular the [Lexical Markup
 Framework](http://www.lexicalmarkupframework.org) (LMF), the
 [LexInfo](http://www.lexinfo.net/) model, the
-[LIR](http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/technologies/63-lir)
+[LIR](https://oeg.fi.upm.es/index.php/en/technologies/63-lir/index.html)
 model, the [Linguistic Meta
 Model](http://ontologydesignpatterns.org/wiki/Ontology:LMM) (LMM), the
 [semiotics.owl](http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl)
 ontology design pattern, and the [Senso
-Comune](http://www.sensocomune.it) core model.
+Comune](https://aclanthology.org/L10-1323/) core model.
 
 It is important to also mention what is not the purpose of the model:
 
@@ -238,9 +238,9 @@ It is important to also mention what is not the purpose of the model:
     annotations to textual data, then please consider using the [Web
     Annotation Data Model](https://www.w3.org/TR/annotation-model/), [NLP
     Interchange Format
-    (NIF)](http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/nif-core.html)
+    (NIF)](https://github.com/NLP2RDF/ontologies)
     or the [Extremely Annotational RDF Markup
-    (Earmark)](http://www.essepuntato.it/lode/owlapi/http://www.essepuntato.it/2008/12/earmark).
+    (Earmark)](https://essepuntato.it/earmark/shell/current/shell.html).
 -   It is not a formal model of semantics but a model of lexicography.
     The model is not supposed to be used to define an ontology and
     instead assumes that there is a given ontology in some ontology
@@ -251,7 +251,7 @@ It is important to also mention what is not the purpose of the model:
     There are many existing efforts to provide a vocabulary to describe
     the properties of linguistic objects, such as
     [ISOcat](http://www.isocat.org), [the CLARIN concept
-    registry](https://openskos.meertens.knaw.nl/ccr/browser/),
+    registry](https://concepts.clarin.eu/ccr/),
     [OLiA](http://purl.org/olia/),
     [GOLD](http://linguistics-ontology.org/),
     [LexInfo](http://www.lexinfo.net). The model builds on those and
@@ -808,7 +808,7 @@ be specified with the [=morphological
 pattern=] property to avoid having to
 list all regular forms of a word. The implementation of these patterns
 is not specified by this document (but should be provided by some
-suitable vocabulary such as [LIAM](http://lemon-model.net/liam)).
+suitable vocabulary such as the [Morphology module](https://ontolex.github.io/morph/)).
 
 <div class="entity" about="ontolex:morphologicalPattern" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Morphological Pattern</objectProperty>
@@ -975,7 +975,7 @@ following words with lemma \'bank\' are all considered distinct:
   dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:etymologicalRoot :hobanca_ang ;
-  ontolex:denotes <http://dbpedia.org/resource/Bank_(geographic)> .
+  ontolex:denotes <http://dbpedia.org/resource/Bank_(geography)> .
 
 :bank3_en a ontolex:LexicalEntry ;
   dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
@@ -1524,7 +1524,7 @@ ConceptSet using the property
   skos:inScheme :conceptLexicon .
                                                                                 
 :consumption2 a ontolex:LexicalConcept ;                                         
-  ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(Economics)> ;
+  ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(economics)> ;
   skos:definition "Consumption is a major concept in economics and is also studied by many other social sciences. Economists are particularly interested in the relationship between consumption and income, and therefore in economics the consumption function plays a major role.";
   ontolex:isEvokedBy :consumption ;
   skos:inScheme :conceptLexicon .
@@ -2537,7 +2537,7 @@ as in the following example:
 
 The syntactic categories of the phrases are indicated using the property
 olia:hasTag from the [OLiA
-vocabulary](http://nachhalt.sfb632.uni-potsdam.de/owl/) using the [Penn
+vocabulary](https://acoli-repo.github.io/olia/) using the [Penn
 TreeBank
 tagset](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html).
 
@@ -3013,7 +3013,7 @@ other.
       dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :postleitzahl_sense.
 
-:postleitzahl_sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
+:postleitzahl_sense ontolex:reference <http://dbpedia.org/resource/Postal_code>.
 
 
 :trans a vartrans:SenseTranslation;
@@ -3060,7 +3060,7 @@ With the translation property, the above example can be replaced with:
       dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :postleitzahl_sense.
 
-:postleitzahl_sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
+:postleitzahl_sense ontolex:reference <http://dbpedia.org/resource/Postal_code>.
 
 :zip_code_sense vartrans:translation :postleitzahl_sense.
 ```
