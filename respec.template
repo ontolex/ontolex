@@ -54,6 +54,10 @@ $endfor$
     </script>
     <script type="module">
       import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      // Diagrams whose source asks for `layout: elk` are laid out by ELK, which
+      // places edge labels better; it is loaded only when one is used.
+      import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@1/dist/mermaid-layout-elk.esm.min.mjs";
+      mermaid.registerLayoutLoaders(elkLayouts);
       const dark = window.matchMedia("(prefers-color-scheme: dark)");
       // Keep each diagram's plain-text source before anything rewrites it:
       // ReSpec wraps pre contents in a highlighted code element, and rendering
@@ -87,13 +91,31 @@ $endfor$
           });
         });
       }
+      // Wide diagrams are scaled down to the page width, but not below
+      // MIN_SCALE of their natural size, which would make the text unreadable;
+      // they scroll sideways instead.
+      const MIN_SCALE = 0.7;
+      function fitWidth(block) {
+        const svg = block.querySelector("svg");
+        if (!svg) return;
+        const natural = svg.viewBox.baseVal.width;
+        if (natural * MIN_SCALE > block.clientWidth) {
+          svg.style.maxWidth = "none";
+          svg.style.width = natural * MIN_SCALE + "px";
+          block.style.overflowX = "auto";
+        }
+      }
       async function render() {
-        mermaid.initialize({ startOnLoad: false, theme: dark.matches ? "dark" : "default" });
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: dark.matches ? "dark" : "default",
+        });
         blocks.forEach(el => {
           el.removeAttribute("data-processed");
           el.textContent = el.dataset.source;
         });
         await mermaid.run({ nodes: blocks });
+        blocks.forEach(fitWidth);
         blocks.forEach(drawRules);
       }
       document.respec.ready.then(render);

@@ -207,7 +207,9 @@ def expand_asides(soup, base_dir):
             text = f.read()
         # a .LR file next to the Turtle file asks for a left-to-right layout
         direction = "LR" if os.path.exists(os.path.splitext(ttl_path)[0] + ".LR") else None
-        mermaid_text = turtle_to_mermaid(text, direction)
+        # likewise an .elk file asks for the ELK layout engine
+        elk = os.path.exists(os.path.splitext(ttl_path)[0] + ".elk")
+        mermaid_text = turtle_to_mermaid(text, direction, elk)
 
         pre = soup.new_tag("pre", **{"class": "mermaid"})
         pre.string = mermaid_text

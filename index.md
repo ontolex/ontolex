@@ -3594,7 +3594,7 @@ lexicalizations per ontology element:
 The average number of lexicalizations is calculated as specified by the
 following formula:
 
-![](Formula_avgNumOfLexicalizations-v1.png "Formula_avgNumOfLexicalizations-v1.png"){style="max-width:30%;"}
+![](Diagrams/Formula_avgNumOfLexicalizations-v1.png "Formula_avgNumOfLexicalizations-v1.png"){style="max-width:30%;"}
 
 The following example describes an ontology consisting of 30 ontology
 elements. The corresponding lexicalization set contains 20
@@ -4366,7 +4366,7 @@ OntoLex-lemon is available
 [here](http://globalwordnet.github.io/schemas/#rdf), and an example of
 modelling is given here:
 
-<aside class="example" src="Examples/wordnet/example1.ttl">
+<aside class="example">
 
 ```turtle
 <#example-en> a lime:Lexicon ;

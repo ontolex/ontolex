@@ -55,8 +55,19 @@ def make_id(name):
     return id
 
 
-def turtle_to_mermaid(ttl_text, direction=None):
-    """`direction` ("LR" or "TD") overrides the layout chosen from the size."""
+def edge_label(p):
+    """The label of an edge: the local name, or `rdf:_1` for container membership."""
+    name = make_name(p)
+    return "rdf:" + name if str(p).startswith(str(RDF)) and re.fullmatch(r"_\d+", name) else name
+
+
+def natural_key(text):
+    return [int(t) if t.isdigit() else t for t in re.split(r"(\d+)", text)]
+
+
+def turtle_to_mermaid(ttl_text, direction=None, elk=False):
+    """`direction` ("LR" or "TD") overrides the layout chosen from the size;
+    `elk` selects the ELK layout engine, which places edge labels better."""
     g = Graph()
     g.parse(data=ttl_text, format="turtle")
 
@@ -87,14 +98,19 @@ def turtle_to_mermaid(ttl_text, direction=None):
                 if not class_of:
                     class_of = o
             args = []
+            # Several properties between the same two nodes share one arrow,
+            # labelled e.g. "constituent / rdf:_1".
+            edges = {}
             for p, o in g.predicate_objects(s):
                 if p != RDF.type and (isinstance(o, URIRef) or isinstance(o, BNode)):
                     o_id = gen(o)
-                    lines_out.append(
-                        "    %s -->|%s| %s" % (id, escape_label(make_name(p)), o_id))
+                    edges.setdefault(o_id, []).append(edge_label(p))
                 elif p != RDF.type:
                     prop_name = make_name(p)
                     args.append("%s=%.30s" % (prop_name, write_obj(o)))
+            for o_id, labels in edges.items():
+                labels.sort(key=natural_key)
+                lines_out.append("    %s -->|%s| %s" % (id, escape_label(" / ".join(labels)), o_id))
             if isinstance(s, BNode):
                 header = None
             elif class_of:
@@ -131,4 +147,7 @@ def turtle_to_mermaid(ttl_text, direction=None):
     direction = direction or ("LR" if n_nodes >= WIDE_DIAGRAM_NODES else "TD")
     lines_out[0] = "flowchart %s" % direction
 
-    return "\n".join(lines_out) + "\n"
+    text = "\n".join(lines_out) + "\n"
+    if elk:
+        text = "---\nconfig:\n  layout: elk\n---\n" + text
+    return text
