@@ -12,7 +12,7 @@
   ontolex:language "en" ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:etymologicalRoot :hobanca_ang ;
-  ontolex:denotes <http://dbpedia.org/resource/Bank_(geographic)> .
+  ontolex:denotes <http://dbpedia.org/resource/Bank_(geography)> .
 
 :bank3_en a ontolex:LexicalEntry ;
   ontolex:language "en" ;
