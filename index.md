@@ -3144,7 +3144,7 @@ In order to relate a translation set to one of the translations
 contained in it, the model defines a property
 [=trans=]:
 
-<div class="entity" about="vartrans:TranslationSet" typeof="owl:ObjectProperty">
+<div class="entity" about="vartrans:trans" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">trans</objectProperty>
 
 
