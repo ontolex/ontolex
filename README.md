@@ -42,7 +42,7 @@ headers, splits the result by module and checks it.
   `Ontologies/translations/<module>.csv` (columns `term`, `property`, `lang`, `text`).
 - **Ontology headers** (title, version, creators, etc.) come from the `ontology` section of the front matter of `index.md`.
 
-The GitHub action runs this on every pull request to `master` and `draft-1.1` and fails if the checks fail. The files are
+The GitHub action runs this on every pull request and fails if the checks fail. The files are
 available as the `ontology` artifact of the run, and on `master` they are also published in `generated` on the website.
 The hand-written files in `Ontologies/` are not yet replaced by the generated ones.
 
