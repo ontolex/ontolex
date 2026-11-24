@@ -4,9 +4,8 @@
 # Usage (from the repository root): Scripts/extract_ontology.sh [output-dir]
 #   (defaults to `generated`)
 #
-# Writes <module>.ttl and <module>.rdf for each module to the output directory,
-# and a comparison with the hand-written files in Ontologies/ to
-# <output-dir>/comparison.md. Needs pandoc, rapper (raptor2-utils) and the
+# Writes <module>.ttl and <module>.rdf for each module to the output directory.
+# Needs pandoc, rapper (raptor2-utils) and the
 # Python packages beautifulsoup4, rdflib and PyYAML. See README.md.
 
 set -e
@@ -26,5 +25,4 @@ python3 Scripts/build_ontology.py "$TTL" \
     --metadata index.md --translations Ontologies/translations \
     --split "$OUT" --check
 
-python3 Scripts/compare_ontologies.py "$OUT" -o "$OUT/comparison.md"
-echo "Wrote ontology files and comparison.md to $OUT" >&2
+echo "Wrote ontology files to $OUT" >&2

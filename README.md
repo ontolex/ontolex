@@ -25,38 +25,26 @@ python Scripts/expand_tags.py index.html index.html
 
 ## Extracting the Ontology
 
-The ontology is encoded in RDFa within the specification (`index.md`), and the ontology files for each module are
-generated from it. You need `pandoc`, [`rapper`](https://librdf.org/raptor/rapper.html) (from `raptor2-utils`) and the
-Python packages `beautifulsoup4`, `rdflib` and `PyYAML`. Then run, from the root directory of the repository:
+The ontology is encoded in RDFa within the specification (`index.md`). To generate the files for each module you need
+`pandoc`, [`rapper`](https://librdf.org/raptor/rapper.html) (from `raptor2-utils`) and the Python packages
+`beautifulsoup4`, `rdflib` and `PyYAML`. Then run, from the root directory of the repository:
 
 ```bash
 Scripts/extract_ontology.sh generated
 ```
 
-This writes `<module>.ttl` and `<module>.rdf` for each module (`ontolex`, `synsem`, `decomp`, `vartrans` and `lime`) to
-the `generated` directory. The script runs the following steps, which you can also run individually:
+This writes `<module>.ttl` and `<module>.rdf` for `ontolex`, `synsem`, `decomp`, `vartrans` and `lime` to `generated`.
+It builds the HTML (`pandoc` and `Scripts/expand_tags.py`, which expands the shorthand tags into RDFa), extracts the RDFa
+with `rapper`, and runs `Scripts/build_ontology.py`, which removes ReSpec markup, adds the translations and ontology
+headers, splits the result by module and checks it.
 
-1. `pandoc` and `Scripts/expand_tags.py` build the HTML. The `expand_tags.py` step is required: it expands the
-   shorthand tags (`<domain>`, `<range>`, etc.) into RDFa and makes the page well-formed enough for `rapper`.
-2. `rapper -i rdfa -o turtle` extracts the RDFa as Turtle.
-3. `Scripts/build_ontology.py` cleans the result: it removes the ReSpec markup (such as `[=lexical entry=]`) from the
-   definitions, adds the translations and the ontology headers, splits the result by module and checks it for known
-   problems.
-4. `Scripts/compare_ontologies.py` writes `comparison.md`, a report of the differences between the generated files and the
-   hand-written files in `Ontologies/`.
+- **Translations** (labels and comments in other languages) are not in the specification. They are in
+  `Ontologies/translations/<module>.csv` (columns `term`, `property`, `lang`, `text`).
+- **Ontology headers** (title, version, creators, etc.) come from the `ontology` section of the front matter of `index.md`.
 
-**Translations.** Labels and comments in languages other than English are not part of the specification. They are kept in
-the CSV files in `Ontologies/translations/` (one per module, with the columns `term`, `property`, `lang` and `text`)
-and merged into the generated files. To add or correct a translation, edit the CSV file. A warning is printed for
-translations of terms that are not in the specification.
-
-**Metadata.** The `owl:Ontology` header of each module (title, description, version, creators, etc.) is generated from the
-`ontology` section in the YAML front matter at the top of `index.md`.
-
-The GitHub action builds the specification and the ontology files on every pull request to `master` and `draft-1.1`,
-and fails if the build or the checks fail. The generated files and the comparison with the hand-written ontologies are
-available as the `ontology` artifact of the run (the comparison is also shown in the summary of the run). On
-`master` the files are also published in the `generated` directory of the website.
+The GitHub action runs this on every pull request to `master` and `draft-1.1` and fails if the checks fail. The files are
+available as the `ontology` artifact of the run, and on `master` they are also published in `generated` on the website.
+The hand-written files in `Ontologies/` are not yet replaced by the generated ones.
 
 ## Building Examples
 
