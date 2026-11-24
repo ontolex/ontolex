@@ -65,9 +65,9 @@ $endfor$
       const blocks = document.querySelectorAll("pre.mermaid");
       blocks.forEach(el => { el.dataset.source = el.textContent; });
       // ReSpec rewrites the DOM; render diagrams only once it has finished.
-      // The rule between a node's name and its properties is an <hr> in the
+      // The rule between a node's name and its properties is an hr element in the
       // label, which cannot extend past the label's padding. Draw it as an SVG
-      // line across the whole box, in the box's own stroke, and hide the <hr>
+      // line across the whole box, in the box's own stroke, and hide the hr
       // (which keeps the space for it).
       function drawRules(block) {
         block.querySelectorAll("g.node").forEach(node => {
