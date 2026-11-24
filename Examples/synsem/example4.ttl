@@ -3,7 +3,7 @@
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
-@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
@@ -20,7 +20,7 @@
 
 :father_of_nounpp a lexinfo:NounPPFrame;
    lexinfo:subject :arg1;
-   lexinfo:prepositionalArg :arg2.
+   lexinfo:prepositionalObject :arg2.
 
 :father_sense_ontomap a synsem:OntoMap, ontolex:LexicalSense;
    synsem:ontoMapping :father_sense_ontomap;

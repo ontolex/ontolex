@@ -311,7 +311,7 @@ following namespaces in all examples:
 @prefix dbr: <http://dbpedia.org/resource/>.
 @prefix dbo: <http://dbpedia.org/ontology/>.
 @prefix void: <http://rdfs.org/ns/void#>.
-@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#>.
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#>.
 @prefix semiotics: <http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#>.
 @prefix oils: <http://lemon-model.net/oils#>.
 @prefix dct: <http://purl.org/dc/terms/>.
@@ -338,7 +338,7 @@ is defined in the same module. For cross-module and external references,
 the prefix is made explicit.
 
 In many examples we will use the
-[LexInfo](http://www.lexinfo.net/ontology/2.0/lexinfo#) ontology to
+[LexInfo](http://www.lexinfo.net/ontology/3.0/lexinfo#) ontology to
 describe grammatical categories, although this is not required for using
 this model. The LexInfo model and guidelines for constructing and
 extending linguistic category schemes are provided in the section on
@@ -668,13 +668,14 @@ lexical entry \"intangible assets\" shows:
 and any abbreviated form as there may be distinct lexical and pragmatic
 properties associated with the two different forms of the term. Links
 using other vocabularies such as
-[LexInfo](http://www.lexinfo.net/ontology/2.0/lexinfo) may be used to
+[LexInfo](http://www.lexinfo.net/ontology/3.0/lexinfo) may be used to
 describe the type of abbreviation:
 
 <aside class="example" src="Examples/ontolex/example6a.ttl">
 
 ```turtle
-:nasa a ontolex:LexicalEntry, lexinfo:Acronym ;
+:nasa a ontolex:LexicalEntry ;
+  lexinfo:termType lexinfo:acronym ;
   ontolex:canonicalForm :form_nasa ;
   lexinfo:abbreviationFor :national_aeronautics_and_space_administration;
   rdfs:label "NASA"@en .
@@ -1716,9 +1717,9 @@ The following example shows how to indicate that the verb *(to) own* can
 be used as a transitive verb. This is accomplished by adding a frame
 *own_frame_transitive* that is declared as a transitive frame, using the
 class
-[TransitiveFrame](http://lexinfo.net/ontology/2.0/lexinfo.owl#TransitiveFrame)
+[TransitiveFrame](http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveFrame)
 defined in the [LexInfo
-Ontology](http://lexinfo.net/ontology/2.0/lexinfo.owl).
+Ontology](http://www.lexinfo.net/ontology/3.0/lexinfo).
 
 <aside class="example" src="Examples/synsem/example1.ttl">
 
@@ -1763,11 +1764,11 @@ The object property [=synArg=] is used to relate a
 The following example shows how to extend the example for the verb *(to)
 own* by specifically indicating the arguments, in this case via two
 specific sub-properties of [=synArg=], i.e.
-[lexinfo:subject](http://lexinfo.net/ontology/2.0/lexinfo.owl#subject)
+[lexinfo:subject](http://www.lexinfo.net/ontology/3.0/lexinfo#subject)
 or
-[lexinfo:directObject](http://lexinfo.net/ontology/2.0/lexinfo.owl#object)
+[lexinfo:directObject](http://www.lexinfo.net/ontology/3.0/lexinfo#object)
 defined in the external [LexInfo
-ontology](http://lexinfo.net/ontology/2.0/lexinfo.owl).
+ontology](http://www.lexinfo.net/ontology/3.0/lexinfo).
 
 <aside class="example" src="Examples/synsem/example2.ttl">
 
@@ -1962,7 +1963,7 @@ linguistic information.
 
 :father_of_nounpp a lexinfo:NounPPFrame;
    lexinfo:subject :arg1;
-   lexinfo:prepositionalArg :arg2.
+   lexinfo:prepositionalObject :arg2.
 
 :father_sense_ontomap a synsem:OntoMap, ontolex:LexicalSense;
    synsem:ontoMapping :father_sense_ontomap;
@@ -2011,7 +2012,7 @@ linguistic information:
 
 :operate_intransitivepp a synsem:SyntacticFrame;
    lexinfo:subject :operate_subj ;
-   lexinfo:prepositionalArg :operate_pobj.
+   lexinfo:prepositionalObject :operate_pobj.
 
 :operate_sense_ontomap a ontolex:LexicalSense, synsem:OntoMap;
    synsem:ontoMapping :operate_sense_ontomap;
@@ -2143,7 +2144,7 @@ represent the same ontological meaning:
 :give_transitive_pp a lexinfo:TransitivePPFrame;
    lexinfo:subject :give_subj1 ;
    lexinfo:directObject :give_dobj1; 
-   lexinfo:prepositionalArg :give_pobj1.
+   lexinfo:prepositionalObject :give_pobj1.
 
 :give_ditransitive a lexinfo:DitransitiveFrame;
    lexinfo:subject :give_subj2 ;
@@ -2553,7 +2554,7 @@ lexicalized grammars within the lexicon.
 
 :know_frame a synsem:SyntacticFrame ;
   lexinfo:subject :subject ;
-  lexinfo:directObjet :directObject .
+  lexinfo:directObject :directObject .
 
 :know_root a decomp:Component ;
   decomp:correspondsTo :know_frame ;
@@ -4058,7 +4059,7 @@ of the user of the model to select an appropriate vocabulary that is in
 line with a given theoretical linguistic framework or grammar. We show
 below how third party category systems can be reused to describe the
 properties of lexical entries in a lemon lexicon. We will use the
-[lexinfo](http://lexinfo.net/ontology/2.0/lexinfo#) ontology in our
+[lexinfo](http://www.lexinfo.net/ontology/3.0/lexinfo#) ontology in our
 examples as a third party ontology describing relevant linguistic
 categories and properties.
 

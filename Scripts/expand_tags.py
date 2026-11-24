@@ -12,7 +12,7 @@ namespaces = {
         "semiotics": "http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "void": "http://www.w3.org/2006/vcard/ns#",
-        "lexinfo": "http://www.lexinfo.net/ontology/2.0/lexinfo#",
+        "lexinfo": "http://www.lexinfo.net/ontology/3.0/lexinfo#",
         "lexicog": "http://www.w3.org/ns/lemon/lexicog#",
         "voaf": "http://purl.org/vocommons/voaf#",
         }
