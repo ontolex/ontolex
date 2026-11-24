@@ -9,6 +9,9 @@ from rdflib.namespace import RDF
 from rdflib import Graph, URIRef, BNode
 import re
 
+# Literals longer than this are truncated, with "...".
+MAX_LITERAL = 30
+
 # Diagrams with at least this many nodes are laid out left to right.
 WIDE_DIAGRAM_NODES = 12
 
@@ -37,15 +40,18 @@ def escape_label(text):
     return text
 
 
+def shorten(text):
+    """Truncate a literal that is too long for a node, marking the cut."""
+    return text if len(text) <= MAX_LITERAL else text[:MAX_LITERAL].rstrip() + "..."
+
+
 def write_obj(o):
     if isinstance(o, URIRef):
         return "<%s>" % str(o)
     elif isinstance(o, BNode):
         return "[]"
-    elif o.language:
-        return "%s@%s" % (str(o).replace("\\", "\\\\"), o.language)
-    else:
-        return str(o).replace("\\", "\\\\")
+    text = shorten(str(o)).replace("\\", "\\\\")
+    return "%s@%s" % (text, o.language) if o.language else text
 
 
 def make_id(name):
@@ -107,7 +113,7 @@ def turtle_to_mermaid(ttl_text, direction=None, elk=False):
                     edges.setdefault(o_id, []).append(edge_label(p))
                 elif p != RDF.type:
                     prop_name = make_name(p)
-                    args.append("%s=%.30s" % (prop_name, write_obj(o)))
+                    args.append("%s=%s" % (prop_name, write_obj(o)))
             for o_id, labels in edges.items():
                 labels.sort(key=natural_key)
                 lines_out.append("    %s -->|%s| %s" % (id, escape_label(" / ".join(labels)), o_id))
