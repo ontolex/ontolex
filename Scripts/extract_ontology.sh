@@ -24,7 +24,6 @@ rapper -i rdfa -o turtle "$HTML" > "$TTL"
 
 python3 Scripts/build_ontology.py "$TTL" \
     --metadata index.md --translations Ontologies/translations \
-    --addendum Ontologies/addendum \
     --split "$OUT" --check
 
 python3 Scripts/compare_ontologies.py "$OUT" -o "$OUT/comparison.md"

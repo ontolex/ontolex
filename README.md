@@ -50,11 +50,6 @@ the CSV files in `Ontologies/translations/` (one per module, with the columns `t
 and merged into the generated files. To add or correct a translation, edit the CSV file. A warning is printed for
 translations of terms that are not in the specification.
 
-**Inverse properties and annotations.** Properties that the specification defines only in prose, such as `isSenseOf`,
-are declared automatically as the inverse of the property that names them with `<inverse>` (with swapped domain and
-range). Every class and property also gets `rdfs:isDefinedBy`. Statements that are not part of the specification, such
-as `vs:term_status`, are kept in the Turtle files `Ontologies/addendum/<module>.ttl` and added to the module.
-
 **Metadata.** The `owl:Ontology` header of each module (title, description, version, creators, etc.) is generated from the
 `ontology` section in the YAML front matter at the top of `index.md`.
 
