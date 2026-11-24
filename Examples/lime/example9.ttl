@@ -14,7 +14,7 @@
   void:triples 127 ;
   lime:language "en" ;
   dct:language  <http://id.loc.gov/vocabulary/iso639-1/eng>, <http://lexvo.org/id/iso639-3/en> ;
-  lime:linguisticModel <http://www.lexinfo.net/ontologies/2.0/lexinfo> ;
+  lime:linguisticModel <http://www.lexinfo.net/ontology/3.0/lexinfo> ;
   lime:lexicalEntries 15 ;
   void:subset :EnglishLexicalizationSet
   .
