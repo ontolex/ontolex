@@ -354,8 +354,8 @@ extending linguistic category schemes are provided in the section on
 The following diagram depicts the core model (ontolex). Boxes represent
 classes of the model. Arrows with filled heads represent object
 properties, while arrows with empty heads represent subclass relations.
-In arrows labeled \'X/Y\' (e.g. *sense/is sense of*), X (*sense*) is the
-name of the object property and Y (*is sense of*) the name of the inverse
+In arrows labeled \'X/Y\' (e.g. *[=sense=]/[=is sense of=]*), X ([=sense=]) is the
+name of the object property and Y ([=is sense of=]) the name of the inverse
 property.
 
 ![](Diagrams/Lemon_OntoLex_Core.png "Lemon_OntoLex_Core.png")
@@ -1508,8 +1508,8 @@ In this way lexicons can be ordered onomasiologically, that is by
 meanings rather than by lemmas. The concept set is a special type of
 [SKOS Concept Scheme](http://www.w3.org/2004/02/skos/core#ConceptScheme).
 A [=lexical concept=] is linked to a
-[=concept set=] using the property
-[SKOS in scheme](http://www.w3.org/2004/02/skos/core#inScheme)
+[=concept set=] using the
+[SKOS 'in scheme' property](http://www.w3.org/2004/02/skos/core#inScheme).
 
 <aside class="example" src="Examples/ontolex/example17.ttl">
 
@@ -1555,7 +1555,7 @@ A [=lexical concept=] is linked to a
 
 In certain lexicographic and terminological scenarios, there is a requirement to group multiple [=lexical entries=] or [=lexical senses=] under a single headword or organizational unit. This is particularly frequent in the retrodigitization of traditional dictionaries, where a single printed entry might contain information spanning different parts of speech, or where senses need to be organized into specific hierarchies and sequences.
 
-To address these needs, the [=Lexicographic Entry=] class, which corresponds to the *Entry* class of the lexicog module, can act as a container that allows for:
+To address these needs, the [=Lexicographic Entry=] class, which corresponds to the [*Entry*](http://www.w3.org/ns/lemon/lexicog#Entry) class of the lexicog module, can act as a container that allows for:
 * **Grouping by Part of Speech**: Managing cases where a single headword relates to multiple [=lexical entries=] (e.g., a word that acts as both a noun and a verb), ensuring consistency with original sources.
 * **Sense Organization**: Providing a mechanism to order [=lexical senses=] to reflect the structure of authoritative resources.
 
@@ -4188,10 +4188,10 @@ of speech so that the part of speech of a word can be specified by a
 [type statement](https://www.w3.org/TR/rdf-schema/#ch_type). For example, the part of speech Noun is defined as
 follows:
 
-*Noun* ≡ ∃ part of speech.*Noun POS*
+*Noun* ≡ ∃ partOfSpeech.NounPOS
 
 It is recommended to use both the type statement as well as the
-**LexInfo part of speech** property to maximize interoperability in spite of the
+[**LexInfo part of speech**](http://www.lexinfo.net/ontology/2.0/lexinfo#partOfSpeech) property to maximize interoperability in spite of the
 small redundancy:
 
 <aside class="example" src="Examples/description/example4.ttl">
