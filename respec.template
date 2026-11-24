@@ -61,6 +61,32 @@ $endfor$
       const blocks = document.querySelectorAll("pre.mermaid");
       blocks.forEach(el => { el.dataset.source = el.textContent; });
       // ReSpec rewrites the DOM; render diagrams only once it has finished.
+      // The rule between a node's name and its properties is an <hr> in the
+      // label, which cannot extend past the label's padding. Draw it as an SVG
+      // line across the whole box, in the box's own stroke, and hide the <hr>
+      // (which keeps the space for it).
+      function drawRules(block) {
+        block.querySelectorAll("g.node").forEach(node => {
+          const rect = node.querySelector("rect");
+          if (!rect) return;
+          const style = getComputedStyle(rect);
+          const box = rect.getBoundingClientRect();
+          const scale = box.height / rect.height.baseVal.value;
+          node.querySelectorAll("hr").forEach(hr => {
+            const hb = hr.getBoundingClientRect();
+            const y = rect.y.baseVal.value + (hb.top + hb.height / 2 - box.top) / scale;
+            const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            line.setAttribute("x1", rect.x.baseVal.value);
+            line.setAttribute("x2", rect.x.baseVal.value + rect.width.baseVal.value);
+            line.setAttribute("y1", y);
+            line.setAttribute("y2", y);
+            line.style.stroke = style.stroke;
+            line.style.strokeWidth = style.strokeWidth;
+            node.appendChild(line);
+            hr.style.visibility = "hidden";
+          });
+        });
+      }
       async function render() {
         mermaid.initialize({ startOnLoad: false, theme: dark.matches ? "dark" : "default" });
         blocks.forEach(el => {
@@ -68,6 +94,7 @@ $endfor$
           el.textContent = el.dataset.source;
         });
         await mermaid.run({ nodes: blocks });
+        blocks.forEach(drawRules);
       }
       document.respec.ready.then(render);
       dark.addEventListener("change", render);
