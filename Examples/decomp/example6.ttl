@@ -2,12 +2,15 @@
 @prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo#>.
 @prefix penn: <http://purl.org/olia/penn-syntax.owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix olia: <http://purl.org/olia/system.owl#> .
 @prefix : <#> .
 
 :AfricanSwineFever_root a decomp:Component ;
   decomp:correspondsTo :AfricanSwineFever ;
   decomp:constituent :African_node, :SwineFever_node ;
+  rdf:_1 :African_node;
+  rdf:_2 :SwineFever_node;
   olia:hasTag penn:NP .
 
 :African_node a decomp:Component ;
@@ -16,6 +19,8 @@
 
 :SwineFever_node a decomp:Component ;
   decomp:constituent :Swine_node, :Fever_node ;
+  rdf:_1 :Swine_node;
+  rdf:_2 :Fever_node;
   olia:hasTag penn:NP .
 
 :Swine_node a decomp:Component ; 

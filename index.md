@@ -424,11 +424,11 @@ expression=] *minimum finance lease payments* and the [=affix=] *anti*:
 <aside class="example" src="Examples/ontolex/example1.ttl">
 
 ```turtle
-:cat a ontolex:Word
+:cat a ontolex:Word .
 
-:minimum_finance_lease_payments a ontolex:MultiWordExpression
+:minimum_finance_lease_payments a ontolex:MultiWordExpression .
 
-:anti- a ontolex:Affix
+:anti- a ontolex:Affix .
 ```
 </aside>
 
@@ -831,12 +831,14 @@ Latin words *amare* and *videre*.
 :amare ontolex:morphologicalPattern :latin_first_conjugation ;
   ontolex:canonicalForm :amare_form .
 
-:amare_form ontolex:writtenRep "amare"@la .
+:amare_form a ontolex:Form ;
+  ontolex:writtenRep "amare"@la .
 
 :videre ontolex:morphologicalPattern :latin_second_conjugation ;
   ontolex:canonicalForm :videre_form .
 
-:videre_form ontolex:writtenRep "videre"@la
+:videre_form a ontolex:Form ;
+  ontolex:writtenRep "videre"@la .
 ```
 </aside>
 
@@ -2519,8 +2521,8 @@ as in the following example:
 
 :SwineFever_node a decomp:Component ;
   decomp:constituent :Swine_node, :Fever_node ;
-  rdf:_1 Swine_node;
-  rdf:_2 Fever_node;
+  rdf:_1 :Swine_node;
+  rdf:_2 :Fever_node;
   olia:hasTag penn:NP .
 
 :Swine_node a decomp:Component ; 
@@ -2804,7 +2806,7 @@ The following example gives an example of a sense relation:
 
 :mother_sense ontolex:reference <http://dbpedia.org/ontology/mother>.
 
-mother_form ontolex:writtenRep "mother"@en .
+:mother_form ontolex:writtenRep "mother"@en .
 
 :senseRelation a vartrans:SenseRelation ;
       vartrans:source :surrogate_mother_sense ;
