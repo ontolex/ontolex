@@ -9,6 +9,8 @@ namespaces = {
         "semiotics": "http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "void": "http://www.w3.org/2006/vcard/ns#",
+        "lexinfo": "http://www.lexinfo.net/ontology/2.0/lexinfo#",
+        "lexicog": "http://www.w3.org/ns/lemon/lexicog#",
         "voaf": "http://purl.org/vocommons/voaf#",
         }
 
@@ -19,6 +21,7 @@ tags_to_expand = {
         "subproperty": {"rel": "rdfs:subPropertyOf"},
         "inverse": {"rel": "owl:inverseOf"},
         "equivalentclass": {"rel": "owl:equivalentClass"},
+        "equivalentproperty": {"rel": "owl:equivalentProperty"},
         }
 
 tags_text = {
@@ -28,6 +31,7 @@ tags_text = {
         "subproperty": "Subproperty:",
         "inverse": "Inverse Property:",
         "equivalentclass": "Equivalent Class:",
+        "equivalentproperty": "Equivalent Property:",
         }
 
 characteristics = {

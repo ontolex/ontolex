@@ -859,6 +859,8 @@ The part of speech of a lexical entry can be specified by using the
 <div class="description">
 <domain>[=Lexical Entry=]</domain>
 <range>rdfs:Resource</range>
+<equivalentProperty>lexinfo:partOfSpeech</equivalentProperty>
+<equivalentProperty>http://www.lexinfo.net/ontology/3.0/lexinfo#partOfSpeech</equivalentProperty>
 </div>
 </div>
 
@@ -1273,6 +1275,7 @@ The property [=confidence=] can be used to indicate the confidence in the lexica
 <div property="rdfs:comment"> The <dfn>confidence</dfn> property indicates the confidence in an element of the lexicon, for example in terms of a reliability score or record status. </div>
 
 <div class="description">
+<equivalentProperty>http://www.lexinfo.net/ontology/3.0/lexinfo#confidence</equivalentProperty>
 </div>
 </div>
 
@@ -1308,6 +1311,7 @@ The property [=example=] relates an [=lexical sense=] with a [=usage example=].
 <div class="description">
 <domain>[=Lexical Sense=] OR [=Lexical Entry=] OR [=Form=]</domain>
 <range>[=Usage Example=]</range>
+<equivalentProperty>lexicog:usageExample</equivalentProperty>
 </div>
 </div>
 
@@ -1589,6 +1593,7 @@ To address these needs, the [=Lexicographic Entry=] class, which corresponds to 
 <div property="rdfs:comment"> A <dfn>Lexicographic Entry</dfn> represents a grouping of one or more [=lexical entries=] and/or [=lexical senses=] under a common organizational unit, such as a headword in a dictionary. </div>
 
 <div class="description">
+<equivalentClass>lexicog:Entry</equivalentClass>
 </div>
 </div>
 
@@ -1604,6 +1609,7 @@ To address these needs, the [=Lexicographic Entry=] class, which corresponds to 
 <domain>[=Lexicographic Entry=]</domain>
 <range>[=Lexical Entry=] OR [=Lexical Sense=]</range>
 <subproperty>rdfs:ContainerMembershipProperty</subproperty>
+<equivalentProperty>lexicog:describes</equivalentProperty>
 </div>
 </div>
 
