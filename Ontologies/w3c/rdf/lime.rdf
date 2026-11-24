@@ -187,7 +187,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#linguisticCatalog">
         <rdfs:label xml:lang="de">linguistische Kategorienmodell</rdfs:label>
-        <rdfs:label xml:lang="en">lingustic catalog</rdfs:label>
+        <rdfs:label xml:lang="en">linguistic catalog</rdfs:label>
         <rdfs:label xml:lang="es">conjunto de categoríes lingüísticas</rdfs:label>
         <rdfs:label xml:lang="fr">banque de catégories linguistiques</rdfs:label>
         <rdfs:label xml:lang="it">banca categorie linguistiche</rdfs:label>
