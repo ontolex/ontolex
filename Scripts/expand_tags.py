@@ -80,10 +80,16 @@ def transform_contents(soup, contents, dfn_about):
     elif " min " in contents or " max " in contents or " exactly " in contents:
         if " min " in contents:
             parts = contents.split(" min ")
+            keyword = " min "
+            unqualified_prop, qualified_prop = "owl:minCardinality", "owl:minQualifiedCardinality"
         elif " max " in contents:
             parts = contents.split(" max ")
+            keyword = " max "
+            unqualified_prop, qualified_prop = "owl:maxCardinality", "owl:maxQualifiedCardinality"
         else:#if " exactly " in contents:
             parts = contents.split(" exactly ")
+            keyword = " exactly "
+            unqualified_prop, qualified_prop = "owl:cardinality", "owl:qualifiedCardinality"
         if len(parts) != 2:
             raise ValueError("Invalid OWL cardinality format: " + contents)
         restriction = soup.new_tag('span', typeof='owl:Restriction')
@@ -91,23 +97,24 @@ def transform_contents(soup, contents, dfn_about):
         prop_tag = soup.new_tag('span', rel="owl:onProperty", **prop_attrs)
         prop_tag.append(prop_contents)
         restriction.append(prop_tag)
-        if " min " in contents:
-            restriction.append(" min ")
-            card_tag = soup.new_tag('span', rel="owl:minCardinality", datatype="xsd:integer")
-        elif " max " in contents:
-            restriction.append(" max ")
-            card_tag = soup.new_tag('span', rel="owl:maxCardinality", datatype="xsd:integer")
-        else:#if " exactly " in contents:
-            restriction.append(" exactly ")
-            card_tag = soup.new_tag('span', rel="owl:cardinality", datatype="xsd:integer")
+        restriction.append(keyword)
         parts2 = parts[1].split(" ")
-        card_tag.string = parts2[0] + " "
-        restriction.append(card_tag)
+        # A trailing class after the cardinality number (e.g. "min 2 [=observable=]")
+        # produces a *qualified* cardinality restriction (owl:onClass), rather than
+        # a plain owl:{min,max,}Cardinality restriction.
         if len(parts2) > 1:
-            range_contents, range_attrs = transform_contents(soup, " ".join(parts2[1:]), dfn_about)
-            all_tag = soup.new_tag('span', rel="owl:allValuesFrom", **range_attrs)
-            all_tag.append(range_contents)
-            restriction.append(all_tag)
+            card_tag = soup.new_tag('span', property=qualified_prop, datatype="xsd:nonNegativeInteger")
+            card_tag.string = parts2[0]
+            restriction.append(card_tag)
+            restriction.append(" ")
+            class_contents, class_attrs = transform_contents(soup, " ".join(parts2[1:]), dfn_about)
+            class_tag = soup.new_tag('span', rel="owl:onClass", **class_attrs)
+            class_tag.append(class_contents)
+            restriction.append(class_tag)
+        else:
+            card_tag = soup.new_tag('span', property=unqualified_prop, datatype="xsd:integer")
+            card_tag.string = parts2[0]
+            restriction.append(card_tag)
         return restriction, {}
     elif " only " in contents:
         parts = contents.split(" only ")
