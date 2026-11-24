@@ -110,7 +110,7 @@ with respect to an ontology or vocabulary.
 <section id="sotd">
 This document is the first official report of the OntoLex community
 group. It does not represent the view of single individuals but reflects
-the consensus and agreement reach as part of the regular group
+the consensus and agreement reached as part of the regular group
 discussions. The report should be regarded as the official specification
 of *lemon*.
 </section>
@@ -129,7 +129,7 @@ lexical entries as well as the syntax-semantics interface, i.e. the
 meaning of these lexical entries with respect to an ontology or
 vocabulary.
 
-This document is structured into nine sections, where the first five
+This document is structured into eight sections, where the first five
 correspond to the main modules of *lemon*. Depending on their needs and
 requirements, applications will use one or more of the modules mentioned
 below, with the use of the OntoLex module being the minimal choice.
@@ -147,8 +147,7 @@ The last three sections do not describe the formal modelling but clarify
 -   how one can use *lemon* to describe lexical nets and other
     linguistic resources (section Lexical Nets)
 -   the relation between *lemon* and the Simple Knowledge Organization
-    System (SKOS), the Lexical Markup Model (LMF), and the Open
-    Annotation Model (section Relation to Other Models)
+    System (SKOS), the Lexical Markup Framework (LMF), and the Web Annotation Data Model (section Relation to Other Models)
 
 <section id="introduction">
 ## Introduction
@@ -163,8 +162,7 @@ vocabulary that allows ontologies to be enriched with information about
 how the vocabulary elements described in them are realized
 linguistically, in particular in natural languages, in order to render
 ontologies suitable for supporting meaningful interaction with and
-manipulation of them by human users and allowing NLP tools to be able
-work with ontologies.
+manipulation of them by human users and allowing NLP tools to be able to work with ontologies.
 
 OWL and RDF(S) rely on a property `rdfs:label`{.cm} to capture the
 relation between a vocabulary element and its (preferred) lexicalization
@@ -650,7 +648,7 @@ would look as follows (in Turtle syntax):
 ```
 </aside>
 
-Of course, [=lexical entries=] need not to correspond to one [=word=] only, they
+Of course, [=lexical entries=] need not correspond to one [=word=] only, they
 can correspond to a [=multiword expression=], as the following example for the
 lexical entry \"intangible assets\" shows:
 
@@ -803,7 +801,7 @@ The following example is the RDF representation of the above mentioned sense of 
 :air_n_sense_2_1_lc a ontolex:LexicalConcept ;
    skos:definition "An annoyingly affected and condescending manner"@en .
 ```
-</div> 
+</aside>
 
 The morphological class (i.e., declension, conjugation or similar) may
 be specified with the [=morphological
@@ -874,6 +872,8 @@ the part of speech for the lexical entries *cat*, *marry* and *high* could be sp
 :lex_marry ontolex:partOfSpeech lexinfo:verb .
 :lex_high ontolex:partOfSpeech lexinfo:adjective .
 ```
+
+</aside>
 
 In some cases it may be useful to additionally give a string describing the part-of-speech,
 for example when converting from lexicographic resources that use specific 
@@ -1333,7 +1333,7 @@ Concept=] that represents *a mental
 abstraction, concept or unit of thought that embodies the meaning of one
 or more lexical entries.* Lexical Concepts also support the
 identification of synonyms, as different lexical entries having senses
-referring to the same Lexical Concept are considered to be synonym. A
+referring to the same Lexical Concept are considered to be synonyms. A
 [=lexical concept=] is thus a subclass of
 [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept).
 
@@ -1426,7 +1426,7 @@ following:
      ontolex:evokes :temporary_change_of_possession.
 
 :lend_le a ontolex:LexicalEntry;
-    ontolex_sense :lend_sense;
+    ontolex:sense :lend_sense;
     ontolex:evokes :temporary_change_of_possession.
 ```
 
@@ -1491,7 +1491,7 @@ concept=] as a *gloss* by using the
 property.
 
 In addition to organizing a lexicon by lexical entries, we may
-alternatively create a lexicon of concepts, by means of the the [=concept
+alternatively create a lexicon of concepts, by means of the [=concept
 set=] class, defined as follows:
 
 <div class="entity" about="ontolex:ConceptSet" typeof="owl:Class">
@@ -1563,24 +1563,24 @@ To address these needs, the [=Lexicographic Entry=] class, which corresponds to 
 <div class="entity" about="ontolex:LexicographicEntry" typeof="owl:Class">
 <class property="rdfs:label" lang="en">Lexicographic Entry</class>
 
-<div property="rdfs:comment"> A <dfn>Lexicographic Entry</dfn> represents a grouping of one or more [=lexical entries=] and/or [=lexical senses=] under a common organizational unit, such as a headword in a dictionary. </div>
+<div property="rdfs:comment"> A <dfn>Lexicographic Entry</dfn> represents a grouping of one or more [=lexical entries=], [=forms=], [=lexical senses=] and/or [=lexical concepts=] under a common organizational unit, such as a headword in a dictionary. </div>
 
 <div class="description">
 <equivalentClass>lexicog:Entry</equivalentClass>
 </div>
 </div>
 
-[=Lexicographic Entries=] are linked to the [=lexical entries=] and [=lexical senses=] they group by means of the
-[=describes=] property, which indicates that the [=Lexicographic Entry=] describes the corresponding [=lexical entry=] or [=lexical sense=]. Forms may not be linked to a [=Lexicographic Entry=] directly.
+[=Lexicographic Entries=] are linked to the [=lexical entries=], [=forms=], [=lexical senses=] and [=lexical concepts=] they group by means of the
+[=describes=] property, which indicates that the [=Lexicographic Entry=] describes the corresponding [=lexical entry=], [=form=], [=lexical sense=] or [=lexical concept=]. Including lexical concepts allows resources to be organized by conceptual criteria, for example dictionaries organized by radical.
 
 <div class="entity" about="ontolex:describes" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Describes</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>describes</dfn> property relates a lexicographic entry to the lexical entry or lexical sense it describes. </div>
+<div property="rdfs:comment"> The <dfn>describes</dfn> property relates a lexicographic entry to the lexical entry, form, lexical sense or lexical concept it describes. </div>
 
 <div class="description">
 <domain>[=Lexicographic Entry=]</domain>
-<range>[=Lexical Entry=] OR [=Lexical Sense=]</range>
+<range>[=Lexical Entry=] OR [=Form=] OR [=Lexical Sense=] OR [=Lexical Concept=]</range>
 <subproperty>rdfs:ContainerMembershipProperty</subproperty>
 <equivalentProperty>lexicog:describes</equivalentProperty>
 </div>
@@ -2110,8 +2110,7 @@ the [=optional=] property. It is generally only
 advised to use this property with complex senses. Indicating that an
 argument is optional means that it does not have to be realized
 syntactically in which case from a semantic point of view the
-corresponding argument of the ontological predicate is existentially
-quantifier over. In the above example we have indicated that `arg3`{.cm}
+corresponding argument of the ontological predicate is existentially quantified over. In the above example we have indicated that `arg3`{.cm}
 is optional, allowing to assign the correct semantics to an expression
 such as *X launched Y* by existentially quantifying over the year.
 
@@ -2211,7 +2210,7 @@ For adjectives a modelling may be as follows:
 
 </aside>
 
-Note that in the above example the property `synsem:isA`{.cm} property
+Note that in the above example the `synsem:isA`{.cm} property
 is used to mark the single argument/variable of the class of all the
 things that have female gender. The copulative subject in an expression
 such as \"Mary is female\" is bound to this single argument of the
@@ -2726,7 +2725,7 @@ following:
     quickly)
 -   Morphosyntactic relation (e.g. ecological tourism vs. eco-tourism)
 -   Abbreviation relation (including acronyms, e.g., peer to peer and
-    p2p; WYSWYG, FAO, UNO)
+    p2p; WYSIWYG, FAO, UNO)
 
 The specific type of lexical or sense relation can be specified via the
 object property [=category=], which is defined as
@@ -2880,7 +2879,8 @@ example of a diachronic variant:
 Finally, it is also possible to give relationships between concepts, by
 using the [=conceptRel=] property to relate two lexical concepts that stand in
 a [=conceptual relation=]. This is useful for modelling relations between
-synsets in wordnets and other similar resources
+synsets in wordnets and other similar resources.
+
 
 <div class="entity" about="vartrans:conceptRel" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Concept Relation</objectProperty>
@@ -2909,7 +2909,7 @@ synsets in wordnets and other similar resources
 ## Translation
 
 Translation relates two lexical entries from different languages the
-meaning of which is \'equivalent\'. This \'equivalence\` can be
+meaning of which is \'equivalent\'. This \'equivalence\' can be
 expressed at three different levels:
 
 -   **Ontological Equivalence (Shared reference):** The simplest case is
@@ -3024,7 +3024,7 @@ other.
 
 </aside>
 
-Thus, in spite of using having different denotations, both
+Thus, in spite of having different denotations, both
 *Postleitzahl* and *zip code* can be seen as cross-lingual equivalents
 and thus as translations of each other.
 
@@ -3425,7 +3425,7 @@ metadata:
 ## Lexicalization Set
 
 A [=lexicalization set=] is a
-[void:Dataset](http://vocab.deri.ie/void#Dataset) that comprises a
+[void:Dataset](http://rdfs.org/ns/void#Dataset) that comprises a
 collection of so called *lexicalizations*, which we understand as pairs
 of a lexical entry and an associated reference in the ontology.
 
@@ -3517,14 +3517,14 @@ natural language.
 
 The ontology is modelled as an instance of the class
 [voaf:Vocabulary](http://purl.org/vocommons/voaf#Vocabulary) that is a
-kind of [void:Dataset](http://vocab.deri.ie/void#Dataset) representing
+kind of [void:Dataset](http://rdfs.org/ns/void#Dataset) representing
 vocabularies (both RDFS Schemas and OWL Ontologies). We benefit from the
 more specific distinctions made by VOAF, by breaking down the total
 number of entities in the ontology (held by the property
-[void:entities](http://vocab.deri.ie/void#entities)) into separate
+[void:entities](http://rdfs.org/ns/void#entities)) into separate
 counts for the classes and properties (held by
-[voaf:classNumber](http://vocab.deri.ie/void#entities) and
-[voaf:propertyNumber](http://vocab.deri.ie/void#entities),
+[voaf:classNumber](http://purl.org/vocommons/voaf#classNumber) and
+[voaf:propertyNumber](http://purl.org/vocommons/voaf#propertyNumber),
 respectively).
 
 Similarly, terms from the *lime* vocabulary are used to represent
@@ -4060,9 +4060,9 @@ prescribe any vocabulary for doing so, but leaves it at the discretion
 of the user of the model to select an appropriate vocabulary that is in
 line with a given theoretical linguistic framework or grammar. We show
 below how third party category systems can be reused to describe the
-properties of lexical entires in a lemon lexicon. We will use the
-\[<http://lexinfo.net/ontology/2.0/lexinfo>\# lexinfo\] ontology in our
-examples as such as third party ontology describing relevant linguistic
+properties of lexical entries in a lemon lexicon. We will use the
+[lexinfo](http://lexinfo.net/ontology/2.0/lexinfo#) ontology in our
+examples as a third party ontology describing relevant linguistic
 categories and properties.
 
 <section id="morphosyntactic-description">
@@ -4130,7 +4130,7 @@ ontology:
     superlative
 -   **Finiteness**: indicating whether the form is finite
 -   **Gender**: indicating the grammatical gender of a word (e.g.
-    female, masculine, neuter etc.)
+    feminine, masculine, neuter etc.)
 -   **Modification Type**: indicating whether a modifier precedes or
     follows a word
 -   **Mood**: indicating the modality (imperative, conditional, etc.) of
@@ -4161,7 +4161,7 @@ adjectives, for example:
 ```turtle
 :spiaggia a ontolex:Word ;
   ontolex:canonicalForm :spiaggia_lemma ;
-  ontolex:otherForm spiaggia_plural ;
+  ontolex:otherForm :spiaggia_plural ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:gender lexinfo:feminine .
 
@@ -4175,7 +4175,7 @@ adjectives, for example:
 
 :famoso a ontolex:Word ;
   ontolex:canonicalForm :famoso_lemma ;
-  ontolex:otherForm :famosa_form, :famose_form, famosi_form ;
+  ontolex:otherForm :famosa_form, :famose_form, :famosi_form ;
   lexinfo:partOfSpeech lexinfo:adjective .
 
 :famoso_lemma
@@ -4240,7 +4240,7 @@ arguments:
 
 -   **Subject**: indicating the syntactic subject of a sentence. The
     subject typically expresses the agent of the action denoted by the
-    verb, but this need not to be so in all cases. In a passive
+    verb, but this need not be so in all cases. In a passive
     construction, the subject actually expresses the patient or
     beneficiary of the action denoted by the verb.
 -   **Object:** distinguishing between direct, indirect, prepositional
@@ -4260,7 +4260,7 @@ arguments:
     declarative, gerundive, infinitive, interrogative (infinitive),
     possessive infinitive, prepositional gerund/interrogative,
     sentential or subjunctive clausal arguments.
--   **Attributive**: The word modified by an an adjective in an
+-   **Attributive**: The word modified by an adjective in an
     [attributive construction](https://en.wikipedia.org/wiki/Adjective)
 
 Each argument is associated with a specific property indicating the
@@ -4365,7 +4365,7 @@ Lexical nets, so called wordnets in particular, are an important type of
 lexical resource used very often in natural language processing
 applications. Lexical nets organize the senses of words into groups of
 equivalent meaning, so called *synsets*. Further, synsets are related to
-each other using lexico-semantic relationships so that the the resource
+each other using lexico-semantic relationships so that the resource
 can be regarded as a \"net\". We discuss below how lexical nets can be
 represented using the lemon vocabulary using Princeton wordnet as an
 example.
@@ -4390,7 +4390,7 @@ relations:
 
 [`http://globalwordnet.github.io/schemas/wn#`{.cm}](http://globalwordnet.github.io/schemas/wn#)
 
-An full description of the Global WordNet Association extension of
+A full description of the Global WordNet Association extension of
 OntoLex-lemon is available
 [here](http://globalwordnet.github.io/schemas/#rdf), and an example of
 modelling is given here:
@@ -4513,7 +4513,7 @@ modelling is given here:
 ## Relation to Other Models
 
 In this section, we informally clarify the relation to other models, in
-particular SKOS, the Lexical Markup Model (LMF), and the Web Annotation
+particular SKOS, the Lexical Markup Framework (LMF), and the Web Annotation
 standard.
 
 <section id="relation-to-skos">
@@ -4592,7 +4592,7 @@ preference information via the lexical senses:
 In case you are using reified labels as in SKOS-XL, it is possible to
 have forms or lexical entries in the range of the
 `skosxl:prefLabel`{.cm}, `skosxl:altLabel`{.cm} and
-`skosxl:hiddelLabel`{.cm} properties. However, we note that from this it
+`skosxl:hiddenLabel`{.cm} properties. However, we note that from this it
 would follow that lexical entries and forms would be inferred to be
 `skosxl:Label`{.cm}s, which does not correspond to the understanding of
 forms and lexical entries of this community as linguistic objects rather
@@ -4611,8 +4611,7 @@ the interface between lexica and ontologies as lemon does.
 Nevertheless, the lemon model draws heavy inspiration from the LMF
 model. lemon has imported many classes/entities from LMF and adopted its
 core ontology. On the other hand, lemon has added vocabulary to describe
-the syntax-semantics interface with respect to an ontology and remove a
-number of classes that create syntactic overhead. A complete description
+the syntax-semantics interface with respect to an ontology and removes a number of classes that create syntactic overhead. A complete description
 of the relationship between LMF and the original lemon model is provided
 [here](http://lemon-model.net/lemon-cookbook/node46.html). The main
 differences are summarized here:
@@ -4633,7 +4632,7 @@ differences are summarized here:
 <section id="relation-to-web-annotation">
 ## Web Annotation
 
-In many uses cases the need arises to annotate a text corpus with links
+In many use cases the need arises to annotate a text corpus with links
 to entities defined in a lexicon, e.g. lexical entries, forms, lexical
 senses, lexical concepts etc. lemon does not support this annotation per
 se, as there are other models that are dedicated exactly to this. This
@@ -4647,7 +4646,7 @@ or lexical concept and it is important to give the class to make clear
 what the target of the annotation is.
 
 We will now give an example of annotating a word \"cat\" occurring at
-character 7 in a file at the URL [2](http://www.example.com/doc.txt),
+character 7 in a file at the URL <http://www.example.com/doc.txt>,
 where the *lemon* element is given as the body of an annotation. For
 example
 
