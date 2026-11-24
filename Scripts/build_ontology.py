@@ -16,6 +16,8 @@ extracted with `rapper`. This script post-processes the extracted Turtle:
   matter of the specification (`--metadata index.md`);
 * optionally splits the result into one file per module (`--split DIR`),
   written as both Turtle and RDF/XML;
+* adds `rdfs:isDefinedBy` and `vs:term_status "stable"` to every class and
+  property of a module;
 * optionally checks the result for known problems (`--check`).
 
 Usage (from the repository root):
@@ -57,6 +59,7 @@ NAMESPACES = {
     "dc": "http://purl.org/dc/elements/1.1/",
     "cc": "http://creativecommons.org/ns#",
     "vann": "http://purl.org/vocab/vann/",
+    "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
     "voaf": "http://purl.org/vocommons/voaf#",
 }
 
@@ -64,6 +67,7 @@ DC = Namespace(NAMESPACES["dc"])
 CC = Namespace(NAMESPACES["cc"])
 VANN = Namespace(NAMESPACES["vann"])
 VOAF = Namespace(NAMESPACES["voaf"])
+VS = Namespace("http://www.w3.org/2003/06/sw-vocab-status/ns#")
 
 # ReSpec term references: [=term=] or [=term|display text=]
 _TERM_REF = re.compile(r"\[=\s*(?:[^=\]|]*\|)?([^=\]]*?)\s*=\]")
@@ -242,6 +246,20 @@ def split_graph(graph, modules):
     return graphs, unassigned
 
 
+def add_defined_by(graph, module):
+    """Add `rdfs:isDefinedBy <module>` and `vs:term_status "stable"` to the
+    classes and properties of a module."""
+    graph.add((VS.term_status, RDF.type, OWL.AnnotationProperty))
+    ontology = URIRef(LEMON + module)
+    kinds = (OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty)
+    for kind in kinds:
+        for s in list(graph.subjects(RDF.type, kind)):
+            if str(s).startswith(LEMON + module + "#") and (s, RDFS.isDefinedBy, None) not in graph:
+                graph.add((s, RDFS.isDefinedBy, ontology))
+            if str(s).startswith(LEMON + module + "#"):
+                graph.add((s, VS.term_status, Literal("stable")))
+
+
 def check(graphs):
     """Return a list of problems found in the per-module graphs."""
     problems = []
@@ -302,6 +320,7 @@ def main():
         graphs, unassigned = split_graph(graph, modules)
         for m in modules:
             graphs[m] += module_graph_metadata(m, meta)
+            add_defined_by(graphs[m], m)
         if unassigned:
             sys.stderr.write("Warning: terms not in any module were not written: "
                              + ", ".join(sorted(str(s) for s in unassigned)) + "\n")
