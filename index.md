@@ -2356,8 +2356,8 @@ inflammation\') is decomposed into the lexical entries *Lunge* and
 
 ```turtle
 :Lungenentzündung a ontolex:LexicalEntry ;
-  decomp:subterm :Lunge_lex;
-  decomp:subterm :Entzündung_lex .
+  decomp:subterm :lunge_lex ;
+  decomp:subterm :entzündung_lex .
 ```
 
 </aside>
@@ -3391,7 +3391,7 @@ metadata:
    lime:linguisticCatalog <http://www.lexinfo.net/ontology/3.0/lexinfo> ;
    dct:description "This is an example lexicon"@en;                              
    dct:description "Questo è un lessico di esempio"@it;                          
-   dct:creator <http://john.mccr.ae/>;                                           
+   dct:creator <http://john.mccr.ae>;                                           
    void:triples "29"^^xsd:integer ;                                                       
    lime:entry :lex_high;                                                     
    lime:entry :lex_cat;                                                      
