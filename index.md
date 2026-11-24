@@ -917,6 +917,7 @@ The property [=denotes=] is defined as follows:
 <domain>[=Lexical Entry=]</domain>
 <range>rdfs:Resource</range>
 <subproperty>semiotics:denotes</subproperty>
+<inverse>[=is denoted by=]</inverse>
 </div>
 </div>
 
