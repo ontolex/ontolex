@@ -1364,10 +1364,7 @@ lexical concept, similar to how a lexical entry
 </div>
 
 The inverse of [=evokes=] is <dfn>is evoked by</dfn>, which relates a
-[=lexical concept=] to the [=lexical entry=] that evokes it. The
-[=evokes=] property is inverse functional, which means that a
-[=lexical concept=] can be evoked by at most one
-[=lexical entry=].
+[=lexical concept=] to the [=lexical entry=] that evokes it.
 
 The evoked concept is different from the reference in the ontology, as
 the reference primarily gives an interpretation of a word in terms of
