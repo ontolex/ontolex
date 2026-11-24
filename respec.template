@@ -52,6 +52,26 @@ $endfor$
         latestVersion: "https://ontolex.github.io/frequency-attestation-corpus-information/"
       };
     </script>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      const dark = window.matchMedia("(prefers-color-scheme: dark)");
+      // Keep each diagram's plain-text source before anything rewrites it:
+      // ReSpec wraps pre contents in a highlighted code element, and rendering
+      // replaces them with an SVG, so the text is needed to re-render.
+      const blocks = document.querySelectorAll("pre.mermaid");
+      blocks.forEach(el => { el.dataset.source = el.textContent; });
+      // ReSpec rewrites the DOM; render diagrams only once it has finished.
+      async function render() {
+        mermaid.initialize({ startOnLoad: false, theme: dark.matches ? "dark" : "default" });
+        blocks.forEach(el => {
+          el.removeAttribute("data-processed");
+          el.textContent = el.dataset.source;
+        });
+        await mermaid.run({ nodes: blocks });
+      }
+      document.respec.ready.then(render);
+      dark.addEventListener("change", render);
+    </script>
     <style>
 .entity {
      border: 1px solid #000080;
@@ -80,6 +100,17 @@ $endfor$
 .example img {
     max-width: 100%;
 }
+
+pre.mermaid {
+    background: none;
+    border: none;
+    text-align: center;
+}
+pre.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+
 
  </style>
   </head>

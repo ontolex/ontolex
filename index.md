@@ -474,9 +474,7 @@ A simple example of a lexical entry with two different forms
 corresponding to two different grammatical realizations (as singular and
 plural noun, respectively) is given below:
 
-<aside class="example">
-[![no
-desc](Examples/ontolex/example2.png)](Examples/ontolex/example2.png){.tn}
+<aside class="example" src="Examples/ontolex/example2.ttl">
 
 ```turtle
 :lex_child a ontolex:LexicalEntry ;                                                
@@ -500,9 +498,7 @@ representation *color*. Both representations have the same pronunciation
 and the same meaning, so they are two different lexicographic variants
 of the same lexical entry:
 
-<aside class="example">
-[![no
-desc](Examples/ontolex/example3.png)](Examples/ontolex/example3.png){.tn}
+<aside class="example" src="Examples/ontolex/example3.ttl">
 
 ```turtle
 :lex_color a ontolex:LexicalEntry;
@@ -545,9 +541,7 @@ The following example shows how we can represent two different
 pronunciations for one form of a lexical entry using the example of
 \"privacy\" (the phonetic code is based on IPA):
 
-<aside class="example">
-[![no
-desc](Examples/ontolex/example4.png)](Examples/ontolex/example4.png){.tn}
+<aside class="example" src="Examples/ontolex/example4.ttl">
 
 ```turtle
 :lex_privacy a ontolex:LexicalEntry;
@@ -616,9 +610,7 @@ RDFS-based systems that expect an RDFS label. The lexical entries for
 the noun *\"cat\"*, the verb *\"marry\"* and the adjective *\"high\"*
 would look as follows (in Turtle syntax):
 
-<aside class="example">
-[![no
-desc](Examples/ontolex/example5.png)](Examples/ontolex/example5.png){.tn}
+<aside class="example" src="Examples/ontolex/example5.ttl">
 
 ```turtle
 :lex_cat a ontolex:LexicalEntry, ontolex:Word;
