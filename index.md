@@ -1835,7 +1835,7 @@ of [=synArg=].
 At the lexicon-ontology interface, syntactic frames need to be mapped or
 bound to ontological structures that represent their meaning. In the
 same way that a lexical sense binds a lexical entry to an ontology
-entity, the [OntoMap](#OntoMap) maps a syntactic frame onto an ontology
+entity, the [=OntoMap=] maps a syntactic frame onto an ontology
 entity.
 
 <div class="entity" about="synsem:OntoMap" typeof="owl:Class">
@@ -1905,7 +1905,7 @@ arity \"2\").
 
 In the following, we introduce three sub-properties of the
 [=ontoCorrespondence=] property. The first
-property [is a](#isA) is used to refer to the single argument of a unary
+property [=is a=] is used to refer to the single argument of a unary
 predicate in the ontology:
 
 <div class="entity" about="synsem:isA" typeof="owl:ObjectProperty">
@@ -1921,8 +1921,8 @@ predicate in the ontology:
 
 Following the terminology used in RDF/OWL we call the first argument of
 a property its **subject** and the second argument the **object**. The
-`synsem`{.cm} module defines two properties **subjOfProp** and
-**objOfProp** that can be used to refer to the 1st (subject) and 2nd
+`synsem`{.cm} module defines two properties [=subjOfProp=] and
+[=objOfProp=] that can be used to refer to the 1st (subject) and 2nd
 (object) argument of a property, that is a predicate of arity \"2\".
 
 <div class="entity" about="synsem:subjOfProp" typeof="owl:ObjectProperty">
@@ -1983,6 +1983,8 @@ corresponds to the 2nd argument of the property
 [father](http://dbpedia.org/ontology/father), and the prepositional
 argument at position Y (`:arg2`{.cm} below) corresponds to the 1st
 argument of the property [father](http://dbpedia.org/ontology/father).
+The preposition *of* that marks this argument is given by the [=marker=]
+property (`:of` below).
 We use the [LexInfo](http://www.lexinfo.net/) vocabulary to provide
 linguistic information.
 
@@ -2268,7 +2270,7 @@ the set denoted by the class.
 <section id="conditions">
 ## Conditions
 
-Conditions describe precise conditions that must be met by a context in
+[=Conditions=] describe precise conditions that must be met by a context in
 which a lexical entry can be used to refer to a certain ontological
 predicate (reference). These contextual conditions are attached to the
 lexical sense that mediates the relation between a lexical entry and the
@@ -2939,9 +2941,10 @@ desc](Examples/vartrans/example4.png)](Examples/vartrans/example4.png){.tn}
 
 </aside>
 
-Finally, it is also possible to give relationships between concepts, and
-this is useful for modelling relations between synsets in wordnets and
-other similar resources
+Finally, it is also possible to give relationships between concepts, by
+using the [=conceptRel=] property to relate two lexical concepts that stand in
+a [=conceptual relation=]. This is useful for modelling relations between
+synsets in wordnets and other similar resources
 
 <div class="entity" about="vartrans:conceptRel" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Concept Relation</objectProperty>
@@ -3798,7 +3801,7 @@ desc](Examples/lime/example5.png)](Examples/lime/example5.png){.tn}
 </aside>
 
 In addition, it is also possible to give RDF(S) or OWL types as the
-target of the *resource type* property. This allows us to state the
+target of the [=resource type=] property. This allows us to state the
 number of classes that are lexicalized by at least one lexical entry:
 
 <aside class="example">
@@ -3930,7 +3933,9 @@ also be used in the description of a conceptualization set.
 -   concepts: indicating the number of distinct lexical concepts
 
 Additional properties have been defined specifically to characterize a
-given set of conceptualizations:
+given set of conceptualizations: the number of distinct
+[=conceptualizations=] in the set, and their [=average ambiguity=] and
+[=average synonymy=].
 
 <div class="entity" about="lime:conceptualizations" typeof="owl:DatatypeProperty">
 <datatypeProperty property="rdfs:label" lang="en">Conceptualizations</datatypeProperty>
