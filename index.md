@@ -966,25 +966,25 @@ following words with lemma \'bank\' are all considered distinct:
 
 ```turtle
 :bank1_en a ontolex:LexicalEntry ;
-  lime:language "en" ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:etymologicalRoot :banque_frm ;
   ontolex:denotes <http://dbpedia.org/resource/Bank> .
 
 :bank2_en a ontolex:LexicalEntry ;
-  lime:language "en" ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:etymologicalRoot :hobanca_ang ;
   ontolex:denotes <http://dbpedia.org/resource/Bank_(geographic)> .
 
 :bank3_en a ontolex:LexicalEntry ;
-  lime:language "en" ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
   lexinfo:partOfSpeech lexinfo:verb ;
   lexinfo:etymologicalRoot :hobanca_ang ;
   ontolex:denotes <http://dbpedia.org/resource/Banked_turn> .
 
 :bank1_de a ontolex:LexicalEntry ;
-  lime:language "de" ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:gender lexinfo:feminine ;
   ontolex:denotes <http://dbpedia.org/resource/Bank> ;
@@ -994,7 +994,7 @@ following words with lemma \'bank\' are all considered distinct:
   lexinfo:number lexinfo:plural .
 
 :bank2_de a ontolex:LexicalEntry ;
-  lime:language "de" ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:gender lexinfo:feminine ;
   ontolex:denotes <http://dbpedia.org/resource/Bench_(furniture)> ;
