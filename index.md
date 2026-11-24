@@ -34,12 +34,12 @@ ontology:
   - http://art.uniroma2.it/fiorelli/
   - http://art.uniroma2.it/stellato/
   - http://jogracia.url.ph/web/
-  - http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/teachers/52-emontiel
+  - https://oeg.fi.upm.es/index.php/en/teachers/52-emontiel/index.html
   - http://www.dfki.de/~declerck/
   - http://www.ilc.cnr.it/en/content/anas-fahad-khan
   - http://www.istc.cnr.it/people/aldo-gangemi
-  - http://www.oeg-upm.net/index.php/teachers/53-lupe
-  - http://www.paulbuitelaar.net/
+  - https://scholar.google.com/citations?user=eEeqVvwAAAAJ&hl=en
+  - https://research.universityofgalway.ie/en/persons/peter-paul-buitelaar/
   - https://sites.google.com/site/francescafrontini/
   history: '-Version 1.0: depreciation with minor change in metadata for LOV publication
 
@@ -220,12 +220,12 @@ The model as presented here is inspired by many other models, in
 particular the [Lexical Markup
 Framework](http://www.lexicalmarkupframework.org) (LMF), the
 [LexInfo](http://www.lexinfo.net/) model, the
-[LIR](http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/technologies/63-lir)
+[LIR](https://oeg.fi.upm.es/index.php/en/technologies/63-lir/index.html)
 model, the [Linguistic Meta
 Model](http://ontologydesignpatterns.org/wiki/Ontology:LMM) (LMM), the
 [semiotics.owl](http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl)
 ontology design pattern, and the [Senso
-Comune](http://www.sensocomune.it) core model.
+Comune](https://aclanthology.org/L10-1323/) core model.
 
 It is important to also mention what is not the purpose of the model:
 
@@ -238,9 +238,9 @@ It is important to also mention what is not the purpose of the model:
     annotations to textual data, then please consider using the [Web
     Annotation Data Model](https://www.w3.org/TR/annotation-model/), [NLP
     Interchange Format
-    (NIF)](http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/nif-core.html)
+    (NIF)](https://github.com/NLP2RDF/ontologies)
     or the [Extremely Annotational RDF Markup
-    (Earmark)](http://www.essepuntato.it/lode/owlapi/http://www.essepuntato.it/2008/12/earmark).
+    (Earmark)](https://essepuntato.it/earmark/shell/current/shell.html).
 -   It is not a formal model of semantics but a model of lexicography.
     The model is not supposed to be used to define an ontology and
     instead assumes that there is a given ontology in some ontology
@@ -251,7 +251,7 @@ It is important to also mention what is not the purpose of the model:
     There are many existing efforts to provide a vocabulary to describe
     the properties of linguistic objects, such as
     [ISOcat](http://www.isocat.org), [the CLARIN concept
-    registry](https://openskos.meertens.knaw.nl/ccr/browser/),
+    registry](https://concepts.clarin.eu/ccr/),
     [OLiA](http://purl.org/olia/),
     [GOLD](http://linguistics-ontology.org/),
     [LexInfo](http://www.lexinfo.net). The model builds on those and
@@ -808,7 +808,7 @@ be specified with the [=morphological
 pattern=] property to avoid having to
 list all regular forms of a word. The implementation of these patterns
 is not specified by this document (but should be provided by some
-suitable vocabulary such as [LIAM](http://lemon-model.net/liam)).
+suitable vocabulary such as the [Morphology module](https://ontolex.github.io/morph/)).
 
 <div class="entity" about="ontolex:morphologicalPattern" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Morphological Pattern</objectProperty>
@@ -829,12 +829,14 @@ Latin words *amare* and *videre*.
 :amare ontolex:morphologicalPattern :latin_first_conjugation ;
   ontolex:canonicalForm :amare_form .
 
-:amare_form ontolex:writtenRep "amare"@la .
+:amare_form a ontolex:Form ;
+  ontolex:writtenRep "amare"@la .
 
 :videre ontolex:morphologicalPattern :latin_second_conjugation ;
   ontolex:canonicalForm :videre_form .
 
-:videre_form ontolex:writtenRep "videre"@la .
+:videre_form a ontolex:Form ;
+  ontolex:writtenRep "videre"@la .
 ```
 </aside>
 
@@ -973,7 +975,7 @@ following words with lemma \'bank\' are all considered distinct:
   dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:etymologicalRoot :hobanca_ang ;
-  ontolex:denotes <http://dbpedia.org/resource/Bank_(geographic)> .
+  ontolex:denotes <http://dbpedia.org/resource/Bank_(geography)> .
 
 :bank3_en a ontolex:LexicalEntry ;
   dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
@@ -982,7 +984,7 @@ following words with lemma \'bank\' are all considered distinct:
   ontolex:denotes <http://dbpedia.org/resource/Banked_turn> .
 
 :bank1_de a ontolex:LexicalEntry ;
-  dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:gender lexinfo:feminine ;
   ontolex:denotes <http://dbpedia.org/resource/Bank> ;
@@ -992,7 +994,7 @@ following words with lemma \'bank\' are all considered distinct:
   lexinfo:number lexinfo:plural .
 
 :bank2_de a ontolex:LexicalEntry ;
-  dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
   lexinfo:partOfSpeech lexinfo:noun ;
   lexinfo:gender lexinfo:feminine ;
   ontolex:denotes <http://dbpedia.org/resource/Bench_(furniture)> ;
@@ -1039,8 +1041,7 @@ $∃gender.\{female\}$:
 :female_sense ontolex:reference [
     a owl:Restriction;
     owl:onProperty <http://dbpedia.org/ontology/gender> ;
-    owl:hasValue <http://dbpedia.org/resource/Female> ] ;
-  synsem:isA :female_arg .
+    owl:hasValue <http://dbpedia.org/resource/Female> ] .
 ```
 </aside>
 
@@ -1363,10 +1364,7 @@ lexical concept, similar to how a lexical entry
 </div>
 
 The inverse of [=evokes=] is <dfn>is evoked by</dfn>, which relates a
-[=lexical concept=] to the [=lexical entry=] that evokes it. The
-[=evokes=] property is inverse functional, which means that a
-[=lexical concept=] can be evoked by at most one
-[=lexical entry=].
+[=lexical concept=] to the [=lexical entry=] that evokes it.
 
 The evoked concept is different from the reference in the ontology, as
 the reference primarily gives an interpretation of a word in terms of
@@ -1523,7 +1521,7 @@ A [=lexical concept=] is linked to a
   skos:inScheme :conceptLexicon .
                                                                                 
 :consumption2 a ontolex:LexicalConcept ;                                         
-  ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(Economics)> ;
+  ontolex:isConceptOf <http://dbpedia.org/resource/Consumption_(economics)> ;
   skos:definition "Consumption is a major concept in economics and is also studied by many other social sciences. Economists are particularly interested in the relationship between consumption and income, and therefore in economics the consumption function plays a major role.";
   ontolex:isEvokedBy :consumption ;
   skos:inScheme :conceptLexicon .
@@ -2255,12 +2253,19 @@ illustrated by the example below:
 
 ```turtle
 :ride a ontolex:LexicalEntry ;
+  synsem:synBehavior :ride_frame ;
   ontolex:sense :ride_sense1 .
 
-:ride_sense1 a ontolex:LexicalSense ;
+:ride_frame a lexinfo:TransitiveFrame ;
+  lexinfo:subject :ride_subj ;
+  lexinfo:directObject :ride_obj .
+
+:ride_sense1 a ontolex:LexicalSense, synsem:OntoMap ;
   ontolex:reference :methodOfTransportation ;
-  synsem:propertyRange :Bicycle ;
-  synsem:semArg :subj, :obj .
+  synsem:ontoMapping :ride_sense1 ;
+  synsem:subjOfProp :ride_subj ;
+  synsem:objOfProp :ride_obj ;
+  synsem:propertyRange :Bicycle .
 
 :methodOfTransportation a rdf:Property ;
   rdfs:range :Vehicle .
@@ -2349,8 +2354,8 @@ inflammation\') is decomposed into the lexical entries *Lunge* and
 
 ```turtle
 :Lungenentzündung a ontolex:LexicalEntry ;
-  decomp:subterm :Lunge_lex;
-  decomp:subterm :Entzündung_lex .
+  decomp:subterm :lunge_lex ;
+  decomp:subterm :entzündung_lex .
 ```
 
 </aside>
@@ -2512,8 +2517,8 @@ as in the following example:
 
 :SwineFever_node a decomp:Component ;
   decomp:constituent :Swine_node, :Fever_node ;
-  rdf:_1 Swine_node;
-  rdf:_2 Fever_node;
+  rdf:_1 :Swine_node;
+  rdf:_2 :Fever_node;
   olia:hasTag penn:NP .
 
 :Swine_node a decomp:Component ; 
@@ -2529,7 +2534,7 @@ as in the following example:
 
 The syntactic categories of the phrases are indicated using the property
 *has tag* from the [OLiA
-vocabulary](http://nachhalt.sfb632.uni-potsdam.de/owl/) using the [Penn
+vocabulary](https://acoli-repo.github.io/olia/) using the [Penn
 TreeBank
 tagset](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html).
 
@@ -2857,10 +2862,10 @@ example of a diachronic variant:
 
 :phthisis_form ontolex:writtenRep "phthisis"@en .
 
-:phtisis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>;
+:phthisis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>;
                dct:subject <http://dbpedia.org/resource/Medicine> .
 
-:phtisis_diachronic_relation a vartrans:TerminologicalRelation ;
+:phthisis_diachronic_relation a vartrans:TerminologicalRelation ;
       vartrans:source :phthisis_sense ;
       vartrans:target :tuberculosis_sense ; 
       vartrans:category :diachronic.
@@ -2945,13 +2950,13 @@ introduced already in the ontolex section above:
 :surrogate_mother_sense ontolex:reference ontology:SurrogateMother.
 
 :madre_de_alquiler a ontolex:LexicalEntry;
-      dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> ;
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/spa>, <http://lexvo.org/id/iso639-1/es> ;
       ontolex:sense :madre_de_alquiler_sense.
 
 :madre_de_alquiler_sense ontolex:reference ontology:SurrogateMother.
 
 :leihmutter a ontolex:LexicalEntry;
-      dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :leihmutter_sense.
 
 :leihmutter_sense ontolex:reference ontology:SurrogateMother.
@@ -3002,10 +3007,10 @@ other.
 :zip_code_sense ontolex:reference <http://dbpedia.org/ontology/zipCode>.
 
 :postleitzahl a ontolex:LexicalEntry;
-      dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :postleitzahl_sense.
 
-:postleitzahl_sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
+:postleitzahl_sense ontolex:reference <http://dbpedia.org/resource/Postal_code>.
 
 
 :trans a vartrans:SenseTranslation;
@@ -3049,10 +3054,10 @@ With the translation property, the above example can be replaced with:
 :zip_code_sense ontolex:reference <http://dbpedia.org/ontology/zipCode>.
 
 :postleitzahl a ontolex:LexicalEntry;
-      dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+      dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :postleitzahl_sense.
 
-:postleitzahl_sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
+:postleitzahl_sense ontolex:reference <http://dbpedia.org/resource/Postal_code>.
 
 :zip_code_sense vartrans:translation :postleitzahl_sense.
 ```
@@ -3096,10 +3101,10 @@ the Spanish *rincón* (intersection of two inside walls) or *esquina*
       dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> .
  
 :rincón a ontolex:LexicalEntry;
-       dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> .
+       dct:language <http://id.loc.gov/vocabulary/iso639-2/spa>, <http://lexvo.org/id/iso639-1/es> .
 
 :esquina a ontolex:LexicalEntry;
-       dct:language <http://id.loc.gov/vocabulary/iso639-2/es>, <http://lexvo.org/id/iso639-1/es> .
+       dct:language <http://id.loc.gov/vocabulary/iso639-2/spa>, <http://lexvo.org/id/iso639-1/es> .
 
 :corner vartrans:translatableAs :rincón.
 :corner vartrans:translatableAs :esquina.
@@ -3295,7 +3300,7 @@ entry assertions for compatibility:
 
 ```turtle
 :dictionary a lime:Lexicon ;
-   lime:language "en" ;
+   dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
    lime:entry :lex_aardvark ;
    rdf:_1 :lex_aardvark ;
    lime:entry :lex_bee ;
@@ -3371,7 +3376,7 @@ introduced properties in addition to Dublin Core properties. The
 part-of-speech of the four lexical entries is indicated using the
 lexinfo vocabulary, so that the value of
 [=linguistic catalog=] is set to
-`http://www.lexinfo.net/ontologies/2.0/lexinfo`. In the example, there
+`http://www.lexinfo.net/ontology/3.0/lexinfo`. In the example, there
 is one (RDF) resource that represents both the lexicon itself and its
 metadata:
 
@@ -3382,10 +3387,10 @@ metadata:
    lime:language "en";
    dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
    lime:lexicalEntries "4"^^xsd:integer;                                               
-   lime:linguisticCatalog <http://www.lexinfo.net/ontologies/2.0/lexinfo> ;
+   lime:linguisticCatalog <http://www.lexinfo.net/ontology/3.0/lexinfo> ;
    dct:description "This is an example lexicon"@en;                              
    dct:description "Questo è un lessico di esempio"@it;                          
-   dct:creator <http://john.mccr.ae/>;                                           
+   dct:creator <http://john.mccr.ae>;                                           
    void:triples "29"^^xsd:integer ;                                                       
    lime:entry :lex_high;                                                     
    lime:entry :lex_cat;                                                      
@@ -4536,7 +4541,7 @@ detailed linguistic information.
 
 ```turtle
 :financial_assets a skos:Concept;
-                ontolex:lexicalizedSense :financial_assets_lex.
+                ontolex:isEvokedBy :financial_assets_lex.
 
 :financial_assets_lex a ontolex:LexicalEntry;
                  ontolex:evokes :financial_assets;
@@ -4645,20 +4650,24 @@ example
 <aside class="example" src="Examples/other/example-oa.ttl">
 
 ```turtle
-@prefix dctypes: <http://purl.org/dc/dcmitype/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix : <#> .
 
-:annotation a oa:Annotation ;
+:anno a oa:Annotation ;
   oa:hasBody :cat ;
-  oa:hasTarget <anno#target> .
+  oa:hasTarget [
+    oa:hasSource <http://www.example.com/doc.txt> ;
+    oa:hasSelector [
+      a oa:FragmentSelector ;
+      dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+      rdf:value "char=7,10"
+    ]
+  ] .
 
-:annotation#target a dctypes:Text ;
-  oa:hasSelector <http://www.example.com/doc.txt#char=7,10> .
-
-<http://www.example.com/doc.txt#char=7,10> a oa:FragmentSelector .
-
-<cat> a ontolex:LexicalEntry .
+:cat a ontolex:LexicalEntry .
 ```
 
 </aside>

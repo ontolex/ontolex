@@ -24,5 +24,5 @@
 :senseRelation a vartrans:SenseRelation ;
       vartrans:source :surrogate_mother_sense ;
       vartrans:target :mother_sense ; 
-      vartrans:category :hypernym .
+      vartrans:category lexinfo:hypernym .
 

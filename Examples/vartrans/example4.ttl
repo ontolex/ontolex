@@ -21,7 +21,7 @@
 :phthisis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>;
                dct:subject <http://dbpedia.org/resource/Medicine> .
 
-:phtisis_diachronic_relation a vartrans:TerminologicalRelation ;
+:phthisis_diachronic_relation a vartrans:TerminologicalRelation ;
       vartrans:source :phthisis_sense ;
       vartrans:target :tuberculosis_sense ; 
       vartrans:category :diachronic.

@@ -1,6 +1,6 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
-@prefix synsem: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo#>.
 @prefix penn: <http://purl.org/olia/penn-syntax.owl#> .
 @prefix olia: <http://purl.org/olia/system.owl#> .
