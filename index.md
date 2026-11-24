@@ -1698,7 +1698,7 @@ lexical entry should have its own syntactic frame instance, generic
 behavior such as \'transitive\' should be captured by classes.
 
 <div class="entity" about="synsem:synBehavior" typeof="owl:ObjectProperty">
-<objectProperty property="rdfs:label" lang="en">SynBehavior</objectProperty>
+<objectProperty property="rdfs:label" lang="en">Syntactic Behavior</objectProperty>
 
 <div property="rdfs:comment"> The <dfn>syntactic behavior</dfn> property relates a lexical entry to one of its syntactic behaviors as captured by a syntactic frame. </div>
 
@@ -1748,13 +1748,13 @@ Argument=]:
 </div>
 </div>
 
-The object property [=synArg=] is used to relate a
+The object property [=syntactic argument property=] is used to relate a
 (syntactic) frame to one of its syntactic arguments.
 
 <div class="entity" about="synsem:synArg" typeof="owl:ObjectProperty">
-<objectProperty property="rdfs:label" lang="en">SynArg</objectProperty>
+<objectProperty property="rdfs:label" lang="en">Syntactic Argument Property</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>synArg</dfn> property relates a syntactic frame to one of its syntactic arguments. </div>
+<div property="rdfs:comment"> The <dfn>syntactic argument property</dfn> relates a syntactic frame to one of its syntactic arguments. </div>
 
 <div class="description">
 <domain>[=Syntactic Frame=]</domain>
@@ -1764,7 +1764,7 @@ The object property [=synArg=] is used to relate a
 
 The following example shows how to extend the example for the verb *(to)
 own* by specifically indicating the arguments, in this case via two
-specific sub-properties of [=synArg=], i.e.
+specific sub-properties of [=syntactic argument property=], i.e.
 [LexInfo subject](http://lexinfo.net/ontology/2.0/lexinfo.owl#subject)
 or
 [LexInfo direct object](http://lexinfo.net/ontology/2.0/lexinfo.owl#object)
@@ -1790,7 +1790,7 @@ ontology](http://lexinfo.net/ontology/2.0/lexinfo.owl).
 Note that if an external ontology is used to describe the type of
 arguments in more detail, e.g. indicating the grammatical function as in
 the example above, the external property used needs to be a sub-property
-of [=synArg=].
+of [=syntactic argument property=].
 </section>
 
 <section id="ontology-mappings">
@@ -1813,7 +1813,7 @@ entity.
 
 In order to link an [=ontology map=] to a
 corresponding sense, the model foresees the property
-[=ontoMapping=], which is defined as functional
+[=ontology mapping property=], which is defined as functional
 and inverse functional, that is in exact 1:1 relationship with a lexical
 sense. As such, it is recommended that in the case that a lexicon
 requires both the [=ontology map=] and the [=lexical
@@ -1822,9 +1822,9 @@ using the same URI as there is no technical reason to distinguish them
 and they have very similar functions.
 
 <div class="entity" about="synsem:ontoMapping" typeof="owl:ObjectProperty">
-<objectProperty property="rdfs:label" lang="en">OntoMapping</objectProperty>
+<objectProperty property="rdfs:label" lang="en">Ontology Mapping Property</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>ontoMapping</dfn> property relates an ontology mapping to its corresponding lexical sense. </div>
+<div property="rdfs:comment"> The <dfn>ontology mapping property</dfn> relates an ontology mapping to its corresponding lexical sense. </div>
 
 <div class="description">
 <domain>[=Ontology Map=]</domain>
@@ -1835,15 +1835,15 @@ and they have very similar functions.
 </div>
 
 The *synsem* module introduces the property
-[=ontoCorrespondence=] to establish a
+[=ontology correspondence=] to establish a
 mapping between an argument of a predicate defined in the ontology and
 the syntactic argument that realizes this predicate argument in a given
 syntactic frame:
 
 <div class="entity" about="synsem:ontoCorrespondence" typeof="owl:ObjectProperty">
-<objectProperty property="rdfs:label" lang="en">OntoCorrespondence</objectProperty>
+<objectProperty property="rdfs:label" lang="en">Ontology Correspondence</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>ontoCorrespondence</dfn> property binds an argument of a predicate defined in the ontology to a syntactic argument that realizes this predicate argument syntactically. </div>
+<div property="rdfs:comment"> The <dfn>ontology correspondence</dfn> property binds an argument of a predicate defined in the ontology to a syntactic argument that realizes this predicate argument syntactically. </div>
 
 <div class="description">
 <domain>[=Ontology Map=] OR [=Lexical Sense=]</domain>
@@ -1868,7 +1868,7 @@ to RDF and OWL, which distinguish between: individuals/resources
 arity \"2\").
 
 In the following, we introduce three sub-properties of the
-[=ontoCorrespondence=] property. The first
+[=ontology correspondence=] property. The first
 property [=is a=] is used to refer to the single argument of a unary
 predicate in the ontology:
 
@@ -1879,33 +1879,33 @@ predicate in the ontology:
 
 
 <div class="description">
-<subproperty>[=ontoCorrespondence=]</subproperty>
+<subproperty>[=ontology correspondence=]</subproperty>
 </div>
 </div>
 
 Following the terminology used in RDF/OWL we call the first argument of
 a property its **subject** and the second argument the **object**. The
-*synsem* module defines two properties [=subjOfProp=] and
-[=objOfProp=] that can be used to refer to the 1st (subject) and 2nd
+*synsem* module defines two properties [=subject of property=] and
+[=object of property=] that can be used to refer to the 1st (subject) and 2nd
 (object) argument of a property, that is a predicate of arity \"2\".
 
 <div class="entity" about="synsem:subjOfProp" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Subject of Property</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>subjOfProp</dfn> property represents the 1st argument or subject of a binary predicate (property) in the ontology. </div>
+<div property="rdfs:comment"> The <dfn>subject of property</dfn> represents the 1st argument or subject of a binary predicate (property) in the ontology. </div>
 
 <div class="description">
-<subproperty>[=ontoCorrespondence=]</subproperty>
+<subproperty>[=ontology correspondence=]</subproperty>
 </div>
 </div>
 
 <div class="entity" about="synsem:objOfProp" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Object of Property</objectProperty>
 
-<div property="rdfs:comment">The <dfn>objOfProp</dfn> property represents the 2nd argument or object of a binary predicate (property) in the ontology. </div>
+<div property="rdfs:comment">The <dfn>object of property</dfn> represents the 2nd argument or object of a binary predicate (property) in the ontology. </div>
 
 <div class="description">
-<subproperty>[=ontoCorrespondence=]</subproperty>
+<subproperty>[=ontology correspondence=]</subproperty>
 </div>
 </div>
 
@@ -2593,14 +2593,14 @@ The model defines a generic class [=lexico-semantic
 relation=] that allows us to
 relate two lexical entries or two lexical senses to each other, this is
 done principally by means of two properties
-[=lexicalRel=] and
-[=senseRel=] that allow to directly link two lexical
+[=lexical relation property=] and
+[=sense relation property=] that allow to directly link two lexical
 entries / lexical senses that are related.
 
 <div class="entity" about="vartrans:lexicalRel" typeof="owl:ObjectProperty">
-<objectProperty property="rdfs:label" lang="en">Lexical Relation</objectProperty>
+<objectProperty property="rdfs:label" lang="en">Lexical Relation Property</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>lexicalRel</dfn> property relates two lexical entries that stand in some lexical relation. </div>
+<div property="rdfs:comment"> The <dfn>lexical relation property</dfn> relates two lexical entries that stand in some lexical relation. </div>
 
 <div class="description">
 <domain>[=Lexical Entry=]</domain>
@@ -2609,9 +2609,9 @@ entries / lexical senses that are related.
 </div>
 
 <div class="entity" about="vartrans:senseRel" typeof="owl:ObjectProperty">
-<objectProperty property="rdfs:label" lang="en">Sense Relation</objectProperty>
+<objectProperty property="rdfs:label" lang="en">Sense Relation Property</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>senseRel</dfn> property relates two lexical senses that stand in some sense relation. </div>
+<div property="rdfs:comment"> The <dfn>sense relation property</dfn> relates two lexical senses that stand in some sense relation. </div>
 
 <div class="description">
 <domain>[=Lexical Sense=]</domain>
@@ -2869,15 +2869,15 @@ example of a diachronic variant:
 </aside>
 
 Finally, it is also possible to give relationships between concepts, by
-using the [=conceptRel=] property to relate two lexical concepts that stand in
+using the [=concept relation property=] property to relate two lexical concepts that stand in
 a [=conceptual relation=]. This is useful for modelling relations between
 synsets in wordnets and other similar resources.
 
 
 <div class="entity" about="vartrans:conceptRel" typeof="owl:ObjectProperty">
-<objectProperty property="rdfs:label" lang="en">Concept Relation</objectProperty>
+<objectProperty property="rdfs:label" lang="en">Concept Relation Property</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>conceptRel</dfn> property relates two lexical concepts that stand in some sense relation. </div>
+<div property="rdfs:comment"> The <dfn>concept relation property</dfn> relates two lexical concepts that stand in some sense relation. </div>
 
 <div class="description">
 <domain>[=Lexical Concept=]</domain>
@@ -3068,12 +3068,12 @@ say that a lexical entry can be translated into some other entry in some
 contexts, underspecifying the exact lexical senses involved and the
 exact contextual conditions under which this translation is valid. For
 this, the model introduces the property
-[=translatableAs=]:
+[=translatable as=]:
 
 <div class="entity" about="vartrans:translatableAs" typeof="owl:ObjectProperty">
 <objectProperty property="rdfs:label" lang="en">Translatable As</objectProperty>
 
-<div property="rdfs:comment"> The <dfn>translatableAs</dfn> property relates a lexical entry in some language to a lexical entry in another language that it can be translated as depending on the particular context and specific senses of the involved lexical entries. </div>
+<div property="rdfs:comment"> The <dfn>translatable as</dfn> property relates a lexical entry in some language to a lexical entry in another language that it can be translated as depending on the particular context and specific senses of the involved lexical entries. </div>
 
 <div class="description">
 <domain>[=Lexical Entry=]</domain>
@@ -3084,7 +3084,7 @@ this, the model introduces the property
 </div>
 
 The following example shows how to use the relation
-[=translatableAs=] to specify that *corner* (which can mean street
+[=translatable as=] to specify that *corner* (which can mean street
 intersection or intersection of two inside walls) can be translated as
 the Spanish *rincón* (intersection of two inside walls) or *esquina*
 (street intersection), depending on the particular sense involved.
