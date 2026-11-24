@@ -29,6 +29,10 @@ $for(editor)$
     {
 "name": 
 "$editor.name$", 
+$if(editor.url)$
+"url": 
+"$editor.url$", 
+$endif$
 "company": 
 "$editor.company$", 
 "companyURL": 
@@ -46,10 +50,10 @@ $for(author)$
 "$author.companyURL$"},
 $endfor$
         ],
-        github: "ontolex/frequency-attestation-corpus-information",
-        shortName: "FrAC",
+        github: "ontolex/ontolex",
+        shortName: "ontolex",
         group: "ontolex",
-        latestVersion: "https://ontolex.github.io/frequency-attestation-corpus-information/"
+        latestVersion: "https://ontolex.github.io/ontolex/"
       };
     </script>
     <style>

@@ -4,6 +4,22 @@ editor:
 - name: John P. McCrae
   url: http://john.mccr.ae/
   company: University of Galway
+  companyURL: https://www.universityofgalway.ie/
+- name: Christian Chiarcos
+  company: Universität Augsburg
+  companyURL: https://www.uni-augsburg.de/
+- name: Philipp Cimiano
+  url: http://www.cimiano.de/
+  company: CITEC, Bielefeld University
+  companyURL: https://www.uni-bielefeld.de/
+- name: Jorge Gracia
+  url: http://jogracia.url.ph/web/
+  company: University of Zaragoza
+  companyURL: https://www.unizar.es/
+- name: Fahad Khan
+  url: http://www.ilc.cnr.it/en/content/anas-fahad-khan
+  company: CNR Institute for Computational Linguistics (ILC)
+  companyURL: https://www.ilc.cnr.it/
 ontology:
   version: '1.1'
   issued: '2016-01-10'
