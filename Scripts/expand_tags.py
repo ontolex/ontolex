@@ -1,5 +1,8 @@
 from bs4 import BeautifulSoup
 import argparse
+import os
+
+from mermaid_lib import turtle_to_mermaid
 
 namespaces = {
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -191,6 +194,29 @@ def expand_tags(soup):
             new_tag.append(strong_tag)
             tag.replace_with(new_tag)
 
+def expand_asides(soup, base_dir):
+    """Render the Mermaid diagram for each `<aside src="...">` example,
+    generated at build time from the Turtle file it points at (the same
+    file that supplies the aside's inline Turtle listing), and insert it
+    as a `<pre class="mermaid">` before that listing.
+    """
+    for aside in soup.find_all(["aside", "div"], src=True):
+        src = aside["src"]
+        ttl_path = os.path.join(base_dir, src)
+        with open(ttl_path) as f:
+            text = f.read()
+        # a .LR file next to the Turtle file asks for a left-to-right layout
+        direction = "LR" if os.path.exists(os.path.splitext(ttl_path)[0] + ".LR") else None
+        # likewise an .elk file asks for the ELK layout engine
+        elk = os.path.exists(os.path.splitext(ttl_path)[0] + ".elk")
+        mermaid_text = turtle_to_mermaid(text, direction, elk)
+
+        pre = soup.new_tag("pre", **{"class": "mermaid"})
+        pre.string = mermaid_text
+        aside.insert(0, pre)
+        del aside["src"]
+
+
 def build_dfn_about_map(soup):
     dfn_about_map = {}
 
@@ -219,6 +245,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Expand HTML tags in a file.')
     parser.add_argument('input_file', type=str, help='Path to the input HTML file')
     parser.add_argument('output_file', type=str, help='Path to the output HTML file')
+    parser.add_argument('--base', default=None,
+                        help='Directory that the src of example asides is relative to (default: directory of the input file)')
     args = parser.parse_args()
 
     with open(args.input_file, 'r', encoding='utf-8') as file:
@@ -227,6 +255,7 @@ if __name__ == "__main__":
     soup = BeautifulSoup(content, 'html.parser')
 
     expand_tags(soup)
+    expand_asides(soup, args.base or os.path.dirname(os.path.abspath(args.input_file)))
 
     with open(args.output_file, 'w', encoding='utf-8') as file:
         result = str(soup)

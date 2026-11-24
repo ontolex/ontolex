@@ -18,7 +18,7 @@ trap 'rm -f "$HTML" "$TTL"' EXIT
 mkdir -p "$OUT"
 
 pandoc --template respec.template -f markdown-auto_identifiers --wrap=none index.md -o "$HTML"
-python3 Scripts/expand_tags.py "$HTML" "$HTML"
+python3 Scripts/expand_tags.py --base . "$HTML" "$HTML"
 rapper -i rdfa -o turtle "$HTML" > "$TTL"
 
 python3 Scripts/build_ontology.py "$TTL" \
