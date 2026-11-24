@@ -200,6 +200,7 @@ def build_dfn_about_map(soup):
 
     dfn_about_map["is sense of"] = "ontolex:isSenseOf"
     dfn_about_map["is reference of"] = "ontolex:isReferenceOf"
+    dfn_about_map["is denoted by"] = "ontolex:isDenotedBy"
     dfn_about_map["is evoked by"] = "ontolex:isEvokedBy"
     dfn_about_map["is lexicalized sense of"] = "ontolex:isLexicalizedSenseOf"
     dfn_about_map["is concept of"] = "ontolex:isConceptOf"

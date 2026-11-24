@@ -81,7 +81,7 @@ $endfor$
 
  </style>
   </head>
-  <body>
+  <body lang="en">
   $body$
   </body>
 </html>

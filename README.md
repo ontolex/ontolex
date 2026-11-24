@@ -25,18 +25,26 @@ python Scripts/expand_tags.py index.html index.html
 
 ## Extracting the Ontology
 
-The ontology is encoded in RDFa within the HTML specification. To extract it you need
-[`rapper`](https://librdf.org/raptor/rapper.html) (from `raptor2-utils`) and the Python packages
-`beautifulsoup4` and `rdflib`. Run the following after building `index.html` as above:
+The ontology is encoded in RDFa within the specification (`index.md`). To generate the files for each module you need
+`pandoc`, [`rapper`](https://librdf.org/raptor/rapper.html) (from `raptor2-utils`) and the Python packages
+`beautifulsoup4`, `rdflib` and `PyYAML`. Then run, from the root directory of the repository:
 
 ```bash
-python Scripts/expand_tags.py index.html index.html
-rapper -i rdfa -o turtle index.html | python Scripts/build_ontology.py -o ontolex.ttl
+Scripts/extract_ontology.sh generated
 ```
 
-The `expand_tags.py` step is required: it expands the shorthand tags (`<domain>`, `<range>`, etc.) into RDFa and
-makes the page well-formed enough for `rapper`. `build_ontology.py` removes the ReSpec markup (such as `[=lexical entry=]`)
-from the definitions, normalizes whitespace and binds the standard prefixes.
+This writes `<module>.ttl` and `<module>.rdf` for `ontolex`, `synsem`, `decomp`, `vartrans` and `lime` to `generated`.
+It builds the HTML (`pandoc` and `Scripts/expand_tags.py`, which expands the shorthand tags into RDFa), extracts the RDFa
+with `rapper`, and runs `Scripts/build_ontology.py`, which removes ReSpec markup, adds the translations and ontology
+headers, splits the result by module and checks it.
+
+- **Translations** (labels and comments in other languages) are not in the specification. They are in
+  `Ontologies/translations/<module>.csv` (columns `term`, `property`, `lang`, `text`).
+- **Ontology headers** (title, version, creators, etc.) come from the `ontology` section of the front matter of `index.md`.
+
+The GitHub action runs this on every pull request and fails if the checks fail. The files are
+available as the `ontology` artifact of the run, and on `master` they are also published in `generated` on the website.
+The hand-written files in `Ontologies/` are not yet replaced by the generated ones.
 
 ## Building Examples
 

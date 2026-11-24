@@ -4,6 +4,60 @@ editor:
 - name: John P. McCrae
   url: http://john.mccr.ae/
   company: University of Galway
+ontology:
+  version: '1.1'
+  issued: '2016-01-10'
+  modified: '2016-01-10'
+  rights: CC-Zero
+  license: https://creativecommons.org/publicdomain/zero/1.0/
+  publisher: http://www.w3.org/community/ontolex
+  creators:
+  - http://john.mccr.ae/
+  - http://www.cimiano.de/
+  contributors:
+  - http://art.uniroma2.it/fiorelli/
+  - http://art.uniroma2.it/stellato/
+  - http://jogracia.url.ph/web/
+  - http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/teachers/52-emontiel
+  - http://www.dfki.de/~declerck/
+  - http://www.ilc.cnr.it/en/content/anas-fahad-khan
+  - http://www.istc.cnr.it/people/aldo-gangemi
+  - http://www.oeg-upm.net/index.php/teachers/53-lupe
+  - http://www.paulbuitelaar.net/
+  - https://sites.google.com/site/francescafrontini/
+  history: '-Version 1.0: depreciation with minor change in metadata for LOV publication
+
+    -Version 1.1: creation'
+  modules:
+    ontolex:
+      title: Lexicon Model for Ontologies - Core
+      description: A model for the representation of lexical information relative to ontologies. Core
+        module.
+    synsem:
+      title: Lexicon Model for Ontologies - Synsem
+      description: A model for the representation of lexical information relative to ontologies. Syntax
+        and semantics module.
+      imports:
+      - ontolex
+    decomp:
+      title: Lexicon Model for Ontologies - Decomp
+      description: A model for the representation of lexical information relative to ontologies. Decomposition
+        module.
+      imports:
+      - ontolex
+    vartrans:
+      title: Lexicon Model for Ontologies - Vartrans
+      description: A model for the representation of lexical information relative to ontologies. Variation
+        and translation module.
+      imports:
+      - ontolex
+    lime:
+      title: Vocabulary of Linguistic Metadata
+      description: LIME (LInguistic MEtadata) is a vocabulary for expressing linguistic metadata about
+        linguistic resources and linguistically grounded datasets.
+      label: Lexicon Model for Ontologies - LInguistic MEtadata (LIME)
+      imports:
+      - ontolex
 ---
 
 <section id="abstract">
@@ -864,6 +918,7 @@ The property [=denotes=] is defined as follows:
 <domain>[=Lexical Entry=]</domain>
 <range>rdfs:Resource</range>
 <subproperty>semiotics:denotes</subproperty>
+<inverse>[=is denoted by=]</inverse>
 </div>
 </div>
 
