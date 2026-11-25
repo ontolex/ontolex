@@ -52,7 +52,7 @@ NAMESPACES = {
     "vartrans": LEMON + "vartrans#",
     "lime": LEMON + "lime#",
     "lexicog": LEMON + "lexicog#",
-    "lexinfo": "http://www.lexinfo.net/ontology/2.0/lexinfo#",
+    "lexinfo": "http://www.lexinfo.net/ontology/3.0/lexinfo#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "semiotics": "http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#",
     "dcterms": "http://purl.org/dc/terms/",

@@ -1,11 +1,11 @@
 # Example showing how the syntactic behaviour of the lexical entry for the verb "own" can be specified, indiating that one of its uses is as a transitive frame
-# For this, the class lexinfo:TransitiveFrame from the lexinfo ontology is used: http://lexinfo.net/ontology/2.0/lexinfo.owl
+# For this, the class lexinfo:TransitiveFrame from the lexinfo ontology is used: http://www.lexinfo.net/ontology/3.0/lexinfo
 
 # syntactically validated using JENA API 2.11.2
 
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
-@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 @prefix : <#> .
 
 :own_lex a ontolex:LexicalEntry ;

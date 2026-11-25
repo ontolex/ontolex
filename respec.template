@@ -11,7 +11,7 @@
     vartrans: http://www.w3.org/ns/lemon/vartrans#
     lime: http://www.w3.org/ns/lemon/lime#
     lexicog: http://www.w3.org/ns/lemon/lexicog#
-    lexinfo: http://www.lexinfo.net/ontology/2.0/lexinfo#">
+    lexinfo: http://www.lexinfo.net/ontology/3.0/lexinfo#">
   <head>
     <meta charset="utf-8" />
     <title>$title$</title>

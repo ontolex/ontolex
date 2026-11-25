@@ -1,4 +1,4 @@
-@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix : <#> .
