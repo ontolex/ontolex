@@ -1,6 +1,6 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
-@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#>.
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix : <#> .
 
