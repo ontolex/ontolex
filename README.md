@@ -20,17 +20,31 @@ If you want to build it locally, you will need to install [PanDoc](https://pando
 
 ```bash
 pandoc --template respec.template -f markdown-auto_identifiers --wrap=none index.md -o index.html
-python expand_tags.py index.html index.html
+python Scripts/expand_tags.py index.html index.html
 ```
 
 ## Extracting the Ontology
 
-The ontology is encoded in RDFa within the HTML specification. To extract the ontology, you can use a tool such as `rapper`
-
+The ontology is encoded in RDFa within the specification (`index.md`). To generate the files for each module you need
+`pandoc`, [`rapper`](https://librdf.org/raptor/rapper.html) (from `raptor2-utils`) and the Python packages
+`beautifulsoup4`, `rdflib` and `PyYAML`. Then run, from the root directory of the repository:
 
 ```bash
-rapper -i rdfa -o turtle index.html > ontolex.ttl
+Scripts/extract_ontology.sh generated
 ```
+
+This writes `<module>.ttl` and `<module>.rdf` for `ontolex`, `synsem`, `decomp`, `vartrans` and `lime` to `generated`.
+It builds the HTML (`pandoc` and `Scripts/expand_tags.py`, which expands the shorthand tags into RDFa), extracts the RDFa
+with `rapper`, and runs `Scripts/build_ontology.py`, which removes ReSpec markup, adds the translations and ontology
+headers, splits the result by module and checks it.
+
+- **Translations** (labels and comments in other languages) are not in the specification. They are in
+  `Ontologies/translations/<module>.csv` (columns `term`, `property`, `lang`, `text`).
+- **Ontology headers** (title, version, creators, etc.) come from the `ontology` section of the front matter of `index.md`.
+
+The GitHub action runs this on every pull request and fails if the checks fail. The files are
+available as the `ontology` artifact of the run, and on `master` they are also published in `generated` on the website.
+The hand-written files in `Ontologies/` are not yet replaced by the generated ones.
 
 ## Building Examples
 

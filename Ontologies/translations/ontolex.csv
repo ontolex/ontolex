@@ -1,0 +1,290 @@
+term,property,lang,text
+ontolex:Affix,rdfs:comment,ru,"'Аффикс' - это словарная единица, которая представляет морфему (суффикс, префикс, инфикс, циркумфикс), добавляемую к основе слова для образования нового слова."
+ontolex:Affix,rdfs:label,af,affiks
+ontolex:Affix,rdfs:label,de,Affix
+ontolex:Affix,rdfs:label,es,afijo
+ontolex:Affix,rdfs:label,fr,affixe
+ontolex:Affix,rdfs:label,it,affisso
+ontolex:Affix,rdfs:label,nl,affix
+ontolex:Affix,rdfs:label,ro,aplică
+ontolex:Affix,rdfs:label,ru,аффикс
+ontolex:Affix,rdfs:label,sv,affix
+ontolex:ConceptSet,rdfs:comment,ru,'Набор понятий' представляет собой совокупность лексических понятий.
+ontolex:ConceptSet,rdfs:label,de,Konzeptsatz
+ontolex:ConceptSet,rdfs:label,es,conjunto de conceptos
+ontolex:ConceptSet,rdfs:label,fr,banque de conepts
+ontolex:ConceptSet,rdfs:label,it,banca concetti
+ontolex:ConceptSet,rdfs:label,nl,verzameling van begrippen
+ontolex:ConceptSet,rdfs:label,ru,набор понятий
+ontolex:Form,rdfs:comment,ru,'Форма' представляет одну грамматическую реализацию словарной единицы.
+ontolex:Form,rdfs:label,af,vorm
+ontolex:Form,rdfs:label,de,Form
+ontolex:Form,rdfs:label,es,forma
+ontolex:Form,rdfs:label,fr,forme
+ontolex:Form,rdfs:label,it,forma
+ontolex:Form,rdfs:label,nl,vorm
+ontolex:Form,rdfs:label,pt,Forma
+ontolex:Form,rdfs:label,ro,formă
+ontolex:Form,rdfs:label,ru,форма
+ontolex:Form,rdfs:label,sv,form
+ontolex:LexicalConcept,rdfs:comment,ru,"'Лексическое понятие' представляет элемент абстрактного мышления, понятие или единицу мысли, которая может быть лексикализована определенным набором смыслов."
+ontolex:LexicalConcept,rdfs:label,af,leksikale konsep
+ontolex:LexicalConcept,rdfs:label,de,lexikalisches Konzept
+ontolex:LexicalConcept,rdfs:label,es,concepto lexicalizado
+ontolex:LexicalConcept,rdfs:label,fr,concept lexical
+ontolex:LexicalConcept,rdfs:label,it,concetto lessicale
+ontolex:LexicalConcept,rdfs:label,nl,lexikaal begrip
+ontolex:LexicalConcept,rdfs:label,pt,conceito léxico
+ontolex:LexicalConcept,rdfs:label,ro,concept lexical
+ontolex:LexicalConcept,rdfs:label,ru,лексическое понятие
+ontolex:LexicalConcept,rdfs:label,sv,lexikaliskt begrepp
+ontolex:LexicalEntry,rdfs:comment,ru,"'Словарная единица' представляет собой единицу анализа словаря, которая состоит из совокупности грамматически связанных форм и совокупности основных значений, ассоциирующихся со всеми этими формами. 'Словарная единица' - это слово, словосочетание или аффикс одной части речи, морфологической модели, этимологии и набора значений."
+ontolex:LexicalEntry,rdfs:label,af,leksikale inskrywing
+ontolex:LexicalEntry,rdfs:label,de,Lexikoneintrag
+ontolex:LexicalEntry,rdfs:label,es,entrada léxica
+ontolex:LexicalEntry,rdfs:label,fr,entrée lexicale
+ontolex:LexicalEntry,rdfs:label,it,entrata lessicale
+ontolex:LexicalEntry,rdfs:label,nl,lexikale eenheid
+ontolex:LexicalEntry,rdfs:label,ro,înregistrare lexicală
+ontolex:LexicalEntry,rdfs:label,ru,словарная единица
+ontolex:LexicalEntry,rdfs:label,sv,lexikoningång
+ontolex:LexicalSense,rdfs:comment,ru,"'Лексический смысл' обозначает лексическое значение словарной единицы, когда оно понимается как относящееся к соответствующему элементу онтологии. 'Лексический смысл' представляет собой овеществление пары, состоящей из однозначно определяемой словарной единицы и однозначно определяемой сущности отнологии, к которой относится данный лексический смысл. Связь между словарной единицей и сущностью в онтологии посредством объекта 'Лексический Смысл' подразумевает, что словарная статья может быть использована для отсылки к соответствующей сущности в онтологии."
+ontolex:LexicalSense,rdfs:label,af,leksikale sin
+ontolex:LexicalSense,rdfs:label,de,lexikalischer Sinn
+ontolex:LexicalSense,rdfs:label,es,acepción léxica
+ontolex:LexicalSense,rdfs:label,fr,signification lexicale
+ontolex:LexicalSense,rdfs:label,it,senso lessicale
+ontolex:LexicalSense,rdfs:label,nl,lexikale betekenis
+ontolex:LexicalSense,rdfs:label,ro,sens lexical
+ontolex:LexicalSense,rdfs:label,ru,лексический смысл
+ontolex:LexicalSense,rdfs:label,sv,lexikonbetydelse
+ontolex:MultiWordExpression,rdfs:comment,ru,"'Словосочетание' - это словарная единица, состоящая из двух или более слов."
+ontolex:MultiWordExpression,rdfs:label,af,multiwoorduitdrukking
+ontolex:MultiWordExpression,rdfs:label,de,Mehrwortausdruck
+ontolex:MultiWordExpression,rdfs:label,es,expresión multipalabra
+ontolex:MultiWordExpression,rdfs:label,fr,expression à mots multiples
+ontolex:MultiWordExpression,rdfs:label,it,espressione di gruppi di parole
+ontolex:MultiWordExpression,rdfs:label,nl,meerwoordsuitdrukking
+ontolex:MultiWordExpression,rdfs:label,ro,expresie din mai multe cuvinte
+ontolex:MultiWordExpression,rdfs:label,ru,словосочетание
+ontolex:MultiWordExpression,rdfs:label,sv,flerordsuttryck
+ontolex:Word,rdfs:comment,ru,"'Слово' - это словарная единица, представяющая собой единичную реализацию лексемы."
+ontolex:Word,rdfs:label,af,woord
+ontolex:Word,rdfs:label,de,Wort
+ontolex:Word,rdfs:label,es,palabra
+ontolex:Word,rdfs:label,fr,mot
+ontolex:Word,rdfs:label,it,parola
+ontolex:Word,rdfs:label,nl,woord
+ontolex:Word,rdfs:label,ro,cuvânt
+ontolex:Word,rdfs:label,ru,слово
+ontolex:Word,rdfs:label,sv,ord
+ontolex:canonicalForm,rdfs:comment,ru,"Свойство 'каноническая форма' связывает словарную единицу с ее канонической или словарной формой. Она обычно обозначает ""лемму"" словарной единицы."
+ontolex:canonicalForm,rdfs:label,af,kanoniese vorm
+ontolex:canonicalForm,rdfs:label,de,kanonische Form
+ontolex:canonicalForm,rdfs:label,es,forma canónica
+ontolex:canonicalForm,rdfs:label,fr,forme canonique
+ontolex:canonicalForm,rdfs:label,it,forma canonica
+ontolex:canonicalForm,rdfs:label,nl,canonieke vorm
+ontolex:canonicalForm,rdfs:label,pt,forma canonica
+ontolex:canonicalForm,rdfs:label,ro,formă canonică
+ontolex:canonicalForm,rdfs:label,ru,каноническая форма
+ontolex:canonicalForm,rdfs:label,sv,kanonisk form 
+ontolex:concept,rdfs:comment,ru,"Свойство 'понятие' связывает сущность в онтологии с лексическим понятием, которое представляет соответствующее значение."
+ontolex:concept,rdfs:label,af,konsep
+ontolex:concept,rdfs:label,de,Konzept
+ontolex:concept,rdfs:label,es,concepto
+ontolex:concept,rdfs:label,fr,concept
+ontolex:concept,rdfs:label,it,concetto
+ontolex:concept,rdfs:label,nl,begrip
+ontolex:concept,rdfs:label,pt,conceito
+ontolex:concept,rdfs:label,ro,concept
+ontolex:concept,rdfs:label,ru,понятие
+ontolex:concept,rdfs:label,sv,begrepp
+ontolex:denotes,rdfs:comment,ru,"Свойство 'обозначает' связывает словарную единицу с предикатом в онтологии, который представляет ее значение и обладает денотативной или теоретико-модельной семантикой."
+ontolex:denotes,rdfs:label,af,dui aan
+ontolex:denotes,rdfs:label,de,bezeichnet
+ontolex:denotes,rdfs:label,es,denota
+ontolex:denotes,rdfs:label,fr,dénote
+ontolex:denotes,rdfs:label,it,denota
+ontolex:denotes,rdfs:label,nl,duidt aan
+ontolex:denotes,rdfs:label,pt,denota
+ontolex:denotes,rdfs:label,ro,denotă
+ontolex:denotes,rdfs:label,ru,обозначает
+ontolex:denotes,rdfs:label,sv,betecknar
+ontolex:evokes,rdfs:comment,ru,"Свойство 'порождает' связывает словарную единицу с одним из лексических понятий, которую она порождает, то есть мыслительное понятие, которое возникает в сознании говорящих, когда они слышат данную словарную единицу."
+ontolex:evokes,rdfs:label,af,roep op
+ontolex:evokes,rdfs:label,de,ruft hervor
+ontolex:evokes,rdfs:label,es,evoca
+ontolex:evokes,rdfs:label,fr,évoque
+ontolex:evokes,rdfs:label,it,evoca
+ontolex:evokes,rdfs:label,nl,roept op
+ontolex:evokes,rdfs:label,pt,evoca
+ontolex:evokes,rdfs:label,ro,evocă
+ontolex:evokes,rdfs:label,ru,порождает
+ontolex:evokes,rdfs:label,sv,framkallar
+ontolex:isConceptOf,rdfs:comment,ru,"Это свойство формализует значение 'Лексического Понятия', связывая его с отдельным значением в онтологии."
+ontolex:isConceptOf,rdfs:label,af,is konsep van
+ontolex:isConceptOf,rdfs:label,de,ist Konzept von
+ontolex:isConceptOf,rdfs:label,es,es concepto de
+ontolex:isConceptOf,rdfs:label,fr,est un concept pour 
+ontolex:isConceptOf,rdfs:label,it,è concetto di 
+ontolex:isConceptOf,rdfs:label,nl,is begrip van
+ontolex:isConceptOf,rdfs:label,pt,é conceito de
+ontolex:isConceptOf,rdfs:label,ro,este concept a(l)
+ontolex:isConceptOf,rdfs:label,ru,является понятием
+ontolex:isConceptOf,rdfs:label,sv,är begrepp för
+ontolex:isDenotedBy,rdfs:comment,ru,Свойство объекта 'обозначается' является обратным к свойству объекта 'обозначает'.
+ontolex:isDenotedBy,rdfs:label,af,word aangedui deur
+ontolex:isDenotedBy,rdfs:label,de,wird bezeichnet von
+ontolex:isDenotedBy,rdfs:label,es,es denotado por
+ontolex:isDenotedBy,rdfs:label,fr,est dénoté par
+ontolex:isDenotedBy,rdfs:label,it,è denotato da
+ontolex:isDenotedBy,rdfs:label,nl,wordt aangeduid door
+ontolex:isDenotedBy,rdfs:label,pt,é denotado por
+ontolex:isDenotedBy,rdfs:label,ro,este denotat cu
+ontolex:isDenotedBy,rdfs:label,ru,обозначается
+ontolex:isDenotedBy,rdfs:label,sv,betecknas av
+ontolex:isEvokedBy,rdfs:comment,ru,Отношение обратное к 'порождает'.
+ontolex:isEvokedBy,rdfs:label,af,word opgeroep deur
+ontolex:isEvokedBy,rdfs:label,de,wird hervorgerufen von
+ontolex:isEvokedBy,rdfs:label,es,es evocado por
+ontolex:isEvokedBy,rdfs:label,fr,est évoqué par
+ontolex:isEvokedBy,rdfs:label,it,è evocato da
+ontolex:isEvokedBy,rdfs:label,nl,wordt opgeroepen door
+ontolex:isEvokedBy,rdfs:label,ro,este evocat de
+ontolex:isEvokedBy,rdfs:label,ru,порождается
+ontolex:isEvokedBy,rdfs:label,sv,framkallas av 
+ontolex:isLexicalizedSenseOf,rdfs:comment,ru,"Свойство объекта 'является лексикализованным смыслом' представляет собой свойство, обратное к свойству 'лексикализованный смысл'."
+ontolex:isLexicalizedSenseOf,rdfs:label,af,is geleksikaliseerde sin van
+ontolex:isLexicalizedSenseOf,rdfs:label,de,ist lexikalisierter Sinn von
+ontolex:isLexicalizedSenseOf,rdfs:label,es,es l'acepción lexicalizado de
+ontolex:isLexicalizedSenseOf,rdfs:label,fr,est le sens lexicalisé de
+ontolex:isLexicalizedSenseOf,rdfs:label,it,è il senso lessicalizzato di
+ontolex:isLexicalizedSenseOf,rdfs:label,nl,is lexikale betekenis van
+ontolex:isLexicalizedSenseOf,rdfs:label,ro,este sens lexicalizat de
+ontolex:isLexicalizedSenseOf,rdfs:label,ru,является лексикализованным смыслом
+ontolex:isLexicalizedSenseOf,rdfs:label,sv,är lexikaliserad betydelse för
+ontolex:isReferenceOf,rdfs:comment,ru,"Свойство объекта 'является референцией' представляет собой свойство, обратное к свойству 'референция'."
+ontolex:isReferenceOf,rdfs:label,af,is verwysing van
+ontolex:isReferenceOf,rdfs:label,de,ist Referenz von
+ontolex:isReferenceOf,rdfs:label,es,es referencia de
+ontolex:isReferenceOf,rdfs:label,fr,est référence de
+ontolex:isReferenceOf,rdfs:label,it,è riferimento di
+ontolex:isReferenceOf,rdfs:label,nl,is referentie van
+ontolex:isReferenceOf,rdfs:label,pt,é referência de
+ontolex:isReferenceOf,rdfs:label,ro,este referință a(l)
+ontolex:isReferenceOf,rdfs:label,ru,является референцией
+ontolex:isReferenceOf,rdfs:label,sv,är referens för
+ontolex:isSenseOf,rdfs:comment,ru,"Свойство 'является смыслом' представляет собой свойство, обратное к свойству 'смысл'."
+ontolex:isSenseOf,rdfs:label,af,is sin van
+ontolex:isSenseOf,rdfs:label,de,ist Sinn von
+ontolex:isSenseOf,rdfs:label,es,es acepción de
+ontolex:isSenseOf,rdfs:label,fr,est signification de
+ontolex:isSenseOf,rdfs:label,it,è il senso di
+ontolex:isSenseOf,rdfs:label,nl,is betekenis van
+ontolex:isSenseOf,rdfs:label,pt,é sentido de
+ontolex:isSenseOf,rdfs:label,ro,este sens a(l)
+ontolex:isSenseOf,rdfs:label,ru,является смыслом
+ontolex:isSenseOf,rdfs:label,sv,är betydelse för
+ontolex:lexicalForm,rdfs:comment,ru,Свойство 'лексическая форма' соотносит словарную единицу с одним вариантом грамматической формы словарной единицы.
+ontolex:lexicalForm,rdfs:label,af,leksikale vorm
+ontolex:lexicalForm,rdfs:label,de,lexikalische Form
+ontolex:lexicalForm,rdfs:label,es,forma léxica
+ontolex:lexicalForm,rdfs:label,fr,forme lexicale
+ontolex:lexicalForm,rdfs:label,it,forma lessicale
+ontolex:lexicalForm,rdfs:label,nl,lexikale vorm
+ontolex:lexicalForm,rdfs:label,ro,formă lexicală
+ontolex:lexicalForm,rdfs:label,ru,лексическая форма
+ontolex:lexicalForm,rdfs:label,sv,lexikonform
+ontolex:lexicalizedSense,rdfs:comment,ru,"Свойство 'лексикализованный смысл' связывает лексическое понятие с соответствующим лексическим смыслом, который лексикализует понятие."
+ontolex:lexicalizedSense,rdfs:label,af,geleksikaliseerde Sin
+ontolex:lexicalizedSense,rdfs:label,de,lexikalisierter Sinn
+ontolex:lexicalizedSense,rdfs:label,es,acepción lexicalizada
+ontolex:lexicalizedSense,rdfs:label,fr,signification lexicalisé
+ontolex:lexicalizedSense,rdfs:label,it,senso lessicalizzato
+ontolex:lexicalizedSense,rdfs:label,nl,lexikale betekenis
+ontolex:lexicalizedSense,rdfs:label,ro,sens lexicalizat
+ontolex:lexicalizedSense,rdfs:label,ru,лексикализованный смысл
+ontolex:lexicalizedSense,rdfs:label,sv,lexikaliserad betydelse
+ontolex:morphologicalPattern,rdfs:comment,ru,Свойство 'морфологическая модель' обозначает морфологический класс слова.
+ontolex:morphologicalPattern,rdfs:label,af,morfologiese patroon
+ontolex:morphologicalPattern,rdfs:label,de,morphologisches Muster
+ontolex:morphologicalPattern,rdfs:label,es,patrón morfológico
+ontolex:morphologicalPattern,rdfs:label,fr,patron morphologique
+ontolex:morphologicalPattern,rdfs:label,it,motivo morfologico
+ontolex:morphologicalPattern,rdfs:label,nl,morfologische patroon
+ontolex:morphologicalPattern,rdfs:label,ro,model morfologic
+ontolex:morphologicalPattern,rdfs:label,ru,морфологическая модель
+ontolex:morphologicalPattern,rdfs:label,sv,morfologiskt mönster
+ontolex:otherForm,rdfs:comment,ru,"Свойство 'другая форма' связывает словарную единицу с малоупотребительной формой (""не леммой""), которая является реализацией данной словарной единицы"
+ontolex:otherForm,rdfs:label,af,ander form
+ontolex:otherForm,rdfs:label,de,andere Form
+ontolex:otherForm,rdfs:label,es,otra forma
+ontolex:otherForm,rdfs:label,fr,autre forme
+ontolex:otherForm,rdfs:label,it,altra forma
+ontolex:otherForm,rdfs:label,nl,andere vorm
+ontolex:otherForm,rdfs:label,pt,outra forma
+ontolex:otherForm,rdfs:label,ro,altă formă
+ontolex:otherForm,rdfs:label,ru,другая форма
+ontolex:otherForm,rdfs:label,sv,annan form
+ontolex:phoneticRep,rdfs:comment,ru,"Свойство 'фонетическое представление' обозначает фонетическое представление произношения формы с использованием какой-либо схемы, например, Международного фонетического алфавита (IPA, МФА)."
+ontolex:phoneticRep,rdfs:label,af,fonetiese voorstelling
+ontolex:phoneticRep,rdfs:label,de,phonetische Darstellung
+ontolex:phoneticRep,rdfs:label,es,representación fonética
+ontolex:phoneticRep,rdfs:label,fr,représentation phonétique
+ontolex:phoneticRep,rdfs:label,it,rappresentazione fonetica
+ontolex:phoneticRep,rdfs:label,nl,fonetische representatie
+ontolex:phoneticRep,rdfs:label,ro,reprezentare fonetică
+ontolex:phoneticRep,rdfs:label,ru,фонетическое представление
+ontolex:phoneticRep,rdfs:label,sv,fonetisk representation 
+ontolex:reference,rdfs:comment,ru,"Свойство 'референция' соотносит лексический смысл с предикатом в онтологии, который уточняет значение денотата (соответствующей словарной единицы)."
+ontolex:reference,rdfs:label,af,verwysing
+ontolex:reference,rdfs:label,de,Referenz
+ontolex:reference,rdfs:label,es,referencia
+ontolex:reference,rdfs:label,fr,référence
+ontolex:reference,rdfs:label,it,riferimento
+ontolex:reference,rdfs:label,nl,referentie
+ontolex:reference,rdfs:label,pt,referência
+ontolex:reference,rdfs:label,ro,referință
+ontolex:reference,rdfs:label,ru,референция
+ontolex:reference,rdfs:label,sv,referens
+ontolex:representation,rdfs:comment,ru,"Свойство 'представление' обозначает некую последовательность, с помощью которой форма может быть представлена средствами орфографии."
+ontolex:representation,rdfs:label,af,voorstelling
+ontolex:representation,rdfs:label,de,Darstellung
+ontolex:representation,rdfs:label,es,representación
+ontolex:representation,rdfs:label,fr,représentation
+ontolex:representation,rdfs:label,it,rappresentazione
+ontolex:representation,rdfs:label,nl,representatie
+ontolex:representation,rdfs:label,pt,representação
+ontolex:representation,rdfs:label,ro,reprezentare
+ontolex:representation,rdfs:label,ru,представление
+ontolex:representation,rdfs:label,sv,representation
+ontolex:sense,rdfs:comment,ru,Свойство 'смысл' связывает словарную единицу с одним из ее лексических смыслов.
+ontolex:sense,rdfs:label,af,sinne
+ontolex:sense,rdfs:label,de,Sinn
+ontolex:sense,rdfs:label,es,acepción
+ontolex:sense,rdfs:label,fr,signification
+ontolex:sense,rdfs:label,it,senso
+ontolex:sense,rdfs:label,nl,betekenis
+ontolex:sense,rdfs:label,pt,sentido
+ontolex:sense,rdfs:label,ro,sens
+ontolex:sense,rdfs:label,ru,смысл
+ontolex:sense,rdfs:label,sv,betydelse
+ontolex:usage,rdfs:comment,ru,Свойство 'употребление' обозначает условия использования или прагматическое значение при употреблении словарной единицы для соотнесения с определенным значением в онтологии.
+ontolex:usage,rdfs:label,de,Gebrauch
+ontolex:usage,rdfs:label,es,uso
+ontolex:usage,rdfs:label,fr,usage
+ontolex:usage,rdfs:label,it,uso
+ontolex:usage,rdfs:label,nl,gebruik
+ontolex:usage,rdfs:label,ru,употребление
+ontolex:writtenRep,rdfs:comment,ru,Свойство 'письменное представление' обозначает письменное представление формы.
+ontolex:writtenRep,rdfs:label,af,geskrewe voorstelling
+ontolex:writtenRep,rdfs:label,de,schriftliche Darstellung
+ontolex:writtenRep,rdfs:label,es,representación escrita
+ontolex:writtenRep,rdfs:label,fr,représentation écrite
+ontolex:writtenRep,rdfs:label,it,rappresentazione scritta
+ontolex:writtenRep,rdfs:label,nl,schriftelijke representatie
+ontolex:writtenRep,rdfs:label,pt,representação escrita
+ontolex:writtenRep,rdfs:label,ro,reprezentare scrisă
+ontolex:writtenRep,rdfs:label,ru,письменное представление
+ontolex:writtenRep,rdfs:label,sv,skriven form 

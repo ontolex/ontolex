@@ -11,46 +11,8 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 
-<http://purl.org/vocommons/voaf#Vocabulary>
-    a owl:Class .
-
-semiotics:Expression
-    a owl:Class ;
-    rdfs:label "expression"@en .
-
-semiotics:Meaning
-    a owl:Class ;
-    rdfs:label "meaning"@en .
-
-semiotics:denotes
-    a owl:ObjectProperty .
-
-rdf:langString
-    a rdfs:Datatype .
-
-rdfs:isDefinedBy
-    a owl:AnnotationProperty .
-
-owl:topDataProperty
-    a owl:DatatypeProperty .
-
-owl:topObjectProperty
-    a owl:ObjectProperty .
-
 vs:term_status
     a owl:AnnotationProperty .
-
-<http://www.w3.org/2004/02/skos/core#Concept>
-    a owl:Class ;
-    rdfs:label "concept"@en .
-
-<http://www.w3.org/2004/02/skos/core#ConceptScheme>
-    a owl:Class ;
-    rdfs:label "concept scheme"@en .
-
-<http://www.w3.org/2004/02/skos/core#inScheme>
-    a owl:ObjectProperty ;
-    rdfs:label "in scheme"@en .
 
 <http://www.w3.org/ns/lemon/ontolex>
     cc:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
@@ -374,11 +336,5 @@ vs:term_status
     vs:term_status "stable" .
 
 <http://www.w3.org/ns/lemon/synsem#OntoMap>
-    a owl:Class .
-
-foaf:Organization
-    a owl:Class .
-
-foaf:Person
     a owl:Class .
 

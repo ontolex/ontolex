@@ -31,7 +31,7 @@
      xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
     <owl:Ontology rdf:about="http://www.w3.org/ns/lemon/lime">
         <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
-        <rdfs:label xml:lang="en">Lexicon Model for Ontologies - LIngusitic MEtadata (LIME)</rdfs:label>
+        <rdfs:label xml:lang="en">Lexicon Model for Ontologies - LInguistic MEtadata (LIME)</rdfs:label>
         <owl:versionInfo rdf:datatype="&xsd;decimal">1.1</owl:versionInfo>
         <dc:modified rdf:datatype="&xsd;date">2016-01-10</dc:modified>
         <dc:issued rdf:datatype="&xsd;date">2016-01-10</dc:issued>
@@ -72,9 +72,6 @@
     
 
 
-    <!-- http://rdfs.org/ns/void#vocabulary -->
-
-    <owl:AnnotationProperty rdf:about="&void;vocabulary"/>
     <owl:AnnotationProperty rdf:about="&vs;term_status"/>
     
 
@@ -90,16 +87,6 @@
     
 
 
-    <!-- http://rdfs.org/ns/void#subset -->
-
-    <owl:ObjectProperty rdf:about="&void;subset"/>
-    
-
-
-    <!-- http://rdfs.org/ns/void#vocabulary -->
-
-    <owl:ObjectProperty rdf:about="&void;vocabulary"/>
-    
 
 
     <!-- http://www.w3.org/ns/lemon/lime#conceptualDataset -->
@@ -200,7 +187,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/lemon/lime#linguisticCatalog">
         <rdfs:label xml:lang="de">linguistische Kategorienmodell</rdfs:label>
-        <rdfs:label xml:lang="en">lingustic catalog</rdfs:label>
+        <rdfs:label xml:lang="en">linguistic catalog</rdfs:label>
         <rdfs:label xml:lang="es">conjunto de categoríes lingüísticas</rdfs:label>
         <rdfs:label xml:lang="fr">banque de catégories linguistiques</rdfs:label>
         <rdfs:label xml:lang="it">banca categorie linguistiche</rdfs:label>
@@ -634,22 +621,10 @@
     
 
 
-    <!-- http://rdfs.org/ns/void#Dataset -->
-
-    <owl:Class rdf:about="&void;Dataset"/>
-    
 
 
-    <!-- http://rdfs.org/ns/void#Linkset -->
-
-    <owl:Class rdf:about="&void;Linkset"/>
-    
 
 
-    <!-- http://www.w3.org/2000/01/rdf-schema#Class -->
-
-    <owl:Class rdf:about="&rdfs;Class"/>
-    
 
 
     <!-- http://www.w3.org/ns/lemon/lime#ConceptualizationSet -->

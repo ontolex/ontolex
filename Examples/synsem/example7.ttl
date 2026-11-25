@@ -1,6 +1,6 @@
     @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
     @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-    @prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
+    @prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
     @prefix owl: <http://www.w3.org/2002/07/owl#>.
     @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
@@ -22,7 +22,7 @@
 :give_transitive_pp a lexinfo:TransitivePPFrame;
    lexinfo:subject :give_subj1 ;
    lexinfo:directObject :give_dobj1; 
-   lexinfo:prepositionalArg :give_pobj1.
+   lexinfo:prepositionalObject :give_pobj1.
 
 :give_ditransitive a lexinfo:DitransitiveFrame;
    lexinfo:subject :give_subj2 ;

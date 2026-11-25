@@ -1,5 +1,8 @@
 from bs4 import BeautifulSoup
 import argparse
+import os
+
+from mermaid_lib import turtle_to_mermaid
 
 namespaces = {
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -9,16 +12,19 @@ namespaces = {
         "semiotics": "http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "void": "http://www.w3.org/2006/vcard/ns#",
+        "lexinfo": "http://www.lexinfo.net/ontology/3.0/lexinfo#",
+        "lexicog": "http://www.w3.org/ns/lemon/lexicog#",
         "voaf": "http://purl.org/vocommons/voaf#",
         }
 
 tags_to_expand = {
         "range": {"rel": "rdfs:range"},
-        "domain": {"rel": "domain"},
+        "domain": {"rel": "rdfs:domain"},
         "subclass": {"rel": "rdfs:subClassOf"},
         "subproperty": {"rel": "rdfs:subPropertyOf"},
         "inverse": {"rel": "owl:inverseOf"},
-        "equivalentClass": {"rel": "owl:equivalentClass"},
+        "equivalentclass": {"rel": "owl:equivalentClass"},
+        "equivalentproperty": {"rel": "owl:equivalentProperty"},
         }
 
 tags_text = {
@@ -27,7 +33,8 @@ tags_text = {
         "subclass": "Subclass:",
         "subproperty": "Subproperty:",
         "inverse": "Inverse Property:",
-        "equivalentClass": "Equivalent Class:",
+        "equivalentclass": "Equivalent Class:",
+        "equivalentproperty": "Equivalent Property:",
         }
 
 characteristics = {
@@ -80,10 +87,16 @@ def transform_contents(soup, contents, dfn_about):
     elif " min " in contents or " max " in contents or " exactly " in contents:
         if " min " in contents:
             parts = contents.split(" min ")
+            keyword = " min "
+            unqualified_prop, qualified_prop = "owl:minCardinality", "owl:minQualifiedCardinality"
         elif " max " in contents:
             parts = contents.split(" max ")
+            keyword = " max "
+            unqualified_prop, qualified_prop = "owl:maxCardinality", "owl:maxQualifiedCardinality"
         else:#if " exactly " in contents:
             parts = contents.split(" exactly ")
+            keyword = " exactly "
+            unqualified_prop, qualified_prop = "owl:cardinality", "owl:qualifiedCardinality"
         if len(parts) != 2:
             raise ValueError("Invalid OWL cardinality format: " + contents)
         restriction = soup.new_tag('span', typeof='owl:Restriction')
@@ -91,23 +104,24 @@ def transform_contents(soup, contents, dfn_about):
         prop_tag = soup.new_tag('span', rel="owl:onProperty", **prop_attrs)
         prop_tag.append(prop_contents)
         restriction.append(prop_tag)
-        if " min " in contents:
-            restriction.append(" min ")
-            card_tag = soup.new_tag('span', rel="owl:minCardinality", datatype="xsd:integer")
-        elif " max " in contents:
-            restriction.append(" max ")
-            card_tag = soup.new_tag('span', rel="owl:maxCardinality", datatype="xsd:integer")
-        else:#if " exactly " in contents:
-            restriction.append(" exactly ")
-            card_tag = soup.new_tag('span', rel="owl:cardinality", datatype="xsd:integer")
+        restriction.append(keyword)
         parts2 = parts[1].split(" ")
-        card_tag.string = parts2[0] + " "
-        restriction.append(card_tag)
+        # A trailing class after the cardinality number (e.g. "min 2 [=observable=]")
+        # produces a *qualified* cardinality restriction (owl:onClass), rather than
+        # a plain owl:{min,max,}Cardinality restriction.
         if len(parts2) > 1:
-            range_contents, range_attrs = transform_contents(soup, " ".join(parts2[1:]), dfn_about)
-            all_tag = soup.new_tag('span', rel="owl:allValuesFrom", **range_attrs)
-            all_tag.append(range_contents)
-            restriction.append(all_tag)
+            card_tag = soup.new_tag('span', property=qualified_prop, datatype="xsd:nonNegativeInteger")
+            card_tag.string = parts2[0]
+            restriction.append(card_tag)
+            restriction.append(" ")
+            class_contents, class_attrs = transform_contents(soup, " ".join(parts2[1:]), dfn_about)
+            class_tag = soup.new_tag('span', rel="owl:onClass", **class_attrs)
+            class_tag.append(class_contents)
+            restriction.append(class_tag)
+        else:
+            card_tag = soup.new_tag('span', property=unqualified_prop, datatype="xsd:integer")
+            card_tag.string = parts2[0]
+            restriction.append(card_tag)
         return restriction, {}
     elif " only " in contents:
         parts = contents.split(" only ")
@@ -180,6 +194,29 @@ def expand_tags(soup):
             new_tag.append(strong_tag)
             tag.replace_with(new_tag)
 
+def expand_asides(soup, base_dir):
+    """Render the Mermaid diagram for each `<aside src="...">` example,
+    generated at build time from the Turtle file it points at (the same
+    file that supplies the aside's inline Turtle listing), and insert it
+    as a `<pre class="mermaid">` before that listing.
+    """
+    for aside in soup.find_all(["aside", "div"], src=True):
+        src = aside["src"]
+        ttl_path = os.path.join(base_dir, src)
+        with open(ttl_path) as f:
+            text = f.read()
+        # a .LR file next to the Turtle file asks for a left-to-right layout
+        direction = "LR" if os.path.exists(os.path.splitext(ttl_path)[0] + ".LR") else None
+        # likewise an .elk file asks for the ELK layout engine
+        elk = os.path.exists(os.path.splitext(ttl_path)[0] + ".elk")
+        mermaid_text = turtle_to_mermaid(text, direction, elk)
+
+        pre = soup.new_tag("pre", **{"class": "mermaid"})
+        pre.string = mermaid_text
+        aside.insert(0, pre)
+        del aside["src"]
+
+
 def build_dfn_about_map(soup):
     dfn_about_map = {}
 
@@ -193,9 +230,11 @@ def build_dfn_about_map(soup):
 
     dfn_about_map["is sense of"] = "ontolex:isSenseOf"
     dfn_about_map["is reference of"] = "ontolex:isReferenceOf"
+    dfn_about_map["is denoted by"] = "ontolex:isDenotedBy"
     dfn_about_map["is evoked by"] = "ontolex:isEvokedBy"
     dfn_about_map["is lexicalized sense of"] = "ontolex:isLexicalizedSenseOf"
     dfn_about_map["is concept of"] = "ontolex:isConceptOf"
+    dfn_about_map["is definition of"] = "ontolex:isDefinitionOf"
     dfn_about_map["is syntactic behavior of"] = "ontolex:isSyntacticBehaviorOf"
     dfn_about_map["onto map"] = "synsem:OntoMap"
 
@@ -206,6 +245,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Expand HTML tags in a file.')
     parser.add_argument('input_file', type=str, help='Path to the input HTML file')
     parser.add_argument('output_file', type=str, help='Path to the output HTML file')
+    parser.add_argument('--base', default=None,
+                        help='Directory that the src of example asides is relative to (default: directory of the input file)')
     args = parser.parse_args()
 
     with open(args.input_file, 'r', encoding='utf-8') as file:
@@ -214,6 +255,7 @@ if __name__ == "__main__":
     soup = BeautifulSoup(content, 'html.parser')
 
     expand_tags(soup)
+    expand_asides(soup, args.base or os.path.dirname(os.path.abspath(args.input_file)))
 
     with open(args.output_file, 'w', encoding='utf-8') as file:
         result = str(soup)

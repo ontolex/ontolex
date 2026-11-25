@@ -13,10 +13,10 @@
       dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :postleitzahl_sense.
 
-:postleitzahl_sense ontolex:reference <http://de.dbpedia.org/resource/Postleitzahl>.
+:postleitzahl_sense ontolex:reference <http://dbpedia.org/resource/Postal_code>.
 
 
-:trans a vartrans:Translation;
+:trans a vartrans:SenseTranslation;
        vartrans:source :zip_code_sense;
        vartrans:target :postleitzahl_sense;
        vartrans:category <http://purl.org/net/translation-categories#directEquivalent>.

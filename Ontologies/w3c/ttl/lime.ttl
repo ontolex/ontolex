@@ -11,21 +11,6 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 
-void:Dataset
-    a owl:Class .
-
-void:Linkset
-    a owl:Class .
-
-void:subset
-    a owl:ObjectProperty .
-
-void:vocabulary
-    a owl:AnnotationProperty, owl:ObjectProperty .
-
-rdfs:Class
-    a owl:Class .
-
 vs:term_status
     a owl:AnnotationProperty .
 
@@ -44,7 +29,7 @@ vs:term_status
     a <http://purl.org/vocommons/voaf#Vocabulary>, owl:Ontology ;
     rdfs:comment """-Version 1.0: depreciation with minor change in metadata for LOV publication
 -Version 1.1: creation"""@en ;
-    rdfs:label "Lexicon Model for Ontologies - LIngusitic MEtadata (LIME)"@en ;
+    rdfs:label "Lexicon Model for Ontologies - LInguistic MEtadata (LIME)"@en ;
     owl:imports <http://www.w3.org/ns/lemon/ontolex> ;
     owl:versionInfo 1.1 .
 

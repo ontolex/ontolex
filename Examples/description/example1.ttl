@@ -1,5 +1,6 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
+@prefix : <#> .
 
-<cat> a ontolex:Word ;
+:cat a ontolex:Word ;
   lexinfo:partOfSpeech lexinfo:noun .
