@@ -1,0 +1,24 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix : <#> .
+
+:surcoFerroviario a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :surcoFerroviario_form ;
+  ontolex:otherForm :surcosFerroviarios_form ;
+  ontolex:sense :surcoFerroviario_sense .
+
+:surcoFerroviario_sense ontolex:usage :surcoFerroviario_usage .
+
+:surcoFerroviario_usage a prov:Entity ;
+  rdf:value "Término acordado tras consultar con el Ministerio de Fomento; en algunos documentos legales se usan también «franja» y «ruta»."@es ;
+  prov:hadPrimarySource [ a prov:Entity ;
+                          rdfs:label "DGT-ES-TERM" ] .
+
+:surcoFerroviario_form a ontolex:Form ;
+  ontolex:writtenRep "surco ferroviario"@es .
+
+:surcosFerroviarios_form a ontolex:Form ;
+  ontolex:writtenRep "surcos ferroviarios"@es ;
+  ontolex:usage [ rdf:value "Plural form, rarely used in legal texts"@en ] .

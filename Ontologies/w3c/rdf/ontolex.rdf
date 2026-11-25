@@ -528,10 +528,18 @@
         <rdfs:label xml:lang="it">uso</rdfs:label>
         <rdfs:label xml:lang="nl">gebruik</rdfs:label>
         <rdfs:label xml:lang="ru">употребление</rdfs:label>
-        <rdfs:comment xml:lang="en">The &apos;usage&apos; property indicates usage conditions or pragmatic implications when using the lexical entry to refer to the given ontological meaning.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;usage&apos; property indicates usage conditions or pragmatic implications of a lexical entry, form or lexical sense, for example when using the lexical entry to refer to the given ontological meaning.</rdfs:comment>
         <rdfs:comment xml:lang="ru">Свойство &apos;употребление&apos; обозначает условия использования или прагматическое значение при употреблении словарной единицы для соотнесения с определенным значением в онтологии.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
-        <rdfs:domain rdf:resource="&ontolex;LexicalSense"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontolex;Form"/>
+                    <rdf:Description rdf:about="&ontolex;LexicalEntry"/>
+                    <rdf:Description rdf:about="&ontolex;LexicalSense"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="&rdfs;Resource"/>
         <vs:term_status>stable</vs:term_status>
     </owl:ObjectProperty>
