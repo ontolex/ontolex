@@ -19,10 +19,10 @@ The conventions apply to them as well. See
 |---|---|
 | `index.md` | The specification: Pandoc Markdown with embedded HTML and RDFa |
 | `respec.template` | The Pandoc template: HTML skeleton, ReSpec configuration, Mermaid script and CSS |
-| `Examples/<module>/*.ttl` | One Turtle file per example; each is the source of the example's diagram |
+| `Examples/<module>/*.ttl` | One Turtle file per example, generated from its listing in `index.md`; the diagram is drawn from it |
 | `Diagrams/` | Hand-drawn module overview figures and other images |
 | `Ontologies/translations/<module>.csv` | Labels and comments in languages other than English |
-| `Scripts/` | The build: `expand_tags.py`, `mermaid_lib.py`, `build_ontology.py`, `extract_ontology.sh` |
+| `Scripts/` | The build: `extract_examples.py`, `expand_tags.py`, `mermaid_lib.py`, `build_ontology.py`, `extract_ontology.sh` |
 
 The specification is the single source of the ontology. The OWL files for each
 module are generated from the RDFa in `index.md`, so a change to a definition in
@@ -48,12 +48,21 @@ these differences are expected:
   drifted. When a fix to one of them is general, for example to the namespace
   table or the qualified cardinality syntax, apply it to the other repositories
   too.
-- **The other modules are external vocabularies.** A module refers to OntoLex
-  terms (`ontolex:LexicalEntry`) as an external vocabulary. In the text, link to
-  their definitions in the core specification
-  (`[lexical entry](https://www.w3.org/2016/05/ontolex/#lexical-entry-class)`) rather
-  than writing CURIEs. In entity blocks, the CURIE form is fine as long as the
-  prefix is in the `expand_tags.py` namespace table.
+- **Referring to the core and other modules.** In the text, refer to terms of
+  the core specification and of other modules with ReSpec's `data-cite`, not with
+  CURIEs or hard-coded URLs:
+
+  ```html
+  <a data-cite="ontolex#LexicalEntry">lexical entry</a>
+  ```
+
+  The part before `#` is a key in `localBiblio` in the ReSpec configuration of
+  `respec.template`, which gives the specification's title and URL once for the
+  whole document. ReSpec builds the link from it and lists the specification
+  under References. The part after `#` is the anchor of the term in that
+  specification. Check that the anchor exists. In entity blocks, the CURIE form
+  (`<domain>ontolex:Form</domain>`) is fine as long as the prefix is in the
+  `expand_tags.py` namespace table.
 - **Namespaces and versions.** Use the module's own namespace under
   `http://www.w3.org/ns/lemon/`, and the same current versions of other
   vocabularies as the core specification (for example LexInfo 3.0).
@@ -66,11 +75,13 @@ the Python packages `beautifulsoup4`, `rdflib` and `PyYAML`.
 Build the HTML page from the repository root:
 
 ```bash
+python Scripts/extract_examples.py
 pandoc --template respec.template -f markdown-auto_identifiers --wrap=none index.md -o index.html
 python Scripts/expand_tags.py index.html index.html
 ```
 
-`expand_tags.py` expands the shorthand tags in the entity definitions into RDFa
+`extract_examples.py` writes the example files from their listings (see
+[Examples](#examples)). `expand_tags.py` expands the shorthand tags in the entity definitions into RDFa
 and renders the example diagrams. If the output HTML is written outside the
 repository root, pass `--base .` so that the example files can be found.
 
@@ -213,11 +224,11 @@ gives the term's IRI and `typeof` its type:
 
 ## Examples
 
-Every example is an `aside` whose `src` names its Turtle file, followed by the
-listing:
+Every example is an `aside` with a `title` (its caption) and a `src` naming its
+Turtle file, followed by the listing:
 
 ````markdown
-<aside class="example" src="Examples/ontolex/example14.ttl">
+<aside class="example" title="A lexical entry" src="Examples/ontolex/example14.ttl">
 
 ```turtle
 :lexical_entry a ontolex:LexicalEntry .
@@ -226,17 +237,23 @@ listing:
 </aside>
 ````
 
-- **One file per example.** Put it at `Examples/<module>/exampleN.ttl`. The file
-  is the source of the diagram, and the listing is what readers see.
-- **The listing and the file must describe the same graph.** The listing may omit
-  the `@prefix` lines, which are given in the Conventions section. Apart from
-  that, a listing parsed with the file's prefixes must be isomorphic to the file.
-  Change both together. See [Checks](#checks).
-- **Each listing must parse.** End every statement with `.`, prefix every local
-  name (`:mother_form`, not `mother_form`), and use only declared prefixes.
-- **Prefixes in the file:** declare every prefix the file uses, and use
-  `@prefix : <#> .` for the example's own resources. Avoid relative IRIs such as
-  `<cat>`.
+- **The listing in `index.md` is the source.** Edit only the listing.
+  `Scripts/extract_examples.py` writes the file named by `src`, preceded by the
+  `@prefix` lines it needs, and the diagram is drawn from that file. Run the
+  script after changing an example and commit the files with the change. CI fails
+  if a file is out of date, or if a Turtle file is not used by any example.
+- **File names** are free. They are only referenced from `src`, so choose any
+  path under `Examples/`, and never reuse a file for two examples.
+- **Captions.** Give every example a `title`: a short phrase describing what it
+  shows, with the main word in it ("Inflected forms of the verb (to) marry").
+  ReSpec numbers it and adds "Example N:", so do not start the title with
+  "Example". Do not use double quotes in it.
+- **Prefixes.** Listings do not repeat the prefixes declared in the Conventions
+  section. The empty prefix `:` is the example's own namespace (`<#>`). Any other
+  prefix is declared at the top of the listing that uses it. Avoid relative IRIs
+  such as `<cat>`.
+- **Each listing must parse.** End every statement with `.`, and prefix every
+  local name (`:mother_form`, not `mother_form`).
 - **Use current vocabularies:**
   - LexInfo 3.0, `http://www.lexinfo.net/ontology/3.0/lexinfo#`. Check that every
     term exists in it.
@@ -304,7 +321,7 @@ Example diagrams are generated, not drawn:
 
 ## Checks
 
-Run these checks before opening a pull request. The first two also run in CI.
+Run these checks before opening a pull request. Checks 1 and 3 also run in CI.
 
 1. **Build and extract.** `Scripts/extract_ontology.sh <dir>` must succeed. If
    you changed a definition, compare the generated files with the previous
@@ -312,10 +329,9 @@ Run these checks before opening a pull request. The first two also run in CI.
 2. **ReSpec warnings.** Open the built page and run
    `document.respec.warnings` and `document.respec.errors` in the browser
    console. ReSpec also shows them in its pill menu. Both must be empty.
-3. **Examples match their files.** For each `aside` with a `src`, parse the
-   listing (with the file's prefixes) and the file with `rdflib` and check that
-   they are isomorphic (`rdflib.compare.to_isomorphic`). Every listing must
-   parse.
+3. **Example files.** `python3 Scripts/extract_examples.py --check` must pass.
+   It checks that every listing parses and that the files are up to date. This
+   also runs in CI.
 4. **External vocabularies.** Check that the terms used from LexInfo and other
    vocabularies exist in their current versions.
 5. **Spelling.** Run a spell checker over the prose, for example
