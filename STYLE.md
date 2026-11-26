@@ -214,8 +214,9 @@ gives the term's IRI and `typeof` its type:
   `*Noun* ≡ ∃ partOfSpeech.NounPOS` are code and stay as written.
 - **Modules** are named in italics (*synsem*, *vartrans*, *lime*), or by their
   full names ("the Syntax and Semantics module").
-- **Example resources** mentioned in the text are in italics (*arg1*,
-  *own_frame_transitive*).
+- **Example resources** mentioned in the text are written as code, exactly as in
+  the listing (`:arg1`, `:own_frame_transitive`), since the text refers to the
+  code of the example.
 - **Spelling is American English** ("behavior", "organization",
   "lexicalization"). Some British forms remain ("modelling", "organisation",
   "colour"); change them when editing the passage.
@@ -256,7 +257,9 @@ Turtle file, followed by the listing:
   local name (`:mother_form`, not `mother_form`).
 - **Use current vocabularies:**
   - LexInfo 3.0, `http://www.lexinfo.net/ontology/3.0/lexinfo#`. Check that every
-    term exists in it.
+    term exists in it. If a term is missing, propose it to
+    [LexInfo](https://github.com/ontolex/lexinfo) rather than defining it in the
+    example.
   - VoID, `http://rdfs.org/ns/void#`.
   - Other vocabularies at their current namespaces.
 - **Introduce terms in order.** An example uses only terms that have been
