@@ -1,7 +1,6 @@
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix : <#> .
-
 
 :lex_cat a ontolex:LexicalEntry, ontolex:Word;
      ontolex:canonicalForm :form_cat;

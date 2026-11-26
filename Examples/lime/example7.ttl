@@ -1,7 +1,7 @@
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix lime: <http://www.w3.org/ns/lemon/lime#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix : <#> .
 
 :WnConceptualizationSet a lime:ConceptualizationSet ;
   lime:conceptualDataset :WnConceptSet ;

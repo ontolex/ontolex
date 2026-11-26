@@ -1,12 +1,7 @@
-# Extension of examples 1 and 2 showing how a lexical sense referring to <http://dbpedia.org/ontology/owner> can be added.
-
-# syntactically validated using JENA API 2.11.2
-
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix : <#> .
 
 :own_lex a ontolex:LexicalEntry ;
   ontolex:canonicalForm :own_form ;

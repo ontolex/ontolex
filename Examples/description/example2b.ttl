@@ -1,7 +1,7 @@
-@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcr: <http://www.isocat.org/ns/dcr.rdf#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 
+@prefix dcr: <http://www.isocat.org/ns/dcr.rdf#> .
 
 lexinfo:noun
   a lexinfo:PartOfSpeech, lexinfo:NounPOS ;

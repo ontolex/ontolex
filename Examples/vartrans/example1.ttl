@@ -1,9 +1,6 @@
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
-@prefix isocat: <http://www.isocat.org/datacat/>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix : <#> .
 
 :fao a ontolex:LexicalEntry ;
      ontolex:sense :fao_sense; 

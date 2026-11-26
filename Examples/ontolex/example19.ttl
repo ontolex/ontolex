@@ -1,7 +1,7 @@
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 :monastery_n_en a ontolex:LexicalEntry ;
    ontolex:sense :monastery_n_en_sense .
@@ -14,4 +14,3 @@
 
 :monastery_n_en_sense_concept a ontolex:LexicalConcept ;
   skos:definition "monk's residence"@en .
-

@@ -1,6 +1,5 @@
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix : <#>.
-
 
 :lex_child a ontolex:LexicalEntry ;                                                
   ontolex:lexicalForm :form_child_singular, :form_child_plural .              

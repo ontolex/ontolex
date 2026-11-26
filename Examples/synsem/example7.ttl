@@ -1,13 +1,7 @@
-    @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
-    @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-    @prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
-    @prefix owl: <http://www.w3.org/2002/07/owl#>.
-    @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-    @prefix myontology: <http://myontology.org#>.
-
-    @prefix : <#> .
-
+@prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 
 :give a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:verb ;
@@ -53,4 +47,3 @@
                                  synsem:objOfProp :give_pobj1.
 
 :give_pobj1 synsem:marker :to .
-

@@ -1,10 +1,8 @@
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
-@prefix isocat: <http://www.isocat.org/datacat/>.
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#>.
-@prefix : <#>.   
- 
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
+
 :surrogate_mother_lex a ontolex:LexicalEntry ;
      ontolex:sense :surrogate_mother_sense ;
      ontolex:canonicalForm :surrogate_mother_form.
@@ -25,4 +23,3 @@
       vartrans:source :surrogate_mother_sense ;
       vartrans:target :mother_sense ; 
       vartrans:category lexinfo:hypernym .
-

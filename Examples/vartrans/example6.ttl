@@ -1,7 +1,7 @@
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix : <#> .
 
 :zip_code a ontolex:LexicalEntry;
       dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;

@@ -1,9 +1,8 @@
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix dbr: <http://dbpedia.org/resource/>.
-@prefix : <#> .
 
 :female a ontolex:LexicalEntry; 
   lexinfo:partOfSpeech lexinfo:adjective;

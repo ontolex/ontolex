@@ -1,5 +1,5 @@
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix : <#>.
 
 :troll a ontolex:LexicalEntry ;
   ontolex:denotes <http://dbpedia.org/resource/Troll> ;

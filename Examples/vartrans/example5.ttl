@@ -1,24 +1,23 @@
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix ontology: <http://www.example.org/ontology#> .
 @prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+@prefix ontology: <http://www.example.org/ontology#> .
 
 :surrogate_mother a ontolex:LexicalEntry;
       dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
       ontolex:sense :surrogate_mother_sense.
 
-:surrogate_mother_sense ontolex:reference ontology:SurrogateMother .
+:surrogate_mother_sense ontolex:reference ontology:SurrogateMother.
 
 :madre_de_alquiler a ontolex:LexicalEntry;
       dct:language <http://id.loc.gov/vocabulary/iso639-2/spa>, <http://lexvo.org/id/iso639-1/es> ;
       ontolex:sense :madre_de_alquiler_sense.
 
-:madre_de_alquiler_sense ontolex:reference ontology:SurrogateMother .
+:madre_de_alquiler_sense ontolex:reference ontology:SurrogateMother.
 
 :leihmutter a ontolex:LexicalEntry;
       dct:language <http://id.loc.gov/vocabulary/iso639-2/deu>, <http://lexvo.org/id/iso639-1/de> ;
       ontolex:sense :leihmutter_sense.
 
-:leihmutter_sense ontolex:reference ontology:SurrogateMother .
-
+:leihmutter_sense ontolex:reference ontology:SurrogateMother.
