@@ -6,14 +6,15 @@ listing, and this script writes that listing to the file named by `src`,
 preceded by the `@prefix` declarations it needs. The diagram of the example is
 generated from that file at build time (see expand_tags.py).
 
-The prefixes are taken from the namespace listings in the "Conventions"
-section of index.md, plus `@prefix : <#>` for the example's own resources.
+The prefixes are taken from the listings of @prefix declarations outside the
+examples (in the Conventions or Namespaces section), with `:` defaulting to
+`<#>` for the example's own resources.
 Prefixes that a listing declares itself are left to the listing. Only the
 prefixes a listing uses are written.
 
 Usage (from the repository root):
-    python3 Scripts/extract_examples.py [index.md]           write the files
-    python3 Scripts/extract_examples.py --check [index.md]   fail if any file
+    python3 extract_examples.py [index.md]           write the files
+    python3 extract_examples.py --check [index.md]   fail if any file
                                                              is out of date
 """
 import argparse
@@ -27,18 +28,26 @@ EXAMPLE = re.compile(r'<(aside|div) class="example"([^>]*)>(.*?)</\1>', re.S)
 SRC = re.compile(r'\bsrc="([^"]+\.ttl)"')
 LISTING = re.compile(r"```turtle\n(.*?)```", re.S)
 PREFIX = re.compile(r"@prefix\s+([A-Za-z][\w.-]*|):\s*<([^>]*)>\s*\.")
-CONVENTIONS = re.compile(r'<section id="conventions">(.*?)</section>', re.S)
 
 
 def common_prefixes(spec):
-    """The prefixes declared in the Conventions section, in order."""
-    section = CONVENTIONS.search(spec)
-    if not section:
-        raise SystemExit("index.md has no <section id=\"conventions\">")
+    """The prefixes the document declares for all examples, in order.
+
+    These are the Turtle listings outside the examples that consist only of
+    @prefix declarations (in the Conventions or Namespaces section). The empty
+    prefix defaults to `<#>` unless one of them declares it.
+    """
+    outside = EXAMPLE.sub("", spec)
     prefixes = {"": "#"}
-    for listing in LISTING.findall(section.group(1)):
-        for name, iri in PREFIX.findall(listing):
-            prefixes[name] = iri
+    found = False
+    for listing in LISTING.findall(outside):
+        lines = [l for l in listing.splitlines() if l.strip() and not l.strip().startswith("#")]
+        if lines and all(PREFIX.fullmatch(l.strip()) for l in lines):
+            found = True
+            for name, iri in PREFIX.findall(listing):
+                prefixes[name] = iri
+    if not found:
+        raise SystemExit("no listing of @prefix declarations found outside the examples")
     return prefixes
 
 
@@ -109,7 +118,7 @@ def main():
             continue
         stale += 1
         if args.check:
-            print("%s: file is out of date; run Scripts/extract_examples.py" % where)
+            print("%s: file is out of date; run %s" % (where, sys.argv[0]))
         else:
             os.makedirs(os.path.dirname(path), exist_ok=True)
             with open(path, "w", encoding="utf-8") as f:
