@@ -1,11 +1,7 @@
-
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
-@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-
-@prefix : <#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 
 :operate_in a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:verb ;
@@ -18,7 +14,7 @@
 
 :operate_intransitivepp a synsem:SyntacticFrame;
    lexinfo:subject :operate_subj ;
-   lexinfo:prepositionalArg :operate_pobj.
+   lexinfo:prepositionalObject :operate_pobj.
 
 :operate_sense_ontomap a ontolex:LexicalSense, synsem:OntoMap;
    synsem:ontoMapping :operate_sense_ontomap;

@@ -10,9 +10,6 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 
-owl:topObjectProperty
-    a owl:ObjectProperty .
-
 vs:term_status
     a owl:AnnotationProperty .
 
@@ -32,8 +29,7 @@ vs:term_status
     rdfs:comment """-Version 1.0: depreciation with minor change in metadata for LOV publication
 -Version 1.1: creation"""@en ;
     owl:imports <http://www.w3.org/ns/lemon/ontolex> ;
-    :imports <http://www.w3.org/ns/lemon/ontolex> ;
-    :versionInfo 1.1 .
+    owl:versionInfo 1.1 .
 
 :ConceptualRelation
     a owl:Class ;

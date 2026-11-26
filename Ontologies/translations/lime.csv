@@ -1,0 +1,200 @@
+term,property,lang,text
+lime:ConceptualizationSet,rdfs:comment,ru,"Набор концепций представляет собой набор связей между словарными единицами в лексиконе и лексическими понятиями в наборе понятий, которые они вызывают."
+lime:ConceptualizationSet,rdfs:label,de,Konzeptualisierungsatz
+lime:ConceptualizationSet,rdfs:label,es,conjuto de conceptualizaciones
+lime:ConceptualizationSet,rdfs:label,fr,banque de concepitalisations
+lime:ConceptualizationSet,rdfs:label,it,banca concettualizzazioni
+lime:ConceptualizationSet,rdfs:label,nl,verzameling van conceptialisaties
+lime:ConceptualizationSet,rdfs:label,ru,набор концепций
+lime:LexicalLinkset,rdfs:comment,ru,"Лексический набор связей представляет собой набор связей между набором ссылок и набором лексических понятий (например, synsets of wordnet)"
+lime:LexicalLinkset,rdfs:label,af,leksikale skakelstel
+lime:LexicalLinkset,rdfs:label,de,Lexikonlinksatz
+lime:LexicalLinkset,rdfs:label,es,conjunto de enlaces
+lime:LexicalLinkset,rdfs:label,fr,banque de liens lexicals
+lime:LexicalLinkset,rdfs:label,it,banca di link lessicali
+lime:LexicalLinkset,rdfs:label,nl,verzameling van lexicale links
+lime:LexicalLinkset,rdfs:label,ro,linkset lexical
+lime:LexicalLinkset,rdfs:label,ru,лексический набор ссылок
+lime:LexicalLinkset,rdfs:label,sv,lexikalisk länkmängd
+lime:LexicalizationSet,rdfs:comment,ru,"'Набор лексикализации' - это набор данных, который содержит набор лексикализаций, т.е. пары словарной единицы и соответствующей ссылки в связанной онтологии/словаре/наборе данных."
+lime:LexicalizationSet,rdfs:label,ru,набор лексикализаций
+lime:Lexicon,rdfs:comment,ru,Лексикон представляет собой набор словарных единиц для определенного языка или домена.
+lime:Lexicon,rdfs:label,af,leksikon
+lime:Lexicon,rdfs:label,de,Lexikon
+lime:Lexicon,rdfs:label,es,lexicón
+lime:Lexicon,rdfs:label,fr,Lexique
+lime:Lexicon,rdfs:label,it,Lessico
+lime:Lexicon,rdfs:label,nl,Lexicon
+lime:Lexicon,rdfs:label,ro,lexicon
+lime:Lexicon,rdfs:label,ru,лексикон
+lime:Lexicon,rdfs:label,sv,lexikon
+lime:avgAmbiguity,rdfs:comment,ru,"Свойство 'средней неоднозначности' указывает среднее число лексических понятий, вызываемых каждой леммой/канонической формой в лексиконе."
+lime:avgAmbiguity,rdfs:label,de,Durchschnittliche Ambiguität
+lime:avgAmbiguity,rdfs:label,es,ambigüedad promedia
+lime:avgAmbiguity,rdfs:label,fr,ambiguïté moyenne
+lime:avgAmbiguity,rdfs:label,it,ambiguità media
+lime:avgAmbiguity,rdfs:label,nl,gemiddelde ambiguïteit
+lime:avgAmbiguity,rdfs:label,ru,средняя неоднозначность
+lime:avgNumOfLexicalizations,rdfs:comment,ru,Свойство 'среднее количество лексикализаций' указывает среднее число лексикализаций на элемент онтологии. Точная формула для вычисления среднего значения указана в спецификации: https://www.w3.org/community/ontolex/wiki/Final_Model_Specification#LexicalizationSet
+lime:avgNumOfLexicalizations,rdfs:label,af,gemiddelde aantal leksikaliserings
+lime:avgNumOfLexicalizations,rdfs:label,de,Durchschnittliche Anzahl von Lexikalisierungen
+lime:avgNumOfLexicalizations,rdfs:label,es,promedio de lexicalizaciones
+lime:avgNumOfLexicalizations,rdfs:label,fr,nombre moyen de lexicalisations
+lime:avgNumOfLexicalizations,rdfs:label,it,numero medio di lessicalizzazioni
+lime:avgNumOfLexicalizations,rdfs:label,nl,gemiddeld aantal van lexicalisatie
+lime:avgNumOfLexicalizations,rdfs:label,pt,numero medio de lexicalizações
+lime:avgNumOfLexicalizations,rdfs:label,ro,numărul mediu de lexicalizari
+lime:avgNumOfLexicalizations,rdfs:label,ru,среднее количество лексикализаций
+lime:avgNumOfLexicalizations,rdfs:label,sv,genomsnittligt antal lexikaliseringar
+lime:avgNumOfLinks,rdfs:comment,ru,Свойство 'среднее количество ссылок' указывает среднее число ссылок для каждого объекта в концептуальном наборе данных.
+lime:avgNumOfLinks,rdfs:label,de,Durchschnittliche Anzahl von Links
+lime:avgNumOfLinks,rdfs:label,es,promedio de enlaces
+lime:avgNumOfLinks,rdfs:label,fr,nombre moyen de liens
+lime:avgNumOfLinks,rdfs:label,it,numero medio di link
+lime:avgNumOfLinks,rdfs:label,nl,gemiddeld aantal van links
+lime:avgNumOfLinks,rdfs:label,ru,среднее количество ссылок
+lime:avgSynonymy,rdfs:comment,ru,"Свойство 'средняя синонимия' указывает среднее число словарных единиц, вызывающих каждое лексическое понятие в наборе понятий."
+lime:avgSynonymy,rdfs:label,de,Durchschnittliche Synonymie
+lime:avgSynonymy,rdfs:label,es,sinóminedad promedia
+lime:avgSynonymy,rdfs:label,fr,synonymie moyenne
+lime:avgSynonymy,rdfs:label,it,sinonimità media
+lime:avgSynonymy,rdfs:label,nl,gemiddelde synonymie
+lime:avgSynonymy,rdfs:label,ru,средняя синонимия
+lime:concepts,rdfs:comment,ru,"Свойство 'понятия' указывает количество лексических понятий, определенных в наборе понятий или участвующих либо в LexicalLinkset, либо в ConceptualizationSet."
+lime:concepts,rdfs:label,de,Konzepte
+lime:concepts,rdfs:label,es,conceptos
+lime:concepts,rdfs:label,fr,concepts
+lime:concepts,rdfs:label,it,concetti
+lime:concepts,rdfs:label,nl,begrippen
+lime:concepts,rdfs:label,ru,понятия
+lime:conceptualDataset,rdfs:comment,ru,Свойство 'концептуальный набор данных' связывает набор лексической связи или концептуализацию с соответствующим набором понятий.
+lime:conceptualDataset,rdfs:label,de,Konzeptdatensatz
+lime:conceptualDataset,rdfs:label,es,conjunto de conceptos
+lime:conceptualDataset,rdfs:label,fr,banque de concepts
+lime:conceptualDataset,rdfs:label,it,banca concetti
+lime:conceptualDataset,rdfs:label,nl,dataset van begrippen
+lime:conceptualDataset,rdfs:label,ru,концептуальный набор данных
+lime:conceptualizations,rdfs:comment,ru,Свойство 'концептуализации' указывает на число различных концептуализаций в наборе концептуализаций.
+lime:conceptualizations,rdfs:label,de,Konzeptualisierungen
+lime:conceptualizations,rdfs:label,es,conceptualizaciones
+lime:conceptualizations,rdfs:label,fr,conceptualisations
+lime:conceptualizations,rdfs:label,it,concettualizzazioni
+lime:conceptualizations,rdfs:label,nl,conceptualisaties
+lime:conceptualizations,rdfs:label,ru,концептуализации
+lime:entry,rdfs:comment,ru,Свойство 'запись' связывает лексикон с одной из содержащихся в нем словарных единиц.
+lime:entry,rdfs:label,af,inskrywing
+lime:entry,rdfs:label,de,Eintrag
+lime:entry,rdfs:label,es,entrada
+lime:entry,rdfs:label,fr,entrée
+lime:entry,rdfs:label,it,entrata
+lime:entry,rdfs:label,nl,Item
+lime:entry,rdfs:label,pt,entrada
+lime:entry,rdfs:label,ro,înregistrare
+lime:entry,rdfs:label,ru,запись
+lime:entry,rdfs:label,sv,ingång
+lime:language,rdfs:comment,ru,"Свойство 'язык' указывает язык лексикона, словарной единицы, набора понятий или набора лексикализаций."
+lime:language,rdfs:label,af,taal
+lime:language,rdfs:label,de,Sprache
+lime:language,rdfs:label,es,lengua
+lime:language,rdfs:label,fr,langue
+lime:language,rdfs:label,it,lingua
+lime:language,rdfs:label,nl,taal
+lime:language,rdfs:label,pt,idioma
+lime:language,rdfs:label,ro,limbă
+lime:language,rdfs:label,ru,язык
+lime:language,rdfs:label,sv,språk
+lime:lexicalEntries,rdfs:comment,ru,"Свойство 'словарная единица' указывает количество различных словарных единиц, содержащихся в лексиконе или наборе лексикализаций."
+lime:lexicalEntries,rdfs:label,af,leksikale inskrywing
+lime:lexicalEntries,rdfs:label,de,Lexikoneinträge
+lime:lexicalEntries,rdfs:label,es,entradas léxicas
+lime:lexicalEntries,rdfs:label,fr,lexie
+lime:lexicalEntries,rdfs:label,it,entrate lessicali
+lime:lexicalEntries,rdfs:label,nl,lexikaal items
+lime:lexicalEntries,rdfs:label,pt,entradas lexicas
+lime:lexicalEntries,rdfs:label,ro,înregistrari lexicale
+lime:lexicalEntries,rdfs:label,ru,словарная единица
+lime:lexicalEntries,rdfs:label,sv,lexikoningångar
+lime:lexicalizationModel,rdfs:comment,ru,"Свойство 'модель лексикализации' указывает модель, используемую для представления лексической информации. Возможные значения включают (но не ограничиваются) http://www.w3.org/2000/01/rdf-schema# (for the use of rdfs:label), http://www.w3.org/2004/02/skos/core (for the use of skos:pref/alt/hiddenLabel), http://www.w3.org/2008/05/skos-xl (for the use of skosxl:pref/alt/hiddenLabel) and http://www.w3.org/ns/lemon/all for lemon."
+lime:lexicalizationModel,rdfs:label,de,Lexikalisierungmodell
+lime:lexicalizationModel,rdfs:label,es,modelo de lexicalización
+lime:lexicalizationModel,rdfs:label,fr,modèle de lexicalisation
+lime:lexicalizationModel,rdfs:label,it,modello di lessicalizzazione
+lime:lexicalizationModel,rdfs:label,nl,model van lexicalisatie
+lime:lexicalizationModel,rdfs:label,ru,модель лексикализации
+lime:lexicalizations,rdfs:comment,ru,"Свойство 'лексикализации' указывает общее число лексикализаций в наборе лексикализаций, то есть количество уникальных пар словарных единиц и обозначенного элемента онтологии."
+lime:lexicalizations,rdfs:label,af,leksikaliserings
+lime:lexicalizations,rdfs:label,de,Lexikalisierungen
+lime:lexicalizations,rdfs:label,es,lexicalizaciones
+lime:lexicalizations,rdfs:label,fr,lexicalisations
+lime:lexicalizations,rdfs:label,it,lessicalizzazioni
+lime:lexicalizations,rdfs:label,nl,lexicalisaties
+lime:lexicalizations,rdfs:label,pt,lexicalizações
+lime:lexicalizations,rdfs:label,ro,lexicalizari
+lime:lexicalizations,rdfs:label,ru,лексикализации
+lime:lexicalizations,rdfs:label,sv,lexikaliseringar
+lime:lexiconDataset,rdfs:comment,ru,"Свойство 'лексический набор данных' указывает лексику, которая содержит записи, упомянутые в наборе лексикализации или наборе концептуализации."
+lime:lexiconDataset,rdfs:label,af,leksikale datastel
+lime:lexiconDataset,rdfs:label,de,Lexikondatensatz
+lime:lexiconDataset,rdfs:label,es,conjunto de datos del lexicón
+lime:lexiconDataset,rdfs:label,fr,banque de données lexicales
+lime:lexiconDataset,rdfs:label,it,banca dati lessicale
+lime:lexiconDataset,rdfs:label,nl,lexicale dataset
+lime:lexiconDataset,rdfs:label,ro,set de date de lexicon
+lime:lexiconDataset,rdfs:label,ru,лексический набор данных
+lime:lexiconDataset,rdfs:label,sv,lexikondatamängd
+lime:linguisticCatalog,rdfs:comment,ru,"Свойство 'лингвистический каталог' указывает каталог языковых категорий, используемых в лексиконе, для определения лингвистических свойств словарных единиц."
+lime:linguisticCatalog,rdfs:label,de,linguistische Kategorienmodell
+lime:linguisticCatalog,rdfs:label,es,conjunto de categoríes lingüísticas
+lime:linguisticCatalog,rdfs:label,fr,banque de catégories linguistiques
+lime:linguisticCatalog,rdfs:label,it,banca categorie linguistiche
+lime:linguisticCatalog,rdfs:label,nl,verzameling van taalkundige categories
+lime:linguisticCatalog,rdfs:label,ru,лингвистический каталог
+lime:links,rdfs:comment,ru,Свойство 'связи' указывает количество связей между понятиями в наборе понятий и объектами в ссылочном наборе данных.
+lime:links,rdfs:label,de,Links
+lime:links,rdfs:label,es,enlaces
+lime:links,rdfs:label,fr,liens
+lime:links,rdfs:label,it,link
+lime:links,rdfs:label,nl,links
+lime:links,rdfs:label,ru,связи
+lime:partition,rdfs:comment,ru,"Свойство 'раздел' связывает набор лексикализации или лексический набор ссылок с логическим подмножеством, который содержит лексикализацию только для данного онтологического типа."
+lime:partition,rdfs:label,de,Teilung
+lime:partition,rdfs:label,es,partición
+lime:partition,rdfs:label,fr,partition
+lime:partition,rdfs:label,it,partizione
+lime:partition,rdfs:label,nl,verdeling
+lime:partition,rdfs:label,ru,раздел
+lime:percentage,rdfs:comment,ru,"Свойство 'процент' выражает процент объектов в наборе справочных данных, которые имеют хотя бы одну лексикализацию в наборе лексикализации или связаны с лексической концепцией в лексическом наборе ссылок."
+lime:percentage,rdfs:label,de,Prozentsatz
+lime:percentage,rdfs:label,es,porcentaje
+lime:percentage,rdfs:label,fr,pourcentage
+lime:percentage,rdfs:label,it,percentuale
+lime:percentage,rdfs:label,nl,percentage
+lime:percentage,rdfs:label,ru,процент
+lime:referenceDataset,rdfs:comment,ru,"Свойство 'справочный набор данных' указывает набор данных, который содержит объекты домена или элементы словаря, на которые либо ссылается данный лексикон, обеспечивая базовый словарь для значения словарных единиц или связывая лексическими понятия с понятийными наборами, заданными с помощью набора лексических ссылок."
+lime:referenceDataset,rdfs:label,af,verwysingsdatastel
+lime:referenceDataset,rdfs:label,de,Referenzdatensatz
+lime:referenceDataset,rdfs:label,es,conjunto de datos de referencia
+lime:referenceDataset,rdfs:label,fr,banque de réfèrences
+lime:referenceDataset,rdfs:label,it,banca riferimenti
+lime:referenceDataset,rdfs:label,nl,verzameling van referenties
+lime:referenceDataset,rdfs:label,ro,setul de date de referință
+lime:referenceDataset,rdfs:label,ru,справочный набор данных
+lime:referenceDataset,rdfs:label,sv,referensdatamängd
+lime:references,rdfs:comment,ru,"Свойство 'ссылки' указывает количество отдельных онтологий или элементов словаря, которые либо связаны с лексическими элементами через набор лексикализации, либо связаны с лексическими понятиями посредством набора лексической связи."
+lime:references,rdfs:label,af,verwysings
+lime:references,rdfs:label,de,Referenzen
+lime:references,rdfs:label,es,referencias
+lime:references,rdfs:label,fr,références
+lime:references,rdfs:label,it,riferimenti
+lime:references,rdfs:label,nl,referenties
+lime:references,rdfs:label,pt,referencias
+lime:references,rdfs:label,ro,referințe
+lime:references,rdfs:label,ru,ссылки
+lime:references,rdfs:label,sv,referenser
+lime:resourceType,rdfs:comment,ru,Свойство 'тип ресурса' указывает тип онтологического объекта набора лексикализации или лексического набора ссылок.
+lime:resourceType,rdfs:label,de,Ressourcentyp
+lime:resourceType,rdfs:label,es,tipo de recurso
+lime:resourceType,rdfs:label,fr,type de ressource
+lime:resourceType,rdfs:label,it,tipo di risorsa
+lime:resourceType,rdfs:label,nl,type van ressource
+lime:resourceType,rdfs:label,ru,тип ресурса

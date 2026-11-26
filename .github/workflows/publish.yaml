@@ -1,0 +1,87 @@
+name: Build and Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  # Build (but do not deploy) on pull requests so that a broken specification
+  # or ontology extraction is caught before it is merged.
+  pull_request:
+    branches:
+      - master
+      - draft-1.1
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Check out the repository
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+
+      # Step 2: Install the tools
+      - name: Install Pandoc and Rapper
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc raptor2-utils
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python packages
+        run: python -m pip install beautifulsoup4 rdflib pyyaml
+
+      # Step 3: Check that the example files match their listings in index.md
+      - name: Check examples
+        run: python Scripts/extract_examples.py --check
+
+      # Step 4: Convert index.md to index.html
+      - name: Convert Markdown to HTML with Pandoc
+        run: pandoc --template respec.template -f markdown-auto_identifiers --wrap=none index.md -o index.html
+      - name: Expand tags
+        run: python Scripts/expand_tags.py index.html index.html
+
+      # Step 5: Extract the ontology files from the RDFa in the specification,
+      # merge in the translations and check them
+      - name: Extract ontology
+        run: Scripts/extract_ontology.sh generated
+      - name: Upload generated ontology files
+        uses: actions/upload-artifact@v4
+        with:
+          name: ontology
+          path: generated
+
+      - name: Upload artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository, including the generated ontology files
+          path: '.'
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+    # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

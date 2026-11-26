@@ -1,8 +1,7 @@
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix : <#> .
 
 :tuberculosis a ontolex:LexicalEntry ;
        ontolex:lexicalForm :tuberculosis_form ; 
@@ -21,7 +20,7 @@
 :phthisis_sense ontolex:reference <http://dbpedia.org/resource/Tuberculosis>;
                dct:subject <http://dbpedia.org/resource/Medicine> .
 
-:phtisis_diachronic_relation a vartrans:TerminologicalRelation ;
+:phthisis_diachronic_relation a vartrans:TerminologicalRelation ;
       vartrans:source :phthisis_sense ;
       vartrans:target :tuberculosis_sense ; 
       vartrans:category :diachronic.

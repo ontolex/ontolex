@@ -1,11 +1,8 @@
-
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
-@prefix lexinfo: <http://lexinfo.net/ontology/2.0/lexinfo.owl#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-
-@prefix : <#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 
 :launch a ontolex:LexicalEntry ;
   lexinfo:partOfSpeech lexinfo:verb ;
@@ -16,7 +13,7 @@
 :launch_canonical_form ontolex:writtenRep "launch"@en.
 
 :launch_transitive_pp a lexinfo:TransitivePPFrame;
- lexinfo:subject  :arg1 ;
+ lexinfo:subject              :arg1 ;
  lexinfo:directObject         :arg2 ;
  lexinfo:prepositionalAdjunct :arg3.
 

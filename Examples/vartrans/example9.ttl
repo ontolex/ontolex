@@ -1,10 +1,9 @@
-@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .  
-@prefix dc: <http://purl.org/dc/terms/>.
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix : <#>.
 
 :bench a ontolex:LexicalEntry ;
         ontolex:lexicalForm [ ontolex:writtenRep "bench"@en].
@@ -20,10 +19,10 @@
 
 
 :tranSetEN-ES a vartrans:TranslationSet ;
-        dc:source <http://hdl.handle.net/10230/17110> ;
+        dct:source <http://hdl.handle.net/10230/17110> ;
         vartrans:trans :bench_banco-trans .
 
-:bench_banco-trans a vartrans:Translation ;
+:bench_banco-trans a vartrans:SenseTranslation ;
         vartrans:source :bench-sense ;
         vartrans:target :banco-sense .
 
@@ -37,11 +36,11 @@
 :bench_banco-trans prov:qualifiedGeneration [
      a prov:Generation ;
      prov:activity :humanTranslationActivity ;
-     vartrans:translationConfidence 1.0 ;
+     lexinfo:translationConfidence 1.0 ;
 ] .
 
 :bench_banco-trans prov:qualifiedGeneration [
      a prov:Generation ;
      prov:activity :executionOfMyAlgorithm ;
-     vartrans:translationConfidence 0.3 ;
+     lexinfo:translationConfidence 0.3 ;
 ] .

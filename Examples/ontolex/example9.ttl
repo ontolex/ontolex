@@ -1,6 +1,5 @@
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix : <#> .
-
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 
 :lex_cat a ontolex:LexicalEntry;
    ontolex:canonicalForm :form_cat;

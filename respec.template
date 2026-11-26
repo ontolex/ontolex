@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html
+  prefix="
+    rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+    rdfs: http://www.w3.org/2000/01/rdf-schema#
+    owl: http://www.w3.org/2002/07/owl#
+    xsd: http://www.w3.org/2001/XMLSchema#
+    ontolex: http://www.w3.org/ns/lemon/ontolex#
+    synsem: http://www.w3.org/ns/lemon/synsem#
+    decomp: http://www.w3.org/ns/lemon/decomp#
+    vartrans: http://www.w3.org/ns/lemon/vartrans#
+    lime: http://www.w3.org/ns/lemon/lime#
+    lexicog: http://www.w3.org/ns/lemon/lexicog#
+    lexinfo: http://www.lexinfo.net/ontology/3.0/lexinfo#">
+  <head>
+    <meta charset="utf-8" />
+    <title>$title$</title>
+    <script
+      src="https://www.w3.org/Tools/respec/respec-w3c"
+      class="remove"
+      defer
+    ></script>
+    <script class="remove">
+      // All config options at https://respec.org/docs/
+      var respecConfig = {
+        specStatus: "CG-DRAFT",
+        editors: [
+$for(editor)$
+    {
+"name": 
+"$editor.name$", 
+$if(editor.url)$
+"url": 
+"$editor.url$", 
+$endif$
+"company": 
+"$editor.company$", 
+"companyURL": 
+"$editor.companyURL$"},
+$endfor$
+        ],
+        authors: [
+$for(author)$
+    {
+"name": 
+"$author.name$", 
+"company": 
+"$author.company$", 
+"companyURL": 
+"$author.companyURL$"},
+$endfor$
+        ],
+        github: "ontolex/ontolex",
+        shortName: "ontolex",
+        group: "ontolex",
+        latestVersion: "https://ontolex.github.io/ontolex/"
+      };
+    </script>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      // Diagrams whose source asks for `layout: elk` are laid out by ELK, which
+      // places edge labels better; it is loaded only when one is used.
+      import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@1/dist/mermaid-layout-elk.esm.min.mjs";
+      mermaid.registerLayoutLoaders(elkLayouts);
+      const dark = window.matchMedia("(prefers-color-scheme: dark)");
+      // Keep each diagram's plain-text source before anything rewrites it:
+      // ReSpec wraps pre contents in a highlighted code element, and rendering
+      // replaces them with an SVG, so the text is needed to re-render.
+      const blocks = document.querySelectorAll("pre.mermaid");
+      blocks.forEach(el => { el.dataset.source = el.textContent; });
+      // ReSpec rewrites the DOM; render diagrams only once it has finished.
+      // The rule between a node's name and its properties is an hr element in the
+      // label, which cannot extend past the label's padding. Draw it as an SVG
+      // line across the whole box, in the box's own stroke, and hide the hr
+      // (which keeps the space for it).
+      function drawRules(block) {
+        block.querySelectorAll("g.node").forEach(node => {
+          const rect = node.querySelector("rect");
+          if (!rect) return;
+          const style = getComputedStyle(rect);
+          const box = rect.getBoundingClientRect();
+          const scale = box.height / rect.height.baseVal.value;
+          node.querySelectorAll("hr").forEach(hr => {
+            const hb = hr.getBoundingClientRect();
+            const y = rect.y.baseVal.value + (hb.top + hb.height / 2 - box.top) / scale;
+            const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            line.setAttribute("x1", rect.x.baseVal.value);
+            line.setAttribute("x2", rect.x.baseVal.value + rect.width.baseVal.value);
+            line.setAttribute("y1", y);
+            line.setAttribute("y2", y);
+            line.style.stroke = style.stroke;
+            line.style.strokeWidth = style.strokeWidth;
+            node.appendChild(line);
+            hr.style.visibility = "hidden";
+          });
+        });
+      }
+      // Wide diagrams are scaled down to the page width, but not below
+      // MIN_SCALE of their natural size, which would make the text unreadable;
+      // they scroll sideways instead.
+      const MIN_SCALE = 0.7;
+      function fitWidth(block) {
+        const svg = block.querySelector("svg");
+        if (!svg) return;
+        const natural = svg.viewBox.baseVal.width;
+        if (natural * MIN_SCALE > block.clientWidth) {
+          svg.style.maxWidth = "none";
+          svg.style.width = natural * MIN_SCALE + "px";
+          block.style.overflowX = "auto";
+        }
+      }
+      async function render() {
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: dark.matches ? "dark" : "default",
+        });
+        blocks.forEach(el => {
+          el.removeAttribute("data-processed");
+          el.textContent = el.dataset.source;
+        });
+        await mermaid.run({ nodes: blocks });
+        blocks.forEach(fitWidth);
+        blocks.forEach(drawRules);
+      }
+      document.respec.ready.then(render);
+      dark.addEventListener("change", render);
+    </script>
+    <style>
+.entity {
+     border: 1px solid #000080;
+     width: 80%;
+     margin-left: auto;
+     margin-right: auto;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+.entity > p:first-child {
+     margin-top: 3px;
+     padding-bottom: 5px;
+     border-bottom: 1px solid #000080;
+     font-size: 120%;
+     color: var(--heading-text);
+     page-break-after: avoid;
+     page-break-inside: avoid;
+     line-height: 1.2;        /* Keep wrapped headings compact */
+     hyphens: manual;         /* Hyphenated headings look weird */
+}
+.description {
+     border-top: 1px dashed #808080;
+     margin-top: 5px;
+     padding-bottom: 5px;
+}
+.example img {
+    max-width: 100%;
+}
+
+pre.mermaid {
+    background: none;
+    border: none;
+    text-align: center;
+}
+/* base.css turns every hr into a decorative section divider */
+pre.mermaid hr {
+    font-size: inherit !important;
+    margin: 4px 0 !important;
+    height: 0 !important;
+    background: none !important;
+    border: 0 solid currentColor !important;
+    border-top-width: 1px !important;
+}
+pre.mermaid hr::before {
+    content: none !important;
+}
+pre.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+
+
+ </style>
+  </head>
+  <body lang="en">
+  $body$
+  </body>
+</html>
