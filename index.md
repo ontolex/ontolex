@@ -1720,7 +1720,7 @@ The inverse of [=syntactic behavior=] is
 
 The following example shows how to indicate that the verb *(to) own* can
 be used as a transitive verb. This is accomplished by adding a frame
-*own_frame_transitive* that is declared as a transitive frame, using the
+`:own_frame_transitive` that is declared as a transitive frame, using the
 class
 [transitive frame](http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveFrame)
 defined in the [LexInfo
@@ -1945,13 +1945,13 @@ As a further example we show a lexical entry for the relational noun
 \"father (of)\". The entry indicates that the relation noun \"father
 (of)\" can be used to verbalize the DBpedia property
 [father](http://dbpedia.org/ontology/father), whereby the subject in a
-copula construct such as \"X is father of Y\" (*arg1* below)
+copula construct such as \"X is father of Y\" (`:arg1` below)
 corresponds to the 2nd argument of the property
 [father](http://dbpedia.org/ontology/father), and the prepositional
-argument at position Y (*arg2* below) corresponds to the 1st
+argument at position Y (`:arg2` below) corresponds to the 1st
 argument of the property [father](http://dbpedia.org/ontology/father).
 The preposition *of* that marks this argument is given by the [=marker=]
-property (*of* below).
+property (`:of` below).
 We use the [LexInfo](http://www.lexinfo.net/) vocabulary to provide
 linguistic information.
 
@@ -2043,7 +2043,7 @@ a direct object expressing the launched product, and a prepositional
 object introduced by the preposition *in* indicating the year of the
 launch of the product in question. The important thing here is that
 there are three syntactic arguments (subject, object and prepositional
-object, represented as *arg1*, *arg2* and *arg3* below,
+object, represented as `:arg1`, `:arg2` and `:arg3` below,
 respectively) that realize the arguments of a complex predicate that
 consist of the sub-predicates
 [DBpedia product](http://dbpedia.org/ontology/product) and
@@ -2114,7 +2114,7 @@ the [=optional=] property. It is generally only
 advised to use this property with complex senses. Indicating that an
 argument is optional means that it does not have to be realized
 syntactically in which case from a semantic point of view the
-corresponding argument of the ontological predicate is existentially quantified over. In the above example we have indicated that *arg3*
+corresponding argument of the ontological predicate is existentially quantified over. In the above example we have indicated that `:arg3`
 is optional, allowing to assign the correct semantics to an expression
 such as *X launched Y* by existentially quantifying over the year.
 
@@ -2284,7 +2284,7 @@ It is important to note that the
 [=property domain=] or
 [=property range=] properties do not modify in
 any way the ontological status or commitment of the corresponding
-property (here: *method of transportation*). Instead, they make explicit
+property (here: `:methodOfTransportation`). Instead, they make explicit
 certain implications on the type of arguments involved that derive from
 the use of a certain lexical entry to express the property in question.
 
