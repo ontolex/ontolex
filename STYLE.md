@@ -5,6 +5,14 @@ checked. It covers the source format, how vocabulary terms are defined, examples
 and their diagrams, wording and spelling, links and citations, and the checks to
 run before opening a pull request.
 
+The guide is written for this repository, which holds the core specification
+and its five modules (*ontolex*, *synsem*, *decomp*, *vartrans* and *lime*). The
+other OntoLex repositories each specify a single module, for example
+[Morphology](https://github.com/ontolex/morph) and [Frequency, Attestation and
+Corpus Information](https://github.com/ontolex/frequency-attestation-corpus-information).
+The conventions apply to them as well. See
+[Module repositories](#module-repositories) for the differences.
+
 ## Sources and outputs
 
 | Source | Purpose |
@@ -21,6 +29,34 @@ module are generated from the RDFa in `index.md`, so a change to a definition in
 the text is a change to the ontology, and the other way round. The hand-written
 files in `Ontologies/` are not yet replaced by the generated ones and should not
 be edited to fix the specification.
+
+## Module repositories
+
+A repository for a single module uses the same toolchain (Pandoc, the ReSpec
+template, `expand_tags.py`, `rapper` and `build_ontology.py`) and the same
+conventions for terms, wording, examples and checks. Their layout varies, and
+these differences are expected:
+
+- **One ontology.** The module has one namespace and produces one ontology file,
+  so there is no splitting by module. The ontology metadata in the front matter
+  describes that one module.
+- **Paths.** The scripts may be at the repository root rather than in
+  `Scripts/`, examples may be in `examples/` or `samples/`, and figures in
+  `img/` or similar. Adapt the commands in this guide accordingly.
+- **Copies of the scripts.** Each repository has its own copy of
+  `expand_tags.py`, `build_ontology.py` and `respec.template`, and they have
+  drifted. When a fix to one of them is general, for example to the namespace
+  table or the qualified cardinality syntax, apply it to the other repositories
+  too.
+- **The other modules are external vocabularies.** A module refers to OntoLex
+  terms (`ontolex:LexicalEntry`) as an external vocabulary. In the text, link to
+  their definitions in the core specification
+  (`[lexical entry](https://www.w3.org/2016/05/ontolex/#lexical-entry-class)`) rather
+  than writing CURIEs. In entity blocks, the CURIE form is fine as long as the
+  prefix is in the `expand_tags.py` namespace table.
+- **Namespaces and versions.** Use the module's own namespace under
+  `http://www.w3.org/ns/lemon/`, and the same current versions of other
+  vocabularies as the core specification (for example LexInfo 3.0).
 
 ## Building
 
