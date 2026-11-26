@@ -133,7 +133,7 @@ def main():
                     errors += 1
     print("%d examples, %d errors, %d %s" % (len(seen), errors, stale,
           "out of date" if args.check else "written"), file=sys.stderr)
-    return 1 if errors or stale else 0
+    return 1 if errors or (stale and args.check) else 0
 
 
 if __name__ == "__main__":
