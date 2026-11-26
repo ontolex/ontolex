@@ -1,5 +1,6 @@
-@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
+
 @prefix dcr: <http://www.isocat.org/ns/dcr.rdf#> .
 
 lexinfo:partOfSpeech 
@@ -9,4 +10,3 @@ lexinfo:partOfSpeech
              <http://www.isocat.org/datcat/DC-396> ;
   rdfs:range lexinfo:PartOfSpeech ;
   rdfs:subPropertyOf lexinfo:morphosyntacticProperty .
-

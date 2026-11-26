@@ -1,13 +1,7 @@
-
-# This example shows how to model a relational noun such as father (of)
-
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
 @prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-
-@prefix : <#> .
 
 :father_of a ontolex:LexicalEntry ; 
     lexinfo:partOfSpeech lexinfo:noun ;

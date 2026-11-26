@@ -1,6 +1,6 @@
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix : <#> .
 
 :lex_intangible_assets a ontolex:LexicalEntry, ontolex:MultiWordExpression;
      ontolex:canonicalForm :form_intangible_assets;

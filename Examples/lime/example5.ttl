@@ -1,6 +1,7 @@
-@prefix : <> .
+@prefix : <#> .
 @prefix lime: <http://www.w3.org/ns/lemon/lime#> .
-@prefix ontology: <http://www.example.com/ontology#> .
+
+@prefix ontology: <http://www.example.org/ontology#> .
 
 :Lexicalization a lime:LexicalizationSet ;
   lime:partition :CountryPartition ;

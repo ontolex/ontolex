@@ -1,8 +1,7 @@
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix : <#> .
-
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 
 :air_n a ontolex:LexicalEntry ;
    ontolex:sense :air_n_sense_2, :air_n_sense_2_1 ;
@@ -32,4 +31,3 @@
 
 :air_n_sense_2_1_lc a ontolex:LexicalConcept ;
    skos:definition "An annoyingly affected and condescending manner"@en .
-

@@ -1,7 +1,5 @@
 @prefix : <#> .
 @prefix lime: <http://www.w3.org/ns/lemon/lime#> .
-@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 :lexicon a lime:Lexicon;
    lime:language "en";
@@ -9,4 +7,3 @@
    lime:entry :lex_cat;
    lime:entry :lex_marry;
    lime:entry :lex_intangible_assets.
-

@@ -42,13 +42,17 @@ jobs:
       - name: Install Python packages
         run: python -m pip install beautifulsoup4 rdflib pyyaml
 
-      # Step 3: Convert index.md to index.html
+      # Step 3: Check that the example files match their listings in index.md
+      - name: Check examples
+        run: python Scripts/extract_examples.py --check
+
+      # Step 4: Convert index.md to index.html
       - name: Convert Markdown to HTML with Pandoc
         run: pandoc --template respec.template -f markdown-auto_identifiers --wrap=none index.md -o index.html
       - name: Expand tags
         run: python Scripts/expand_tags.py index.html index.html
 
-      # Step 4: Extract the ontology files from the RDFa in the specification,
+      # Step 5: Extract the ontology files from the RDFa in the specification,
       # merge in the translations and check them
       - name: Extract ontology
         run: Scripts/extract_ontology.sh generated

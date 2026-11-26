@@ -1,6 +1,6 @@
+@prefix : <#> .
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 @prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
-@prefix : <#> .
 
 :spiaggia a ontolex:Word ;
   ontolex:canonicalForm :spiaggia_lemma ;

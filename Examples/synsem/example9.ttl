@@ -1,10 +1,9 @@
-@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix synsem: <http://www.w3.org/ns/lemon/synsem#>.
-@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
-
 @prefix : <#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 
 :ride a ontolex:LexicalEntry ;
   synsem:synBehavior :ride_frame ;
@@ -23,4 +22,3 @@
 
 :methodOfTransportation a rdf:Property ;
   rdfs:range :Vehicle .
-

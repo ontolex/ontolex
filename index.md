@@ -304,18 +304,19 @@ As we frequently also refer to other models, we will also assume the
 following namespaces in all examples:
 
 ```turtle
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix skos: <http://www.w3.org/2004/02/skos#>.
-@prefix dbr: <http://dbpedia.org/resource/>.
-@prefix dbo: <http://dbpedia.org/ontology/>.
-@prefix void: <http://rdfs.org/ns/void#>.
-@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#>.
-@prefix semiotics: <http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#>.
-@prefix oils: <http://lemon-model.net/oils#>.
-@prefix dct: <http://purl.org/dc/terms/>.
-@prefix provo: <http://www.w3.org/ns/prov#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
+@prefix semiotics: <http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 ```
 
 Furthermore, we require that instances of the model adhere to the [RDF
@@ -332,7 +333,9 @@ code. Language tags may also contain further
 expressing e.g. the region, script or further variants.
 
 In all examples in this document, the above namespaces are introduced
-using an appropriate `@prefix`{.cm} statement. Prefixes are omitted from
+using an appropriate `@prefix`{.cm} statement, and the empty prefix (`:`)
+stands for the resources of the example itself. Other namespaces are declared
+in the example that uses them. Prefixes are omitted from
 class and object property definitions if the referenced ontology element
 is defined in the same module. For cross-module and external references,
 the prefix is made explicit.
@@ -419,7 +422,7 @@ The following Turtle code gives examples of lexical entries for each of
 these subclasses, corresponding to the [=word=] *cat*, the [=multiword
 expression=] *minimum finance lease payments* and the [=affix=] *anti*:
 
-<aside class="example" src="Examples/ontolex/example1.ttl">
+<aside class="example" title="Lexical entries of the three subclasses: a word, a multiword expression and an affix" src="Examples/ontolex/example1.ttl">
 
 ```turtle
 :cat a ontolex:Word .
@@ -486,7 +489,7 @@ A simple example of a lexical entry with two different forms
 corresponding to two different grammatical realizations (as singular and
 plural noun, respectively) is given below:
 
-<aside class="example" src="Examples/ontolex/example2.ttl">
+<aside class="example" title="A lexical entry with singular and plural forms" src="Examples/ontolex/example2.ttl">
 
 ```turtle
 :lex_child a ontolex:LexicalEntry ;                                                
@@ -510,7 +513,7 @@ representation *color*. Both representations have the same pronunciation
 and the same meaning, so they are two different lexicographic variants
 of the same lexical entry:
 
-<aside class="example" src="Examples/ontolex/example3.ttl">
+<aside class="example" title="British and American spellings as forms of one lexical entry" src="Examples/ontolex/example3.ttl">
 
 ```turtle
 :lex_color a ontolex:LexicalEntry;
@@ -553,7 +556,7 @@ The following example shows how we can represent two different
 pronunciations for one form of a lexical entry using the example of
 \"privacy\" (the phonetic code is based on IPA):
 
-<aside class="example" src="Examples/ontolex/example4.ttl">
+<aside class="example" title="Two pronunciations of one form" src="Examples/ontolex/example4.ttl">
 
 ```turtle
 :lex_privacy a ontolex:LexicalEntry;
@@ -622,7 +625,7 @@ RDFS-based systems that expect an RDFS label. The lexical entries for
 the noun *\"cat\"*, the verb *\"marry\"* and the adjective *\"high\"*
 would look as follows (in Turtle syntax):
 
-<aside class="example" src="Examples/ontolex/example5.ttl">
+<aside class="example" title="Canonical forms of the entries cat, marry and high" src="Examples/ontolex/example5.ttl">
 
 ```turtle
 :lex_cat a ontolex:LexicalEntry, ontolex:Word;
@@ -652,7 +655,7 @@ Of course, [=lexical entries=] need not correspond to one [=word=] only, they
 can correspond to a [=multiword expression=], as the following example for the
 lexical entry \"intangible assets\" shows:
 
-<aside class="example" src="Examples/ontolex/example6.ttl">
+<aside class="example" title="A multiword expression: intangible assets" src="Examples/ontolex/example6.ttl">
 
 ```turtle
 :lex_intangible_assets a ontolex:LexicalEntry, ontolex:MultiWordExpression;
@@ -671,7 +674,7 @@ using other vocabularies such as
 [LexInfo](http://www.lexinfo.net/ontology/3.0/lexinfo) may be used to
 describe the type of abbreviation:
 
-<aside class="example" src="Examples/ontolex/example6a.ttl">
+<aside class="example" title="An acronym and its expansion: NASA" src="Examples/ontolex/example6a.ttl">
 
 ```turtle
 :nasa a ontolex:LexicalEntry ;
@@ -725,7 +728,7 @@ The property [=inflected form=] indicates that a form is an inflected form of th
 For example, we may specify inflected forms of the verb *(to) marry*
 as follows:
 
-<aside class="example" src="Examples/ontolex/example7.ttl">
+<aside class="example" title="Inflected forms of the verb (to) marry" src="Examples/ontolex/example7.ttl">
 
 ```turtle
 :lex_marry a ontolex:LexicalEntry ;
@@ -770,7 +773,7 @@ There are cases in which a specific [=lexical Sense=] does not allow for all the
 
 The following example is the RDF representation of the above mentioned sense of "air". 
 
-<aside class="example" src="Examples/ontolex/example18.ttl">
+<aside class="example" title="Nested senses of the noun air" src="Examples/ontolex/example18.ttl">
 
 ```turtle
 :air_n a ontolex:LexicalEntry ;
@@ -824,7 +827,7 @@ suitable vocabulary such as the [Morphology module](https://ontolex.github.io/mo
 The following example shows how to indicate the conjugation for the
 Latin words *amare* and *videre*.
 
-<aside class="example" src="Examples/ontolex/example8.ttl">
+<aside class="example" title="Morphological patterns for Latin conjugations" src="Examples/ontolex/example8.ttl">
 
 ```turtle
 :amare ontolex:morphologicalPattern :latin_first_conjugation ;
@@ -866,7 +869,7 @@ The values for part of speech are not specified by this model, but should be tak
 external vocabulary such as [LexInfo](http://www.lexinfo.net/). For example, 
 the part of speech for the lexical entries *cat*, *marry* and *high* could be specified as follows:
 
-<aside class="example" src="Examples/ontolex/example21.ttl">
+<aside class="example" title="Part of speech of the entries cat, marry and high" src="Examples/ontolex/example21.ttl">
 
 ```turtle
 :lex_cat ontolex:partOfSpeech lexinfo:noun .
@@ -925,7 +928,7 @@ The property [=denotes=] is defined as follows:
 For the [=lexical entries=] *cat* and *marriage*, the meaning could be
 expressed by pointing to the corresponding DBpedia resources:
 
-<aside class="example" src="Examples/ontolex/example9.ttl">
+<aside class="example" title="Denotation of DBpedia resources" src="Examples/ontolex/example9.ttl">
 
 ```turtle
 :lex_cat a ontolex:LexicalEntry;
@@ -950,7 +953,7 @@ ambiguous with respect to the meanings it denotes, for example the word
 inflammatory posts on the internet. These two meanings can be easily
 captured as shown in the following example:
 
-<aside class="example" src="Examples/ontolex/example10.ttl">
+<aside class="example" title="An ambiguous word denoting two resources: troll" src="Examples/ontolex/example10.ttl">
 
 ```turtle
 :troll a ontolex:LexicalEntry ;
@@ -963,7 +966,7 @@ Two terms may be different lexical entries if they are distinct in
 part-of-speech, gender, inflected forms or etymology. For example the
 following words with lemma \'bank\' are all considered distinct:
 
-<aside class="example" src="Examples/ontolex/example10a.ttl">
+<aside class="example" title="Distinct lexical entries with the lemma bank" src="Examples/ontolex/example10a.ttl">
 
 ```turtle
 :bank1_en a ontolex:LexicalEntry ;
@@ -1029,7 +1032,7 @@ lexicon-ontology interface. This is illustrated below for the adjective
 \"female\" expressing the membership of an anonymous class
 $∃gender.\{female\}$:
 
-<aside class="example" src="Examples/ontolex/example10b.ttl">
+<aside class="example" title="An adjective denoting an anonymous class: female" src="Examples/ontolex/example10b.ttl">
 
 ```turtle
 :female a ontolex:LexicalEntry; 
@@ -1086,7 +1089,7 @@ As shown in the following example, we can use the Dublin Core property
 to use the property *dating* defined in the LexInfo ontology to specify
 that the fourth sense of consumption is outdated.
 
-<aside class="example" src="Examples/ontolex/example11.ttl">
+<aside class="example" title="Topic and dating of senses: consumption" src="Examples/ontolex/example11.ttl">
 
 ```turtle
 :lex_consumption a ontolex:LexicalEntry;
@@ -1166,7 +1169,7 @@ retaining the unordered [=sense=] assertions for compatibility. The numbering
 applies within a single lexical entry, and a sense that is not given a
 membership property is simply unordered.
 
-<aside class="example" src="Examples/ontolex/example23.ttl">
+<aside class="example" title="Ordered senses of the noun bank" src="Examples/ontolex/example23.ttl">
 ```turtle
 :bank_noun a ontolex:LexicalEntry ;
     ontolex:sense :bank_sense_1 ;
@@ -1213,7 +1216,7 @@ specified by *lemon*. Yet, we give an example below that shows how to
 model the lexical meaning of \'rivière\' and \'fleuve\' when used to
 refer to the DBpedia class [River](http://dbpedia.org/ontology/River):
 
-<aside class="example" src="Examples/ontolex/example12.ttl">
+<aside class="example" title="Usage conditions of senses: rivière and fleuve" src="Examples/ontolex/example12.ttl">
 
 ```turtle
 :riviere a ontolex:LexicalEntry ;
@@ -1300,7 +1303,7 @@ The property [=example=] relates an [=lexical sense=] with a [=usage example=].
 
 For instance, a dictionary may give the following information about the word *monastery*:
 
-<div class="example" src="Examples/ontolex/example19.ttl">
+<div class="example" title="Usage examples of a sense: monastery" src="Examples/ontolex/example19.ttl">
 
 ```turtle
 :monastery_n_en a ontolex:LexicalEntry ;
@@ -1377,7 +1380,7 @@ within a SPARQL query. However, we might also want to record the actual
 lexical sense of the word with respect to a mental lexicon, in which
 *die* evokes the event of dying, as modelled in the following example:
 
-<aside class="example" src="Examples/ontolex/example13.ttl">
+<aside class="example" title="Denotation and evocation: die" src="Examples/ontolex/example13.ttl">
 
 ```turtle
 :die a ontolex:Word ;
@@ -1410,7 +1413,7 @@ The inverse of [=lexicalized sense=] is
 A simple example involving the use of a lexical concept is the
 following:
 
-<aside class="example" src="Examples/ontolex/example14.ttl">
+<aside class="example" title="A lexical concept lexicalized by two senses: borrow and lend" src="Examples/ontolex/example14.ttl">
 
 ```turtle
 :temporary_change_of_possession a ontolex:LexicalConcept;
@@ -1454,9 +1457,11 @@ lexical resource such as Princeton WordNet. Roughly, the synsets in a
 wordnet correspond to a lexical concept in lemon. The modelling would
 thus look as follows:
 
-<aside class="example" src="Examples/ontolex/example15.ttl">
+<aside class="example" title="Lexical entries, senses and concepts in a wordnet" src="Examples/ontolex/example15.ttl">
 
 ```turtle
+@prefix pwn: <http://wordnet-rdf.princeton.edu/wn31/> .
+
 :cat_lex a ontolex:LexicalEntry ;                                               
   ontolex:canonicalForm :cat_form ;
   ontolex:sense :cat_sense ;
@@ -1510,7 +1515,7 @@ A [=lexical concept=] is linked to a
 [=concept set=] using the
 [SKOS 'in scheme' property](http://www.w3.org/2004/02/skos/core#inScheme).
 
-<aside class="example" src="Examples/ontolex/example17.ttl">
+<aside class="example" title="A concept set of lexical concepts" src="Examples/ontolex/example17.ttl">
 
 ```turtle
 :conceptLexicon a ontolex:ConceptSet .
@@ -1589,7 +1594,7 @@ of elements within a [=lexicographic entry=] can be given using the [RDF contain
 
 The following example shows how a [=lexicographic entry=] can group different [=lexical entries=], representing different parts of speech, and provide an ordering. Senses of a lexical entry can be grouped and ordered in the same way, by using a [=lexicographic entry=] that describes the [=lexical senses=].
 
-<aside class="example" src="Examples/ontolex/example22.ttl">
+<aside class="example" title="A lexicographic entry grouping and ordering lexical entries: bank" src="Examples/ontolex/example22.ttl">
 ```turtle
 # The main entry grouping different parts of speech
 :bank_entry a ontolex:LexicographicEntry ;
@@ -1646,14 +1651,14 @@ The inverse property of [=definition=] is <dfn>is definition of</dfn>, which rel
 
 An example of the definition of a lexical concept is given below:
 
-<aside class="example" src="Examples/ontolex/example20.ttl">
+<aside class="example" title="A definition of a lexical concept" src="Examples/ontolex/example20.ttl">
 
 ```turtle
 :cat_concept a ontolex:LexicalConcept ;
   rdfs:label "cat"@en ;
   ontolex:definition [
     a ontolex:ConceptDefinition ;
-    dc:source <https://en.wikipedia.org/wiki/Cat> ;
+    dct:source <https://en.wikipedia.org/wiki/Cat> ;
     rdf:value "The cat (Felis catus), also called domestic cat and house cat, is a small carnivorous mammal."@en
   ] .
 ```
@@ -1721,7 +1726,7 @@ class
 defined in the [LexInfo
 Ontology](http://www.lexinfo.net/ontology/3.0/lexinfo).
 
-<aside class="example" src="Examples/synsem/example1.ttl">
+<aside class="example" title="A transitive frame for the verb (to) own" src="Examples/synsem/example1.ttl">
 
 ```turtle
 :own_lex a ontolex:LexicalEntry ;
@@ -1771,7 +1776,7 @@ or
 defined in the external [LexInfo
 ontology](http://www.lexinfo.net/ontology/3.0/lexinfo).
 
-<aside class="example" src="Examples/synsem/example2.ttl">
+<aside class="example" title="Syntactic arguments of the transitive frame of (to) own" src="Examples/synsem/example2.ttl">
 
 ```turtle
 :own_lex a ontolex:LexicalEntry ;
@@ -1915,7 +1920,7 @@ Finally, we can specify the reference
 between arguments of the property **owner** and the arguments that
 realize these arguments syntactically.
 
-<aside class="example" src="Examples/synsem/example3.ttl">
+<aside class="example" title="Mapping the arguments of (to) own to the property owner" src="Examples/synsem/example3.ttl">
 
 ```turtle
 :own_lex a ontolex:LexicalEntry ;
@@ -1950,7 +1955,7 @@ property (*of* below).
 We use the [LexInfo](http://www.lexinfo.net/) vocabulary to provide
 linguistic information.
 
-<aside class="example" src="Examples/synsem/example4.ttl">
+<aside class="example" title="A noun with a prepositional argument: father of" src="Examples/synsem/example4.ttl">
 
 ```turtle
 :father_of a ontolex:LexicalEntry ; 
@@ -1999,7 +2004,7 @@ refers to the object of the property
 the [LexInfo](http://www.lexinfo.net) ontology in our example to provide
 linguistic information:
 
-<aside class="example" src="Examples/synsem/example5.ttl">
+<aside class="example" title="A verb with a prepositional argument: operate in" src="Examples/synsem/example5.ttl">
 
 ```turtle
 :operate_in a ontolex:LexicalEntry ; 
@@ -2068,7 +2073,7 @@ is a composition of the properties
 [DBpedia launch date](http://dbpedia.org/ontology/launchDate), which
 together express the meaning of the syntactic frame:
 
-<aside class="example" src="Examples/synsem/example6.ttl">
+<aside class="example" title="A frame mapped to a composition of properties: launch" src="Examples/synsem/example6.ttl">
 
 ```turtle
 :launch a ontolex:LexicalEntry ;
@@ -2129,7 +2134,7 @@ alternation](https://en.wikipedia.org/wiki/Diathesis_alternation)
 between *X gave Y Z* and *X gave Z to Y*, which in our modelling
 represent the same ontological meaning:
 
-<aside class="example" src="Examples/synsem/example7.ttl">
+<aside class="example" title="Diathesis alternation of the verb give" src="Examples/synsem/example7.ttl">
 
 ```turtle
 :give a ontolex:LexicalEntry ; 
@@ -2182,7 +2187,7 @@ represent the same ontological meaning:
 
 For adjectives a modelling may be as follows:
 
-<aside class="example" src="Examples/synsem/example8.ttl">
+<aside class="example" title="Two frames of the adjective female" src="Examples/synsem/example8.ttl">
 
 ```turtle
 :female a ontolex:LexicalEntry; 
@@ -2251,7 +2256,7 @@ captured by specifying restrictions on the values that can fill the 1st
 or 2nd argument of the corresponding ontological predicate. This is
 illustrated by the example below:
 
-<aside class="example" src="Examples/synsem/example9.ttl">
+<aside class="example" title="Restricting the range of an ontological predicate: ride" src="Examples/synsem/example9.ttl">
 
 ```turtle
 :ride a ontolex:LexicalEntry ;
@@ -2337,7 +2342,7 @@ certain compound lexical entry is composed of.
 The subterm property is used to indicate which terms have been derived
 from another term by means of adding or removing words, for example
 
-<aside class="example" src="Examples/decomp/example1.ttl">
+<aside class="example" title="A subterm of a term: African swine fever" src="Examples/decomp/example1.ttl">
 
 ```turtle
 :AfricanSwineFever a ontolex:LexicalEntry ;
@@ -2352,7 +2357,7 @@ German compound *Lungenentzündung* (\'pneumonia\' literally \'lung
 inflammation\') is decomposed into the lexical entries *Lunge* and
 *Entzündung*:
 
-<aside class="example" src="Examples/decomp/example2.ttl">
+<aside class="example" title="Decomposition of a compound: Lungenentzündung" src="Examples/decomp/example2.ttl">
 
 ```turtle
 :Lungenentzündung a ontolex:LexicalEntry ;
@@ -2402,7 +2407,7 @@ a lexical entry:
 </div>
 </div>
 
-<aside class="example" src="Examples/decomp/example3.ttl">
+<aside class="example" title="Components of a multiword expression: African swine fever" src="Examples/decomp/example3.ttl">
 
 ```turtle
 :AfricanSwineFever a ontolex:MultiWordExpression ;
@@ -2444,7 +2449,7 @@ the following example for the Spanish term \'comunidad autónoma\'
 (federal state), whose second word is the singular feminine form
 *autónoma* instead of the canonical form *autónomo*.
 
-<aside class="example" src="Examples/decomp/example4.ttl">
+<aside class="example" title="An inflected component: comunidad autónoma" src="Examples/decomp/example4.ttl">
 
 ```turtle
 :comunidad_autonoma_lex a ontolex:LexicalEntry ;
@@ -2469,7 +2474,7 @@ example to specify the absolute order, in addition to the
 property *constituent* alone is not sufficient to specify the order of
 components.
 
-<aside class="example" src="Examples/decomp/example5.ttl">
+<aside class="example" title="Ordered components: comunidad autónoma" src="Examples/decomp/example5.ttl">
 
 ```turtle
 :comunidad_autonoma_lex a ontolex:LexicalEntry ;
@@ -2503,9 +2508,12 @@ further components. In this way, each of the components represents a
 node in the phrase structure tree and may be annotated with a phrase tag
 as in the following example:
 
-<aside class="example" src="Examples/decomp/example6.ttl">
+<aside class="example" title="A phrase structure tree of components: African swine fever" src="Examples/decomp/example6.ttl">
 
 ```turtle
+@prefix olia: <http://purl.org/olia/system.owl#> .
+@prefix penn: <http://purl.org/olia/penn-syntax.owl#> .
+
 :AfricanSwineFever_root a decomp:Component ;
   decomp:correspondsTo :AfricanSwineFever ;
   decomp:constituent :African_node, :SwineFever_node ;
@@ -2547,9 +2555,12 @@ property and including components in the tree that correspond to
 individual arguments. As such it is possible to represent modelling of
 lexicalized grammars within the lexicon.
 
-<aside class="example" src="Examples/decomp/example7.ttl">
+<aside class="example" title="A phrase structure tree corresponding to a syntactic frame: know" src="Examples/decomp/example7.ttl">
 
 ```turtle
+@prefix olia: <http://purl.org/olia/system.owl#> .
+@prefix penn: <http://purl.org/olia/penn-syntax.owl#> .
+
 :know a ontolex:Word ;
   synsem:synBehavior :know_frame .
 
@@ -2629,7 +2640,7 @@ entries / lexical senses that are related.
 In general, these properties should not be used directly but instead a
 sub-property should be introduced, for example:
 
-<aside class="example" src="Examples/vartrans/example3.ttl">
+<aside class="example" title="Sub-properties of the lexical and sense relation properties" src="Examples/vartrans/example3.ttl">
 
 ```turtle
 :fao lexinfo:initialismFor :food_and_agriculture_organization.
@@ -2745,7 +2756,7 @@ The following example shows how to model the relation between \"Food and
 Agriculture Organization\" and its initialism \"FAO\" as one example of
 a lexical relation:
 
-<aside class="example" src="Examples/vartrans/example1.ttl">
+<aside class="example" title="A lexical relation between an initialism and its expansion: FAO" src="Examples/vartrans/example1.ttl">
 
 ```turtle
 :fao a ontolex:LexicalEntry ;
@@ -2787,7 +2798,7 @@ translations, etc.
 
 The following example gives an example of a sense relation:
 
-<aside class="example" src="Examples/vartrans/example2.ttl">
+<aside class="example" title="A sense relation: surrogate mother and mother" src="Examples/vartrans/example2.ttl">
 
 ```turtle
 :surrogate_mother_lex a ontolex:LexicalEntry ;
@@ -2847,7 +2858,7 @@ Examples of categories of terminological relations include:
 We illustrate the use of terminological relations with the following
 example of a diachronic variant:
 
-<aside class="example" src="Examples/vartrans/example4.ttl">
+<aside class="example" title="A terminological relation for a diachronic variant: phthisis" src="Examples/vartrans/example4.ttl">
 
 ```turtle
 :tuberculosis a ontolex:LexicalEntry ;
@@ -2942,9 +2953,11 @@ In order to express that the lexical senses of two lexical entries are
 ontologically equivalent, we do not need other machinery than the one
 introduced already in the ontolex section above:
 
-<aside class="example" src="Examples/vartrans/example5.ttl">
+<aside class="example" title="Senses of lexical entries in three languages with the same reference" src="Examples/vartrans/example5.ttl">
 
 ```turtle
+@prefix ontology: <http://www.example.org/ontology#> .
+
 :surrogate_mother a ontolex:LexicalEntry;
       dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
       ontolex:sense :surrogate_mother_sense.
@@ -2999,7 +3012,7 @@ other.
 </div>
 </div>
 
-<aside class="example" src="Examples/vartrans/example6.ttl">
+<aside class="example" title="A translation as a reified relation: zip code and Postleitzahl" src="Examples/vartrans/example6.ttl">
 
 ```turtle
 :zip_code a ontolex:LexicalEntry;
@@ -3046,7 +3059,7 @@ the reification:
 
 With the translation property, the above example can be replaced with:
 
-<aside class="example" src="Examples/vartrans/example7.ttl">
+<aside class="example" title="A translation with the translation property: zip code and Postleitzahl" src="Examples/vartrans/example7.ttl">
 
 ```turtle
 :zip_code a ontolex:LexicalEntry;
@@ -3096,7 +3109,7 @@ intersection or intersection of two inside walls) can be translated as
 the Spanish *rincón* (intersection of two inside walls) or *esquina*
 (street intersection), depending on the particular sense involved.
 
-<aside class="example" src="Examples/vartrans/example8.ttl">
+<aside class="example" title="Translatable as: corner, rincón and esquina" src="Examples/vartrans/example8.ttl">
 
 ```turtle
 :corner a ontolex:LexicalEntry;
@@ -3148,9 +3161,11 @@ translations.</div>
 </div>
 </div>
 
-<aside class="example" src="Examples/vartrans/example10.ttl">
+<aside class="example" title="A translation set" src="Examples/vartrans/example10.ttl">
 
 ```turtle
+@prefix iso639: <http://lexvo.org/id/iso639-1/> .
+
 :study a ontolex:LexicalEntry ;
   ontolex:sense :study_sense ;
   dct:language iso639:en .
@@ -3181,11 +3196,11 @@ translations.</div>
 
 :ts1 a vartrans:TranslationSet ;
   vartrans:trans :t1, :t3 ;
-  dc:source "Automatically translated"@en .
+  dct:source "Automatically translated"@en .
 
 :ts2 a vartrans:TranslationSet ;
   vartrans:trans :t2 ;
-  dc:source "Wiktionary"@en .
+  dct:source "Wiktionary"@en .
 ```
 
 </aside>
@@ -3249,7 +3264,7 @@ represents a collection of lexical entries for a particular language. A
 small example lexicon consisting of four lexical entries for *cat*,
 *marry*, *high* and *intangible assets* would look as follows:
 
-<aside class="example" src="Examples/lime/example1.ttl">
+<aside class="example" title="A lexicon of four lexical entries" src="Examples/lime/example1.ttl">
 
 ```turtle
 :lexicon a lime:Lexicon;
@@ -3298,7 +3313,7 @@ the [=entry=] property. This treats the [=lexicon=] as an implicit [RDF sequence
 assigning each entry a numeric position while retaining the unordered
 entry assertions for compatibility:
 
-<aside class="example">
+<aside class="example" title="An ordered lexicon">
 
 ```turtle
 :dictionary a lime:Lexicon ;
@@ -3382,7 +3397,7 @@ lexinfo vocabulary, so that the value of
 is one (RDF) resource that represents both the lexicon itself and its
 metadata:
 
-<aside class="example" src="Examples/lime/example2.ttl">
+<aside class="example" title="A lexicon with its metadata" src="Examples/lime/example2.ttl">
 
 ```turtle
 :lexicon a lime:Lexicon;
@@ -3539,7 +3554,7 @@ reference dataset, we recommend to ignore the resources describing the
 ontology itself (that is an instance of the class [OWL Ontology](https://www.w3.org/TR/owl2-syntax/#Ontologies)) as
 well as other metadata entities.
 
-<aside class="example" src="Examples/lime/example3.ttl">
+<aside class="example" title="A lexicalization set for a Japanese lexicon" src="Examples/lime/example3.ttl">
 
 ```turtle
 :Lexicalization a lime:LexicalizationSet ;
@@ -3628,7 +3643,7 @@ lexicalizations involving 15 lexical entries (so some entries have
 multiple meanings in the ontology). On average, for each element in the
 ontology there are thus 20/30 = 0.66 lexicalizations.
 
-<aside class="example" src="Examples/lime/example4.ttl">
+<aside class="example" title="Lexicalization counts and average number of lexicalizations" src="Examples/lime/example4.ttl">
 
 ```turtle
 :Lexicalization a lime:LexicalizationSet ;
@@ -3701,9 +3716,11 @@ particular class, e.g. restricting the metadata to the logical partition
 of lexicalizations that denote an element in the extension of the
 corresponding class:
 
-<aside class="example" src="Examples/lime/example5.ttl">
+<aside class="example" title="A partition of a lexicalization set by class" src="Examples/lime/example5.ttl">
 
 ```turtle
+@prefix ontology: <http://www.example.org/ontology#> .
+
 :Lexicalization a lime:LexicalizationSet ;
   lime:partition :CountryPartition ;
   lime:references 2000 .
@@ -3719,7 +3736,7 @@ In addition, it is also possible to give RDF(S) or OWL types as the
 target of the [=resource type=] property. This allows us to state the
 number of classes that are lexicalized by at least one lexical entry:
 
-<aside class="example" src="Examples/lime/example6.ttl">
+<aside class="example" title="A partition of a lexicalization set for the classes of an ontology" src="Examples/lime/example6.ttl">
 
 ```turtle
 :Lexicalization a lime:LexicalizationSet ;
@@ -3899,7 +3916,7 @@ By having this mapping in mind, it should be clear how some of the
 3.0](https://wordnet.princeton.edu/wordnet/man/wnstats.7WN.html) would
 be specified by means of the vocabulary introduced by the *lime* module:
 
-<aside class="example" src="Examples/lime/example7.ttl">
+<aside class="example" title="A conceptualization set for WordNet 3.0" src="Examples/lime/example7.ttl">
 
 ```turtle
 :WnConceptualizationSet a lime:ConceptualizationSet ;
@@ -4071,7 +4088,7 @@ A lexicon typically indicates the part-of-speech of a given lexical
 entry. We can specify the part of speech of a word as follows using the
 lexinfo vocabulary:
 
-<aside class="example" src="Examples/description/example1.ttl">
+<aside class="example" title="Part of speech of a word" src="Examples/description/example1.ttl">
 
 ```turtle
 :cat a ontolex:Word ;
@@ -4084,9 +4101,11 @@ When defining categories, it is crucial to link these categories to
 other models to establish coherence. The **part of speech** property is
 defined as follows in lexinfo:
 
-<aside class="example" src="Examples/description/example2.ttl">
+<aside class="example" title="The LexInfo part of speech property linked to an ISOcat category" src="Examples/description/example2.ttl">
 
 ```turtle
+@prefix dcr: <http://www.isocat.org/ns/dcr.rdf#> .
+
 lexinfo:partOfSpeech 
   rdfs:label "part of speech"@en ;
   rdfs:comment "A category assigned to a word based on its grammatical and semantic properties."@en ;
@@ -4101,9 +4120,11 @@ lexinfo:partOfSpeech
 The concrete part of speech \"noun\" is defined as follows and linked to
 the ISOcat category DC-1333.
 
-<aside class="example" src="Examples/description/example2b.ttl">
+<aside class="example" title="The LexInfo part of speech noun linked to an ISOcat category" src="Examples/description/example2b.ttl">
 
 ```turtle
+@prefix dcr: <http://www.isocat.org/ns/dcr.rdf#> .
+
 lexinfo:noun
   a lexinfo:PartOfSpeech, lexinfo:NounPOS ;
   rdfs:label "noun"@en ;
@@ -4155,7 +4176,7 @@ entry also holds for all its forms. For example, in many languages
 gender is an entry property for nouns, but a form property for
 adjectives, for example:
 
-<aside class="example" src="Examples/description/example3.ttl">
+<aside class="example" title="Gender as an entry property and as a form property in Italian" src="Examples/description/example3.ttl">
 
 ```turtle
 :spiaggia a ontolex:Word ;
@@ -4198,10 +4219,10 @@ follows:
 *Noun* ≡ ∃ partOfSpeech.NounPOS
 
 It is recommended to use both the type statement as well as the
-[**LexInfo part of speech**](http://www.lexinfo.net/ontology/2.0/lexinfo#partOfSpeech) property to maximize interoperability in spite of the
+[**LexInfo part of speech**](http://www.lexinfo.net/ontology/3.0/lexinfo#partOfSpeech) property to maximize interoperability in spite of the
 small redundancy:
 
-<aside class="example" src="Examples/description/example4.ttl">
+<aside class="example" title="Part of speech as a class and as a property value: geneesmiddel" src="Examples/description/example4.ttl">
 
 ```turtle
 :geneesmiddel a lexinfo:Noun ;
@@ -4266,7 +4287,7 @@ Each argument is associated with a specific property indicating the
 grammatical role to the actual object representing the syntactic
 argument.
 
-<aside class="example" src="Examples/description/example6.ttl">
+<aside class="example" title="A noun predicate frame: father" src="Examples/description/example6.ttl">
 
 ```turtle
 :father a lexinfo:Noun ;
@@ -4309,7 +4330,7 @@ In addition, it is possible to define other properties in an external
 resource, that may be difficult to translate across resources. An
 example of such a property is translation confidence as shown below:
 
-<aside class="example" src="Examples/vartrans/example9.ttl">
+<aside class="example" title="Translation confidence with provenance: bench and banco" src="Examples/vartrans/example9.ttl">
 
 ```turtle
 :bench a ontolex:LexicalEntry ;
@@ -4326,7 +4347,7 @@ example of such a property is translation confidence as shown below:
 
 
 :tranSetEN-ES a vartrans:TranslationSet ;
-        dc:source <http://hdl.handle.net/10230/17110> ;
+        dct:source <http://hdl.handle.net/10230/17110> ;
         vartrans:trans :bench_banco-trans .
 
 :bench_banco-trans a vartrans:SenseTranslation ;
@@ -4394,7 +4415,7 @@ OntoLex-lemon is available
 [here](http://globalwordnet.github.io/schemas/#rdf), and an example of
 modelling is given here:
 
-<aside class="example">
+<aside class="example" title="A wordnet in the Global WordNet Association format">
 
 ```turtle
 <#example-en> a lime:Lexicon ;
@@ -4539,7 +4560,7 @@ The use case we address is one where a thesaurus or other taxonomic
 resource or classification system in SKOS needs to be enriched with more
 detailed linguistic information.
 
-<aside class="example" src="Examples/other/example-skos1.ttl">
+<aside class="example" title="A SKOS concept evoked by a lexical entry" src="Examples/other/example-skos1.ttl">
 
 ```turtle
 :financial_assets a skos:Concept;
@@ -4562,7 +4583,7 @@ the preferred, alternative and hidden label properties
 as used in SKOS, the following example shows how to attach such
 preference information via the lexical senses:
 
-<aside class="example" src="Examples/other/example-skos2.ttl">
+<aside class="example" title="Preferred lexicalizations of a SKOS concept" src="Examples/other/example-skos2.ttl">
 
 ```turtle
 :tuberculosis a skos:Concept;
@@ -4649,7 +4670,7 @@ character 7 in a file at the URL <http://www.example.com/doc.txt>,
 where the *lemon* element is given as the body of an annotation. For
 example
 
-<aside class="example" src="Examples/other/example-oa.ttl">
+<aside class="example" title="A Web Annotation with a lexical entry as its body" src="Examples/other/example-oa.ttl">
 
 ```turtle
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -4689,7 +4710,7 @@ By typing elements like [=concept definition=] or [=usage=] notes as an [Entity]
 
 The following example illustrates how a [=concept definition=] can be linked to its primary source using PROV-O:
 
-<div class="example" src="Examples/other/example-prov1.ttl">
+<div class="example" title="The primary source of a concept definition" src="Examples/other/example-prov1.ttl">
 
 ```turtle
 :bias a ontolex:LexicalEntry ;
@@ -4709,7 +4730,7 @@ The following example illustrates how a [=concept definition=] can be linked to 
 
 Provenance can also be applied to [=usage=] notes to track the authority behind specific linguistic recommendations:
 
-<div class="example" src="Examples/other/example-prov2.ttl">
+<div class="example" title="The provenance of a usage note" src="Examples/other/example-prov2.ttl">
 ```turtle
 :surcoFerroviario a ontolex:LexicalEntry ;
     ontolex:evokes :surcoFerroviario_concept .
