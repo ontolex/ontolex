@@ -194,6 +194,44 @@ def expand_tags(soup):
             new_tag.append(strong_tag)
             tag.replace_with(new_tag)
 
+def document_prefixes(soup):
+    """Read the RDFa prefix mappings from the `prefix` attribute of the
+    `<html>` element (set in respec.template)."""
+    html = soup.find("html")
+    tokens = html.get("prefix", "").split() if html else []
+    return {tokens[i][:-1]: tokens[i + 1]
+            for i in range(0, len(tokens) - 1, 2) if tokens[i].endswith(":")}
+
+def add_uris(soup):
+    """State the full URI of each defined entity, after its label, e.g.
+    <p><strong>URI:</strong> <a href="https://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+    class="uri">http://www.w3.org/ns/lemon/ontolex#LexicalEntry</a></p>
+    The link uses HTTPS, as www.w3.org redirects to it, while the text
+    gives the URI itself."""
+    prefixes = {**namespaces, **document_prefixes(soup)}
+    for entity in soup.find_all("div", class_="entity", about=True):
+        about = entity["about"]
+        prefix, _, local = about.partition(":")
+        if about.startswith(("http://", "https://")):
+            uri = about
+        elif prefix in prefixes:
+            uri = prefixes[prefix] + local
+        else:
+            raise ValueError(f"Unknown prefix in entity URI: {about}")
+        href = uri.replace("http://www.w3.org/", "https://www.w3.org/", 1)
+        p = soup.new_tag("p")
+        strong = soup.new_tag("strong")
+        strong.string = "URI:"
+        a = soup.new_tag("a", href=href, **{"class": "uri"})
+        a.string = uri
+        p.extend([strong, " ", a])
+        label = entity.find("p", recursive=False)
+        if label:
+            label.insert_after(p)
+            label.insert_after("\n")
+        else:
+            entity.insert(0, p)
+
 def expand_asides(soup, base_dir):
     """Render the Mermaid diagram for each `<aside src="...">` example,
     generated at build time from the Turtle file it points at (the same
@@ -255,6 +293,7 @@ if __name__ == "__main__":
     soup = BeautifulSoup(content, 'html.parser')
 
     expand_tags(soup)
+    add_uris(soup)
     expand_asides(soup, args.base or os.path.dirname(os.path.abspath(args.input_file)))
 
     with open(args.output_file, 'w', encoding='utf-8') as file:
